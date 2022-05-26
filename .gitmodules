@@ -1,0 +1,4 @@
+[submodule "kirkja-assets"]
+	path = kirkja-assets
+	url = https://github.com/kirkja-leikjahonnunar/kirkja-assets.git
+	branch = main
