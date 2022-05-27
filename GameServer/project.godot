@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Node",
+"class": &"GameDatabase",
+"language": &"GDScript",
+"path": "res://Scenes/Singletons/GameDatabase.gd"
+}, {
+"base": "Node",
+"class": &"GameServer",
+"language": &"GDScript",
+"path": "res://Scenes/Main/GameServer.gd"
+}, {
+"base": "Node",
+"class": &"PlayerVerification",
+"language": &"GDScript",
+"path": "res://Scenes/Main/PlayerVerification.gd"
+}]
+_global_script_class_icons={
+"GameDatabase": "",
+"GameServer": "",
+"PlayerVerification": ""
+}
+
+[application]
+
+config/name="GameServer"
+run/main_scene="res://Scenes/Main/GameServer.tscn"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[autoload]
+
+HubConnection="*res://Scenes/Singletons/HubConnection.gd"
+
+[physics]
+
+common/physics_ticks_per_second=20

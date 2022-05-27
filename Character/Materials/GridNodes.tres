@@ -1,0 +1,17 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://4nm3lwqm71kq"]
+
+[sub_resource type="VisualShaderNodeTextureUniformTriplanar" id="VisualShaderNodeTextureUniformTriplanar_0w8wt"]
+uniform_name = "TextureUniformTriplanar"
+
+[resource]
+code = "shader_type spatial;
+
+
+"
+graph_offset = Vector2(-552.161, 87.8742)
+engine_version = {
+"major": 4,
+"minor": 0
+}
+nodes/fragment/2/node = SubResource( "VisualShaderNodeTextureUniformTriplanar_0w8wt" )
+nodes/fragment/2/position = Vector2(-260, 280)

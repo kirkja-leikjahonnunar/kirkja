@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cffymsa4ltk41"]
+
+[ext_resource type="Script" path="res://Tests/SQLite/TestSQLite.gd" id="1_2e6rp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( "1_2e6rp" )

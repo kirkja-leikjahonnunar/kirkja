@@ -1,0 +1,161 @@
+[gd_scene load_steps=5 format=3 uid="uid://51h82emip151"]
+
+[ext_resource type="Script" path="res://ThirdPerson/SettingsUI/control_config.gd" id="1_h23m8"]
+[ext_resource type="Script" path="res://ThirdPerson/SettingsUI/KeyBindButton.gd" id="2_a36d1"]
+
+[sub_resource type="Gradient" id="Gradient_xairh"]
+offsets = PackedFloat32Array(0, 0.412639, 0.910781)
+colors = PackedColorArray(0, 0, 0, 0.521569, 0.338645, 0.338645, 0.338645, 0.344942, 0.417969, 0.417969, 0.417969, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h457y"]
+gradient = SubResource( "Gradient_xairh" )
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ControlConfig" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_h23m8" )
+
+[node name="BG" type="NinePatchRect" parent="."]
+anchor_left = 0.327
+anchor_right = 0.673
+anchor_bottom = 1.0
+offset_left = -4.56003
+offset_right = 4.55994
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource( "GradientTexture2D_h457y" )
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.366
+anchor_top = 0.043
+anchor_right = 0.632
+anchor_bottom = 0.945
+offset_left = 0.519958
+offset_top = 0.039999
+offset_right = 0.039978
+offset_bottom = 5.59998
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+offset_right = 340.0
+offset_bottom = 45.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+offset_top = 49.0
+offset_right = 340.0
+offset_bottom = 655.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+offset_right = 340.0
+offset_bottom = 606.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
+offset_top = 252.0
+offset_right = 340.0
+offset_bottom = 283.0
+
+[node name="FOVLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer"]
+offset_top = 2.0
+offset_right = 168.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "FOV"
+
+[node name="FOV" type="LineEdit" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer"]
+offset_left = 172.0
+offset_right = 340.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+alignment = 1
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
+offset_top = 287.0
+offset_right = 340.0
+offset_bottom = 318.0
+
+[node name="SensitivityLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer2"]
+offset_top = 2.0
+offset_right = 168.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Sensitivity
+"
+
+[node name="Sensitivity" type="LineEdit" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer2"]
+offset_left = 172.0
+offset_right = 340.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+alignment = 1
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
+offset_top = 322.0
+offset_right = 340.0
+offset_bottom = 353.0
+
+[node name="InvertX" type="CheckBox" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer3"]
+offset_right = 168.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Invert X"
+
+[node name="InvertY" type="CheckBox" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer3"]
+offset_left = 172.0
+offset_right = 340.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Invert Y"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
+visible = false
+offset_top = 340.0
+offset_right = 340.0
+offset_bottom = 371.0
+
+[node name="LeftLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer4"]
+offset_top = 2.0
+offset_right = 168.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Left"
+
+[node name="Left" type="Button" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer4"]
+offset_left = 172.0
+offset_right = 340.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+toggle_mode = true
+text = "A"
+script = ExtResource( "2_a36d1" )

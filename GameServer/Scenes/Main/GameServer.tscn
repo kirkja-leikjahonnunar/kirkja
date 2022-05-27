@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2inidy2c0qc"]
+
+[ext_resource type="Script" path="res://Scenes/Main/GameServer.gd" id="1_7h12j"]
+[ext_resource type="Script" path="res://Scenes/Main/PlayerVerification.gd" id="2_d15g5"]
+[ext_resource type="Script" path="res://Scenes/Main/StateProcessing.gd" id="3_51ths"]
+[ext_resource type="Script" path="res://Scenes/Main/World.gd" id="4_77d3x"]
+[ext_resource type="PackedScene" uid="uid://dqtxq3afsy47w" path="res://Maps/Map1.tscn" id="4_dwnmy"]
+
+[node name="GameServer" type="Node"]
+script = ExtResource( "1_7h12j" )
+
+[node name="PlayerVerification" type="Node" parent="."]
+script = ExtResource( "2_d15g5" )
+
+[node name="VerificationExpiration" type="Timer" parent="PlayerVerification"]
+wait_time = 10.0
+autostart = true
+
+[node name="TokenExpiration" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="StateProcessing" type="Node" parent="."]
+script = ExtResource( "3_51ths" )
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource( "4_77d3x" )
+
+[node name="Map" parent="World" instance=ExtResource( "4_dwnmy" )]
+
+[node name="Players" type="Node2D" parent="World"]
+
+[connection signal="timeout" from="PlayerVerification/VerificationExpiration" to="PlayerVerification" method="_on_verification_expiration_timeout"]
+[connection signal="timeout" from="TokenExpiration" to="." method="_on_TokenExpiration_timeout"]
+
+[editable path="World/Map"]

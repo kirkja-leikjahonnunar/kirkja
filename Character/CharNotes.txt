@@ -1,0 +1,16 @@
+Third person character controller
+==============================
+
+tutorials/refs
+---------
+CGDive (1 hr, blender to godot)  https://www.youtube.com/watch?v=qwz9aPdVoFg
+Game Rig Tools blender addon, $15:  https://blendermarket.com/products/game-rig-tools-blender-addon-game-rigs
+devmar, low level topics, but sometimes lacking specific godot implementation
+Johnny Rouddro, ~45 min: https://www.youtube.com/playlist?list=PLqbBeBobXe09NZez_1LLRcT7NQ9NfUCBC
+
+Overgrowth procedural: https://www.youtube.com/watch?v=LNidsMesxSE
+overgrowth like blend tree, KryperDev
+  part 1: 10 min, https://www.youtube.com/watch?v=nukrnzU-DOg
+  part 2: 40 min, https://www.youtube.com/watch?v=h6_nAYR2fEA
+
+

@@ -1,0 +1,60 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://sgsrejc78io"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_h3meb"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_gltur"]
+size = Vector2(330.361, 205.667)
+expression = "amount = len(v-Vector2(.5,.5))"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_culss"]
+input_name = "color"
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+// Input:7
+	vec3 n_out7p0 = COLOR.rgb;
+
+
+// Input:2
+	vec2 n_out2p0 = UV;
+
+
+	float n_out6p0;
+// Expression:6
+	n_out6p0 = 0.0;
+	{
+		n_out6p0 = len(n_out2p0-Vector2(.5,.5))
+	}
+
+
+// Output:0
+	COLOR.rgb = n_out7p0;
+	COLOR.a = n_out6p0;
+
+
+}
+"
+graph_offset = Vector2(-751.445, -203.472)
+engine_version = {
+"major": 4,
+"minor": 0
+}
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(440, 20)
+nodes/fragment/2/node = SubResource( "VisualShaderNodeInput_h3meb" )
+nodes/fragment/2/position = Vector2(-420, 120)
+nodes/fragment/6/node = SubResource( "VisualShaderNodeExpression_gltur" )
+nodes/fragment/6/position = Vector2(-200, 80)
+nodes/fragment/6/size = Vector2(330.361, 205.667)
+nodes/fragment/6/input_ports = "0,2,v;"
+nodes/fragment/6/output_ports = "0,0,amount;"
+nodes/fragment/6/expression = "amount = len(v-Vector2(.5,.5))"
+nodes/fragment/7/node = SubResource( "VisualShaderNodeInput_culss" )
+nodes/fragment/7/position = Vector2(40, -80)
+nodes/fragment/connections = PackedInt32Array(2, 0, 6, 0, 6, 0, 0, 1, 7, 0, 0, 0)

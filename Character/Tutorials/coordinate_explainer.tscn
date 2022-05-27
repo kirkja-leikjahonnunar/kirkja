@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhnhsje7rslsi"]
+
+[ext_resource type="Script" path="res://Tutorials/coordinate_explainer.gd" id="1_endf1"]
+[ext_resource type="PackedScene" uid="uid://c538b1rmlqtjs" path="res://Utils/DashedLine.tscn" id="2_l864b"]
+[ext_resource type="PackedScene" uid="uid://buhblc0dyl65i" path="res://Utils/Axes.tscn" id="3_b568w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ggao5"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyg4u"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.109804, 0.262745, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ij8t"]
+material = SubResource( "StandardMaterial3D_qyg4u" )
+size = Vector3(0.1, 0.029, 0.029)
+
+[sub_resource type="MultiMesh" id="MultiMesh_hhyc7"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 13
+visible_instance_count = 8
+mesh = SubResource( "BoxMesh_8ij8t" )
+buffer = PackedFloat32Array(1, 0, 0, 0.05, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.25625, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.4625, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.66875, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.875, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1.08125, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1.2875, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1.49375, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1.65178, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1.8689, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2.11667, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2.32333, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2.48692, 0, 1, 0, 0, 0, 0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7miv"]
+resource_local_to_scene = true
+albedo_color = Color(0.247059, 0.564706, 0.72549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k60eu"]
+material = SubResource( "StandardMaterial3D_r7miv" )
+size = Vector3(0.1, 0.029, 0.029)
+
+[sub_resource type="MultiMesh" id="MultiMesh_joe14"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 9
+visible_instance_count = 6
+mesh = SubResource( "BoxMesh_k60eu" )
+buffer = PackedFloat32Array(-4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 0.05, -4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 0.253833, -4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 0.457667, -4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 0.6615, -4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 0.865333, -4.37114e-08, 0, -1, 1.65, 0, 1, 0, 0, 1, 0, -4.37114e-08, 1.06917, 0.515114, 0, -0.857122, 1.73576, 0, 1, 0, 0, 0.857122, 0, 0.515114, 1.09114, 0.75311, 0, -0.657895, 2.20654, 0, 1, 0, 0, 0.657895, 0, 0.75311, 0.984117, 0.75311, 0, -0.657895, 2.3621, 0, 1, 0, 0, 0.657895, 0, 0.75311, 1.12001)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lios5"]
+resource_local_to_scene = true
+albedo_color = Color(0.341176, 1, 0.411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a82xc"]
+material = SubResource( "StandardMaterial3D_lios5" )
+size = Vector3(0.1, 0.029, 0.029)
+
+[sub_resource type="MultiMesh" id="MultiMesh_8kfr3"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 9
+visible_instance_count = 6
+mesh = SubResource( "BoxMesh_a82xc" )
+buffer = PackedFloat32Array(-4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 0.05, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 0.2515, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 0.453, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 0.6545, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 0.856, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 1.0575, 0, 0, 1, 1.223, -4.37114e-08, -1, 0, 1.65, 1, -4.37114e-08, 0, 1.26543, 0, 0, 1, 1.223, 0.792329, -0.610094, 0, 2.34462, 0.610094, 0.792329, 0, 0.973755, 0, 0, 1, 1.223, 0.822686, -0.568497, 0, 2.5078, 0.568497, 0.822686, 0, 0.986647, 0, 0, 1, 1.223)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_1eq3a"]
+
+[sub_resource type="Sky" id="Sky_jq4f3"]
+sky_material = SubResource( "PhysicalSkyMaterial_1eq3a" )
+
+[sub_resource type="Environment" id="Environment_dy3ie"]
+background_mode = 2
+sky = SubResource( "Sky_jq4f3" )
+
+[node name="CoordinateExplainer" type="Node3D"]
+script = ExtResource( "1_endf1" )
+coordinate = Vector3(1.65, 1.209, 1.223)
+
+[node name="Coordinate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 1.209, 1.223)
+mesh = SubResource( "SphereMesh_ggao5" )
+
+[node name="X" parent="." instance=ExtResource( "2_l864b" )]
+multimesh = SubResource( "MultiMesh_hhyc7" )
+to_point = Vector3(1.65, 0, 0)
+color = Color(1, 0.109804, 0.262745, 1)
+
+[node name="Y" parent="." instance=ExtResource( "2_l864b" )]
+multimesh = SubResource( "MultiMesh_joe14" )
+from_point = Vector3(1.65, 0, 0)
+to_point = Vector3(1.65, 0, 1.223)
+color = Color(0.247059, 0.564706, 0.72549, 1)
+
+[node name="Z" parent="." instance=ExtResource( "2_l864b" )]
+multimesh = SubResource( "MultiMesh_8kfr3" )
+from_point = Vector3(1.65, 0, 1.223)
+to_point = Vector3(1.65, 1.209, 1.223)
+color = Color(0.341176, 1, 0.411765, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.680388, -0.322456, 0.658099, 0, 0.897997, 0.440002, -0.732852, -0.299372, 0.610986, 3.31018, 2.01982, 3.06084)
+fov = 42.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( "Environment_dy3ie" )
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.525943, -0.558904, 0.6411, -0.111606, 0.792609, 0.599429, -0.843165, 0.243715, -0.479245, 4.03239, 1.27163, -4.12893)
+
+[node name="Axes" parent="." instance=ExtResource( "3_b568w" )]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="XLabel" type="Label3D" parent="Axes"]
+transform = Transform3D(1, 7.10543e-15, -7.10543e-15, -7.10543e-15, 1, 7.10543e-15, 0, 0, 1, 0.391, 0.312163, 0.015)
+modulate = Color(0.8, 0.00784314, 0.0901961, 1)
+text = "X: 1.65"
+horizontal_alignment = 0
+
+[node name="YLabel" type="Label3D" parent="Axes"]
+transform = Transform3D(0, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0.284, -0.269)
+modulate = Color(0.0156863, 0.796078, 0.101961, 1)
+text = "Y: 1.21"
+horizontal_alignment = 0
+
+[node name="ZLabel" type="Label3D" parent="Axes"]
+transform = Transform3D(-4.37114e-08, 7.10543e-15, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.51759e-08, 0.259032, 0.508479)
+modulate = Color(0.241326, 0.413245, 0.909804, 1)
+text = "Z: 1.22"

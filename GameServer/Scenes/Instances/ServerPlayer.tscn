@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ouur3n108ld"]
+
+[ext_resource type="Texture2D" uid="uid://bf8q8dmq21ltj" path="res://icon.png" id="2_nctrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6uao"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D"]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "RectangleShape2D_q6uao" )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource( "2_nctrl" )
+
+[node name="Name" type="Label" parent="Sprite2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -92.0
+offset_right = 40.0
+offset_bottom = -66.0
+text = "1234"
+horizontal_alignment = 1
