@@ -64,7 +64,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/prettyprimitive/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
