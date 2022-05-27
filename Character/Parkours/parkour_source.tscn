@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://p345sbl4d0nu"]
+
+[ext_resource type="PackedScene" uid="uid://c8cjoh56b25jk" path="res://ThirdPerson/Player.tscn" id="1_pviyy"]
+[ext_resource type="Script" path="res://ThirdPerson/CameraLerper.gd" id="2_o3tm8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oku1w"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dds67"]
+albedo_color = Color(0.188235, 0.976471, 0.121569, 1)
+
+[node name="MyParkour" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.385139, 0)
+use_collision = true
+size = Vector3(6.18024, 0.518482, 5.43448)
+
+[node name="Player" parent="." instance=ExtResource( "1_pviyy" )]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+current = true
+script = ExtResource( "2_o3tm8" )
+FollowProxy = NodePath("../Player/CameraRig/Target/SpringArm3D/Camera3D")
+
+[node name="SelectorCast" type="RayCast3D" parent="MainCamera"]
+transform = Transform3D(1, 8.74228e-08, 0, 0, 0, -1, -8.74228e-08, 1, 0, 0, 0.433872, 0)
+target_position = Vector3(0, -10, 0)
+collision_mask = 14
+debug_shape_custom_color = Color(0.847059, 0.211765, 0.847059, 1)
+
+[node name="Indicator" type="Node" parent="MainCamera"]
+
+[node name="TargetIndicator" type="MeshInstance3D" parent="MainCamera/Indicator"]
+mesh = SubResource( "BoxMesh_oku1w" )
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource( "StandardMaterial3D_dds67" )
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.968283, -0.0969036, -0.230299, 0.249856, 0.375536, 0.892493, 0, -0.921728, 0.387837, 0, 4.37798, 4.04411)
+shadow_enabled = true

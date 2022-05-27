@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8cjoh56b25jk"]
+[gd_scene load_steps=12 format=3 uid="uid://c8cjoh56b25jk"]
 
 [ext_resource type="Script" path="res://ThirdPerson/CharacterController.gd" id="1_80hj0"]
 [ext_resource type="Texture2D" uid="uid://crdt07ky8e6ma" path="res://icon.png" id="2_px22e"]
 [ext_resource type="Script" path="res://PlayerItems/SprayGun/SprayCast.gd" id="3_knfqu"]
+[ext_resource type="Script" path="res://Utils/EscToQuit.gd" id="4_tm5hb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_veaop"]
 top_radius = 0.0
@@ -37,7 +38,6 @@ collision_mask = 7
 script = ExtResource( "1_80hj0" )
 invert_y = true
 invert_x = false
-SettingsOverlay = NodePath("../SettingsOverlay")
 
 [node name="BaseDirIndicator" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.34374, 0, 0, 0, -4.37114e-08, -0.230035, 0, 1, -1.00552e-08, 0, 0.144161, 0.25433)
@@ -107,3 +107,6 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/Target/SpringArm3D"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 2.54461)
+
+[node name="Escape" type="Node" parent="."]
+script = ExtResource( "4_tm5hb" )
