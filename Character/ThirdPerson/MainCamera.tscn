@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd5swc3tjd8qv"]
+
+[ext_resource type="Script" path="res://ThirdPerson/CameraLerper.gd" id="1_ewmt4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_37jow"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ojb6"]
+albedo_color = Color(0.188235, 0.976471, 0.121569, 1)
+
+[node name="MainCamera" type="Camera3D"]
+current = true
+script = ExtResource( "1_ewmt4" )
+FollowProxy = NodePath("../Player/CameraRig/Target/SpringArm3D/Camera3D")
+
+[node name="SelectorCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 8.74228e-08, 0, 0, 0, -1, -8.74228e-08, 1, 0, 0, 0.433872, 0)
+target_position = Vector3(0, -10, 0)
+collision_mask = 14
+debug_shape_custom_color = Color(0.847059, 0.211765, 0.847059, 1)
+
+[node name="Indicator" type="Node" parent="."]
+
+[node name="TargetIndicator" type="MeshInstance3D" parent="Indicator"]
+mesh = SubResource( "BoxMesh_37jow" )
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource( "StandardMaterial3D_1ojb6" )

@@ -37,7 +37,7 @@ collision_mask = 7
 script = ExtResource( "1_80hj0" )
 invert_y = true
 invert_x = false
-SettingsOverlay = NodePath("../SettingsOverlay")
+SettingsOverlay = NodePath("")
 
 [node name="BaseDirIndicator" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.34374, 0, 0, 0, -4.37114e-08, -0.230035, 0, 1, -1.00552e-08, 0, 0.144161, 0.25433)
