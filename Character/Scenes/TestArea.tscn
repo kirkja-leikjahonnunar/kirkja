@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c3auumwclyj4c"]
+[gd_scene load_steps=47 format=3 uid="uid://c3auumwclyj4c"]
 
 [ext_resource type="Script" path="res://Utils/EscToQuit.gd" id="1_jhxhp"]
 [ext_resource type="PackedScene" uid="uid://ymxv0nvp3oof" path="res://Models/DoricColumn/DoricColumn.tscn" id="1_vxuft"]
@@ -7,11 +7,12 @@
 [ext_resource type="Script" path="res://Scenes/Interactables/FlipButton.gd" id="4_1tixh"]
 [ext_resource type="Material" uid="uid://drs814wc1cfdi" path="res://Materials/Purple.tres" id="4_7pqim"]
 [ext_resource type="Material" uid="uid://22kvbxfs4q8h" path="res://Materials/Blue.tres" id="6_6kle7"]
-[ext_resource type="Script" path="res://ThirdPerson/Settings/SettingsOverlay.gd" id="6_j3eho"]
 [ext_resource type="PackedScene" uid="uid://c8cjoh56b25jk" path="res://ThirdPerson/Player.tscn" id="8_se680"]
 [ext_resource type="ArrayMesh" uid="uid://qfm3jwmujvl0" path="res://Models/Torus/Hole.res" id="9_so0tq"]
 [ext_resource type="Script" path="res://ThirdPerson/GravityAreas/Torroidal.gd" id="10_rmf8n"]
+[ext_resource type="PackedScene" uid="uid://2imdtqjxli71" path="res://Models/Mechavoidling/mechavoidling.tscn" id="11_dd10x"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://ThirdPerson/MainCamera.tscn" id="11_lpc2m"]
+[ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://ThirdPerson/SettingsUI/control_config.tscn" id="12_v52ft"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvq6k"]
 size = Vector3(30, 1, 30)
@@ -610,7 +611,8 @@ skeleton = NodePath("../../..")
 shape = SubResource( "BoxShape3D_0q8l7" )
 
 [node name="Player" parent="." instance=ExtResource( "8_se680" )]
-SettingsOverlay = NodePath("../SettingsOverlay")
+SettingsOverlay = NodePath("../ControlConfig")
+alt_player_mesh = ExtResource( "11_dd10x" )
 
 [node name="MainCamera" parent="." instance=ExtResource( "11_lpc2m" )]
 
@@ -662,67 +664,7 @@ transform = Transform3D(3.18084, 0, 0, 0, 3.42649, -1.30537, 0, 1.30537, 3.42649
 mesh = SubResource( "CylinderMesh_1c81i" )
 surface_material_override/0 = SubResource( "StandardMaterial3D_3c6je" )
 
-[node name="SettingsOverlay" type="Node2D" parent="."]
-visible = false
-script = ExtResource( "6_j3eho" )
-
-[node name="ScreenSize" type="Control" parent="SettingsOverlay"]
-minimum_size = Vector2(1280, 720)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsOverlay/ScreenSize"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -121.0
-grow_horizontal = 0
-metadata/_edit_layout_mode = 1
-metadata/_edit_use_custom_anchors = true
-
-[node name="Settings" type="Button" parent="SettingsOverlay/ScreenSize/VBoxContainer"]
-offset_right = 167.0
-offset_bottom = 31.0
-text = "Settings"
-metadata/_edit_layout_mode = 1
-metadata/_edit_use_custom_anchors = true
-
-[node name="GridContainer" type="GridContainer" parent="SettingsOverlay/ScreenSize/VBoxContainer"]
-offset_top = 35.0
-offset_right = 167.0
-offset_bottom = 136.0
-columns = 2
-
-[node name="FovLabel" type="Label" parent="SettingsOverlay/ScreenSize/VBoxContainer/GridContainer"]
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 28.0
-text = "Field of view"
-
-[node name="FOV" type="LineEdit" parent="SettingsOverlay/ScreenSize/VBoxContainer/GridContainer"]
-offset_left = 100.0
-offset_right = 167.0
-offset_bottom = 31.0
-text = "0.0"
-
-[node name="Speed label" type="Label" parent="SettingsOverlay/ScreenSize/VBoxContainer/GridContainer"]
-offset_top = 37.0
-offset_right = 96.0
-offset_bottom = 63.0
-text = "Walk Speed"
-
-[node name="Walk speed" type="LineEdit" parent="SettingsOverlay/ScreenSize/VBoxContainer/GridContainer"]
-offset_left = 100.0
-offset_top = 35.0
-offset_right = 167.0
-offset_bottom = 66.0
-text = "0.0"
-
-[node name="SpinBox" type="SpinBox" parent="SettingsOverlay/ScreenSize/VBoxContainer/GridContainer"]
-offset_top = 70.0
-offset_right = 96.0
-offset_bottom = 101.0
+[node name="ControlConfig" parent="." instance=ExtResource( "12_v52ft" )]
 
 [connection signal="body_entered" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_entered"]
 [connection signal="body_exited" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_exited"]

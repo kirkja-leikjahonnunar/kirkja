@@ -3,10 +3,10 @@ class_name ControlConfig
 extends Control
 
 #TODO: settings UI
-# - joypad or keys should be able to navigate full menu, and not have "Press any key" snafu
+# - for joypad, need to record device number, see Input.get_connected_joypads()
 # - try out InputEventMidi
 # - keys to change focus, but can go offscreen when out of visible scroll area
-# - if you click outside while prompt up, should not use mouse for it?
+# - if you click outside while prompt up, should cancel, not use mouse for it
 # - press any key should be a different color
 # - restore defaults option.. all at once? per item?
 # - option to clear binding
@@ -16,6 +16,7 @@ extends Control
 # - key bindings should have saveable sets to/from file (done), maybe settings file is an array of settings?
 # - need better styling, probably a "Settings" header (done) too
 #
+# - DONE joypad or keys should be able to navigate full menu, and not have "Press any key" snafu
 # - DONE mouse down issue, also arrow keys move focus.. all input should be blocked until input
 # - DONE keycode is 0?  <-  needed to use physical_keycode and button_index, not keycode and button_mask!
 # - DONE use physical key, but display user keys?
@@ -23,6 +24,8 @@ extends Control
 # see:
 #   OS.get_keycode_string
 #   DisplayServer.keyboard_get_keycode_from_physical
+
+signal setting_changed(action, value)
 
 
 @export var grab_settings := false:
@@ -44,6 +47,15 @@ var unassigned := "Unassigned"
 var PressAnyKey := "Press any key"
 
 enum DeviceType { NONE = 0, KEY = 1, MOUSE = 2, PAD = 3 }
+
+
+var properties := {
+	"fov": 75.0,
+	"aim_fov": 50.0,
+	"mouse_sensitivity": 1.0,
+	"invert_x": false,
+	"invert_y": false,
+}
 
 # These must match your the InputMap actions:
 var actions := {
@@ -79,6 +91,12 @@ var settings := {
 	}
 var settings_file = "res://TEST-SETTINGS-FILE.json"
 
+var profile = {
+	"name": "Default",
+	"file": settings_file,
+	"settings": settings
+}
+var profiles = [ profile ]
 
 
 # Return success (true) or failure (false).
@@ -133,6 +151,8 @@ func SaveSettings(filename: String) -> bool:
 	return true # false would be database/sql error for instance
 
 
+# Set the bindings based on what is currently in InputMap.
+# Note these are different when you are running versus when you are in editor.
 func SetBindingsFromCurrentLive():
 	print ("SetBindingsFromCurrentLive()...")
 	
@@ -165,6 +185,7 @@ func SetBindingsFromCurrentLive():
 			print (actions[action])
 
 
+# Set the bindings based on what is currently in project settings. Editor only.
 func SetBindingsFromCurrentEditor():
 	#print ("actions before: ", actions)
 	for action in actions:
@@ -250,6 +271,50 @@ func PopulateMenuWithBindings():
 		$VBoxContainer/ScrollContainer/Settings.add_child(hbox)
 
 
+func SetBinding(action: String, device_type: int, index: int, device: int):
+	print("Setting binding for ", action, ": type: ", device_type, ", index: ", index, ", device: ", device, ", devname: ", Input.get_joy_name(device))
+	if not InputMap.has_action(action):
+		push_error("Trying to set unknown action ", action)
+		return
+	InputMap.action_erase_events(action)
+	var ev
+	settings.bindings[action].device = device_type
+	settings.bindings[action].index = index
+	match device_type:
+		DeviceType.KEY:
+			ev = InputEventKey.new()
+			ev.physical_keycode = index
+		DeviceType.MOUSE:
+			ev = InputEventMouseButton.new()
+			ev.button_index = index
+		DeviceType.PAD:
+			ev = InputEventJoypadButton.new()
+			ev.button_index = index
+			ev.device = device
+	InputMap.action_add_event(action, ev)
+
+
+# This function is called from ui changes, not for changes at arbitrary times
+# It is assumed value has already been sanitized before here.
+func SetPropertyFromUI(property: String, value):
+	if not (property in properties):
+		push_error("Trying to set non-existent property ", property)
+	match property:
+		"fov":
+			settings["fov"] = value
+		"aim_fov":
+			settings["aim_fov"] = value
+		"mouse_sensitivity":
+			settings["mouse_sensitivity"] = value
+		"invert_x":
+			settings["invert_x"] = value
+		"invert_y":
+			settings["invert_y"] = value
+	
+	setting_changed.emit(property, value)
+	SaveSettings(settings_file)
+
+
 func _ready():
 	if not Engine.is_editor_hint():
 		#LoadSettings(settings_file)
@@ -257,3 +322,23 @@ func _ready():
 		#SaveSettings(settings_file)
 		PopulateMenuWithBindings()
 		ApplySettings(false)
+
+
+func _on_fov_text_changed(new_text):
+	var value = new_text.to_float()
+	if value > 30 && value < 120:
+		SetPropertyFromUI("fov", value)
+
+
+func _on_sensitivity_text_changed(new_text):
+	var value = new_text.to_float()
+	if value > 0.0:
+		SetPropertyFromUI("mouse_sensitivity", value)
+
+
+func _on_invert_x_toggled(button_pressed):
+	SetPropertyFromUI("invert_x", button_pressed)
+
+
+func _on_invert_y_toggled(button_pressed):
+	SetPropertyFromUI("invert_y", button_pressed)

@@ -30,19 +30,20 @@ TODO: This potentially allows adaptation to taking over the camera to look at po
 ### BUGS
 - Crash trying to open with Alpha 8
 - player clips through the fast rotating lever platform
-- can't push rigidbodies that are just lying around -> has to do with non-bidirectional mask-layer combos
+- can't push rigidbodies that are just lying around -> something to do with non-bidirectional mask-layer combos
 - need to lerp velocity, diff lerp for in air?, continue velocity when in air regardless of sprint?
+- key binding window needs 3 alts, ie for movement, allow any of wasd, up/down/left/right, gamepad
 
 ### Basic modes and configuration
 - [x] 3rd person mode
-- [ ] 3rd person aiming (like 3rd, but different hover config)
+- [ ] 3rd person aiming (like 3rd, but different hover config and fov)
 - [x] 1st person mode (change by a toggle or wheel in and out)
 - [ ] vr mode
 - [x] Mouse and keyboard controller
 - [ ] Game controller support
 - [x] Camera hover configuration targets
 - [ ] Make sure it works on non-constant gravity/up directions
-- [ ] Be able to jump into other objects to move them around
+- [ ] Be able to inhabit other objects to move them around
 - [ ] be able to drag/push objects around
 - [ ] moving platforms
 

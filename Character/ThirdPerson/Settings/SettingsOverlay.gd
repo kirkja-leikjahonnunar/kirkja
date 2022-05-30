@@ -1,5 +1,8 @@
 extends Node2D
 
+# DEPRECATED! Use ControlConfig instead
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

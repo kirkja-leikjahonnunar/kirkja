@@ -16,14 +16,19 @@ class_name CharacterController
 @export var min_camera_distance := 0.5  # below this, switch to 1st person
 @export var max_camera_distance := 5.0  # below this, switch to 1st person
 @export var zoom_amount := .2 #amound to zoom each wheel click
+@export var fov_degrees := 75.0
+@export var aim_fov_degrees := 40.0
 
-@export var mouse_sensitivity := .02
+@export var mouse_sensitivity := 1.0 #.02
 @export var invert_y := false
 @export var invert_x := true
 @export var allow_mouse_toggle := true
 
 @export var SettingsOverlay : NodePath
 @onready var settings_overlay = get_node(SettingsOverlay) if !SettingsOverlay.is_empty() else null
+var main_camera : Camera3D
+
+@export var alt_player_mesh : PackedScene
 
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
@@ -55,6 +60,7 @@ var camera_mode = CameraMode.Default
 
 @onready var spawn_position := position
 
+
 ##--------------------------- Run Loop Functions -----------------------------
 
 func _ready():
@@ -62,6 +68,19 @@ func _ready():
 	if camera_mode == CameraMode.First: SetFirstPerson()
 	else: SetThirdPerson()
 	cam_v_shift = abs($Proxy_Back.position.z)
+	if settings_overlay: settings_overlay.visible = false
+	
+	if alt_player_mesh:
+		var pmesh = alt_player_mesh.instantiate()
+		for child in $PlayerMesh.get_children():
+			child.visible = false
+		$PlayerMesh.add_child(pmesh)
+	
+	if settings_overlay:
+		settings_overlay.setting_changed.connect(_on_settings_updated)
+	
+	if !main_camera && has_node("../MainCamera"):
+		main_camera = get_node("../MainCamera")
 
 
 func _physics_process(delta):
@@ -123,7 +142,6 @@ func _physics_process(delta):
 	#velocity.move_toward(global_transform.basis * target_velocity, .5)
 	move_and_slide()
 	dpos -= position # this is world coordinates change in position
-	
 
 
 func AlignPlayerToUp():
@@ -148,16 +166,13 @@ func AlignPlayerToUp():
 	
 	#global_transform.basis = global_transform.basis.rotated(axis, amount)
 
-func _process(_delta):
-	pass
 
 func _input(event):
 	if settings_overlay && settings_overlay.visible:
 		if event is InputEventKey:
-			if event.physical_keycode == KEY_ESCAPE:
-				print ("Escaped during menu")
+			if event.physical_keycode == KEY_ESCAPE && event.pressed == false:
 				settings_overlay.visible = false
-				get_tree().root.set_input_as_handled()
+				get_viewport().set_input_as_handled()
 
 
 func _unhandled_input(event):
@@ -168,8 +183,8 @@ func _unhandled_input(event):
 	# pan camera with mouse
 	elif event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			HandleCameraMove(-event.relative.x * mouse_sensitivity,
-							event.relative.y * mouse_sensitivity)
+			HandleCameraMove(-event.relative.x * mouse_sensitivity * .02,
+							event.relative.y * mouse_sensitivity * .02)
 							
 	# toggle mouse on/off
 	if allow_mouse_toggle && Input.is_action_just_pressed("char_toggle_mouse"):
@@ -366,3 +381,21 @@ func UpdateGravity():
 		v /= n
 		#todo: align direction should not always be the same as gravity direction
 		up_direction = -v.normalized()
+
+
+#------------------------- Settings updates ----------------------------------
+
+func _on_settings_updated(setting, value):
+	match setting:
+		"fov":
+			fov_degrees = value
+			if main_camera:
+				main_camera.fov = fov_degrees
+		"aim_fov":
+			aim_fov_degrees = value
+		"mouse_sensitivity":
+			mouse_sensitivity = value
+		"invert_x":
+			invert_x = value
+		"invert_y":
+			invert_y = value

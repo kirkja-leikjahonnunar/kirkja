@@ -16,6 +16,7 @@ fill_from = Vector2(0.5, 0.5)
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_h23m8" )
+metadata/_edit_lock_ = true
 
 [node name="BG" type="NinePatchRect" parent="."]
 anchor_left = 0.327
@@ -159,3 +160,8 @@ size_flags_horizontal = 3
 toggle_mode = true
 text = "A"
 script = ExtResource( "2_a36d1" )
+
+[connection signal="text_changed" from="VBoxContainer/ScrollContainer/Settings/HBoxContainer/FOV" to="." method="_on_fov_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/ScrollContainer/Settings/HBoxContainer2/Sensitivity" to="." method="_on_sensitivity_text_changed"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertX" to="." method="_on_invert_x_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertY" to="." method="_on_invert_y_toggled"]

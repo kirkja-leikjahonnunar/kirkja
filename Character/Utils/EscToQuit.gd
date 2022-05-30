@@ -1,13 +1,7 @@
 extends Node
 
-
-
+# Catch ESC key on key up. use get_viewport().set_input_as_handled() to prevent an ESC press from quiting.
 func _unhandled_input(event):
-#	print ("_input event", event)
-#	if Input.is_action_pressed("Quit"): 
-#		get_tree().quit()
-		
 	if event is InputEventKey:
-		#print ("event: ", event)
-		if event.physical_keycode == KEY_ESCAPE:
+		if event.physical_keycode == KEY_ESCAPE && event.pressed == false:
 			get_tree().quit()
