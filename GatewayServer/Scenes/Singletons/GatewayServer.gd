@@ -15,20 +15,11 @@ func _ready():
 	StartServer()
 
 
-#func _process(_delta):
-#	if not custom_multiplayer.has_multiplayer_peer():
-#		return
-#	custom_multiplayer.poll()
-	
-
 func StartServer():
 	network.create_server(port, max_players)
 	network.host.dtls_server_setup(key, cert)
 	
 	get_tree().set_multiplayer(gateway_api, "/root/GatewayServer")
-	#set_custom_multiplayer(gateway_api)
-	#custom_multiplayer.set_root_path()
-	#custom_multiplayer.set_multiplayer_peer(network)
 	multiplayer.set_multiplayer_peer(network)
 	print ("Gateway server started!")
 	
@@ -37,11 +28,11 @@ func StartServer():
 
 
 func peer_connected(game_client_id):
-	print ("Authenticate peer connected! player_id: ", game_client_id)
+	print ("GameClient connected to GatewayServer! player_id: ", game_client_id)
 
 
 func peer_disconnected(game_client_id):
-	print ("Authenticate peer disconnected! player_id: ", game_client_id)
+	print ("GameClient disconnected from GatewayServer! player_id: ", game_client_id)
 
 
 #--------------------------- Logging in ------------------------------
@@ -61,16 +52,10 @@ func ReturnLoginRequest(result: bool, game_client_id: int, token: String):
 	print ("GatewayServer ReturnLoginRequest ",result,"... send to: ", game_client_id)
 	rpc_id(game_client_id, "LoginRequestResponse", result, game_client_id, token) # func on client 
 	
-	# HACK! perhaps not 100% reliable? seems to skip the rpc sometimes without the wait hack
-	#network.poll()
-	#await get_tree().process_frame
-	#await get_tree().process_frame
 	network.get_peer(game_client_id).peer_disconnect_later()
 
 # this function is implemented on GameClient
-@rpc(any_peer)
-func LoginRequestResponse(_result: bool, _game_client_id: int, _token: String):
-	pass
+@rpc(any_peer) func LoginRequestResponse(_result: bool, _game_client_id: int, _token: String): pass
 
 
 #--------------------------- New account creation ------------------------------

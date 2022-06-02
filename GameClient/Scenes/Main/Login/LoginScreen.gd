@@ -78,5 +78,13 @@ func CreateAccountResults(result: bool, msg: String):
 	Opine(msg)
 	LOGIN_BUTTON.disabled = false
 	REGISTER_BUTTON.disabled = false
+	if result == false:
+		print ("Create account failed!")
+	else: print ("Create account succeeded!")
 
 
+func GameServerDropped():
+	visible = true
+	LOGIN_BUTTON.disabled = false
+	REGISTER_BUTTON.disabled = false
+	Opine("")

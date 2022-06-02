@@ -1,3 +1,10 @@
+#
+# Note, this is a singleton!
+#
+# This server maintains a list of available GameServer instances.
+#
+
+
 extends Node
 
 var gateway_network : ENetMultiplayerPeer
@@ -38,13 +45,15 @@ func StartServer():
 func peer_connected(game_server_id):
 	print ("GameServer connected to GameServers hub: ", game_server_id)
 	gameserverlist["GameServer"+str(gameserverlist.size()+1)] = game_server_id
+	print ("current servers: ", gameserverlist)
 
 
 func peer_disconnected(game_server_id):
-	print ("GameServer disconnected to GameServers hub: ", game_server_id)
+	print ("GameServer disconnected from GameServers hub: ", game_server_id)
 	for key in gameserverlist:
 		if gameserverlist[key] == game_server_id:
 			gameserverlist.erase(key)
+	print ("current servers: ", gameserverlist)
 
 
 # Send a token to the gameserver. The GameServer will check this token against one that a GameClient

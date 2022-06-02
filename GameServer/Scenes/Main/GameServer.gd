@@ -2,7 +2,7 @@ extends Node
 class_name GameServer
 
 
-# GameServer on GameServer project
+# GameServer on GameServer project. GameClients will connect with this.
 #note: this is a singleton!
 
 @onready var server_player_scene := preload("res://Scenes/Instances/ServerPlayer.tscn")
@@ -18,7 +18,7 @@ var max_players := 100
 var packet_post = {} # Note: player states are collected here from clients
 
 
-var expected_tokens := ["aaoeuauaoueoa"]
+var expected_tokens := []
 
 
 @onready var player_verification_process : PlayerVerification = get_node("PlayerVerification") as PlayerVerification
@@ -46,8 +46,8 @@ func peer_connected(game_client_id):
 func peer_disconnected(game_client_id: int):
 	print ("GameServer: client disconnected! ", game_client_id)
 	#todo: probably need to store any unsaved data on the client's node
-	if has_node(str(game_client_id)):
-		get_node(str(game_client_id)).queue_free()
+	if has_node("World/Players/"+str(game_client_id)):
+		get_node("World/Players/"+str(game_client_id)).queue_free()
 		packet_post.erase(game_client_id)
 		rpc_id(0, "DespawnPlayer", game_client_id) # tell everyone this one's gone
 
@@ -55,7 +55,7 @@ func peer_disconnected(game_client_id: int):
 #------------ Player Maintenance ----------------------
 
 # This is implemented on GameClients when another one disconnects.
-@rpc func DespawnPlayer(game_client_id): pass
+@rpc func DespawnPlayer(_game_client_id): pass
 
 
 #-------------- Testing random data retrieval -----------------
@@ -124,7 +124,8 @@ func VerificationResponse(game_client_id: int, is_authorized: bool, player_node)
 func CreatePlayerContainer(game_client_id):
 	var new_player = server_player_scene.instantiate()
 	new_player.name = str(game_client_id)
-	get_node("../World/Players").add_child(new_player, true)
+	new_player.get_node("Sprite2D/Name").text = new_player.name
+	get_node("World/Players").add_child(new_player, true)
 	new_player.position = Vector2(randf_range(50,400), randf_range(50,400))
 	FillPlayerContainer(new_player)
 	return new_player
@@ -155,8 +156,9 @@ func _on_TokenExpiration_timeout():
 				expected_tokens.remove_at(i)
 				print("REMOVED expected_token: " + str(i))
 	
-	print("Expected Tokens:")
-	print(expected_tokens)
+	if expected_tokens.size() > 0:
+		print("Expected Tokens:")
+		print(expected_tokens)
 
 
 #------------------------------------------------------------------------------
@@ -178,7 +180,7 @@ func LatencyRequest(client_time):
 	var game_client_id = multiplayer.get_remote_sender_id()
 	rpc_id(game_client_id, "LatencyResponse", client_time)
 
-@rpc func LatencyResponse(client_time): pass
+@rpc func LatencyResponse(_client_time): pass
 
 
 #------------------------------------------------------------------------------
@@ -191,8 +193,9 @@ func LatencyRequest(client_time):
 # updates back to GameClient with SendWorldState().
 @rpc(any_peer, unreliable)
 func ReceivePlayerState(player_state):
+	# note that the player position info gets updated with new information in World._physics_process()
 	var game_client_id = multiplayer.get_remote_sender_id()
-	if packet_post.has(game_client_id):
+	if packet_post.has(game_client_id): # the T is client_clock on GameClient
 		if packet_post[game_client_id]["T"] < player_state["T"]:
 			packet_post[game_client_id] = player_state
 	else:

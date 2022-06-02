@@ -41,11 +41,12 @@ func _physics_process(delta):
 # Timer callback to request ping from GameServer.
 # This is initialized upon server connection.
 func RequestLatency():
-	#print ("DetermineLatency......")
-	rpc_id(1, "LatencyRequest", Time.get_unix_time_from_system())
+	#print ("DetermineLatency...... host: ", game_server_network.host)
+	if game_server_network.host != null:
+		rpc_id(1, "LatencyRequest", Time.get_unix_time_from_system())
 
 # This is implemented on GameServer
-@rpc(any_peer) func LatencyRequest(client_time): pass
+@rpc(any_peer) func LatencyRequest(_client_time): pass
 
 # This is returned from GameServer, after RequestLatency().
 @rpc
@@ -64,6 +65,8 @@ func LatencyResponse(client_time):
 		latency = total_latency / latency_array.size()
 		print ("New Latency (ms): ", latency*1000, "  Delta latency (ms): ", delta_latency*1000)
 		latency_array.clear()
+		
+		get_node("/root/Client/DebugOverlay").UpdateLatency(latency)
 
 
 #------------------------------------------------------------
@@ -72,7 +75,8 @@ func LatencyResponse(client_time):
 
 func SendPlayerState(player_state):
 	#print ("player state: ", player_state)
-	rpc_id(1, "ReceivePlayerState", player_state)
+	if game_server_network.host != null:
+		rpc_id(1, "ReceivePlayerState", player_state)
 
 # This is implemented on GameServer
 @rpc(any_peer, unreliable)
@@ -114,13 +118,22 @@ func connection_succeeded():
 	
 	# note: SceneTreeTimer doesn't do what we want currently: get_tree().create_timer(0.5).timeout.connect(RequestLatency)
 	var timer = Timer.new()
+	timer.name = "LatencyTimer"
 	timer.autostart = true
 	timer.wait_time = 0.5
 	timer.timeout.connect(RequestLatency)
 	self.add_child(timer)
 
+
+func server_disconnected():
+	print ("GameServer disconnected!")
+	get_node("/root/Client/LoginScreen").GameServerDropped() #visible = true
+	get_node("/root/Client/DebugOverlay").UpdateClientId(-1)
+	get_node("LatencyTimer").queue_free()
+
+
 # This is implemented on the GameServer
-@rpc(any_peer) func ServerTimeRequest(time): pass
+@rpc(any_peer) func ServerTimeRequest(_time): pass
 
 
 # This is a time ping returned from GameServer right after initial network connected.
@@ -128,12 +141,6 @@ func connection_succeeded():
 func ServerTimeResponse(server_time, client_time):
 	latency = (Time.get_unix_time_from_system() - client_time)/2
 	client_clock = server_time + latency
-
-
-func server_disconnected():
-	print ("GameServer disconnected!")
-	get_node("/root/Client/LoginScreen").visible = true
-	get_node("/root/Client/DebugOverlay").UpdateClientId(-1)
 
 
 # this is called from a GameServer

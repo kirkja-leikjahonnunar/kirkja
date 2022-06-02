@@ -26,6 +26,7 @@ func DefinePlayerState():
 	#player_state = { "T": Time.get_ticks_msec(), "P": global_transform.origin }
 	GameServer.SendPlayerState(player_state)
 
+
 func HandleMovement(delta):
 	var input_blocked := (get_viewport().gui_get_focus_owner() != null)
 	
@@ -59,5 +60,6 @@ func SetNameFromId(new_name: int):
 
 
 func MovePlayer(new_position):
-	#print ("MovePlayer, old: ", position, ", new: ", new_position)
-	set_position(new_position)
+	print ("MovePlayer, old: ", position, ", new: ", new_position, ", diff: ", new_position - position)
+	#set_position(new_position)
+

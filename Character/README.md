@@ -2,6 +2,12 @@
 
 A generic 3rd/1st person character controller in Godot.
 
+The controller is contained within the ThirdPerson directory. So, nothing inside there should
+refer to anything outside that directory.
+
+This repo is for various experimental prototyping of the character controller for the Kirkja game.
+When a feature is stable, it will be imported to the kirkja/GameClient project.
+
 
 ## Setting up
 
@@ -46,6 +52,7 @@ TODO: This potentially allows adaptation to taking over the camera to look at po
 - [ ] Be able to inhabit other objects to move them around
 - [ ] be able to drag/push objects around
 - [ ] moving platforms
+- [x] Config window (at proof of concept level at least)
 
 ### Movement types
 - [x] run/walk
@@ -71,7 +78,7 @@ TODO: This potentially allows adaptation to taking over the camera to look at po
   - [ ] underbar
 - [ ] climb
   - [ ] free climb
-  - [ ] legde climb
+  - [ ] ledge climb
   - [ ] pole climb/slide
   - [ ] ladders
 

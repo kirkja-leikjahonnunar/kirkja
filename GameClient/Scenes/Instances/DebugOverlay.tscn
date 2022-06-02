@@ -15,3 +15,10 @@ offset_top = 26.0
 offset_right = 268.0
 offset_bottom = 52.0
 text = "world state:"
+
+[node name="Latency" type="Label" parent="."]
+offset_left = -1.0
+offset_top = 52.0
+offset_right = 267.0
+offset_bottom = 78.0
+text = "latency:"

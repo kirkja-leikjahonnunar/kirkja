@@ -37,7 +37,7 @@ func Verify(game_client_id, player_token):
 			is_authorized = true
 			awaiting_verification.erase(game_client_id)
 			game_server.expected_tokens.erase(player_token)
-			new_player_node = game_server.CreatePlayer(game_client_id)
+			new_player_node = game_server.CreatePlayerContainer(game_client_id)
 			break
 		else:
 			print ("Player not verified yet, trying again in 2 seconds...")
@@ -69,5 +69,6 @@ func _on_verification_expiration_timeout():
 					game_server.VerificationResponse(key, false)
 					#TODO: check that net sends before being disconnected:
 					game_server.network.get_peer(key).peer_disconnect()
-	print("After verification timeout, still Awaiting verification:")
-	print(awaiting_verification)
+	if awaiting_verification.size() > 0:
+		print("After verification timeout, still Awaiting verification:")
+		print(awaiting_verification)

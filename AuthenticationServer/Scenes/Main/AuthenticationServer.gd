@@ -64,8 +64,12 @@ func RequestAuthentication(username:String, password:String, game_client_id: int
 			token = str(randi()).sha256_text() + str(int(Time.get_unix_time_from_system()))
 			print ("token generated: ", token)
 			
-			var gameserver = "GameServer1" #TODO: replace with proper load balance selection for server
-			GameServers.DistributeLoginToken(token, gameserver)
+			#TODO: replace with proper load balance selection for server
+			if GameServers.gameserverlist.size() == 0:
+				print("No known gameservers for auth response, something's gone wrong!!")
+			else:
+				var gameserver = GameServers.gameserverlist.keys()[0]
+				GameServers.DistributeLoginToken(token, gameserver)
 	
 	print("sending auth response for "+username, ", result: ", result, " to client: ", game_client_id)
 	rpc_id(from_gateway_id, "AuthenticationResponse", result, game_client_id, token) #ultimately goes to client

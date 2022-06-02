@@ -4,6 +4,8 @@ extends Node2D
 @export var other_player_prefab : PackedScene
 
 
+#-------------------- Player init/destroy ------------------------------------
+
 func SpawnNewPlayer(game_client_id: int, spawn_point: Vector2):
 	print ("World needs to spawn player!")
 	if get_tree().get_multiplayer().get_unique_id() == game_client_id:
@@ -29,18 +31,16 @@ func DespawnPlayer(game_client_id):
 
 #------------------ World State Syncing ----------------------
 
-var last_world_state := 0.0
+var last_world_state_time := 0.0
 var interpolation_offset := .1 #100.0
 var world_state_buffer = []
 
 func _physics_process(_delta):
-	#TODO: var render_time = Time.get_ticks_msec() - interpolation_offset ****NEEDS FIX FOR TIME SYNC
-	#var render_time = Time.get_unix_time_from_system() - interpolation_offset
 	var render_time = GameServer.client_clock - interpolation_offset
 	if world_state_buffer.size() > 1:
 		while world_state_buffer.size() > 2 and render_time > world_state_buffer[2].T:
 			world_state_buffer.remove_at(0)
-		if world_state_buffer.size() > 2: # we have a future state
+		if world_state_buffer.size() > 2: # we have a future state, we need to interpolate
 			var interpolation_factor = float(render_time - world_state_buffer[1]["T"]) \
 								/ float(world_state_buffer[2]["T"] - world_state_buffer[1]["T"])
 			for player in world_state_buffer[2].keys():
@@ -64,7 +64,7 @@ func _physics_process(_delta):
 				else:
 					print("Spawing new other player ", player)
 					SpawnNewPlayer(player, world_state_buffer[2][player].P)
-		elif render_time > world_state_buffer[1].T: # we have no future world state
+		elif render_time > world_state_buffer[1].T: # we have no future world state, we need to extrapolate
 			var extrapolation_factor = float(render_time - world_state_buffer[0]["T"]) \
 								/ float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.0
 			for player in world_state_buffer[1].keys():
@@ -82,11 +82,11 @@ func _physics_process(_delta):
 					print("Spawing new other player ", player)
 					SpawnNewPlayer(player, world_state_buffer[1][player].P)
 			
-			
+
 
 func UpdateWorldState(world_state):
 	get_node("/root/Client/DebugOverlay").UpdateWorldState(world_state)
 	#print ("Got world state: ", world_state)
-	if world_state.T > last_world_state:
-		last_world_state = world_state.T
+	if world_state.T > last_world_state_time:
+		last_world_state_time = world_state.T
 		world_state_buffer.append(world_state)

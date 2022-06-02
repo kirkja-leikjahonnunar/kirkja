@@ -7,10 +7,11 @@ TODO:
   - trello bootcamp
   
 
-- TODO: tips:
+- TODO:
+  - GameClient needs to be able to cover from GameServer vanishing
   - check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
   - for really fast stuff, lag compensation, do some extrapolate on some action to predict time sequence of actual clients
-  - load balancing.. how to add/remove servers on the fly as clients come and go
+  - load balancing.. how to add/remove servers on the fly as clients come and go. Currently hardcoded to GameServer1. auth needs to return server url/port?
   - c++ optimizing
   - databases: see Game Development Center's discord for big discussion? See Sigrid's database modules
 

@@ -95,7 +95,7 @@ func RequestCreateAccount():
 	password = ""
 
 # This is implemented on GatewayServer.
-@rpc(any_peer) func CreateAccountRequest(username, password): pass
+@rpc(any_peer) func CreateAccountRequest(_username, _password): pass
 
 
 # This is called from GatewayServer.
