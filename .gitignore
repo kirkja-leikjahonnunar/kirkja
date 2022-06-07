@@ -12,3 +12,6 @@ data_*/
 *.swp
 *~
 *blend1
+
+# Ignoring the kirkja-assets link in the res:// folder.
+GameClient/kirkja-assets
