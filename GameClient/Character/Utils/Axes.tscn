@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://buhblc0dyl65i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t8qg5"]
+size = Vector3(1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cyrw"]
+albedo_color = Color(0.8, 0.00784314, 0.0901961, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_53lib"]
+top_radius = 0.2
+bottom_radius = 0.0
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1fpw"]
+albedo_color = Color(0.8, 0.00784314, 0.0901961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ck8m1"]
+size = Vector3(0.101, 1, 0.101)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2aet"]
+albedo_color = Color(0.0156863, 0.796078, 0.101961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ev18a"]
+albedo_color = Color(0.0156863, 0.796078, 0.101961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7adn"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icfj4"]
+albedo_color = Color(0.00784314, 0.254902, 0.909804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftsj1"]
+albedo_color = Color(0.00784314, 0.254902, 0.909804, 1)
+
+[node name="Axes" type="Node3D"]
+
+[node name="X" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource( "BoxMesh_t8qg5" )
+surface_material_override/0 = SubResource( "StandardMaterial3D_2cyrw" )
+
+[node name="ConeMesh" type="MeshInstance3D" parent="X"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.622653, 0, 0)
+mesh = SubResource( "CylinderMesh_53lib" )
+skeleton = NodePath("../../Z")
+surface_material_override/0 = SubResource( "StandardMaterial3D_w1fpw" )
+
+[node name="Y" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource( "BoxMesh_ck8m1" )
+skeleton = NodePath("../X")
+surface_material_override/0 = SubResource( "StandardMaterial3D_g2aet" )
+
+[node name="ConeMesh" type="MeshInstance3D" parent="Y"]
+transform = Transform3D(0, 4.37114e-08, -1, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 1.91069e-15, 0, 0.625058, 0)
+mesh = SubResource( "CylinderMesh_53lib" )
+skeleton = NodePath("../../Z")
+surface_material_override/0 = SubResource( "StandardMaterial3D_ev18a" )
+
+[node name="Z" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+mesh = SubResource( "BoxMesh_p7adn" )
+skeleton = NodePath("../X")
+surface_material_override/0 = SubResource( "StandardMaterial3D_icfj4" )
+
+[node name="ConeMesh" type="MeshInstance3D" parent="Z"]
+transform = Transform3D(0, 4.37114e-08, -1, 1, 0, 0, 0, -1, -4.37114e-08, 0, 0, 0.624387)
+mesh = SubResource( "CylinderMesh_53lib" )
+surface_material_override/0 = SubResource( "StandardMaterial3D_ftsj1" )

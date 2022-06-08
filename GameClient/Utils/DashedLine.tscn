@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c538b1rmlqtjs"]
+
+[ext_resource type="Script" path="res://Utils/DashedLine.gd" id="1_i50aa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya0jn"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ij8t"]
+resource_local_to_scene = true
+material = SubResource( "StandardMaterial3D_ya0jn" )
+size = Vector3(0.1, 0.029, 0.029)
+
+[sub_resource type="MultiMesh" id="MultiMesh_gtrm6"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 5
+visible_instance_count = 5
+mesh = SubResource( "BoxMesh_8ij8t" )
+buffer = PackedFloat32Array(1, 0, 0, 0.05, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.25, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.45, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.65, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0.85, 0, 1, 0, 0, 0, 0, 1, 0)
+
+[node name="DashedLine" type="MultiMeshInstance3D"]
+multimesh = SubResource( "MultiMesh_gtrm6" )
+script = ExtResource( "1_i50aa" )
+dash_width = 0.029

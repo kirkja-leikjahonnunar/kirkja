@@ -1,31 +1,18 @@
-TODO:
+TODO
+====
 
-- loose ends:
-  - sqlite
-  - server side map/collision
-  - submodules with github-desktop
-  - trello bootcamp
-  
+- GameClient needs to be able to cover from GameServer vanishing
+- check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
+- for really fast stuff, lag compensation, do some extrapolate on some action to predict time sequence of actual clients
+- load balancing.. how to add/remove servers on the fly as clients come and go. Currently hardcoded to GameServer1. auth needs to return server url/port?
+- c++ optimizing
+- npcs
 
-- TODO:
-  - GameClient needs to be able to cover from GameServer vanishing
-  - check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
-  - for really fast stuff, lag compensation, do some extrapolate on some action to predict time sequence of actual clients
-  - load balancing.. how to add/remove servers on the fly as clients come and go. Currently hardcoded to GameServer1. auth needs to return server url/port?
-  - c++ optimizing
-  - databases: see Game Development Center's discord for big discussion? See Sigrid's database modules
-
-- FIXME: restarting game server should not make auth/gateway fault out
-
-- test dictionary looping for value in dict: ?? returns value??
+- do we need server side map/collision? test?
 
 - Send world state to new clients on login
 
-- implement register
-
-- implement actual database
-
-- FIX: Despawn not syncing
+- implement gameserver world database
 
 - despawning: typical is wait several seconds on user log off, turn off physics for player, so other clients can stay synced
  
@@ -39,7 +26,12 @@ TODO:
 
 - 2fa? sms? trust device from mac?
 
-- godot bug: timer.timeout warning about await not being needed: https://github.com/godotengine/godot/issues/58156
+- databases: see Game Development Center's discord for big discussion? See Sigrid's database modules for dbs other than sqlite
+
+- FIXED in G4a9: godot bug: timer.timeout warning about await not being needed: https://github.com/godotengine/godot/issues/58156
+- DONE FIXME: restarting game server should not make auth/gateway fault out
+- DONE implement register
+- DONE FIX: Despawn not syncing
 
 
 NOTES
@@ -49,8 +41,8 @@ NOTES
 - x509 certificate cost 3rd party verification, cost estimate: ~ $25 / year
 - NEVER let crypto key get on Client, only cert, Gateway gets both key and cert.
 - password hashing: 
-	slow: bcrypt, scrypt, lyra2, argon2  <-  not integrated in godot
-	fast: sha, sha2
+      slow: bcrypt, scrypt, lyra2, argon2  <-  not integrated in godot
+      fast: sha, sha2
 
 
 Unanswered Questions
@@ -69,8 +61,13 @@ PORTING NOTES
 -------------
 ...from porting things to Godot 4.0
 
+```
 get_tree().set_network_peer()   ->   ??? custom_multiplayer.set_root_path("/GatewayServer")
 custom_multiplayer.set_network_peer(network)   ->   custom_multiplayer.set_multiplayer_peer(network)
+but now custom_multiplayer has been removed in favor of set_multiplayer()
+custom_multiplayer  ->  get_tree().set_multiplayer(your_multiplayerapi, "/path/to/branch")
+custom_multiplayer.poll() not really needed explicitly, now: get_tree().multiplayer_poll = true (which is default)
+```
 
 int(string)?  <--  String.to_int()
 
@@ -78,8 +75,6 @@ get_tree().get_rpc_sender_id()  ->  multiplayer.get_remote_sender_id(
 
 game_server.network.disconnect_peer(game_client_id)  ->  game_server.network.get_peer(game_client_id).peer_disconnect() 
 
-custom_multiplayer  ->  get_tree().set_multiplayer(your_multiplayerapi, "/path/to/branch")
-custom_multiplayer.poll() not really needed explicitly, now: get_tree().multiplayer_poll = true (which is default)
 
 
 CHEATSHEET
@@ -105,3 +100,4 @@ in filesystem panel, add new scene, creates new scene but does not save immediat
 Script editor:
   when you collapse the file list, should still show current file name, maybe on the collapse bar (currently just dead space)
   need better script file navigation, ie next file/ prev file
+
