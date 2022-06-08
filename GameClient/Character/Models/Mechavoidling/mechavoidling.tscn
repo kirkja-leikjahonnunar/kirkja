@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2imdtqjxli71"]
-
-[ext_resource type="PackedScene" uid="uid://rt7jww6rr0bf" path="res://Models/Mechavoidling/mecha_voidling.glb" id="1_7hie4"]
-
-[node name="Mechavoidling" instance=ExtResource( "1_7hie4" )]
-
-[node name="mech_voidling" parent="." index="0"]
-transform = Transform3D(0.274075, 0, 0, 0, 0.274075, 0, 0, 0, 0.274075, 0, 0, 0)
