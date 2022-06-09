@@ -12,11 +12,13 @@ func _physics_process(_delta):
 		
 		if player_id in game_server.packet_post:
 			var player_pos = game_server.packet_post[player_id].P
-			var player_rot = game_server.packet_post[player_id].T
+			var player_rot = game_server.packet_post[player_id].R
+			var player_mrot = game_server.packet_post[player_id].R2
 			
 			player.velocity = player_pos - player.global_transform.origin
 			#player.move_and_slide()
 			player.position = player_pos
 			player.quaternion = player_rot
+			player.get_node("PlayerMesh").quaternion = player_mrot
 			
 			game_server.packet_post[player_id].P = player.global_transform.origin

@@ -22,7 +22,7 @@ resource_local_to_scene = true
 material = SubResource( "StandardMaterial3D_w2byt" )
 text = "<name>"
 
-[node name="ServerPlayer" type="Node3D"]
+[node name="ServerPlayer" type="CharacterBody3D"]
 script = ExtResource( "1_k32rx" )
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754101, 0)
 mesh = SubResource( "CapsuleMesh_clibp" )
 
 [node name="Nose" type="MeshInstance3D" parent="PlayerMesh"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.346689, 0.350361, 0)
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.000316858, 0.350361, 0.28327)
 mesh = SubResource( "CylinderMesh_6x1ii" )
 skeleton = NodePath("../..")
 

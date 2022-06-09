@@ -8,10 +8,6 @@ func _ready():
 
 func StartFresh():
 	$LoginScreen.visible = true
-	
-	print ("inside: ", is_inside_tree())
-	for child in get_children():
-		print ("Client child: ", child.name)
 	$ControlConfig.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

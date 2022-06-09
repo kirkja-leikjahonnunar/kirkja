@@ -156,6 +156,8 @@ func _physics_process(delta):
 	#velocity.move_toward(global_transform.basis * target_velocity, .5)
 	move_and_slide()
 	dpos -= position # this is world coordinates change in position
+	
+	DefinePlayerState()
 
 
 func AlignPlayerToUp():
@@ -200,8 +202,8 @@ func _unhandled_input(event):
 	# pan camera with mouse
 	elif event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			gathered_cam_move += Vector2(-event.relative.x * mouse_sensitivity * .02,
-										event.relative.y * mouse_sensitivity * .02)
+			gathered_cam_move += Vector2((1 if invert_x else -1) * event.relative.x * mouse_sensitivity * .02,
+										(1 if invert_y else -1) * event.relative.y * mouse_sensitivity * .02)
 			#HandleCameraMove(-event.relative.x * mouse_sensitivity * .02,
 			#				event.relative.y * mouse_sensitivity * .02)
 	
@@ -409,7 +411,6 @@ func ConnectOptionsWindow(win):
 	settings_overlay = win
 	settings_overlay.setting_changed.connect(_on_settings_updated)
 
-
 func _on_settings_updated(setting, value):
 	match setting:
 		"fov":
@@ -428,17 +429,23 @@ func _on_settings_updated(setting, value):
 
 #--------------------- Network sync helpers ---------------------------------
 
+# This needs to be called from _physics_process
 func DefinePlayerState():
-	var player_state = { "T": GameServer.client_clock, "P": global_transform.origin, "R": global_transform.basis.get_rotation_quaternion() }
+	var player_state = { "T": GameServer.client_clock, 
+						"P": global_transform.origin,
+						"R": global_transform.basis.get_rotation_quaternion(),
+						"R2": $PlayerMesh.basis.get_rotation_quaternion()
+						}
 	GameServer.SendPlayerState(player_state)
 
 
 func SetNameFromId(game_client_id):
-	$Name.text = str(game_client_id)
+	name = str(game_client_id)
+	$Name.text = name
 
 
 #TODO: this might be used if all collision processing is done on server
-func MovePlayer(pos, rot):
+func MovePlayer(pos, rot, rot2):
 	pass
 	#global_transform.origin = pos
 	#global_transform.basis = Basis(rot)

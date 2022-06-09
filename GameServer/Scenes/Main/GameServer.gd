@@ -107,10 +107,10 @@ func PlayerTokenResponse(token: String):
 func VerificationResponse(game_client_id: int, is_authorized: bool, player_node):
 	rpc_id(game_client_id, "VerificationResponseToClient", is_authorized)
 	if is_authorized: # tell everyone there's a new birth
-		rpc_id(0, "SpawnNewPlayer", game_client_id, player_node.position)
+		rpc_id(0, "SpawnNewPlayer", game_client_id, player_node.position, player_node.quaternion)
 
 # This is implemented on GameClient.
-@rpc func SpawnNewPlayer(_game_client_id: int, _spawn_point: Vector3): pass
+@rpc func SpawnNewPlayer(_game_client_id: int, _spawn_point: Vector3, _spawn_rotation: Quaternion): pass
 
 # this is implemented on GameClient
 @rpc func VerificationResponseToClient(_is_authorized): pass
@@ -125,7 +125,7 @@ func CreatePlayerContainer(game_client_id):
 	var new_player = server_player_scene.instantiate()
 	new_player.name = str(game_client_id)
 	#new_player.get_node("Sprite2D/Name").text = new_player.name  <- old 2d player scene
-	new_player.SetName(name)
+	new_player.SetName(new_player.name)
 	get_node("World/Players").add_child(new_player, true)
 	#new_player.position = Vector2(randf_range(50,400), randf_range(50,400))  <- old 2d way
 	new_player.position = Vector3(0,2,0) #TODO: use spawn points defined by the map?

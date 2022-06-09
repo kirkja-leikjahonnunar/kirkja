@@ -63,7 +63,7 @@ func LatencyResponse(client_time):
 				total_latency += latency_array[i]
 		delta_latency = (total_latency / latency_array.size()) - latency
 		latency = total_latency / latency_array.size()
-		print ("New Latency (ms): ", latency*1000, "  Delta latency (ms): ", delta_latency*1000)
+		#print ("New Latency (ms): ", latency*1000, "  Delta latency (ms): ", delta_latency*1000)
 		latency_array.clear()
 		
 		get_node("/root/Client/DebugOverlay").UpdateLatency(latency)
@@ -74,7 +74,7 @@ func LatencyResponse(client_time):
 #------------------------------------------------------------
 
 func SendPlayerState(player_state):
-	#print ("player state: ", player_state)
+	print ("GameServer.SendPlayerState: ", player_state)
 	if game_server_network.host != null:
 		rpc_id(1, "ReceivePlayerState", player_state)
 
@@ -130,6 +130,7 @@ func server_disconnected():
 	get_node("/root/Client/LoginScreen").GameServerDropped() #visible = true
 	get_node("/root/Client/DebugOverlay").UpdateClientId(-1)
 	get_node("LatencyTimer").queue_free()
+	push_error("TODO server loss, need to stop scene from playing, maybe try to reconnect before that?")
 
 
 # This is implemented on the GameServer
@@ -176,9 +177,9 @@ func DespawnPlayer(game_client_id):
 	get_node("/root/Client/World").DespawnPlayer(game_client_id)
 
 @rpc
-func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3):
-	print ("GameServer says to spawn player ", game_client_id, " at ", spawn_point)
-	get_node("/root/Client/World").SpawnNewPlayer(game_client_id, spawn_point)
+func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3, spawn_rotation: Quaternion):
+	print ("GameServer says to spawn player ", game_client_id, " at ", spawn_point, ", rot: ", spawn_rotation)
+	get_node("/root/Client/World").SpawnNewPlayer(game_client_id, spawn_point, spawn_rotation)
 
 
 #------------------------------------------------------------

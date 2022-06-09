@@ -6,12 +6,13 @@ extends Node3D
 
 #-------------------- Player init/destroy ------------------------------------
 
-func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3):
+func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3, spawn_rotation: Quaternion):
 	print ("World needs to spawn player! at ", spawn_point)
 	if get_tree().get_multiplayer().get_unique_id() == game_client_id:
 		print ("Trying to spawn ourself as player...")
 		var new_player = player_prefab.instantiate()
 		new_player.position = spawn_point
+		new_player.quaternion = spawn_rotation
 		new_player.SetNameFromId(game_client_id)
 		$Players.add_child(new_player)
 		#new_player.set_physics_process(true) unnecessary?
@@ -22,8 +23,9 @@ func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3):
 	else:
 		if not $Players.has_node(str(game_client_id)):
 			var new_other_player = other_player_prefab.instantiate()
-			new_other_player.position = spawn_point
 			new_other_player.SetNameFromId(game_client_id)
+			new_other_player.position = spawn_point
+			new_other_player.quaternion = spawn_rotation
 			$Players.add_child(new_other_player)
 
 func DespawnPlayer(game_client_id):
@@ -56,6 +58,8 @@ func _physics_process(_delta):
 					continue
 				if $Players.has_node(str(player)):
 					var new_position = world_state_buffer[1][player].P.lerp(world_state_buffer[2][player].P, interpolation_factor)
+					var new_rotation = world_state_buffer[1][player].R.slerp(world_state_buffer[2][player].R, interpolation_factor)
+					var new_rotation2 = world_state_buffer[1][player].R2.slerp(world_state_buffer[2][player].R2, interpolation_factor)
 					#var new_position = world_state_buffer[2][player].P
 #					print ("Finally updating player ",player,", pos: ", new_position,
 #							", B.n: ", world_state_buffer.size(), 
@@ -64,10 +68,10 @@ func _physics_process(_delta):
 #							", t1: ", world_state_buffer[2]["T"],
 #							", tdiff: ",world_state_buffer[2]["T"] - world_state_buffer[1]["T"],
 #							", lerp : ", interpolation_factor)
-					$Players.get_node(str(player)).MovePlayer(new_position)
+					$Players.get_node(str(player)).MovePlayer(new_position, new_rotation, new_rotation2)
 				else:
 					print("Spawing new other player ", player)
-					SpawnNewPlayer(player, world_state_buffer[2][player].P)
+					SpawnNewPlayer(player, world_state_buffer[2][player].P, world_state_buffer[2][player].R)
 		elif render_time > world_state_buffer[1].T: # we have no future world state, we need to extrapolate
 			var extrapolation_factor = float(render_time - world_state_buffer[0]["T"]) \
 								/ float(world_state_buffer[1]["T"] - world_state_buffer[0]["T"]) - 1.0
@@ -80,15 +84,19 @@ func _physics_process(_delta):
 					continue
 				if $Players.has_node(str(player)):
 					var position_delta = (world_state_buffer[1][player].P - world_state_buffer[0][player].P)
+					var rotation_delta = world_state_buffer[0][player].R.inverse() * world_state_buffer[1][player].R
 					var new_position = world_state_buffer[1][player].P + (position_delta * extrapolation_factor)
-					$Players.get_node(str(player)).MovePlayer(new_position)
+					var new_rotation = world_state_buffer[1][player].R.slerp(world_state_buffer[1][player].R * rotation_delta, extrapolation_factor)
+					var new_rotation2 = world_state_buffer[1][player].R2 #FIXME .slerp(world_state_buffer[1][player].R * rotation_delta, extrapolation_factor)
+					$Players.get_node(str(player)).MovePlayer(new_position, new_rotation, new_rotation2)
 				else:
 					print("Spawing new other player ", player)
-					SpawnNewPlayer(player, world_state_buffer[1][player].P)
+					SpawnNewPlayer(player, world_state_buffer[1][player].P, world_state_buffer[1][player].R)
 			
 
 
 func UpdateWorldState(world_state):
+	print ("Updating world state: ", world_state)
 	get_node("/root/Client/DebugOverlay").UpdateWorldState(world_state)
 	#print ("Got world state: ", world_state)
 	if world_state.T > last_world_state_time:
