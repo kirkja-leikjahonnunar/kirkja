@@ -46,6 +46,7 @@ signal setting_changed(action, value)
 var unassigned := "Unassigned"
 var PressAnyKey := "Press any key"
 
+# THESE NEED TO BE THE SAME AS IN KeyBindButton, otherwise mysterious errors about cyclic something or other
 enum DeviceType { NONE = 0, KEY = 1, MOUSE = 2, PAD = 3 }
 
 
@@ -318,6 +319,7 @@ func SetPropertyFromUI(property: String, value):
 
 
 func _ready():
+	print ("ControlConfig ready")
 	if not Engine.is_editor_hint():
 		#LoadSettings(settings_file)
 		SetBindingsFromCurrentLive()

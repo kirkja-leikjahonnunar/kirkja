@@ -66,6 +66,7 @@ var camera_mode = CameraMode.Default
 func GetCameraProxy() -> Node3D:
 	return get_node("CameraRig/Target/SpringArm3D/Camera3D")
 
+
 ##--------------------------- Run Loop Functions -----------------------------
 
 func _ready():
@@ -403,6 +404,12 @@ func UpdateGravity():
 
 #------------------------- Settings updates ----------------------------------
 
+
+func ConnectOptionsWindow(win):
+	settings_overlay = win
+	settings_overlay.setting_changed.connect(_on_settings_updated)
+
+
 func _on_settings_updated(setting, value):
 	match setting:
 		"fov":
@@ -417,3 +424,23 @@ func _on_settings_updated(setting, value):
 			invert_x = value
 		"invert_y":
 			invert_y = value
+
+
+#--------------------- Network sync helpers ---------------------------------
+
+func DefinePlayerState():
+	var player_state = { "T": GameServer.client_clock, "P": global_transform.origin, "R": global_transform.basis.get_rotation_quaternion() }
+	GameServer.SendPlayerState(player_state)
+
+
+func SetNameFromId(game_client_id):
+	$Name.text = str(game_client_id)
+
+
+#TODO: this might be used if all collision processing is done on server
+func MovePlayer(pos, rot):
+	pass
+	#global_transform.origin = pos
+	#global_transform.basis = Basis(rot)
+
+

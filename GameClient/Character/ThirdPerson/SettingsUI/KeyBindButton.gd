@@ -10,6 +10,8 @@ var device_type = 0 #ControlConfig.DeviceType.UNKNOWN
 var device : int
 var old_text : String
 
+# THESE NEED TO BE THE SAME AS IN ControlConfig, otherwise mysterious errors about cyclic something or other
+enum DeviceType { NONE = 0, KEY = 1, MOUSE = 2, PAD = 3 }
 
 func _ready():
 	toggle_mode = true
@@ -35,10 +37,10 @@ func _input(event):
 			else:
 				device = event.device
 				action_index = event.physical_keycode
-				device_type = ControlConfig.DeviceType.KEY
+				device_type = DeviceType.KEY
 				text = event.as_text()
 				control_config.SetBinding(action, device_type, action_index, event.device)
-			ClickCleanup(false, false)
+			ClickCleanup(false)
 			absorb_next_input_up = true
 		else: 
 			if absorb_next_input_up:
@@ -49,22 +51,23 @@ func _input(event):
 		print ("mouse button event: ", event.pressed," ", event.button_index)
 		device = event.device
 		action_index = event.button_index
-		device_type = ControlConfig.DeviceType.MOUSE
+		device_type = DeviceType.MOUSE
 		text = "mouse: "+str(event.button_index)
-		ClickCleanup(true, false)
+		ClickCleanup(true)
 	
 	elif event is InputEventJoypadButton && event.pressed:
 		print ("joypad button event: ", event.pressed," ", event.button_index)
 		device = event.device
 		action_index = event.button_index
-		device_type = ControlConfig.DeviceType.PAD
+		device_type = DeviceType.PAD
 		text = "pad: "+str(event.button_index)
-		ClickCleanup(true, false)
+		ClickCleanup(true)
 	#elif event is InputEventMIDI:
 		#TODO midi!
 
 
-func ClickCleanup(do_binding: bool, absorb_up: bool):
+# Reset various things when completing input grab.
+func ClickCleanup(do_binding: bool): #, absorb_up: bool):
 	waiting_for_input = false
 	button_pressed = false
 	get_viewport().set_input_as_handled()

@@ -3,8 +3,16 @@ extends Node
 
 
 func _ready():
+	call_deferred("StartFresh")
+	print ("test deferred")
+
+func StartFresh():
 	$LoginScreen.visible = true
-	#Server.FetchData("thing", get_instance_id())
+	
+	print ("inside: ", is_inside_tree())
+	for child in get_children():
+		print ("Client child: ", child.name)
+	$ControlConfig.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

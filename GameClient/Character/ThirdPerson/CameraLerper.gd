@@ -14,6 +14,8 @@ extends Camera3D
 func _ready():
 	if follow_proxy == null && has_node("../Player"):
 		follow_proxy = get_node("../Player").GetCameraProxy()
+	if follow_proxy == null:
+		follow_proxy = self # assume we will assign this to player's proxy later
 
 func _physics_process(delta):
 	global_transform = global_transform.interpolate_with(follow_proxy.global_transform, lerp_speed*delta)

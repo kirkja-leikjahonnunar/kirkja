@@ -176,7 +176,7 @@ func DespawnPlayer(game_client_id):
 	get_node("/root/Client/World").DespawnPlayer(game_client_id)
 
 @rpc
-func SpawnNewPlayer(game_client_id: int, spawn_point: Vector2):
+func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3):
 	print ("GameServer says to spawn player ", game_client_id, " at ", spawn_point)
 	get_node("/root/Client/World").SpawnNewPlayer(game_client_id, spawn_point)
 

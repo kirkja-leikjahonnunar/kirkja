@@ -1,4 +1,4 @@
-extends Node3D
+extends Node2D
 
 @export var player_prefab : PackedScene
 @export var other_player_prefab : PackedScene
@@ -6,19 +6,15 @@ extends Node3D
 
 #-------------------- Player init/destroy ------------------------------------
 
-func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3):
-	print ("World needs to spawn player! at ", spawn_point)
+func SpawnNewPlayer(game_client_id: int, spawn_point: Vector2):
+	print ("World needs to spawn player!")
 	if get_tree().get_multiplayer().get_unique_id() == game_client_id:
 		print ("Trying to spawn ourself as player...")
 		var new_player = player_prefab.instantiate()
 		new_player.position = spawn_point
 		new_player.SetNameFromId(game_client_id)
 		$Players.add_child(new_player)
-		#new_player.set_physics_process(true) unnecessary?
-		new_player.ConnectOptionsWindow(get_node("../ControlConfig")) #TODO: this should probably not be coupled to the CharacterController?
-		new_player.main_camera = $MainCamera
-		#TODO: if player despawns on server disconnect, we need to unconnect?
-		$MainCamera.follow_proxy = new_player.GetCameraProxy()
+		new_player.set_physics_process(true)
 	else:
 		if not $Players.has_node(str(game_client_id)):
 			var new_other_player = other_player_prefab.instantiate()

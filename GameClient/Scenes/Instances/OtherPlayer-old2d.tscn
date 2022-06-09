@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c41v58vl0a5nv"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://icon.png" id="1_7m1ru"]
-[ext_resource type="Script" path="res://Scenes/Instances/OtherPlayer.gd" id="1_ht31f"]
+[ext_resource type="Script" path="res://Scenes/Instances/OtherPlayer-old2d.gd" id="1_ht31f"]
 
 [node name="OtherPlayer" type="CharacterBody2D"]
 position = Vector2(-1, 0)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://chs1xkop0apv0"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Main/Player.gd" id="1_7127n"]
+[ext_resource type="Script" path="res://Scenes/Instances/Player-old2d.gd" id="1_7127n"]
 [ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://icon.png" id="2_nctrl"]
 
 [node name="Player" type="CharacterBody2D"]

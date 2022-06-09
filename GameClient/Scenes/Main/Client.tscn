@@ -1,28 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtfbicdftlm4c"]
+[gd_scene load_steps=10 format=3 uid="uid://c0wuovyhqshp4"]
 
 [ext_resource type="Script" path="res://Scenes/Main/Client.gd" id="1_8xf8t"]
 [ext_resource type="PackedScene" uid="uid://b1umgopyfboxu" path="res://Scenes/Main/Login/LoginScreen.tscn" id="2_xkabq"]
 [ext_resource type="Script" path="res://Scenes/Main/World.gd" id="3_a6de7"]
-[ext_resource type="PackedScene" uid="uid://cm1md0yiw4cqy" path="res://Scenes/Instances/DebugOverlay.tscn" id="3_dv8lm"]
-[ext_resource type="PackedScene" uid="uid://chs1xkop0apv0" path="res://Scenes/Instances/Player.tscn" id="4_84y1f"]
-[ext_resource type="PackedScene" uid="uid://c41v58vl0a5nv" path="res://Scenes/Instances/OtherPlayer.tscn" id="5_thu5b"]
-[ext_resource type="PackedScene" uid="uid://dqtxq3afsy47w" path="res://Maps/Map1.tscn" id="7_8gfgs"]
+[ext_resource type="PackedScene" uid="uid://j8hi2okchhyx" path="res://Utils/DebugOverlay.tscn" id="3_dv8lm"]
+[ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://Character/ThirdPerson/SettingsUI/control_config.tscn" id="4_p87oy"]
+[ext_resource type="PackedScene" uid="uid://c8cjoh56b25jk" path="res://Character/ThirdPerson/Player.tscn" id="6_w2lpd"]
+[ext_resource type="PackedScene" uid="uid://b78vylyw2clvk" path="res://Character/ThirdPerson/OtherPlayer.tscn" id="7_g71u3"]
+[ext_resource type="PackedScene" uid="uid://cy853d5jnlcn7" path="res://Maps/TestLevel/TestArea.tscn" id="8_jc6q2"]
+[ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Character/ThirdPerson/MainCamera.tscn" id="9_yoiwk"]
 
 [node name="Client" type="Node"]
 script = ExtResource( "1_8xf8t" )
 
+[node name="DebugOverlay" parent="." instance=ExtResource( "3_dv8lm" )]
+
 [node name="LoginScreen" parent="." instance=ExtResource( "2_xkabq" )]
 visible = false
 
-[node name="DebugOverlay" parent="." instance=ExtResource( "3_dv8lm" )]
+[node name="ControlConfig" parent="." instance=ExtResource( "4_p87oy" )]
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node3D" parent="."]
 script = ExtResource( "3_a6de7" )
-player_prefab = ExtResource( "4_84y1f" )
-other_player_prefab = ExtResource( "5_thu5b" )
+player_prefab = ExtResource( "6_w2lpd" )
+other_player_prefab = ExtResource( "7_g71u3" )
 
-[node name="Players" type="Node2D" parent="World"]
+[node name="Players" type="Node3D" parent="World"]
 
-[node name="Map" parent="World" instance=ExtResource( "7_8gfgs" )]
+[node name="TestArea" parent="World" instance=ExtResource( "8_jc6q2" )]
 
-[editable path="World/Map"]
+[node name="MainCamera" parent="World" instance=ExtResource( "9_yoiwk" )]

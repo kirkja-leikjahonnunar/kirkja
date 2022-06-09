@@ -1,5 +1,8 @@
 extends Resource
-class_name CameraSettings
+#class_name CameraSettings
+
+# NOTE USED! would this even be useful?
+
 
 @export var fov := 75.0
 @export var head_height := 1.5

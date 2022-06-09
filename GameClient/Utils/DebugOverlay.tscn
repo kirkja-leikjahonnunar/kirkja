@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm1md0yiw4cqy"]
+[gd_scene load_steps=2 format=3 uid="uid://j8hi2okchhyx"]
 
-[ext_resource type="Script" path="res://Scenes/Instances/DebugOverlay.gd" id="1_8vm48"]
+[ext_resource type="Script" path="res://Utils/DebugOverlay.gd" id="1_du5ut"]
 
 [node name="DebugOverlay" type="Node2D"]
-script = ExtResource( "1_8vm48" )
+script = ExtResource( "1_du5ut" )
 
 [node name="ClientId" type="Label" parent="."]
 offset_right = 268.0

@@ -1,23 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3ouur3n108ld"]
+[gd_scene load_steps=7 format=3 uid="uid://bstqcmco4tofd"]
 
-[ext_resource type="Texture2D" uid="uid://bf8q8dmq21ltj" path="res://icon.png" id="1_vemsc"]
+[ext_resource type="Script" path="res://Scenes/Instances/ServerPlayer.gd" id="1_k32rx"]
+[ext_resource type="Material" uid="uid://bmunos66uirmo" path="res://Scenes/Instances/player_material.tres" id="2_aywpy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6uao"]
-size = Vector2(64, 64)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_clibp"]
+resource_local_to_scene = true
+material = ExtResource( "2_aywpy" )
+radius = 0.25
+height = 1.5
 
-[node name="Player" type="CharacterBody2D"]
-input_pickable = true
+[sub_resource type="CylinderMesh" id="CylinderMesh_6x1ii"]
+material = ExtResource( "2_aywpy" )
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.25
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( "RectangleShape2D_q6uao" )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2byt"]
+resource_local_to_scene = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( "1_vemsc" )
-
-[node name="Name" type="Label" parent="Sprite2D"]
-offset_left = -96.0
-offset_top = -54.0
-offset_right = 102.0
-offset_bottom = -28.0
+[sub_resource type="TextMesh" id="TextMesh_muwpo"]
+material = SubResource( "StandardMaterial3D_w2byt" )
 text = "<name>"
-horizontal_alignment = 1
+
+[node name="ServerPlayer" type="Node3D"]
+script = ExtResource( "1_k32rx" )
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754101, 0)
+mesh = SubResource( "CapsuleMesh_clibp" )
+
+[node name="Nose" type="MeshInstance3D" parent="PlayerMesh"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.346689, 0.350361, 0)
+mesh = SubResource( "CylinderMesh_6x1ii" )
+skeleton = NodePath("../..")
+
+[node name="PlayerName" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67316, 0)
+billboard = 1
+no_depth_test = true
+text = "<name>"
+
+[node name="PlayerNameExtruded" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5952, 0)
+visible = false
+mesh = SubResource( "TextMesh_muwpo" )
