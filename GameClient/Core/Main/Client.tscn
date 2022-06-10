@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0wuovyhqshp4"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Client.gd" id="1_8xf8t"]
-[ext_resource type="PackedScene" uid="uid://b1umgopyfboxu" path="res://Scenes/Main/Login/LoginScreen.tscn" id="2_xkabq"]
-[ext_resource type="Script" path="res://Scenes/Main/World.gd" id="3_a6de7"]
-[ext_resource type="PackedScene" uid="uid://j8hi2okchhyx" path="res://Utils/DebugOverlay.tscn" id="3_dv8lm"]
-[ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://Character/ThirdPerson/SettingsUI/control_config.tscn" id="4_p87oy"]
-[ext_resource type="PackedScene" uid="uid://c8cjoh56b25jk" path="res://Character/ThirdPerson/Player.tscn" id="6_w2lpd"]
-[ext_resource type="PackedScene" uid="uid://b78vylyw2clvk" path="res://Character/ThirdPerson/OtherPlayer.tscn" id="7_g71u3"]
+[ext_resource type="Script" path="res://Core/Main/Client.gd" id="1_8xf8t"]
+[ext_resource type="PackedScene" uid="uid://b1umgopyfboxu" path="res://Core/Main/Login/LoginScreen.tscn" id="2_xkabq"]
+[ext_resource type="Script" path="res://Core/Main/World.gd" id="3_a6de7"]
+[ext_resource type="PackedScene" uid="uid://j8hi2okchhyx" path="res://Core/Utils/DebugOverlay.tscn" id="3_dv8lm"]
+[ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://Core/PlayerController/ThirdPerson/SettingsUI/control_config.tscn" id="4_p87oy"]
+[ext_resource type="PackedScene" uid="uid://c8cjoh56b25jk" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="6_w2lpd"]
+[ext_resource type="PackedScene" uid="uid://b78vylyw2clvk" path="res://Core/PlayerController/ThirdPerson/OtherPlayer.tscn" id="7_g71u3"]
 [ext_resource type="PackedScene" uid="uid://cy853d5jnlcn7" path="res://Maps/TestLevel/TestArea.tscn" id="8_jc6q2"]
-[ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Character/ThirdPerson/MainCamera.tscn" id="9_yoiwk"]
+[ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="9_yoiwk"]
 
 [node name="Client" type="Node"]
 script = ExtResource( "1_8xf8t" )
@@ -16,7 +16,6 @@ script = ExtResource( "1_8xf8t" )
 [node name="DebugOverlay" parent="." instance=ExtResource( "3_dv8lm" )]
 
 [node name="LoginScreen" parent="." instance=ExtResource( "2_xkabq" )]
-visible = false
 
 [node name="ControlConfig" parent="." instance=ExtResource( "4_p87oy" )]
 

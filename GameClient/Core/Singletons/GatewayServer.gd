@@ -11,7 +11,7 @@ var gateway_network : ENetMultiplayerPeer
 var gateway_api : MultiplayerAPI
 var ip := "127.0.0.1"
 var port := 1910
-var cert = load("res://Resources/Certificate/X509_Certificate.crt")
+var cert = load("res://Core/Certificate/X509_Certificate.crt")
 
 # these should have data only between GatewayServer connect and auth response:
 var username : String

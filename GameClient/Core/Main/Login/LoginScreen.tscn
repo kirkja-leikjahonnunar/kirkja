@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1umgopyfboxu"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Login/LoginScreen.gd" id="1_dgugm"]
-[ext_resource type="Shader" path="res://Scenes/Main/Login/screenblur.gdshader" id="2_hgm87"]
+[ext_resource type="Script" path="res://Core/Main/Login/LoginScreen.gd" id="1_dgugm"]
+[ext_resource type="Shader" path="res://Core/Main/Login/screenblur.gdshader" id="2_hgm87"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_loccu"]
 shader = ExtResource( "2_hgm87" )

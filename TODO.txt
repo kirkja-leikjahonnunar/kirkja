@@ -1,22 +1,25 @@
 TODO
 ====
 
-- GameClient needs to be able to cover from GameServer vanishing
+- GameClient:
+   - needs to be able to cover from GameServer vanishing
+   - debug latency updating.. not rendering at correct time equivalent?
+   - npcs/platforms/other moveable scene furniture must be network synced
+   - screen names, not just client ids
+
+- bug: windows sqlite not working Godot alpha 9
+
 - check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
+
 - for really fast stuff, lag compensation, do some extrapolate on some action to predict time sequence of actual clients
+
 - load balancing.. how to add/remove servers on the fly as clients come and go. Currently hardcoded to GameServer1. auth needs to return server url/port?
-- c++ optimizing
-- npcs
 
 - do we need server side map/collision? test?
-
-- Send world state to new clients on login
 
 - implement gameserver world database
 
 - despawning: typical is wait several seconds on user log off, turn off physics for player, so other clients can stay synced
- 
-- debug: seems like when gameserver is stopped and started, auth server errors
  
 - export port number across projects
 
@@ -24,10 +27,14 @@ TODO
 
 - loading scene progress bar?  ->  see: https://docs.godotengine.org/en/3.5/tutorials/io/background_loading.html
 
-- 2fa? sms? trust device from mac?
+- 2fa? sms? trust device from mac addr?
 
 - databases: see Game Development Center's discord for big discussion? See Sigrid's database modules for dbs other than sqlite
 
+- c++ optimizing if necessary at some point
+
+- DONE debug: seems like when gameserver is stopped and started, auth server errors
+- DONE Send world state to new clients on login
 - FIXED in G4a9: godot bug: timer.timeout warning about await not being needed: https://github.com/godotengine/godot/issues/58156
 - DONE FIXME: restarting game server should not make auth/gateway fault out
 - DONE implement register

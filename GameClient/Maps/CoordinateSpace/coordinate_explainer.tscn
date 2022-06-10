@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://bhnhsje7rslsi"]
 
-[ext_resource type="Script" path="res://Character/Tutorials/coordinate_explainer.gd" id="1_g6jeh"]
-[ext_resource type="PackedScene" uid="uid://c538b1rmlqtjs" path="res://Utils/DashedLine.tscn" id="2_l864b"]
-[ext_resource type="PackedScene" uid="uid://buhblc0dyl65i" path="res://Utils/Axes.tscn" id="3_b568w"]
+[ext_resource type="Script" path="res://Maps/CoordinateSpace/coordinate_explainer.gd" id="1_g6jeh"]
+[ext_resource type="PackedScene" uid="uid://c538b1rmlqtjs" path="res://Core/Utils/DashedLine.tscn" id="2_l864b"]
+[ext_resource type="PackedScene" uid="uid://buhblc0dyl65i" path="res://Core/Utils/Axes.tscn" id="3_b568w"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ggao5"]
 radius = 0.125

@@ -12,22 +12,22 @@ _global_script_classes=[{
 "base": "CharacterBody3D",
 "class": &"CharacterController",
 "language": &"GDScript",
-"path": "res://Character/ThirdPerson/CharacterController.gd"
+"path": "res://Core/PlayerController/ThirdPerson/CharacterController.gd"
 }, {
 "base": "Control",
 "class": &"ControlConfig",
 "language": &"GDScript",
-"path": "res://Character/ThirdPerson/SettingsUI/control_config.gd"
+"path": "res://Core/PlayerController/ThirdPerson/SettingsUI/control_config.gd"
 }, {
 "base": "Button",
 "class": &"KeyBindButton",
 "language": &"GDScript",
-"path": "res://Character/ThirdPerson/SettingsUI/KeyBindButton.gd"
+"path": "res://Core/PlayerController/ThirdPerson/SettingsUI/KeyBindButton.gd"
 }, {
 "base": "Node3D",
 "class": &"PlayerItem",
 "language": &"GDScript",
-"path": "res://Character/PlayerItems/PlayerItem.gd"
+"path": "res://Core/PlayerController/PlayerItems/PlayerItem.gd"
 }, {
 "base": "Area3D",
 "class": &"ProximityButton",
@@ -45,14 +45,14 @@ _global_script_class_icons={
 [application]
 
 config/name="GameClient"
-run/main_scene="res://Scenes/Main/Client.tscn"
+run/main_scene="res://Core/Main/Client.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
-GatewayServer="*res://Scenes/Singletons/GatewayServer.gd"
-GameServer="*res://Scenes/Singletons/GameServer.gd"
+GatewayServer="*res://Core/Singletons/GatewayServer.gd"
+GameServer="*res://Core/Singletons/GameServer.gd"
 
 [input]
 
