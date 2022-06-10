@@ -33,7 +33,7 @@ func _process(_delta):
 
 # return a transform with origin at from_point that has its Y axis toward to_point
 func AlignTransformY(from_point: Vector3, to_point: Vector3, 
-					trans: Transform3D, up: Vector3) -> Transform3D:
+					_trans: Transform3D, up: Vector3) -> Transform3D:
 	var new_y := -(to_point - from_point).normalized()
 	var new_x := new_y.cross(up)
 	var new_z := new_x.cross(new_y)

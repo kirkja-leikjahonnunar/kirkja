@@ -21,6 +21,7 @@ var register_on_connect : bool = false
 
 # this is called when login button pressed
 func ConnectToServer(_username: String, _password: String, register: bool):
+	print ("Connect to GatewayServer at ", ip,"/", port, "...")
 	gateway_network = ENetMultiplayerPeer.new()
 	gateway_api = MultiplayerAPI.new()
 	

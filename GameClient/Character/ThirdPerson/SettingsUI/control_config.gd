@@ -159,11 +159,11 @@ func SaveSettings(filename: String) -> bool:
 func SetBindingsFromCurrentLive():
 	print ("SetBindingsFromCurrentLive()...")
 	
-	print ("actions before: ", actions)
+	#print ("actions before: ", actions)
 	var cur_actions = InputMap.get_actions()
-	print ("cur_actions: ", cur_actions)
+	#print ("cur_actions: ", cur_actions)
 	for action in cur_actions:
-		print ("check action: ", action)
+		#print ("check action: ", action)
 		if action in actions:
 			var evs = InputMap.action_get_events(action)
 			if evs == null || evs.size() == 0:
@@ -173,19 +173,19 @@ func SetBindingsFromCurrentLive():
 				if evs[0] is InputEventKey:
 					actions[action]["device"] = DeviceType.KEY
 					actions[action]["index"] = evs[0].physical_keycode
-					print ("Grabbing key event: ", evs[0], ", keycode: ", evs[0].get_keycode(),
-						", kkm: ", evs[0].get_keycode_with_modifiers(),
-						#", kkstr: ", OS.get_keycode_string(evs[0])
-						)
+					#print ("Grabbing key event: ", evs[0], ", keycode: ", evs[0].get_keycode(),
+					#	", kkm: ", evs[0].get_keycode_with_modifiers(),
+					#	#", kkstr: ", OS.get_keycode_string(evs[0])
+					#	)
 				elif evs[0] is InputEventMouseButton:
 					actions[action]["device"] = DeviceType.MOUSE
 					actions[action]["index"] = evs[0].button_index
-					print ("Grabbing mouse event: ", evs[0], ", button: ", evs[0].get_button_index())
+					#print ("Grabbing mouse event: ", evs[0], ", button: ", evs[0].get_button_index())
 				elif evs[0] is InputEventJoypadButton:
 					actions[action]["device"] = DeviceType.PAD
 					actions[action]["index"] = evs[0].button_index
-					print ("Grabbing pad event: ", evs[0], ", button: ", evs[0].button_index)
-			print (actions[action])
+					#print ("Grabbing pad event: ", evs[0], ", button: ", evs[0].button_index)
+			#print (actions[action])
 
 
 # Set the bindings based on what is currently in project settings. Editor only.
@@ -250,7 +250,6 @@ func PopulateMenuWithBindings():
 			button.text = unassigned
 		else:
 			label.text = def["label"]
-			var type = def["device"]
 			match def.device:
 				DeviceType.KEY:
 					if def.index <= 0: button.text = unassigned

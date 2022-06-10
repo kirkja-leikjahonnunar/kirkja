@@ -96,7 +96,7 @@ func _physics_process(_delta):
 
 
 func UpdateWorldState(world_state):
-	print ("Updating world state: ", world_state)
+	#print ("Updating world state: ", world_state)
 	get_node("/root/Client/DebugOverlay").UpdateWorldState(world_state)
 	#print ("Got world state: ", world_state)
 	if world_state.T > last_world_state_time:

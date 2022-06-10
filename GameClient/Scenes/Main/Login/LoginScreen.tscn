@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1umgopyfboxu"]
+[gd_scene load_steps=5 format=3 uid="uid://b1umgopyfboxu"]
 
 [ext_resource type="Script" path="res://Scenes/Main/Login/LoginScreen.gd" id="1_dgugm"]
+[ext_resource type="Shader" path="res://Scenes/Main/Login/screenblur.gdshader" id="2_hgm87"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_loccu"]
+shader = ExtResource( "2_hgm87" )
+shader_param/amount = 4.032
+
+[sub_resource type="Texture2D" id="Texture2D_bdxle"]
+resource_local_to_scene = false
+resource_name = ""
 
 [node name="LoginScreen" type="Control"]
 anchor_right = 1.0
@@ -12,6 +21,19 @@ script = ExtResource( "1_dgugm" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainLoginWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+color = Color(0.203922, 0.0745098, 0.431373, 0.580392)
+metadata/_edit_layout_mode = 1
+
+[node name="BlurRect" type="TextureRect" parent="MainLoginWindow"]
+material = SubResource( "ShaderMaterial_loccu" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( "Texture2D_bdxle" )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLoginWindow"]
 anchor_left = 0.5
@@ -61,6 +83,31 @@ text = "Register"
 offset_top = 105.0
 offset_right = 186.0
 offset_bottom = 128.0
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLoginWindow/VBoxContainer"]
+minimum_size = Vector2(0, 15)
+offset_top = 132.0
+offset_right = 186.0
+offset_bottom = 147.0
+
+[node name="IP" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
+offset_top = 151.0
+offset_right = 186.0
+offset_bottom = 182.0
+
+[node name="Label" type="Label" parent="MainLoginWindow/VBoxContainer/IP"]
+offset_top = 2.0
+offset_right = 15.0
+offset_bottom = 28.0
+text = "IP"
+
+[node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/IP"]
+minimum_size = Vector2(10, 0)
+offset_left = 19.0
+offset_right = 186.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="MainLoginWindow/VBoxContainer/HBoxContainer/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="MainLoginWindow/VBoxContainer/HBoxContainer/Register" to="." method="_on_register_pressed"]
