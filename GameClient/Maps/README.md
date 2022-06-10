@@ -1,2 +1,2 @@
 # Maps
-The **Maps** folder contains the scenes needed to load in the Kirkja world. The map scenes are comprised of smaller scenes from the **"Classes"** folder.
+The **Maps** folder contains Godot scenes that act as levels. Maps are loaded as and unloaded as needed as we travel around the Kirkja world. Level editors should build maps using Entities.
