@@ -1,5 +1,7 @@
-# Class: Body
-Bodies are a entities that voidlings may inhabit with the proper incentive.
+# Body Overview
+The **Body** is an inhabitable entity that a [Voidling](../Voidling) may request control. The amount of control depends on various factors. 
+
+inhabit with the proper incentive.
 Some Body classes may be inhabited by multiple voidlings.
 
 ## Params

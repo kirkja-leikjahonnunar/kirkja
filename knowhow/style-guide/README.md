@@ -1,23 +1,33 @@
-# How best to be understood on different platforms.
+# Style Guide Overview
+# Markdown Patterns
+In an attempt to stay consistent early on...
 
-## GitHub.com Markdown
+## Legend
+`Godot` > `SceneName` > `NodeName`
+- ParamName: `value`
+- Text: `"A awesome string!"`
+- Position.x: `1.5`
 
 ### General Rules
-Use the `codeword` markdown to denote:
+Use the `code` markdown to denote:
 - Keyboard shortcuts.
 - Object classes.
 - Variable names.
+- Open an app to a certain UI location.
 
-### Shortcuts in Browser
+
+# How best to be understood on different platforms.
+
+## Firefox > GitHub.com Markdown
+### Formatting Shortcuts
 - Bold:  `Ctrl` + `B`
 - Italic: `Ctrl` + `I`
 - Codeword: `Ctrl` + `E`
 
 
 ## Discord Markdown
-
-### Shortcuts
-Discord has markdown options for:
+### Formatting Shortcuts
+Once we have our text selected:
 - Bold: `Ctrl` + `B`
 - Italic: `Ctrl` + `I`
 - Underline: `Ctrl` + `U`
