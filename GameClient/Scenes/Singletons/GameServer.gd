@@ -74,7 +74,7 @@ func LatencyResponse(client_time):
 #------------------------------------------------------------
 
 func SendPlayerState(player_state):
-	print ("GameServer.SendPlayerState: ", player_state)
+	#print ("GameServer.SendPlayerState: ", player_state)
 	if game_server_network.host != null:
 		rpc_id(1, "ReceivePlayerState", player_state)
 
@@ -96,7 +96,7 @@ func ReceiveWorldState(world_state):
 #------------------------------------------------------------
 
 func ConnectToServer():
-	print ("Attempting to connect to game server...")
+	print ("Attempting to connect to game server at ", ip, "/", port, "...")
 	game_server_network.create_client(ip, port)
 	multiplayer.set_multiplayer_peer(game_server_network)
 	

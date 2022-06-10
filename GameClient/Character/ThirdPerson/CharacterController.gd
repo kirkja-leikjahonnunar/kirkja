@@ -148,14 +148,14 @@ func _physics_process(delta):
 	AlignPlayerToUp()
 	
 	
-	var dpos = position
+	#var dpos = position
 	#velocity.move_toward(target_velocity, .5)
 	var vertical_v = (velocity.dot(up_direction)) * up_direction
 	velocity = vertical_v + target_velocity.lerp(velocity - vertical_v, .1) #note: velocity can't move_toward like a normal vector3
 	#print ("velocity: ", velocity, ",  target velocity: ", target_velocity)
 	#velocity.move_toward(global_transform.basis * target_velocity, .5)
 	move_and_slide()
-	dpos -= position # this is world coordinates change in position
+	#dpos -= position # this is world coordinates change in position
 	
 	DefinePlayerState()
 
@@ -445,7 +445,7 @@ func SetNameFromId(game_client_id):
 
 
 #TODO: this might be used if all collision processing is done on server
-func MovePlayer(pos, rot, rot2):
+func MovePlayer(_pos, _rot, _rot2):
 	pass
 	#global_transform.origin = pos
 	#global_transform.basis = Basis(rot)

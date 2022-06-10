@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8cjoh56b25jk"]
+[gd_scene load_steps=12 format=3 uid="uid://c8cjoh56b25jk"]
 
 [ext_resource type="Script" path="res://Character/ThirdPerson/CharacterController.gd" id="1_n2afy"]
 [ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://icon.png" id="2_px22e"]
@@ -30,6 +30,9 @@ albedo_color = Color(0.47451, 0.988235, 0.988235, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t6c4u"]
 radius = 0.1
+
+[sub_resource type="SkeletonModificationStack3D" id="SkeletonModificationStack3D_pasfa"]
+modification_count = 1
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 7
@@ -107,3 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91886, 0)
 billboard = 1
 no_depth_test = true
 text = "<name>"
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+modification_stack = SubResource( "SkeletonModificationStack3D_pasfa" )
