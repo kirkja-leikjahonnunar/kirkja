@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://kgmxcal0ugs0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3epbx"]
+
+[node name="DeadEnd" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35363, 0, 0, 0, 1, 0, 0, 0, 1.76512, -2.95576, 0, 1.22123)
+mesh = SubResource( "BoxMesh_3epbx" )
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.54576e-08, 0, -1.76512, 0, 1, 0, 0.35363, 0, -7.71558e-08, -2.0793, 0, 0.339888)
+mesh = SubResource( "BoxMesh_3epbx" )
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.35363, 0, 1.54312e-07, 0, 1, 0, -3.09153e-08, 0, -1.76512, -0.644518, 0, 1.18931)
+mesh = SubResource( "BoxMesh_3epbx" )
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.274242, 0, -1.11439, 0, 1, 0, 0.22326, 0, -1.36886, -0.0927733, 0, 2.54568)
+mesh = SubResource( "BoxMesh_3epbx" )

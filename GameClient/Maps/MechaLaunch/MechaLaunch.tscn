@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://c75eutpc4sfeb"]
+
+[ext_resource type="PackedScene" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="1_7v357"]
+[ext_resource type="Material" uid="uid://flbf0inxdsxk" path="res://Materials/GridTriplanarWorld.tres" id="2_f5uog"]
+[ext_resource type="Texture2D" uid="uid://bwg2cbx3udt4v" path="res://Materials/GridBlock.png" id="3_6bmtg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb3l7"]
+albedo_color = Color(0.921569, 0.94902, 0.160784, 1)
+albedo_texture = ExtResource( "3_6bmtg" )
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1lkj"]
+albedo_color = Color(0.94902, 0.235294, 0.901961, 1)
+albedo_texture = ExtResource( "3_6bmtg" )
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_linmy"]
+albedo_color = Color(0.815686, 0.823529, 0, 1)
+albedo_texture = ExtResource( "3_6bmtg" )
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="MechaLaunch" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource( "1_7v357" )]
+
+[node name="Spawn" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.500177, 0)
+material_override = ExtResource( "2_f5uog" )
+use_collision = true
+size = Vector3(16, 1, 16)
+
+[node name="Explore6" type="CSGBox3D" parent="Spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 3.50018, 8)
+use_collision = true
+size = Vector3(1, 6, 32)
+
+[node name="Explore8" type="CSGBox3D" parent="Spawn"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.5, -8.5)
+use_collision = true
+size = Vector3(1, 6, 16)
+
+[node name="Explore7" type="CSGBox3D" parent="Spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3.50018, 0)
+use_collision = true
+size = Vector3(1, 6, 16)
+
+[node name="Explore" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.500177, 16)
+material_override = SubResource( "StandardMaterial3D_xb3l7" )
+use_collision = true
+size = Vector3(16, 1, 16)
+
+[node name="Explore3" type="CSGBox3D" parent="Explore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3.50018, 4)
+use_collision = true
+size = Vector3(1, 6, 6)
+
+[node name="Explore4" type="CSGBox3D" parent="Explore"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.50018, 7.5)
+use_collision = true
+size = Vector3(1, 6, 16)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Explore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+radius = 4.0
+sides = 24
+
+[node name="Explore2" type="CSGBox3D" parent="Explore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3.50018, -5)
+use_collision = true
+size = Vector3(1, 6, 6)
+
+[node name="Explore5" type="CSGBox3D" parent="Explore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.50018, -0.5)
+use_collision = true
+size = Vector3(1, 2, 1)
+
+[node name="MechaChamber" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -0.500177, 16)
+material_override = SubResource( "StandardMaterial3D_y1lkj" )
+use_collision = true
+size = Vector3(16, 1, 16)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 0, 11)
+material_override = SubResource( "StandardMaterial3D_linmy" )
+polygon = PackedVector2Array(-2, 0, 0, 2, 2, 3, 6, 0)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -18, 0, 22)
+material_override = SubResource( "StandardMaterial3D_linmy" )
+polygon = PackedVector2Array(-2, 0, 0, 2, 2, 3, 6, 0)

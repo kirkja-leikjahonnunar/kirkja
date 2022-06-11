@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8cjoh56b25jk"]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/CharacterController.gd" id="1_n2afy"]
-[ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://icon.png" id="2_px22e"]
+[ext_resource type="Texture2D" path="res://Core/icon.png" id="2_px22e"]
 [ext_resource type="Script" path="res://Core/PlayerController/PlayerItems/SprayGun/SprayCast.gd" id="3_tsg1e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_veaop"]
