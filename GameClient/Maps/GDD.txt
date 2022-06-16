@@ -1,2 +1,2 @@
-# Good Game Patterns
-
+# Game Design Patterns
+- Persisant but not permanent
