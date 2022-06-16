@@ -1,2 +1,2 @@
 # Game Design Patterns
-- Persisant but not permanent
+- Persistant but not permanent
