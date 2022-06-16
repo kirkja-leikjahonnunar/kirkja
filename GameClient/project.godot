@@ -46,8 +46,8 @@ _global_script_class_icons={
 
 config/name="GameClient"
 run/main_scene="res://Core/Main/Client.tscn"
-config/icon="res://Core/icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://Core/icon.png"
 
 [autoload]
 

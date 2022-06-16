@@ -1,3 +1,3 @@
 # Game Design Patterns
-- Persistant but not permanent
+- Persistent but not permanent
 - Ham-ha! It's me Lilly!
