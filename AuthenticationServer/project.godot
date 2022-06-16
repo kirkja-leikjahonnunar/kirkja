@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="AuthenticationServer"
-run/main_scene="res://Scenes/Main/AuthenticationServer.tscn"
+run/main_scene="res://Main/AuthenticationServer.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
-PlayerData="*res://Scenes/Singletons/PlayerData.gd"
-GameServers="*res://Scenes/Singletons/GameServers.gd"
+PlayerData="*res://Singletons/PlayerData.gd"
+GameServers="*res://Singletons/GameServers.gd"
 
 [editor_plugins]
 

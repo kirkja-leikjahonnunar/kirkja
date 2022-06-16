@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bstqcmco4tofd"]
+[gd_scene load_steps=7 format=3 uid="uid://vwkbrsq25sqt"]
 
-[ext_resource type="Script" path="res://Scenes/Instances/ServerPlayer.gd" id="1_k32rx"]
-[ext_resource type="Material" uid="uid://bmunos66uirmo" path="res://Scenes/Instances/player_material.tres" id="2_aywpy"]
+[ext_resource type="Script" path="res://GameServer/Instances/ServerPlayer.gd" id="1_j1kcg"]
+[ext_resource type="Material" path="res://GameServer/Instances/player_material.tres" id="2_5faig"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_clibp"]
 resource_local_to_scene = true
-material = ExtResource( "2_aywpy" )
+material = ExtResource( "2_5faig" )
 radius = 0.25
 height = 1.5
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6x1ii"]
-material = ExtResource( "2_aywpy" )
+material = ExtResource( "2_5faig" )
 top_radius = 0.0
 bottom_radius = 0.1
 height = 0.25
@@ -23,7 +23,7 @@ material = SubResource( "StandardMaterial3D_w2byt" )
 text = "<name>"
 
 [node name="ServerPlayer" type="CharacterBody3D"]
-script = ExtResource( "1_k32rx" )
+script = ExtResource( "1_j1kcg" )
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754101, 0)

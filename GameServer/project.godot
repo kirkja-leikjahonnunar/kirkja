@@ -12,17 +12,17 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"GameDatabase",
 "language": &"GDScript",
-"path": "res://Scenes/Singletons/GameDatabase.gd"
+"path": "res://GameServer/Singletons/GameDatabase.gd"
 }, {
 "base": "Node",
 "class": &"GameServer",
 "language": &"GDScript",
-"path": "res://Scenes/Main/GameServer.gd"
+"path": "res://GameServer/Main/GameServer.gd"
 }, {
 "base": "Node",
 "class": &"PlayerVerification",
 "language": &"GDScript",
-"path": "res://Scenes/Main/PlayerVerification.gd"
+"path": "res://GameServer/Main/PlayerVerification.gd"
 }]
 _global_script_class_icons={
 "GameDatabase": "",
@@ -33,13 +33,13 @@ _global_script_class_icons={
 [application]
 
 config/name="GameServer"
-run/main_scene="res://Scenes/Main/GameServer.tscn"
+run/main_scene="res://GameServer/Main/GameServer.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
-HubConnection="*res://Scenes/Singletons/HubConnection.gd"
+HubConnection="*res://GameServer/Singletons/HubConnection.gd"
 
 [physics]
 

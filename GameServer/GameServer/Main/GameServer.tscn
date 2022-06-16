@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3sphtegc8uwx"]
+[gd_scene load_steps=9 format=3 uid="uid://fyj0q1pj2f62"]
 
-[ext_resource type="Script" path="res://Scenes/Main/GameServer.gd" id="1_7h12j"]
-[ext_resource type="Script" path="res://Scenes/Main/PlayerVerification.gd" id="2_d15g5"]
-[ext_resource type="Script" path="res://Scenes/Main/StateProcessing.gd" id="3_51ths"]
-[ext_resource type="Script" path="res://Scenes/Main/World.gd" id="4_77d3x"]
-[ext_resource type="PackedScene" uid="uid://c7lmd2nk75oys" path="res://Maps/TestLevel/TestArea.tscn" id="5_i7lnq"]
+[ext_resource type="Script" path="res://GameServer/Main/GameServer.gd" id="1_01c0a"]
+[ext_resource type="Script" path="res://GameServer/Main/PlayerVerification.gd" id="2_hibtb"]
+[ext_resource type="Script" path="res://GameServer/Main/StateProcessing.gd" id="3_e68no"]
+[ext_resource type="Script" path="res://GameServer/Main/World.gd" id="4_xrq02"]
+[ext_resource type="PackedScene" uid="uid://c7lmd2nk75oys" path="res://Maps/TestLevel/TestArea.tscn" id="5_6durd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_81cvc"]
 
@@ -16,10 +16,10 @@ background_mode = 2
 sky = SubResource( "Sky_qq3uq" )
 
 [node name="GameServer" type="Node"]
-script = ExtResource( "1_7h12j" )
+script = ExtResource( "1_01c0a" )
 
 [node name="PlayerVerification" type="Node" parent="."]
-script = ExtResource( "2_d15g5" )
+script = ExtResource( "2_hibtb" )
 
 [node name="VerificationExpiration" type="Timer" parent="PlayerVerification"]
 wait_time = 10.0
@@ -30,14 +30,14 @@ wait_time = 10.0
 autostart = true
 
 [node name="StateProcessing" type="Node" parent="."]
-script = ExtResource( "3_51ths" )
+script = ExtResource( "3_e68no" )
 
 [node name="World" type="Node3D" parent="."]
-script = ExtResource( "4_77d3x" )
+script = ExtResource( "4_xrq02" )
 
 [node name="Players" type="Node3D" parent="World"]
 
-[node name="Map" parent="World" instance=ExtResource( "5_i7lnq" )]
+[node name="Map" parent="World" instance=ExtResource( "5_6durd" )]
 
 [node name="Camera3D" type="Camera3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.897751, 0.440503, 0, -0.440503, 0.897751, 9.53674e-07, 6.29747, 11.9081)

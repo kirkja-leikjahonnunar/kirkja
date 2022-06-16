@@ -5,7 +5,7 @@ class_name GameServer
 # GameServer on GameServer project. GameClients will connect with this.
 #note: this is a singleton!
 
-@onready var server_player_scene := preload("res://Scenes/Instances/ServerPlayer.tscn")
+@onready var server_player_scene := preload("res://GameServer/Instances/ServerPlayer.tscn")
 
 var network := ENetMultiplayerPeer.new()
 var port := 1909
@@ -211,4 +211,55 @@ func SendWorldState(world_state):
 
 # This is implemented on GameClient
 @rpc(unreliable) func ReceiveWorldState(_world_state): pass
+
+
+#----------------- One off scene events ------------------------
+
+var scene_events = {}
+
+# This is called on particular scene events from GameClient, such as a
+# switch being flipped.
+@rpc(any_peer)
+func ReceiveSyncEvent(node_path, state):
+	var game_client_id = multiplayer.get_remote_sender_id()
+	print("Receieved sync event: ", node_path, ": ", state)
+	if scene_events.has(node_path):
+		if scene_events[node_path].T < state.T:
+			scene_events[node_path] = state
+	else:
+		scene_events[node_path] = state
+
+
+# This is called from StateProcessing._physics_process().
+# These are queued single events from things that do not change continuously
+# nor require any interpolation.
+# scene_events will be cleared afterward.
+func SendSceneEvents():
+	if scene_events.size() > 0:
+		rpc_id(0, "ReceiveSceneEvents", scene_events)
+		scene_events = {}
+
+# This is implemented on GameClient
+@rpc func ReceiveSceneEvents(_events): pass
+
+
+#------------------------------------------------------------------------------
+# Scene furniture data syncing
+#------------------------------------------------------------------------------
+
+var switches = {} # key is node.name.hash() for easy access and net transmission
+
+func GetScenePathFromNode(node: Node):
+	push_error("fixme")
+	return node.get_path()
+
+func RegisterSwitch(node: Node):
+	var path = GetScenePathFromNode(node)
+	var hash = String(path).hash()
+	switches[hash] = { "node": node, "d": {} }
+
+func UnregisterSwitch(node: Node):
+	var path = GetScenePathFromNode(node)
+	var hash = String(path).hash()
+	switches.erase(hash)
 

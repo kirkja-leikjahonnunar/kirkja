@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf2k6on2e8lfb"]
-
-[ext_resource type="Script" path="res://Scenes/Main/AuthenticationServer.gd" id="1_sv3yl"]
-
-[node name="AuthenticationServer" type="Node"]
-script = ExtResource( "1_sv3yl" )
