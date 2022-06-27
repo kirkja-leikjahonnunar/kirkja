@@ -6,7 +6,7 @@ var body_near
 
 func _process(_delta):
 	if body_near:
-		#TODO: this should be part of the character controller, else too much process
+		#TODO: this should be part of the character controller or some other singular input pipeline
 		if Input.is_action_just_pressed("char_use2"):
 			Use()
 

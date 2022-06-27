@@ -2,14 +2,24 @@ TODO
 ====
 
 - GameClient:
+   - finish implementing log off
    - needs to be able to cover from GameServer vanishing
    - debug latency updating.. not rendering at correct time equivalent?
    - npcs/platforms/other moveable scene furniture must be network synced
    - screen names, not just client ids
+   - DONE while playing: esc to bring up menu, then esc closes menu (not quit). have button to quit
 
-- bug: windows sqlite not working Godot alpha 9
+- networking:
+   - double check player crash despawn race conditions
+   - reset the latency clock every day or so, otherwise latency diffs get too divergent from reality
+   - record current server of player in db? last login/logoff time?
+   - record accumulated time played
 
-- check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
+- we should have bad language filter for screen names, ANY other player input
+
+- bug: windows sqlite not working Godot alpha 9, not working anywhere with Alpha 10
+
+- extra security: check that server calling funcs is actually id == 1 for EVERY client func... does @rpc cover that?
 
 - for really fast stuff, lag compensation, do some extrapolate on some action to predict time sequence of actual clients
 
@@ -50,6 +60,10 @@ NOTES
 - password hashing: 
       slow: bcrypt, scrypt, lyra2, argon2  <-  not integrated in godot
       fast: sha, sha2
+
+Research
+--------
+- Godot voice over ip: https://github.com/c-as/godot-voip
 
 
 Unanswered Questions
@@ -107,4 +121,10 @@ in filesystem panel, add new scene, creates new scene but does not save immediat
 Script editor:
   when you collapse the file list, should still show current file name, maybe on the collapse bar (currently just dead space)
   need better script file navigation, ie next file/ prev file
+
+
+BLENDER GRIPES
+--------------
+- The post action panel that shows up only right after a tool (like add mesh) could be more meaningful, or just be a modifier instead
+
 

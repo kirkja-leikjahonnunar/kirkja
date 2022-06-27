@@ -41,6 +41,10 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 HubConnection="*res://GameServer/Singletons/HubConnection.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+
 [physics]
 
 common/physics_ticks_per_second=20

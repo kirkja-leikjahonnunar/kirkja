@@ -14,7 +14,7 @@ var awaiting_verification = {}
 func Start(game_client_id):
 	awaiting_verification[game_client_id] = { "Timestamp": Time.get_unix_time_from_system() }
 	game_server.FetchPlayerToken(game_client_id)
-	print(awaiting_verification, "________________")
+	print("Awaiting verification: ", awaiting_verification, "------------")
 
 
 
@@ -66,8 +66,7 @@ func _on_verification_expiration_timeout():
 				awaiting_verification.erase(key)
 				var connected_peers = Array(multiplayer.get_peers())
 				if connected_peers.has(key):
-					game_server.VerificationResponse(key, false)
-					#TODO: check that net sends before being disconnected:
+					game_server.VerificationResponse(key, false, null)
 					game_server.network.get_peer(key).peer_disconnect()
 	if awaiting_verification.size() > 0:
 		print("After verification timeout, still Awaiting verification:")

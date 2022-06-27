@@ -7,9 +7,7 @@ func _ready():
 	print ("test deferred")
 
 func StartFresh():
-	$LoginScreen.visible = true
-	$ControlConfig.visible = false
+	#$LoginScreen.visible = true
+	#$ControlConfig.visible = false
+	$PauseMenu.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass

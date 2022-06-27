@@ -18,6 +18,8 @@ var username : String
 var password : String
 var register_on_connect : bool = false
 
+var loginscreen_path = "/root/Client/LoginScreen"
+
 
 # this is called when login button pressed
 func ConnectToServer(_username: String, _password: String, register: bool):
@@ -41,7 +43,7 @@ func ConnectToServer(_username: String, _password: String, register: bool):
 
 func connection_failed():
 	print ("Client connection to gateway failed!")
-	get_node("/root/Client/LoginScreen").ConnectionFailed()
+	get_node(loginscreen_path).GatewayConnectionFailed()
 
 
 func connection_succeeded():
@@ -52,7 +54,9 @@ func connection_succeeded():
 		RequestLogin()
 
 
+#---------------------------------------------------------------------------
 #---------------------------- Logging in -----------------------------------
+#---------------------------------------------------------------------------
 
 func RequestLogin():
 	print ("calling GatewayServer to request login")
@@ -62,7 +66,7 @@ func RequestLogin():
 	password = ""
 
 
-# this is called from GatewayServer
+# this is called from GatewayServer, after username and password are verified.
 @rpc
 func LoginRequestResponse(result: bool, game_client_id: int, token: String):
 	print ("Auth result for ", game_client_id, ": ", result)
@@ -70,10 +74,9 @@ func LoginRequestResponse(result: bool, game_client_id: int, token: String):
 	if result == true:
 		GameServer.token = token
 		GameServer.ConnectToServer()
-		get_node("/root/Client/LoginScreen").LoginSucceeded()
 	else:
 		print ("Incorrect login information")
-		get_node("/root/Client/LoginScreen").LoginRejected()
+		get_node(loginscreen_path).LoginRejected()
 	
 	gateway_network.connection_failed.disconnect(connection_failed)
 	gateway_network.connection_succeeded.disconnect(connection_succeeded)
@@ -83,7 +86,9 @@ func LoginRequestResponse(result: bool, game_client_id: int, token: String):
 @rpc(any_peer) func LoginRequest(_username: String, _password: String): pass
 
 
-#---------------------------- New Account Creation -----------------------------------
+#------------------------------------------------------------------------------
+#---------------------------- New Account Creation ----------------------------
+#------------------------------------------------------------------------------
 
 # note: these MUST sync up with messages on AuthenticationServer project!!
 enum CREATEACCOUNT { Success=1, UserExists=2, AuthInternalError=3 }
@@ -108,5 +113,5 @@ func CreateAccountResponse(result: bool, message: int):
 		CREATEACCOUNT.Success: msg = "Registered! Please log in."
 		CREATEACCOUNT.UserExists: msg = "User exists."
 		CREATEACCOUNT.AuthInternalError: msg = "Could not register, please tell devs to document errors better."
-	get_node("/root/Client/LoginScreen").CreateAccountResults(result, msg)
+	get_node(loginscreen_path).CreateAccountResults(result, msg)
 

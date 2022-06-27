@@ -9,9 +9,15 @@ var port := 1909
 
 var token : String # this gets generated originally by the auth server
 
+enum OnlineState { Offline, LoggingOn, Online }
+var online_state = OnlineState.Offline
 
-func _ready():
-	pass
+
+signal logon_initiated
+signal logon_failed
+signal gameserver_dropped
+signal logged_on
+signal logged_off
 
 
 #------------------------------------------------------------------
@@ -49,8 +55,7 @@ func RequestLatency():
 @rpc(any_peer) func LatencyRequest(_client_time): pass
 
 # This is returned from GameServer, after RequestLatency().
-@rpc
-func LatencyResponse(client_time):
+@rpc func LatencyResponse(client_time):
 	latency_array.append((Time.get_unix_time_from_system() - client_time)/2)
 	if latency_array.size() == 9:
 		var total_latency := 0.0
@@ -75,20 +80,36 @@ func LatencyResponse(client_time):
 
 func SendPlayerState(player_state):
 	#print ("GameServer.SendPlayerState: ", player_state)
-	if game_server_network.host != null:
-		rpc_id(1, "ReceivePlayerState", player_state)
+	if online_state != OnlineState.Offline:
+		if game_server_network.host != null:
+			rpc_id(1, "ReceivePlayerState", player_state)
 
 # This is implemented on GameServer
-@rpc(any_peer, unreliable)
-func ReceivePlayerState(_player_state): pass
+@rpc(any_peer, unreliable) func ReceivePlayerState(_player_state): pass
 
 
 # This is called from GameServer
-@rpc(unreliable)
-func ReceiveWorldState(world_state):
+@rpc(unreliable) func ReceiveWorldState(world_state):
 	#print ("Received world state: ", world_state)
 	get_node("/root/Client/World").UpdateWorldState(world_state)
 	print("Server time: ", world_state.T, ",  client clock: ", client_clock, ",  diff: ", world_state.T - client_clock)
+
+
+# Send individual, occasional scene events, like flipping a switch. 
+# data should be a dictionary: { "T": timestamp, "data": data }
+func SendSyncEvent(node_path, data):
+	if online_state == OnlineState.Online:
+		if game_server_network.host != null: #TODO: figure out errors this throws when not online
+			rpc_id(1, "ReceiveSyncEvent", node_path, data)
+
+# This is implemented on GameServer
+@rpc(any_peer) func ReceiveSyncEvent(_node_path, _state): pass
+
+@rpc func ReceiveSceneEvents(events):
+	print ("Received scene events: ", events)
+	for path in events:
+		var node = get_node("/root/Client/World/Map/Environment/"+path)
+		node.SyncFromNetwork(events[path].data)
 
 
 #------------------------------------------------------------
@@ -103,12 +124,15 @@ func ConnectToServer():
 	game_server_network.connection_failed.connect(connection_failed)
 	game_server_network.connection_succeeded.connect(connection_succeeded)
 	game_server_network.server_disconnected.connect(server_disconnected)
-
 	
+	logon_initiated.emit()
+
+
 func connection_failed():
 	print ("GameServer Connection failed!")
 	game_server_network.connection_failed.disconnect(connection_failed)
 	game_server_network.connection_succeeded.disconnect(connection_succeeded)
+	logon_failed.emit()
 
 
 func connection_succeeded():
@@ -127,10 +151,12 @@ func connection_succeeded():
 
 func server_disconnected():
 	print ("GameServer disconnected!")
-	get_node("/root/Client/LoginScreen").GameServerDropped() #visible = true
+	#get_node("/root/Client/LoginScreen").GameServerDropped() #visible = true
 	get_node("/root/Client/DebugOverlay").UpdateClientId(-1)
 	get_node("LatencyTimer").queue_free()
-	push_error("TODO server loss, need to stop scene from playing, maybe try to reconnect before that?")
+	logged_off.emit()
+	gameserver_dropped.emit()
+	push_error("TODO server loss, need to stop scene from playing, maybe try to reconnect before that?") #FIXME
 
 
 # This is implemented on the GameServer
@@ -138,15 +164,13 @@ func server_disconnected():
 
 
 # This is a time ping returned from GameServer right after initial network connected.
-@rpc
-func ServerTimeResponse(server_time, client_time):
+@rpc func ServerTimeResponse(server_time, client_time):
 	latency = (Time.get_unix_time_from_system() - client_time)/2
 	client_clock = server_time + latency
 
 
 # this is called from a GameServer
-@rpc
-func PlayerTokenRequest():
+@rpc func PlayerTokenRequest():
 	print ("Got PlayerTokenRequest from GameServer, sending response")
 	rpc_id(1, "PlayerTokenResponse", token)
 
@@ -155,31 +179,49 @@ func PlayerTokenRequest():
 
 
 # this is called from GameServer
-@rpc
-func VerificationResponseToClient(is_authorized):
+@rpc func VerificationResponseToClient(is_authorized):
 	print ("GameServer says authorized: ", is_authorized)
 	if is_authorized:
-		get_node("/root/Client/LoginScreen").visible = false
+		#get_node("/root/Client/LoginScreen").visible = false
 		get_node("/root/Client/DebugOverlay").UpdateClientId(multiplayer.get_unique_id())
-		print ("We have lift off!")
+		print ("Logon successful. We have lift off!")
+		logged_on.emit()
+		#TODO: Retrieve last login info
 	else:
 		print ("Login failed, please try again!")
-		get_node("/root/Client/LoginScreen").LoginRejectedFromGameServer()
+		#get_node("/root/Client/LoginScreen").LoginRejectedFromGameServer()
+		logon_failed.emit()
 
 
 #------------------------------------------------------------
 #------------------ Player Node Maintenance -----------------
 #------------------------------------------------------------
 
-@rpc
-func DespawnPlayer(game_client_id):
+@rpc func DespawnPlayer(game_client_id):
 	print ("GameServer says to despawn: ", game_client_id)
 	get_node("/root/Client/World").DespawnPlayer(game_client_id)
 
-@rpc
-func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3, spawn_rotation: Quaternion):
+@rpc func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3, spawn_rotation: Quaternion):
 	print ("GameServer says to spawn player ", game_client_id, " at ", spawn_point, ", rot: ", spawn_rotation)
 	get_node("/root/Client/World").SpawnNewPlayer(game_client_id, spawn_point, spawn_rotation)
+
+func SpawnOfflinePlayer(spawn_point: Vector3, spawn_rotation: Quaternion):
+	print ("Spawning offline player", " at ", spawn_point, ", rot: ", spawn_rotation)
+	get_node("/root/Client/World").SpawnOfflinePlayer(spawn_point, spawn_rotation)
+
+
+#------------------------------------------------------------
+#------------------ Player DB retrieval ---------------------
+#------------------------------------------------------------
+
+
+# This is implemented on GameServer.
+@rpc(any_peer) func PlayerDBRequest(_stuff, _qualifier): pass
+
+
+# this is implemented on GameClient, and is the response to PlayerDBRequest.
+@rpc func PlayerDBResponse(data):
+	print ("game db response: ", data)
 
 
 #------------------------------------------------------------
@@ -196,8 +238,7 @@ func RequestPlayerData(what: String, requestor: int):
 
 
 # this is called by the GameServer
-@rpc
-func PlayerDataResponse(what:String, data, requestor:int):
+@rpc func PlayerDataResponse(what:String, data, requestor:int):
 	print("client received response: ", what, ", data: ", data, ", requestor: ", requestor)
 	instance_from_id(requestor).DataReceived(what, data)
 

@@ -1,15 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1umgopyfboxu"]
+[gd_scene load_steps=3 format=3 uid="uid://b1umgopyfboxu"]
 
 [ext_resource type="Script" path="res://Core/Main/Login/LoginScreen.gd" id="1_dgugm"]
-[ext_resource type="Shader" path="res://Core/Main/Login/screenblur.gdshader" id="2_hgm87"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_loccu"]
-shader = ExtResource( "2_hgm87" )
-shader_param/amount = 4.032
-
-[sub_resource type="Texture2D" id="Texture2D_bdxle"]
-resource_local_to_scene = false
-resource_name = ""
+[ext_resource type="PackedScene" uid="uid://b32t1figv0qlx" path="res://Core/Settings/OverlayHaze.tscn" id="2_jtds1"]
 
 [node name="LoginScreen" type="Control"]
 anchor_right = 1.0
@@ -22,92 +14,133 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="MainLoginWindow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-color = Color(0.203922, 0.0745098, 0.431373, 0.580392)
-metadata/_edit_layout_mode = 1
-
-[node name="BlurRect" type="TextureRect" parent="MainLoginWindow"]
-material = SubResource( "ShaderMaterial_loccu" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( "Texture2D_bdxle" )
+[node name="OverlayHaze" parent="MainLoginWindow" instance=ExtResource( "2_jtds1" )]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLoginWindow"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -66.5
-offset_right = 93.0
-offset_bottom = 66.5
+offset_left = -138.0
+offset_top = -91.0
+offset_right = 141.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = false
 
-[node name="Username" type="LineEdit" parent="MainLoginWindow/VBoxContainer"]
-offset_right = 186.0
+[node name="BackToLogin" type="Button" parent="MainLoginWindow/VBoxContainer"]
+offset_left = 171.0
+offset_right = 279.0
 offset_bottom = 31.0
+size_flags_horizontal = 8
+text = "Back to login"
+
+[node name="Username" type="LineEdit" parent="MainLoginWindow/VBoxContainer"]
+offset_top = 35.0
+offset_right = 279.0
+offset_bottom = 66.0
 text = "user1"
 
 [node name="Password" type="LineEdit" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 35.0
-offset_right = 186.0
-offset_bottom = 66.0
+offset_top = 70.0
+offset_right = 279.0
+offset_bottom = 101.0
 text = "1234"
 secret = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 70.0
-offset_right = 186.0
-offset_bottom = 101.0
+[node name="RegisterScreenName" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
+editor_description = "Only visible during Register"
+offset_top = 105.0
+offset_right = 279.0
+offset_bottom = 136.0
 
-[node name="Login" type="Button" parent="MainLoginWindow/VBoxContainer/HBoxContainer"]
-offset_right = 91.0
+[node name="Label" type="Label" parent="MainLoginWindow/VBoxContainer/RegisterScreenName"]
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 28.0
+text = "Screen name: "
+
+[node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/RegisterScreenName"]
+minimum_size = Vector2(10, 0)
+offset_left = 113.0
+offset_right = 279.0
 offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="RegisterEmail" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
+editor_description = "Only visible during Register"
+visible = false
+offset_top = 140.0
+offset_right = 279.0
+offset_bottom = 171.0
+
+[node name="Label" type="Label" parent="MainLoginWindow/VBoxContainer/RegisterEmail"]
+offset_top = 2.0
+offset_right = 52.0
+offset_bottom = 28.0
+text = "Email: "
+
+[node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/RegisterEmail"]
+minimum_size = Vector2(10, 0)
+offset_left = 56.0
+offset_right = 279.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainLoginWindow/VBoxContainer"]
+minimum_size = Vector2(0, 15)
+offset_top = 140.0
+offset_right = 279.0
+offset_bottom = 155.0
+
+[node name="Login" type="Button" parent="MainLoginWindow/VBoxContainer"]
+offset_top = 159.0
+offset_right = 279.0
+offset_bottom = 190.0
 size_flags_horizontal = 3
 text = "Login"
 
-[node name="Register" type="Button" parent="MainLoginWindow/VBoxContainer/HBoxContainer"]
-offset_left = 95.0
-offset_right = 186.0
-offset_bottom = 31.0
+[node name="Register" type="Button" parent="MainLoginWindow/VBoxContainer"]
+offset_top = 194.0
+offset_right = 279.0
+offset_bottom = 225.0
 size_flags_horizontal = 3
-text = "Register"
+text = "Register..."
 
 [node name="Opine" type="Label" parent="MainLoginWindow/VBoxContainer" groups=["Opine"]]
-offset_top = 105.0
-offset_right = 186.0
-offset_bottom = 128.0
+offset_top = 229.0
+offset_right = 279.0
+offset_bottom = 252.0
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MainLoginWindow/VBoxContainer"]
 minimum_size = Vector2(0, 15)
-offset_top = 132.0
-offset_right = 186.0
-offset_bottom = 147.0
+offset_top = 256.0
+offset_right = 279.0
+offset_bottom = 271.0
 
 [node name="IP" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 151.0
-offset_right = 186.0
-offset_bottom = 182.0
+offset_top = 275.0
+offset_right = 279.0
+offset_bottom = 306.0
 
 [node name="Label" type="Label" parent="MainLoginWindow/VBoxContainer/IP"]
 offset_top = 2.0
-offset_right = 15.0
+offset_right = 78.0
 offset_bottom = 28.0
-text = "IP"
+text = "Server IP: "
 
 [node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/IP"]
 minimum_size = Vector2(10, 0)
-offset_left = 19.0
-offset_right = 186.0
+offset_left = 82.0
+offset_right = 279.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
+placeholder_text = "default: 127.0.0.1"
 
-[connection signal="pressed" from="MainLoginWindow/VBoxContainer/HBoxContainer/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="MainLoginWindow/VBoxContainer/HBoxContainer/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="MainLoginWindow/VBoxContainer/BackToLogin" to="." method="_on_back_to_login_pressed"]
+[connection signal="pressed" from="MainLoginWindow/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="MainLoginWindow/VBoxContainer/Register" to="." method="_on_register_pressed"]

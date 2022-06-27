@@ -17,7 +17,7 @@ func _ready():
 	if use_sql:
 		InitializeDB_SQLite()
 	else:
-		InitializeDB_SQLite()
+		InitializeUserDB_JSON()
 
 
 #------------------------- Database operations -----------------------------

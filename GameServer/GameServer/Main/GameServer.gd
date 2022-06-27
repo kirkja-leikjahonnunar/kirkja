@@ -11,6 +11,9 @@ var network := ENetMultiplayerPeer.new()
 var port := 1909
 var max_players := 100
 
+var gameserver_db = "res://PlayerDb/player_data.db"
+
+
 # dictionary that has:
 # packet_post[game_client_id] = { "P", "T" }
 #  "P": player position
@@ -62,8 +65,7 @@ func peer_disconnected(game_client_id: int):
 
 ## This is called by any GameClient.
 # requestor is an id internal to GameClient.
-@rpc(any_peer)
-func PlayerDataRequest(what:String, requestor:int):
+@rpc(any_peer) func PlayerDataRequest(what:String, requestor:int):
 	var game_client_id = multiplayer.get_remote_sender_id()
 	
 	if what == "GameTime":
@@ -81,6 +83,30 @@ func PlayerDataRequest(what:String, requestor:int):
 @rpc func PlayerDataResponse(_what:String, _data, _requestor:int): pass
 
 
+#-------------- Player DB retrieval -----------------
+
+## This is called by any GameClient.
+@rpc(any_peer) func PlayerDBRequest(stuff, qualifier):
+	var game_client_id = multiplayer.get_remote_sender_id()
+	
+	var data : Dictionary = {}
+	
+	# Determine user id for database
+	
+	# Retrieve data
+	
+	
+	# send data back to client
+	if data.size() == 0:
+		data["status"] = "FAIL"
+	
+	rpc_id(game_client_id, "PlayerDBResponse", data)
+
+
+# this is implemented on GameClient, and is the response to PlayerDBRequest.
+@rpc func PlayerDBResponse(_data): pass
+
+
 
 #------------------------------------------------------------------------------
 # Player Verification
@@ -95,8 +121,7 @@ func FetchPlayerToken(game_client_id):
 @rpc func PlayerTokenRequest(): pass
 
 # this is called from GameClient
-@rpc(any_peer)
-func PlayerTokenResponse(token: String):
+@rpc(any_peer) func PlayerTokenResponse(token: String):
 	var game_client_id = multiplayer.get_remote_sender_id()
 	print ("received token from game client: ", game_client_id)
 	print ("  client token: ", token)
@@ -107,6 +132,8 @@ func PlayerTokenResponse(token: String):
 func VerificationResponse(game_client_id: int, is_authorized: bool, player_node):
 	rpc_id(game_client_id, "VerificationResponseToClient", is_authorized)
 	if is_authorized: # tell everyone there's a new birth
+		if player_node == null:
+			print("TRYING TO SEND BAD NODE SHOULDN'T HAPPEN")
 		rpc_id(0, "SpawnNewPlayer", game_client_id, player_node.position, player_node.quaternion)
 
 # This is implemented on GameClient.
@@ -169,8 +196,7 @@ func _on_TokenExpiration_timeout():
 #------------------------------------------------------------------------------
 
 # This is called from GameClients right after server connected
-@rpc(any_peer)
-func ServerTimeRequest(client_time):
+@rpc(any_peer) func ServerTimeRequest(client_time):
 	var game_client_id = multiplayer.get_remote_sender_id()
 	rpc_id(game_client_id, "ServerTimeResponse", Time.get_unix_time_from_system(), client_time)
 
@@ -178,8 +204,7 @@ func ServerTimeRequest(client_time):
 @rpc func ServerTimeResponse(_server_time, _client_time): pass
 
 # This is Called from GameClient
-@rpc(any_peer)
-func LatencyRequest(client_time):
+@rpc(any_peer) func LatencyRequest(client_time):
 	var game_client_id = multiplayer.get_remote_sender_id()
 	rpc_id(game_client_id, "LatencyResponse", client_time)
 
@@ -194,8 +219,7 @@ func LatencyRequest(client_time):
 
 # This is called frequently from GameClient. GameServer deals with it 20 times a second, and sends 
 # updates back to GameClient with SendWorldState().
-@rpc(any_peer, unreliable)
-func ReceivePlayerState(player_state):
+@rpc(any_peer, unreliable) func ReceivePlayerState(player_state):
 	# note that the player position info gets updated with new information in World._physics_process()
 	var game_client_id = multiplayer.get_remote_sender_id()
 	if packet_post.has(game_client_id): # the T is client_clock on GameClient
@@ -219,9 +243,8 @@ var scene_events = {}
 
 # This is called on particular scene events from GameClient, such as a
 # switch being flipped.
-@rpc(any_peer)
-func ReceiveSyncEvent(node_path, state):
-	var game_client_id = multiplayer.get_remote_sender_id()
+@rpc(any_peer) func ReceiveSyncEvent(node_path, state):
+	#var game_client_id = multiplayer.get_remote_sender_id()
 	print("Receieved sync event: ", node_path, ": ", state)
 	if scene_events.has(node_path):
 		if scene_events[node_path].T < state.T:
@@ -255,11 +278,11 @@ func GetScenePathFromNode(node: Node):
 
 func RegisterSwitch(node: Node):
 	var path = GetScenePathFromNode(node)
-	var hash = String(path).hash()
-	switches[hash] = { "node": node, "d": {} }
+	var pathhash = String(path).hash()
+	switches[pathhash] = { "node": node, "d": {} }
 
 func UnregisterSwitch(node: Node):
 	var path = GetScenePathFromNode(node)
-	var hash = String(path).hash()
-	switches.erase(hash)
+	var pathhash = String(path).hash()
+	switches.erase(pathhash)
 

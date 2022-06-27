@@ -24,10 +24,16 @@ class_name CharacterController
 @export var invert_x := true
 @export var allow_mouse_toggle := true
 
+# We need direct link to settings to get things like fov or mouse sensitivity change
 @export var SettingsOverlay : NodePath
-@onready var settings_overlay = get_node(SettingsOverlay) if !SettingsOverlay.is_empty() else null
+#@onready var settings_overlay = get_node(SettingsOverlay) if !SettingsOverlay.is_empty() else null
+
+@export var PauseMenu : NodePath
+@onready var pause_menu = get_node(PauseMenu) if !PauseMenu.is_empty() else null
+
 var main_camera : Camera3D
 
+# If not null, use this as the player mesh instead of default capsule model
 @export var alt_player_mesh : PackedScene
 
 
@@ -74,7 +80,7 @@ func _ready():
 	if camera_mode == CameraMode.First: SetFirstPerson()
 	else: SetThirdPerson()
 	cam_v_shift = abs($Proxy_Back.position.z)
-	if settings_overlay: settings_overlay.visible = false
+	#if pause_menu: pause_menu.visible = false
 	
 	if alt_player_mesh:
 		var pmesh = alt_player_mesh.instantiate()
@@ -82,15 +88,15 @@ func _ready():
 			child.visible = false
 		$PlayerMesh.add_child(pmesh)
 	
-	if settings_overlay:
-		settings_overlay.setting_changed.connect(_on_settings_updated)
+	if !SettingsOverlay.is_empty():
+		ConnectOptionsWindow(SettingsOverlay)
 	
 	if !main_camera && has_node("../MainCamera"):
 		main_camera = get_node("../MainCamera")
 
 
 func _physics_process(delta):
-	# Add the gravity.
+	# Coordinate gravity.
 	UpdateGravity()
 	
 	var target_velocity : Vector3
@@ -183,12 +189,12 @@ func AlignPlayerToUp():
 	#global_transform.basis = global_transform.basis.rotated(axis, amount)
 
 
-func _input(event):
-	if settings_overlay && settings_overlay.visible:
-		if event is InputEventKey:
-			if event.physical_keycode == KEY_ESCAPE && event.pressed == false:
-				settings_overlay.visible = false
-				get_viewport().set_input_as_handled()
+#func _input(event):
+#	if pause_menu && pause_menu.visible:
+#		if event is InputEventKey:
+#			if event.physical_keycode == KEY_ESCAPE && event.pressed == false: # on key release
+#				pause_menu.visible = false
+#				get_viewport().set_input_as_handled()
 
 
 # we accumulate mouse movements that get applied during the next _physics_process()
@@ -262,10 +268,10 @@ func HandleCameraMove(x,y):
 func SetMouseVisible(yes: bool):
 	if yes:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		if settings_overlay: settings_overlay.visible = true
+		#if pause_menu: pause_menu.visible = true
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		if settings_overlay: settings_overlay.visible = false
+		#if pause_menu: pause_menu.visible = false
 
 
 # Detect zoom related events and set camera boom distance
@@ -407,9 +413,13 @@ func UpdateGravity():
 #------------------------- Settings updates ----------------------------------
 
 
+func ConnectPauseMenu(win):
+	pause_menu = win
+
 func ConnectOptionsWindow(win):
-	settings_overlay = win
-	settings_overlay.setting_changed.connect(_on_settings_updated)
+	#settings_overlay = win
+	#settings_overlay.setting_changed.connect(_on_settings_updated)
+	win.setting_changed.connect(_on_settings_updated)
 
 func _on_settings_updated(setting, value):
 	match setting:

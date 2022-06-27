@@ -41,9 +41,12 @@ signal setting_changed(action, value)
 
 @export var display_physical := true
 
+# on ESC, activate parent menu if any
+var parent_menu
+
 
 # these should be translatable, or do some UI gimmick to indicate nothing
-var unassigned := "Unassigned"
+var unassigned := "" #"Unassigned"
 var PressAnyKey := "Press any key"
 
 # THESE NEED TO BE THE SAME AS IN KeyBindButton, otherwise mysterious errors about cyclic something or other

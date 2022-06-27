@@ -46,7 +46,7 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="VBoxContainer"]
 offset_right = 271.0
 offset_bottom = 45.0
 size_flags_horizontal = 3
@@ -54,8 +54,46 @@ theme_override_font_sizes/font_size = 30
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="SettingsProfile" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 offset_top = 49.0
+offset_right = 271.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="VBoxContainer/SettingsProfile"]
+offset_top = 2.0
+offset_right = 133.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Profile"
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/SettingsProfile"]
+offset_left = 137.0
+offset_right = 271.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Default"
+item_count = 5
+popup/item_0/text = "Default"
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Second"
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/id = 2
+popup/item_2/separator = true
+popup/item_3/text = "Remove profile"
+popup/item_3/id = 3
+popup/item_4/text = "New profile"
+popup/item_4/id = 4
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+offset_top = 49.0
+offset_right = 271.0
+offset_bottom = 53.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+offset_top = 57.0
 offset_right = 271.0
 offset_bottom = 546.0
 grow_horizontal = 2
@@ -77,9 +115,9 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 198.0
+offset_top = 194.0
 offset_right = 271.0
-offset_bottom = 229.0
+offset_bottom = 225.0
 
 [node name="FOVLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer"]
 offset_top = 2.0
@@ -98,9 +136,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 233.0
+offset_top = 229.0
 offset_right = 271.0
-offset_bottom = 264.0
+offset_bottom = 260.0
 
 [node name="SensitivityLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer2"]
 offset_top = 2.0
@@ -120,9 +158,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 268.0
+offset_top = 264.0
 offset_right = 271.0
-offset_bottom = 299.0
+offset_bottom = 295.0
 
 [node name="InvertX" type="CheckBox" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer3"]
 offset_right = 133.0

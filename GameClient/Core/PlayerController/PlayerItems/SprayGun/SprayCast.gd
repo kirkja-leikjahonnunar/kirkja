@@ -6,11 +6,6 @@ extends RayCast3D
 @onready var main_camera = get_node(MainCamera) if !MainCamera.is_empty() else null
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#print(is_colliding())
@@ -27,7 +22,7 @@ func _process(_delta):
 				global_transform = new_tr
 	
 	if is_colliding() && Input.is_action_just_pressed("char_use1"):
-		#FIXME: this should integrate with player controller
+		#FIXME: this should integrate with player controller input piping
 		Spray()
 
 
@@ -46,9 +41,6 @@ func Spray():
 	var decal = Decal.new()
 	decal.texture_albedo = spray_image
 	
-	#print ("should be testarea: ", get_tree().root.get_node("TestArea").name)
-	#get_tree().get_root FIXME !!! HOW!!??!?!?!
-	
 	get_tree().root.get_node("TestArea/Environment").add_child(decal)
 	
 	decal.global_transform.origin = get_collision_point()
@@ -58,6 +50,4 @@ func Spray():
 #										global_transform.basis.z)
 	
 	decal.global_transform.basis = global_transform.basis
-	
-	
-	#get_collision_normal()
+

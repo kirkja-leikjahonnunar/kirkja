@@ -28,8 +28,11 @@ func TurnOffIndicator():
 		$HoverIndicate.visible = false
 
 
-func Use():
-	if on:
+# Warning, does nothing if pressed == on.
+func SetSwitch(pressed):
+	if pressed == on:
+		return
+	if !pressed:
 		on = false
 		var tween : Tween = get_tree().create_tween()
 		#tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -44,3 +47,28 @@ func Use():
 		if seesaw:
 			tween = get_tree().create_tween()
 			tween.tween_property(seesaw, "rotation", Vector3(seesaw.rotation.x, seesaw.rotation.y, -seesaw_zrot), 0.1)
+
+func Use():
+	SetSwitch(!on)
+	SendSyncEvent(on)
+
+
+#------------------------------------------------------------------------
+#-------------------------- Network sync --------------------------------
+#------------------------------------------------------------------------
+
+# This is called when the button is toggled
+func SendSyncEvent(pressed: bool):
+	# need to send:
+	#   timestamp
+	#   which Node: string? the hash is an int, _probably_ no problem, but non-unique hashes are possible
+	#   on or off
+	#TODO: var data = { "T": GameServer.client_clock, "n": "Columns/DoricColumn3/ProximityButton".hash(), "o": on }
+	var data = { "T": GameServer.client_clock, "data": pressed }
+	GameServer.SendSyncEvent("Columns/DoricColumn3/ProximityButton", data) #FIXME: this needs to not be hardcoded
+
+
+func SyncFromNetwork(data):
+	SetSwitch(data)
+
+
