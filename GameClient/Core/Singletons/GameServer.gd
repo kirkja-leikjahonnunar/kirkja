@@ -92,12 +92,13 @@ func SendPlayerState(player_state):
 @rpc(unreliable) func ReceiveWorldState(world_state):
 	#print ("Received world state: ", world_state)
 	get_node("/root/Client/World").UpdateWorldState(world_state)
-	print("Server time: ", world_state.T, ",  client clock: ", client_clock, ",  diff: ", world_state.T - client_clock)
+	#print("Server time: ", world_state.T, ",  client clock: ", client_clock, ",  diff: ", world_state.T - client_clock)
 
 
 # Send individual, occasional scene events, like flipping a switch. 
 # data should be a dictionary: { "T": timestamp, "data": data }
 func SendSyncEvent(node_path, data):
+	print ("Sending sync event, online state: ", online_state)
 	if online_state == OnlineState.Online:
 		if game_server_network.host != null: #TODO: figure out errors this throws when not online
 			rpc_id(1, "ReceiveSyncEvent", node_path, data)
@@ -133,6 +134,7 @@ func connection_failed():
 	game_server_network.connection_failed.disconnect(connection_failed)
 	game_server_network.connection_succeeded.disconnect(connection_succeeded)
 	logon_failed.emit()
+	online_state = OnlineState.Offline
 
 
 func connection_succeeded():
@@ -156,6 +158,7 @@ func server_disconnected():
 	get_node("LatencyTimer").queue_free()
 	logged_off.emit()
 	gameserver_dropped.emit()
+	online_state = OnlineState.Offline
 	push_error("TODO server loss, need to stop scene from playing, maybe try to reconnect before that?") #FIXME
 
 
@@ -186,6 +189,7 @@ func server_disconnected():
 		get_node("/root/Client/DebugOverlay").UpdateClientId(multiplayer.get_unique_id())
 		print ("Logon successful. We have lift off!")
 		logged_on.emit()
+		online_state = OnlineState.Online
 		#TODO: Retrieve last login info
 	else:
 		print ("Login failed, please try again!")

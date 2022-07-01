@@ -73,8 +73,8 @@ var actions := {
 		"char_rotate_right": { "label": "Rotate Right", "device": 0, "index": -1 },
 		"char_rotate_up":    { "label": "Rotate Up"   , "device": 0, "index": -1 },
 		"char_rotate_down":  { "label": "Rotate Down" , "device": 0, "index": -1 },
-		"char_fly_up":       { "label": "Up"          , "device": 0, "index": -1 },
-		"char_fly_down":     { "label": "Down"        , "device": 0, "index": -1 },
+		"char_fly_up":       { "label": "Fly Up"      , "device": 0, "index": -1 },
+		"char_fly_down":     { "label": "Fly Down"    , "device": 0, "index": -1 },
 		"char_jump":         { "label": "Jump"        , "device": 0, "index": -1 },
 		"char_sprint":       { "label": "Sprint"      , "device": 0, "index": -1 },
 		"char_toggle_mouse": { "label": "Toggle mouse", "device": 0, "index": -1 },
@@ -329,6 +329,8 @@ func _ready():
 		PopulateMenuWithBindings()
 		ApplySettings(false)
 
+
+#----------------------- Controller Camera Settings ----------------------------
 
 func _on_fov_text_changed(new_text):
 	var value = new_text.to_float()

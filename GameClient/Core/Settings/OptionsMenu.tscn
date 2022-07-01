@@ -1,19 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bduqfqfy5x7bh"]
+[gd_scene load_steps=5 format=3 uid="uid://bduqfqfy5x7bh"]
 
 [ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://Core/PlayerController/ThirdPerson/SettingsUI/control_config.tscn" id="1_g167d"]
+[ext_resource type="Script" path="res://Core/Settings/OptionsMenu.gd" id="1_pii85"]
 [ext_resource type="Script" path="res://Core/Settings/GraphicsSettings.gd" id="2_o4rgi"]
+[ext_resource type="Script" path="res://Core/Settings/Audio.gd" id="2_s6inh"]
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
+script = ExtResource( "1_pii85" )
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 1
+metadata/_edit_layout_mode = 1
 
 [node name="Controls" parent="TabContainer" instance=ExtResource( "1_g167d" )]
 offset_top = 31.0
@@ -43,23 +49,31 @@ anchor_bottom = 1.0
 offset_top = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( "2_s6inh" )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 27.0
+offset_right = -21.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/ScrollContainer"]
-offset_right = 1024.0
-offset_bottom = 569.0
+offset_right = 983.0
+offset_bottom = 520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Volume" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 26.0
 
 [node name="MainVolume" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Volume"]
-offset_right = 510.0
+offset_right = 489.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Main volume
@@ -67,9 +81,9 @@ text = "Main volume
 
 [node name="Volume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Volume"]
 minimum_size = Vector2(150, 0)
-offset_left = 514.0
+offset_left = 493.0
 offset_top = 5.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -77,11 +91,11 @@ value = 75.0
 
 [node name="Voice" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 30.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 56.0
 
 [node name="VoiceLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Voice"]
-offset_right = 510.0
+offset_right = 489.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Voice
@@ -89,9 +103,9 @@ text = "Voice
 
 [node name="Voice Volume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Voice"]
 minimum_size = Vector2(150, 0)
-offset_left = 514.0
+offset_left = 493.0
 offset_top = 5.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -99,11 +113,11 @@ value = 100.0
 
 [node name="Effects" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 60.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 86.0
 
 [node name="EffectsLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Effects"]
-offset_right = 510.0
+offset_right = 489.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Effects
@@ -111,9 +125,9 @@ text = "Effects
 
 [node name="EffectsVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Effects"]
 minimum_size = Vector2(150, 0)
-offset_left = 514.0
+offset_left = 493.0
 offset_top = 5.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -121,11 +135,11 @@ value = 100.0
 
 [node name="Music" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 90.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 116.0
 
 [node name="MusicLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Music"]
-offset_right = 510.0
+offset_right = 489.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Music
@@ -133,13 +147,15 @@ text = "Music
 
 [node name="MusicVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Music"]
 minimum_size = Vector2(150, 0)
-offset_left = 514.0
+offset_left = 493.0
 offset_top = 5.0
-offset_right = 1024.0
+offset_right = 983.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 100.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TabContainer/Audio"]
 
 [node name="Graphics" type="Control" parent="TabContainer"]
 visible = false
@@ -151,37 +167,67 @@ script = ExtResource( "2_o4rgi" )
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="ScreenSizeLabel" type="Label" parent="TabContainer/Graphics/VBoxContainer"]
-offset_right = 1024.0
-offset_bottom = 26.0
-text = "Screen Size"
+offset_left = 26.0
+offset_top = 20.0
+offset_right = -21.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
 
 [node name="Fullscreen" type="CheckBox" parent="TabContainer/Graphics/VBoxContainer"]
-offset_top = 30.0
-offset_right = 1024.0
-offset_bottom = 61.0
+offset_right = 977.0
+offset_bottom = 31.0
 text = "Fullscreen"
 
+[node name="ScreenSize" type="HBoxContainer" parent="TabContainer/Graphics/VBoxContainer"]
+offset_top = 35.0
+offset_right = 977.0
+offset_bottom = 66.0
+
+[node name="ScreenSizeLabel" type="Label" parent="TabContainer/Graphics/VBoxContainer/ScreenSize"]
+offset_top = 2.0
+offset_right = 486.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Screen Size"
+
+[node name="QualitySelector2" type="MenuButton" parent="TabContainer/Graphics/VBoxContainer/ScreenSize"]
+offset_left = 490.0
+offset_right = 977.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "-"
+flat = false
+item_count = 4
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+popup/item_3/text = "Ultra"
+popup/item_3/id = 3
+
 [node name="Quality" type="HBoxContainer" parent="TabContainer/Graphics/VBoxContainer"]
-offset_top = 65.0
-offset_right = 1024.0
-offset_bottom = 96.0
+offset_top = 70.0
+offset_right = 977.0
+offset_bottom = 101.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="TabContainer/Graphics/VBoxContainer/Quality"]
 offset_top = 2.0
-offset_right = 510.0
+offset_right = 486.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "Quality"
 
 [node name="QualitySelector" type="MenuButton" parent="TabContainer/Graphics/VBoxContainer/Quality"]
-offset_left = 514.0
-offset_right = 1024.0
+offset_left = 490.0
+offset_right = 977.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
-text = "-"
+text = "High"
 flat = false
 item_count = 4
 popup/item_0/text = "Low"
@@ -193,6 +239,15 @@ popup/item_2/id = 2
 popup/item_3/text = "Ultra"
 popup/item_3/id = 3
 
-[connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/Fullscreen" to="TabContainer/Graphics" method="_on_check_box_toggled"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/Volume/Volume" to="TabContainer/Audio" method="_on_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/Voice/Voice Volume" to="TabContainer/Audio" method="_on_voice_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/Effects/EffectsVolume" to="TabContainer/Audio" method="_on_effects_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/Music/MusicVolume" to="TabContainer/Audio" method="_on_music_volume_value_changed"]
+[connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/Fullscreen" to="TabContainer/Graphics" method="_on_fullscreen_toggled"]
 
 [editable path="TabContainer/Controls"]
