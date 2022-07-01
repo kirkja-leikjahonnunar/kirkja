@@ -20,4 +20,4 @@ func _physics_process(_delta):
 		
 		get_parent().SendWorldState(world_state)
 	
-	#TODO: get_parent().SendSceneEvents():
+	get_parent().SendSceneEvents()

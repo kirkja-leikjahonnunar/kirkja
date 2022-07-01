@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dan3uqco2a8nf"]
+[gd_scene load_steps=9 format=3 uid="uid://dan3uqco2a8nf"]
 
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/CharacterController.gd" id="1_n2afy"]
-[ext_resource type="Script" path="res://Core/PlayerController/PlayerItems/SprayGun/SprayCast.gd" id="3_tsg1e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_veaop"]
 top_radius = 0.0
@@ -55,14 +54,6 @@ transform = Transform3D(5.96046e-08, 0, 1, 1, 5.96046e-08, 0, 0, 1, 5.96046e-08,
 mesh = SubResource( "CylinderMesh_wqdyt" )
 skeleton = NodePath("../../CollisionShape3D")
 surface_material_override/0 = SubResource( "StandardMaterial3D_64jua" )
-
-[node name="SprayCast" type="RayCast3D" parent="PlayerMesh"]
-transform = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 1.24253, -0.00333973)
-target_position = Vector3(0, -7.146, 0)
-collision_mask = 14
-debug_shape_custom_color = Color(0.847059, 0.211765, 0.847059, 1)
-debug_shape_thickness = 5
-script = ExtResource( "3_tsg1e" )
 
 [node name="Proxy_FPS" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
