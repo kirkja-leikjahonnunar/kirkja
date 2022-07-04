@@ -32,7 +32,9 @@ func DespawnPlayer(game_client_id):
 	print ("Despawning ", game_client_id)
 	await get_tree().create_timer(0.2).timeout # pause to catch any spawn/despawn race condition
 	if $Players.has_node(str(game_client_id)):
-		get_node("Players/"+str(game_client_id)).queue_free()
+		if get_tree().get_multiplayer().get_unique_id() != game_client_id:
+			get_node("Players/"+str(game_client_id)).BeginDespawn()
+		# else we don't try to despawn ourself
 
 
 func SpawnOfflinePlayer(spawn_point: Vector3, spawn_rotation: Quaternion):

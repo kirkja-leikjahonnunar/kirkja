@@ -3,4 +3,4 @@
 [ext_resource type="Script" path="res://Main/AuthenticationServer.gd" id="1_g7hxa"]
 
 [node name="AuthenticationServer" type="Node"]
-script = ExtResource( "1_g7hxa" )
+script = ExtResource("1_g7hxa")

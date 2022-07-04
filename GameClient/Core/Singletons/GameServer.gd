@@ -110,7 +110,7 @@ func SendSyncEvent(node_path, data):
 	print ("Received scene events: ", events)
 	for path in events:
 		var node = get_node("/root/Client/World/Map/Environment/"+path)
-		node.SyncFromNetwork(events[path].data)
+		node.SyncFromNetwork(events[path].T, events[path].data)
 
 
 #------------------------------------------------------------

@@ -57,6 +57,8 @@ func Use():
 #-------------------------- Network sync --------------------------------
 #------------------------------------------------------------------------
 
+var last_sync_time := 0.0
+
 # This is called when the button is toggled
 func SendSyncEvent(pressed: bool):
 	# need to send:
@@ -66,9 +68,12 @@ func SendSyncEvent(pressed: bool):
 	#TODO: var data = { "T": GameServer.client_clock, "n": "Columns/DoricColumn3/ProximityButton".hash(), "o": on }
 	var data = { "T": GameServer.client_clock, "data": pressed }
 	GameServer.SendSyncEvent("Columns/DoricColumn3/ProximityButton", data) #FIXME: this needs to not be hardcoded
+	last_sync_time = GameServer.client_clock
 
 
-func SyncFromNetwork(data):
-	SetSwitch(data)
+func SyncFromNetwork(time, data):
+	if time > last_sync_time:
+		last_sync_time = time
+		SetSwitch(data)
 
 

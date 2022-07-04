@@ -2,7 +2,6 @@ TODO
 ====
 
 - GameClient:
-   - need a player gone notify event
    - finish implementing log off
    - needs to be able to cover from GameServer vanishing
    - debug latency updating.. not rendering at correct time equivalent?
@@ -10,6 +9,7 @@ TODO
 	 - furniture state needs to be established on player login
      - DONE base event passing
    - screen names, not just client ids
+   - DONE despawned players spawn again
    - DONE while playing: esc to bring up menu, then esc closes menu (not quit). have button to quit
 
 - networking:
