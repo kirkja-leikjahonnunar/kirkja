@@ -8,29 +8,29 @@ offsets = PackedFloat32Array(0.0037594, 1)
 colors = PackedColorArray(0.93852, 0.0426579, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_awnp8"]
-gradient = SubResource( "Gradient_83his" )
+gradient = SubResource("Gradient_83his")
 
 [sub_resource type="Curve" id="Curve_ovuci"]
 _data = [Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.5, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_s2q8r"]
-curve = SubResource( "Curve_ovuci" )
+curve = SubResource("Curve_ovuci")
 
 [sub_resource type="ParticlesMaterial" id="ParticlesMaterial_nn6im"]
 spread = 180.0
 gravity = Vector3(0, -1, 0)
 initial_velocity_max = 0.9
 scale_min = 0.0
-scale_curve = SubResource( "CurveTexture_s2q8r" )
-color_ramp = SubResource( "GradientTexture1D_awnp8" )
+scale_curve = SubResource("CurveTexture_s2q8r")
+color_ramp = SubResource("GradientTexture1D_awnp8")
 
 [sub_resource type="Gradient" id="Gradient_8y62h"]
 offsets = PackedFloat32Array(0, 0.172297, 0.560811)
 colors = PackedColorArray(0.916461, 1, 0.915329, 0.278261, 0.699783, 1, 0.695713, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gxw4q"]
-gradient = SubResource( "Gradient_8y62h" )
+gradient = SubResource("Gradient_8y62h")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -38,20 +38,20 @@ fill_from = Vector2(0.5, 0.5)
 transparency = 1
 blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource( "GradientTexture2D_gxw4q" )
+albedo_texture = SubResource("GradientTexture2D_gxw4q")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_pf7eh"]
-material = SubResource( "StandardMaterial3D_qotwu" )
+material = SubResource("StandardMaterial3D_qotwu")
 
 [node name="Voidling" type="CharacterBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.320877, 0)
-shape = SubResource( "SphereShape3D_qxh1u" )
+shape = SubResource("SphereShape3D_qxh1u")
 
 [node name="PlayerMesh" type="Node3D" parent="."]
 
@@ -61,8 +61,8 @@ amount = 20
 lifetime = 0.69
 visibility_aabb = AABB(-1.83677, -1.55046, -1.94824, 3.67356, 3.10091, 3.89647)
 local_coords = false
-process_material = SubResource( "ParticlesMaterial_nn6im" )
-draw_pass_1 = SubResource( "QuadMesh_pf7eh" )
+process_material = SubResource("ParticlesMaterial_nn6im")
+draw_pass_1 = SubResource("QuadMesh_pf7eh")
 
 [node name="Name" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948324, 0)
