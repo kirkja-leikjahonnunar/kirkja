@@ -8,7 +8,7 @@ As a voidling, we will be able to travel around the world of Kirkja looking for 
 ## Look & Feel
 Voidlings may come in many a shape and size. Most are uniform in nature, with an average dimension of 0.3 m³. Many have trails and particle effects. Players will have many options when customizing their voidling.
 
-![voidling skins](README/voidlings.png)
+![voidling skins](docs/voidlings.png)
 
 ## Movement
 The voidling entity essentially acts as the player's 3D in-game cursor; it should feel intuitive and responsive.
