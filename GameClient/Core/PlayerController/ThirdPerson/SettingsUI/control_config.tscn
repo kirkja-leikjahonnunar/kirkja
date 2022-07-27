@@ -7,14 +7,14 @@ offsets = PackedFloat32Array(0, 0.412639, 0.910781)
 colors = PackedColorArray(0, 0, 0, 0.521569, 0.338645, 0.338645, 0.338645, 0.344942, 0.417969, 0.417969, 0.417969, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h457y"]
-gradient = SubResource( "Gradient_xairh" )
+gradient = SubResource("Gradient_xairh")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="ControlConfig" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_7s4x1" )
+script = ExtResource("1_7s4x1")
 
 [node name="BG" type="NinePatchRect" parent="."]
 anchor_left = 0.327
@@ -24,7 +24,7 @@ offset_left = -4.56003
 offset_right = 4.55994
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource( "GradientTexture2D_h457y" )
+texture = SubResource("GradientTexture2D_h457y")
 patch_margin_left = 30
 patch_margin_top = 30
 patch_margin_right = 30
@@ -104,8 +104,8 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
 [node name="Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
-offset_right = 271.0
-offset_bottom = 489.0
+offset_right = 181.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3

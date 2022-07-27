@@ -9,6 +9,11 @@ var audio_settings := {
 }
 
 
+func GetSettingsDictionary():
+	return audio_settings
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,6 +23,8 @@ func _ready():
 func _process(_delta):
 	pass
 
+
+#--------------------- Signal Functions -----------------------------
 
 func _on_volume_value_changed(value):
 	print ("volume cahnge: ", value)

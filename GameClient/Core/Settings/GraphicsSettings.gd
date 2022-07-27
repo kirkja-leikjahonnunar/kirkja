@@ -15,6 +15,10 @@ var quality_popup : PopupMenu
 var size_popup : PopupMenu
 
 
+func GetSettingsDictionary():
+	return graphics_settings
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	quality_popup = $VBoxContainer/Quality/QualitySelector.get_popup()

@@ -1,0 +1,61 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dmcwjpni02ehq"
+path="res://.godot/imported/HatPerson.glb-7de06bcd9891d33641e0f84a8e0d0c80.scn"
+
+[deps]
+
+source_file="res://Entity/Context/HatPlayer/HatPerson.glb"
+dest_files=["res://.godot/imported/HatPerson.glb-7de06bcd9891d33641e0f84a8e0d0c80.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"animations": {
+"ClimbIdle": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+},
+"Idle": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+},
+"JumpIdle": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+},
+"Run": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+},
+"Walk": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+}
+}
+}

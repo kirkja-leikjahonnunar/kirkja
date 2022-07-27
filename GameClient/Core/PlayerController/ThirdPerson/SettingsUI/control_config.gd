@@ -41,6 +41,21 @@ signal setting_changed(action, value)
 
 @export var display_physical := true
 
+
+#------------------------- Main ----------------------------------
+
+func _ready():
+	print ("ControlConfig ready")
+	if not Engine.is_editor_hint():
+		#LoadSettings(settings_file)
+		SetBindingsFromCurrentLive()
+		#SaveSettings(settings_file)
+		PopulateMenuWithBindings()
+		ApplySettings(false)
+
+
+#------------------------- Implementation ----------------------------------
+
 # on ESC, activate parent menu if any
 var parent_menu
 
@@ -105,6 +120,11 @@ var profile = {
 var profiles = [ profile ]
 
 
+# Used by OptionsMenu:
+func GetSettingsDictionary():
+	return settings
+
+
 # Return success (true) or failure (false).
 func LoadSettings(file: String):
 	var player_data_file = File.new()
@@ -116,7 +136,8 @@ func LoadSettings(file: String):
 	var err = json.parse(player_data_file.get_as_text())
 	player_data_file.close()
 	if err == OK:
-		print ("Settings loaded: ", settings)
+		var new_settings = json.get_data()
+		print ("Settings loaded: ", new_settings)
 		# *** Verify settings is not corrupted
 		# *** install settings from json.get_data()
 		ApplySettings()
@@ -318,16 +339,6 @@ func SetPropertyFromUI(property: String, value):
 	
 	setting_changed.emit(property, value)
 	SaveSettings(settings_file)
-
-
-func _ready():
-	print ("ControlConfig ready")
-	if not Engine.is_editor_hint():
-		#LoadSettings(settings_file)
-		SetBindingsFromCurrentLive()
-		#SaveSettings(settings_file)
-		PopulateMenuWithBindings()
-		ApplySettings(false)
 
 
 #----------------------- Controller Camera Settings ----------------------------

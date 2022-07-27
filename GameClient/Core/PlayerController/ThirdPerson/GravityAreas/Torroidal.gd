@@ -54,14 +54,14 @@ var player_in_count := 0
 
 func _on_gravity_area_body_entered(body):
 	print ("Body entered ", name, ": ", body.name)
-	if body is CharacterController:
+	if body is PlayerController:
 		player_in_count += 1
 		body.EnteredGravityArea(self)
 
 
 func _on_gravity_area_body_exited(body):
 	print ("Body exited ", name, ": ", body.name)
-	if body is CharacterController:
+	if body is PlayerController:
 		player_in_count -= 1
 		body.ExitedGravityArea(self)
 

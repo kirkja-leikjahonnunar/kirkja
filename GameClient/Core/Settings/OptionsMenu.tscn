@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bduqfqfy5x7bh"]
+[gd_scene load_steps=6 format=3 uid="uid://bduqfqfy5x7bh"]
 
 [ext_resource type="PackedScene" uid="uid://51h82emip151" path="res://Core/PlayerController/ThirdPerson/SettingsUI/control_config.tscn" id="1_g167d"]
 [ext_resource type="Script" path="res://Core/Settings/OptionsMenu.gd" id="1_pii85"]
 [ext_resource type="Script" path="res://Core/Settings/GraphicsSettings.gd" id="2_o4rgi"]
 [ext_resource type="Script" path="res://Core/Settings/Audio.gd" id="2_s6inh"]
+[ext_resource type="AudioStream" uid="uid://myuvuxnsyw25" path="res://kirkja-assets/sounds/boop.ogg" id="4_7apwi"]
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
-script = ExtResource( "1_pii85" )
+script = ExtResource("1_pii85")
+node_components = [NodePath("TabContainer/Controls"), NodePath("TabContainer/Audio"), NodePath("TabContainer/Graphics")]
+node_array_test = [null]
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 233.0
+offset_right = -223.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -21,26 +26,68 @@ size_flags_vertical = 3
 tab_alignment = 1
 metadata/_edit_layout_mode = 1
 
-[node name="Controls" parent="TabContainer" instance=ExtResource( "1_g167d" )]
+[node name="Controls" parent="TabContainer" instance=ExtResource("1_g167d")]
 offset_top = 31.0
 
+[node name="BG" parent="TabContainer/Controls" index="0"]
+offset_left = -187.736
+offset_right = 185.736
+
+[node name="VBoxContainer" parent="TabContainer/Controls" index="1"]
+offset_left = -171.888
+offset_top = 0.532999
+offset_right = 177.024
+offset_bottom = 6.29498
+
+[node name="SettingsLabel" parent="TabContainer/Controls/VBoxContainer" index="0"]
+offset_right = 568.0
+
+[node name="HSeparator" parent="TabContainer/Controls/VBoxContainer" index="2"]
+offset_right = 568.0
+
 [node name="ScrollContainer" parent="TabContainer/Controls/VBoxContainer" index="3"]
-offset_bottom = 518.0
+offset_right = 568.0
+offset_bottom = 627.0
 
 [node name="Settings" parent="TabContainer/Controls/VBoxContainer/ScrollContainer" index="0"]
-offset_bottom = 461.0
+offset_right = 568.0
+offset_bottom = 570.0
 
 [node name="HBoxContainer" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings" index="0"]
-offset_top = 180.0
-offset_bottom = 211.0
+offset_top = 234.0
+offset_right = 568.0
+offset_bottom = 265.0
+
+[node name="FOVLabel" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer" index="0"]
+offset_right = 282.0
+
+[node name="FOV" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer" index="1"]
+offset_left = 286.0
+offset_right = 568.0
 
 [node name="HBoxContainer2" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings" index="1"]
-offset_top = 215.0
-offset_bottom = 246.0
+offset_top = 269.0
+offset_right = 568.0
+offset_bottom = 300.0
+
+[node name="SensitivityLabel" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer2" index="0"]
+offset_right = 282.0
+
+[node name="Sensitivity" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer2" index="1"]
+offset_left = 286.0
+offset_right = 568.0
 
 [node name="HBoxContainer3" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings" index="2"]
-offset_top = 250.0
-offset_bottom = 281.0
+offset_top = 304.0
+offset_right = 568.0
+offset_bottom = 335.0
+
+[node name="InvertX" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer3" index="0"]
+offset_right = 282.0
+
+[node name="InvertY" parent="TabContainer/Controls/VBoxContainer/ScrollContainer/Settings/HBoxContainer3" index="1"]
+offset_left = 286.0
+offset_right = 568.0
 
 [node name="Audio" type="Control" parent="TabContainer"]
 visible = false
@@ -49,7 +96,7 @@ anchor_bottom = 1.0
 offset_top = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( "2_s6inh" )
+script = ExtResource("2_s6inh")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio"]
 anchor_right = 1.0
@@ -63,27 +110,26 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/ScrollContainer"]
-offset_right = 983.0
-offset_bottom = 520.0
+offset_right = 113.0
+offset_bottom = 116.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Volume" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 26.0
 
 [node name="MainVolume" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Volume"]
-offset_right = 489.0
+offset_right = 261.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Main volume
 "
 
 [node name="Volume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Volume"]
-minimum_size = Vector2(150, 0)
-offset_left = 493.0
+offset_left = 265.0
 offset_top = 5.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -91,21 +137,20 @@ value = 75.0
 
 [node name="Voice" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 30.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 56.0
 
 [node name="VoiceLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Voice"]
-offset_right = 489.0
+offset_right = 261.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Voice
 "
 
 [node name="Voice Volume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Voice"]
-minimum_size = Vector2(150, 0)
-offset_left = 493.0
+offset_left = 265.0
 offset_top = 5.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -113,21 +158,20 @@ value = 100.0
 
 [node name="Effects" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 60.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 86.0
 
 [node name="EffectsLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Effects"]
-offset_right = 489.0
+offset_right = 261.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Effects
 "
 
 [node name="EffectsVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Effects"]
-minimum_size = Vector2(150, 0)
-offset_left = 493.0
+offset_left = 265.0
 offset_top = 5.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -135,34 +179,34 @@ value = 100.0
 
 [node name="Music" type="HBoxContainer" parent="TabContainer/Audio/ScrollContainer/VBoxContainer"]
 offset_top = 90.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 116.0
 
 [node name="MusicLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Music"]
-offset_right = 489.0
+offset_right = 261.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Music
 "
 
 [node name="MusicVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer/Music"]
-minimum_size = Vector2(150, 0)
-offset_left = 493.0
+offset_left = 265.0
 offset_top = 5.0
-offset_right = 983.0
+offset_right = 527.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 100.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TabContainer/Audio"]
+stream = ExtResource("4_7apwi")
 
 [node name="Graphics" type="Control" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
-script = ExtResource( "2_o4rgi" )
+script = ExtResource("2_o4rgi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics"]
 anchor_right = 1.0
@@ -176,25 +220,25 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="Fullscreen" type="CheckBox" parent="TabContainer/Graphics/VBoxContainer"]
-offset_right = 977.0
+offset_right = 521.0
 offset_bottom = 31.0
 text = "Fullscreen"
 
 [node name="ScreenSize" type="HBoxContainer" parent="TabContainer/Graphics/VBoxContainer"]
 offset_top = 35.0
-offset_right = 977.0
+offset_right = 521.0
 offset_bottom = 66.0
 
 [node name="ScreenSizeLabel" type="Label" parent="TabContainer/Graphics/VBoxContainer/ScreenSize"]
 offset_top = 2.0
-offset_right = 486.0
+offset_right = 258.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "Screen Size"
 
 [node name="QualitySelector2" type="MenuButton" parent="TabContainer/Graphics/VBoxContainer/ScreenSize"]
-offset_left = 490.0
-offset_right = 977.0
+offset_left = 262.0
+offset_right = 521.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "-"
@@ -211,20 +255,20 @@ popup/item_3/id = 3
 
 [node name="Quality" type="HBoxContainer" parent="TabContainer/Graphics/VBoxContainer"]
 offset_top = 70.0
-offset_right = 977.0
+offset_right = 521.0
 offset_bottom = 101.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="TabContainer/Graphics/VBoxContainer/Quality"]
 offset_top = 2.0
-offset_right = 486.0
+offset_right = 258.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "Quality"
 
 [node name="QualitySelector" type="MenuButton" parent="TabContainer/Graphics/VBoxContainer/Quality"]
-offset_left = 490.0
-offset_right = 977.0
+offset_left = 262.0
+offset_right = 521.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "High"

@@ -7,14 +7,14 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( "1_dgugm" )
+script = ExtResource("1_dgugm")
 
 [node name="MainLoginWindow" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="OverlayHaze" parent="MainLoginWindow" instance=ExtResource( "2_jtds1" )]
+[node name="OverlayHaze" parent="MainLoginWindow" instance=ExtResource("2_jtds1")]
 visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLoginWindow"]
@@ -64,7 +64,6 @@ offset_bottom = 28.0
 text = "Screen name: "
 
 [node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/RegisterScreenName"]
-minimum_size = Vector2(10, 0)
 offset_left = 113.0
 offset_right = 279.0
 offset_bottom = 31.0
@@ -84,48 +83,45 @@ offset_bottom = 28.0
 text = "Email: "
 
 [node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/RegisterEmail"]
-minimum_size = Vector2(10, 0)
 offset_left = 56.0
 offset_right = 279.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="MainLoginWindow/VBoxContainer"]
-minimum_size = Vector2(0, 15)
 offset_top = 140.0
 offset_right = 279.0
-offset_bottom = 155.0
+offset_bottom = 140.0
 
 [node name="Login" type="Button" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 159.0
+offset_top = 144.0
 offset_right = 279.0
-offset_bottom = 190.0
+offset_bottom = 175.0
 size_flags_horizontal = 3
 text = "Login"
 
 [node name="Register" type="Button" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 194.0
+offset_top = 179.0
 offset_right = 279.0
-offset_bottom = 225.0
+offset_bottom = 210.0
 size_flags_horizontal = 3
 text = "Register..."
 
 [node name="Opine" type="Label" parent="MainLoginWindow/VBoxContainer" groups=["Opine"]]
-offset_top = 229.0
+offset_top = 214.0
 offset_right = 279.0
-offset_bottom = 252.0
+offset_bottom = 237.0
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MainLoginWindow/VBoxContainer"]
-minimum_size = Vector2(0, 15)
-offset_top = 256.0
+offset_top = 241.0
 offset_right = 279.0
-offset_bottom = 271.0
+offset_bottom = 241.0
 
 [node name="IP" type="HBoxContainer" parent="MainLoginWindow/VBoxContainer"]
-offset_top = 275.0
+offset_top = 245.0
 offset_right = 279.0
-offset_bottom = 306.0
+offset_bottom = 276.0
 
 [node name="Label" type="Label" parent="MainLoginWindow/VBoxContainer/IP"]
 offset_top = 2.0
@@ -134,7 +130,6 @@ offset_bottom = 28.0
 text = "Server IP: "
 
 [node name="LineEdit" type="LineEdit" parent="MainLoginWindow/VBoxContainer/IP"]
-minimum_size = Vector2(10, 0)
 offset_left = 82.0
 offset_right = 279.0
 offset_bottom = 31.0

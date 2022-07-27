@@ -7,36 +7,38 @@
 [ext_resource type="PackedScene" uid="uid://b32t1figv0qlx" path="res://Core/Settings/OverlayHaze.tscn" id="3_ud1vi"]
 [ext_resource type="PackedScene" uid="uid://c2a81qxecmi65" path="res://Core/Settings/PauseMenu.tscn" id="5_37um4"]
 [ext_resource type="PackedScene" uid="uid://bduqfqfy5x7bh" path="res://Core/Settings/OptionsMenu.tscn" id="5_y5i7l"]
-[ext_resource type="PackedScene" uid="uid://dan3uqco2a8nf" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="6_w2lpd"]
+[ext_resource type="PackedScene" uid="uid://6q2gb6dtgjyc" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="6_w2lpd"]
 [ext_resource type="PackedScene" uid="uid://b78vylyw2clvk" path="res://Core/PlayerController/ThirdPerson/OtherPlayer.tscn" id="7_g71u3"]
-[ext_resource type="PackedScene" uid="uid://cy853d5jnlcn7" path="res://Maps/TestLevel/TestArea.tscn" id="8_jc6q2"]
+[ext_resource type="PackedScene" uid="uid://bpvqpepnvndh5" path="res://Maps/TestLevel/TestArea.tscn" id="8_jc6q2"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="9_yoiwk"]
 
 [node name="Client" type="Node"]
-script = ExtResource( "1_8xf8t" )
+script = ExtResource("1_8xf8t")
 
-[node name="OverlayHaze" parent="." instance=ExtResource( "3_ud1vi" )]
+[node name="OverlayHaze" parent="." instance=ExtResource("3_ud1vi")]
 visible = false
 
-[node name="DebugOverlay" parent="." instance=ExtResource( "3_dv8lm" )]
+[node name="DebugOverlay" parent="." instance=ExtResource("3_dv8lm")]
 
-[node name="LoginScreen" parent="." instance=ExtResource( "2_xkabq" )]
+[node name="LoginScreen" parent="." instance=ExtResource("2_xkabq")]
 visible = false
 
-[node name="OptionsMenu" parent="." instance=ExtResource( "5_y5i7l" )]
+[node name="OptionsMenu" parent="." instance=ExtResource("5_y5i7l")]
 
-[node name="PauseMenu" parent="." instance=ExtResource( "5_37um4" )]
+[node name="PauseMenu" parent="." instance=ExtResource("5_37um4")]
 LoginWindow = NodePath("../LoginScreen")
 OptionsWindow = NodePath("../OptionsMenu")
 OverlayHaze = NodePath("../OverlayHaze")
 
 [node name="World" type="Node3D" parent="."]
-script = ExtResource( "3_a6de7" )
-player_prefab = ExtResource( "6_w2lpd" )
-other_player_prefab = ExtResource( "7_g71u3" )
+script = ExtResource("3_a6de7")
+player_prefab = ExtResource("6_w2lpd")
+other_player_prefab = ExtResource("7_g71u3")
 
 [node name="Players" type="Node3D" parent="World"]
 
-[node name="Map" parent="World" instance=ExtResource( "8_jc6q2" )]
+[node name="Map" parent="World" instance=ExtResource("8_jc6q2")]
 
-[node name="MainCamera" parent="World" instance=ExtResource( "9_yoiwk" )]
+[node name="MainCamera" parent="World" instance=ExtResource("9_yoiwk")]
+
+[editable path="World/MainCamera"]

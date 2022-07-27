@@ -16,7 +16,7 @@ func SpawnNewPlayer(game_client_id: int, spawn_point: Vector3, spawn_rotation: Q
 		new_player.SetNameFromId(game_client_id)
 		$Players.add_child(new_player)
 		#new_player.set_physics_process(true) unnecessary?
-		new_player.ConnectOptionsWindow(get_node("../OptionsMenu").GetControllerOptionsNode()) #TODO: this should probably not be coupled to the CharacterController?
+		new_player.ConnectOptionsWindow(get_node("../OptionsMenu").GetControllerOptionsNode()) #TODO: this should probably not be coupled to the PlayerController?
 		new_player.main_camera = $MainCamera
 		#TODO: if player despawns on server disconnect, we need to unconnect?
 		$MainCamera.follow_proxy = new_player.GetCameraProxy()
@@ -45,7 +45,7 @@ func SpawnOfflinePlayer(spawn_point: Vector3, spawn_rotation: Quaternion):
 	new_player.SetNameFromId(-1)
 	$Players.add_child(new_player)
 	#new_player.set_physics_process(true) unnecessary?
-	new_player.ConnectOptionsWindow(get_node("../ControlConfig")) #TODO: this should probably not be coupled to the CharacterController?
+	new_player.ConnectOptionsWindow(get_node("../OptionsMenu/TabContainer/Controls")) #TODO: this should probably not be coupled to the PlayerController?
 	new_player.main_camera = $MainCamera
 	#TODO: if player despawns on server disconnect, we need to unconnect?
 	$MainCamera.follow_proxy = new_player.GetCameraProxy()

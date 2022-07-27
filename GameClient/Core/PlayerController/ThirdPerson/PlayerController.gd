@@ -3,9 +3,10 @@
 #
 
 extends CharacterBody3D
-class_name CharacterController
+class_name PlayerController
 
 
+# @export_group  ... alpha 12
 @export var SPEED := 5.0
 @export var SPRINT_SPEED := 10.0
 @export var ROTATION_SPEED := .03
@@ -93,6 +94,12 @@ func _ready():
 	
 	if !main_camera && has_node("../MainCamera"):
 		main_camera = get_node("../MainCamera")
+	
+	call_deferred("ReadyClean")
+
+func ReadyClean():
+	if player_model.get_child_count() > 0:
+		player_model.get_child(0).SetAsInhabited()
 
 
 func _physics_process(delta):
@@ -242,6 +249,8 @@ var rotation_damp := .3
 
 # Make player mesh point z in the provided direction (in player space), and also lean in that direction
 func SetCharTilt(direction: Vector3):
+	if player_model == null: return
+	
 	if direction.length() != 0: 
 		var amount = sqrt(direction.x*direction.x + direction.z*direction.z)
 		target_rotation = -atan2(-direction.x, direction.z)
@@ -369,9 +378,88 @@ func SetFirstPerson():
 
 func Use1(node):
 	print("Use1: ", node.name if node != null else "null")
+	if proximity_areas.size() > 0:
+		#TODO: find area closest to 
+		var thing = proximity_areas[0]
+		if thing is InhabitableTrigger:
+			Inhabit(thing.get_parent())
+		else: thing.Use()
 
 func Use2(node):
 	print("Use2: ", node.name if node != null else "null")
+
+
+
+#--------------------------- Body hopping -----------------------------------
+
+var pending_player_model = null
+
+func Inhabit(object):
+	if pending_player_model:
+		print ("cannot inhabit ", object.name, ", pending on ", pending_player_model.name)
+		return
+	print ("....trying to inhabit ", object.name)
+	
+	#-------- old model needs to be:
+	# - deparented
+	# - highlightable if not being removed
+	# - optionally removed
+	var old_player_model = player_model.get_child(0)
+	
+	# we need this to later orient new model to orientation of old model
+	var target_global_basis = old_player_model.global_transform.basis
+	
+	# reparent old model
+	var tr = old_player_model.global_transform
+	player_model.remove_child(old_player_model)
+	get_parent().add_child(old_player_model)
+	old_player_model.global_transform = tr
+	
+	# get rid of the old model if we have to
+	if old_player_model.persistent_shell:
+		# old player model gets abandonded and just sits in the world
+		old_player_model.SetAsUninhabited()
+	else:
+		old_player_model.Deresolution()
+	
+	
+	#--------- new model:
+	# - must dehighlight
+	# - must be lerped to by player controller
+	# - reparent after lerp
+	pending_player_model = object
+	
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", object.global_position, 0.15) #.finished.connect(ReparentNewModel)
+	
+	object.SetAsInhabited()
+	#tween = get_tree().create_tween()
+	tween.tween_property(pending_player_model, "global_transform:basis", target_global_basis, 0.15).finished.connect(ReparentNewModel)
+
+
+# Callback to finish inhabiting.
+func ReparentNewModel():
+	print ("finishing inhabit of ", pending_player_model.name)
+	var tr = pending_player_model.global_transform
+	pending_player_model.get_parent().remove_child(pending_player_model)
+	player_model.add_child(pending_player_model)
+	pending_player_model.global_transform = tr
+	pending_player_model.SetAsInhabited()
+	proximity_areas.erase(pending_player_model.get_node("InhabitableTrigger"))
+	pending_player_model = null
+
+
+#------------------------- Proximity controls ----------------------------------
+
+var proximity_areas := []
+
+func AddProximityTrigger(trigger):
+	if not proximity_areas.has(trigger):
+		#proximity_areas.append(trigger)
+		proximity_areas.push_front(trigger)
+
+func RemoveProximityTrigger(trigger):
+	proximity_areas.erase(trigger)
 
 
 #------------------------- Environment Gravity control ----------------------------------
