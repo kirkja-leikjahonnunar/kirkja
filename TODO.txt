@@ -2,6 +2,7 @@ TODO
 ====
 
 - GameClient:
+   - proximity buttons: need to not be entirely proximity driven.. whether hovered, clickable should still determined by player direction, and only activate one at a time
    - finish implementing log off
    - needs to be able to cover from GameServer vanishing
    - debug latency updating.. not rendering at correct time equivalent?
@@ -99,12 +100,22 @@ get_tree().get_rpc_sender_id()  ->  multiplayer.get_remote_sender_id(
 
 game_server.network.disconnect_peer(game_client_id)  ->  game_server.network.get_peer(game_client_id).peer_disconnect() 
 
+shader:
+  hint rework: https://github.com/godotengine/godot/pull/61554
+    hint_color, hint_albedo are now: source_color
+    hint_white -> hint_default_white
+    hint_black -> hint_default_black
 
 
 CHEATSHEET
 ----------
 One off timers (4.0):  get_tree().create_timer(1.0).timeout.connect(YourFunction)
 Blocking timer (4.0):  await get_tree().create_timer(1.0).timeout
+
+
+Kirkja Custom Addons (todo)
+---------------------------
+Markdown preview within Godot. See also this existing godot-proposal: https://github.com/godotengine/godot-proposals/issues/139
 
 
 GRIPES

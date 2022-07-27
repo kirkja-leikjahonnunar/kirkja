@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmyed8cbbqjd3"]
+
+[ext_resource type="PackedScene" uid="uid://o47inmoqb83t" path="res://kirkja-assets/models/mecha_voidling.glb" id="1_fpppc"]
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerMesh.gd" id="2_ft5cq"]
+[ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="2_kyhrn"]
+
+[node name="mecha_voidling" instance=ExtResource("1_fpppc")]
+script = ExtResource("2_ft5cq")
+
+[node name="mecha_voidling2" parent="." index="0"]
+transform = Transform3D(0.354393, 0, 0, 0, 0.354393, 0, 0, 0, 0.354393, 0, 0, 0)
+
+[node name="InhabitableTrigger" parent="." index="1" instance=ExtResource("2_kyhrn")]
+
+[editable path="InhabitableTrigger"]

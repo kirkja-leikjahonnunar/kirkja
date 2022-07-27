@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://88t37py1klnr"]
 
 [ext_resource type="PackedScene" uid="uid://kgmxcal0ugs0" path="res://Maps/MechaLaunch/Assets/dead_end.tscn" id="1_u31dk"]
-[ext_resource type="PackedScene" path="res://Maps/VoxelVillage/Assets/village_square.tscn" id="2_e2clv"]
+[ext_resource type="PackedScene" uid="uid://bs06gw8y4vs1r" path="res://Maps/VoxelVillage/Assets/village_square.tscn" id="2_e2clv"]
 
 [node name="VoxelVillage" type="Node3D"]
 
-[node name="DeadEnd" parent="." instance=ExtResource( "1_u31dk" )]
+[node name="DeadEnd" parent="." instance=ExtResource("1_u31dk")]
 
-[node name="VillageSquare" parent="." instance=ExtResource( "2_e2clv" )]
+[node name="VillageSquare" parent="." instance=ExtResource("2_e2clv")]

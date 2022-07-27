@@ -9,20 +9,30 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "CharacterBody3D",
-"class": &"CharacterController",
+"base": "Node3D",
+"class": &"CameraPlacements",
 "language": &"GDScript",
-"path": "res://Core/PlayerController/ThirdPerson/CharacterController.gd"
+"path": "res://addons/camera_placements/CameraPlacements.gd"
 }, {
 "base": "Control",
 "class": &"ControlConfig",
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/SettingsUI/control_config.gd"
 }, {
+"base": "ProximityButton",
+"class": &"InhabitableTrigger",
+"language": &"GDScript",
+"path": "res://Core/PlayerController/ThirdPerson/InhabitableTrigger.gd"
+}, {
 "base": "Button",
 "class": &"KeyBindButton",
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/SettingsUI/KeyBindButton.gd"
+}, {
+"base": "CharacterBody3D",
+"class": &"PlayerController",
+"language": &"GDScript",
+"path": "res://Core/PlayerController/ThirdPerson/PlayerController.gd"
 }, {
 "base": "Node3D",
 "class": &"PlayerItem",
@@ -33,13 +43,27 @@ _global_script_classes=[{
 "class": &"ProximityButton",
 "language": &"GDScript",
 "path": "res://Maps/TestLevel/Interactables/ProximityButton.gd"
+}, {
+"base": "MeshInstance3D",
+"class": &"VoxelBlock",
+"language": &"GDScript",
+"path": "res://Maps/VoxelVillage/VoxelTool/VoxelBlock.gd"
+}, {
+"base": "Node3D",
+"class": &"VoxelObject",
+"language": &"GDScript",
+"path": "res://Maps/VoxelVillage/VoxelTool/VoxelObject.gd"
 }]
 _global_script_class_icons={
-"CharacterController": "",
+"CameraPlacements": "",
 "ControlConfig": "",
+"InhabitableTrigger": "",
 "KeyBindButton": "",
+"PlayerController": "",
 "PlayerItem": "",
-"ProximityButton": ""
+"ProximityButton": "",
+"VoxelBlock": "",
+"VoxelObject": ""
 }
 
 [application]
@@ -53,6 +77,19 @@ config/icon="res://Core/icon.png"
 
 GatewayServer="*res://Core/Singletons/GatewayServer.gd"
 GameServer="*res://Core/Singletons/GameServer.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/prettyprimitive/plugin.cfg", "res://addons/camera_placements/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

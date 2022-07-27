@@ -7,6 +7,7 @@ var seesaw_zrot := 0.0
 var on: bool = false
 
 func _ready():
+	#$ResourcePreloader.add_resource(???)
 	$HoverIndicate.scale = Vector3(0,0,0)
 	if seesaw:
 		seesaw_zrot = seesaw.rotation.z
@@ -14,9 +15,9 @@ func _ready():
 
 func Hover():
 	$HoverIndicate.visible = true
+
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property($HoverIndicate, "scale", Vector3(1, 1, 1), 0.15)
-
 
 func Unhover():
 	#$HoverIndicate.visible = false
