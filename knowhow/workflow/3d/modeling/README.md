@@ -28,6 +28,20 @@ Blender is an awesome open source _([GPL](https://www.blender.org/about/license/
 ### Scene Organization
 _(TBD)_
 
+### Viewport
+#### Hotkeys
+- Cycle Selection: **`W`**
+- Parenting:
+  - Select multiple objects.
+  - The active object (usually the last selected) will become the parent.
+  - **`Ctrl`** + **`P`** > **`Object (Keep Transform)`**
+- Unparenting: **`Alt`** + **`P`**
+
+- Recenter 3D Cursor: **`Shift`** + **`C`**
+- Snap Menu: **`Shift`** + **`S`** >
+  - **`Cursor to Selected`**
+  - **`Selected to Cursor`**
+
 
 ### Box Model
 #### Modifiers
@@ -46,7 +60,7 @@ _(TBD)_
 
 ### Vert Model
 
-![Quick notes.](vert_extrude_skin.png)
+![Quick notes.](docs/vert_extrude_skin.png)
 
 #### Modifiers
 
@@ -56,7 +70,7 @@ _(TBD)_
 - Merge: `0.1 m`
 
 **`Skin`**
-- Smooth Shading: 🗹 (only visible in Object Mode)
+- Smooth Shad ing: 🗹 (only visible in Object Mode)
 - Mark "pelvis" vertex as root: [Mark Root]
 
 **`Subdivision Surface`**
@@ -98,7 +112,7 @@ Making it believable. _(TBD) depending on the export tools_
 
 Don't forget to set the normal map node's Color Space: `Non-Color`
 
-![](normal_nodes.png)
+![Non-Color](docs/normal_nodes.png)
 
 
 ### Baking
@@ -111,7 +125,7 @@ It is common to **"bake"** _color_, _lighting_, _normal_, and object data from o
     - Bake Type: `Normal`
   - Selected to Active: `🗹`
 
-![](bake_settings.png)
+![](docs/bake_settings.png)
 
 
 #### AO _(Ambient Occlusion)_

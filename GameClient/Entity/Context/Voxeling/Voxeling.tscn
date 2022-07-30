@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://ba5oadbsoymjf"]
+
+[ext_resource type="PackedScene" uid="uid://c04omrr6yot0s" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
+[ext_resource type="Script" path="res://Entity/Context/Voxeling/Voxeling.gd" id="1_xyc3q"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yatec"]
+animation = &"Idle rig"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2c48"]
+animation = &"Walk rig"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83aps"]
+animation = &"Walk rig"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1vdjc"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vc5sr"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h0qek"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ur7i"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_suupy"]
+"states/Idle rig/node" = SubResource("AnimationNodeAnimation_yatec")
+"states/Idle rig/position" = Vector2(410, 76)
+states/Start/position = Vector2(226, 76)
+"states/Walk rig/node" = SubResource("AnimationNodeAnimation_83aps")
+"states/Walk rig/position" = Vector2(602, 76)
+"states/Walk rig 2/node" = SubResource("AnimationNodeAnimation_p2c48")
+"states/Walk rig 2/position" = Vector2(221, 228)
+transitions = ["Start", "Idle rig", SubResource("AnimationNodeStateMachineTransition_1vdjc"), "Idle rig", "Walk rig", SubResource("AnimationNodeStateMachineTransition_vc5sr"), "Walk rig", "Idle rig", SubResource("AnimationNodeStateMachineTransition_h0qek"), "Idle rig", "Walk rig 2", SubResource("AnimationNodeStateMachineTransition_5ur7i")]
+graph_offset = Vector2(-30, -34)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qmfbt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaoyi"]
+size = Vector3(0.173, 0.131, 0.116)
+
+[node name="Voxeling" type="CharacterBody3D"]
+script = ExtResource("1_xyc3q")
+
+[node name="voxeling" parent="." instance=ExtResource("1_m18wj")]
+
+[node name="Skeleton3D" parent="voxeling/ctrl_rig" index="0"]
+bones/1/position = Vector3(0, 0, 0.0319641)
+bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
+bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
+bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
+bones/7/position = Vector3(0.00670773, 0.0124832, 0.00473603)
+bones/7/rotation = Quaternion(-1.05856e-14, -4.54744e-12, -0.00233289, 0.999997)
+bones/8/position = Vector3(-0.00711697, 0.0125477, 0.00473603)
+bones/8/rotation = Quaternion(-1.05856e-14, -4.54744e-12, -0.00233289, 0.999997)
+bones/9/position = Vector3(0.0121038, 0.00733784, -0.00901323)
+bones/9/rotation = Quaternion(-3.30834e-10, -3.27663e-10, -0.710504, 0.703693)
+bones/10/rotation = Quaternion(-0.4992, 0.503214, 0.496936, 0.50063)
+bones/11/rotation = Quaternion(-0.00845723, -0.00242105, -0.0011225, 0.999961)
+bones/12/rotation = Quaternion(0.00460517, 5.2089e-06, -0.00138116, 0.999988)
+bones/13/position = Vector3(-0.00670773, 0.0124832, 0.00473603)
+bones/13/rotation = Quaternion(-1.05856e-14, 4.54744e-12, 0.00233289, 0.999997)
+bones/14/position = Vector3(0.00705734, 0.0124381, 0.00473603)
+bones/14/rotation = Quaternion(-1.05856e-14, 4.54744e-12, 0.00233289, 0.999997)
+bones/15/position = Vector3(-0.0121038, 0.00733783, -0.00901323)
+bones/15/rotation = Quaternion(-3.30834e-10, 3.27663e-10, 0.710504, 0.703693)
+bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
+bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
+bones/20/position = Vector3(0, 0, 0.0319641)
+bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
+bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
+bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_suupy")
+anim_player = NodePath("../voxeling/AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qmfbt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656491, 0)
+shape = SubResource("BoxShape3D_jaoyi")
+
+[editable path="voxeling"]
