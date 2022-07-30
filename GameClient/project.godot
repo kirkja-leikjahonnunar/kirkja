@@ -78,19 +78,6 @@ config/icon="res://Core/icon.png"
 GatewayServer="*res://Core/Singletons/GatewayServer.gd"
 GameServer="*res://Core/Singletons/GameServer.gd"
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/prettyprimitive/plugin.cfg", "res://addons/camera_placements/plugin.cfg")
-
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 move_left={
