@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdygb8lrm01n2"]
+
+[ext_resource type="PackedScene" uid="uid://d3cr1lrswc8li" path="res://addons/jigglebones/demo/models/suzanne.dae" id="1"]
+[ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="2_5mecp"]
+[ext_resource type="Texture2D" uid="uid://4m0dmrieokhv" path="res://addons/jigglebones/demo/tile_tex.png" id="4"]
+
+[sub_resource type="Sky" id="1"]
+radiance_size = 4
+
+[sub_resource type="Environment" id="2"]
+background_mode = 2
+background_color = Color(0.340912, 0.62264, 0.746094, 1)
+sky = SubResource("1")
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_31we1"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_color = Color(0.613281, 0.613281, 0.613281, 1)
+albedo_texture = ExtResource("4")
+roughness = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="4"]
+material = SubResource("3")
+size = Vector2(1000, 1000)
+
+[node name="main" type="WorldEnvironment"]
+environment = SubResource("2")
+
+[node name="Scene Root" parent="." instance=ExtResource("1")]
+transform = Transform3D(0.967576, 0.192289, 0.163775, -0.161039, 0.969167, -0.186494, -0.194586, 0.154072, 0.968709, -0.354112, 0, 0.281454)
+
+[node name="Armature" parent="Scene Root" index="0"]
+transform = Transform3D(0.92917, -0.0666382, 0.363597, -0.0766541, 0.927501, 0.365876, -0.361618, -0.367832, 0.856698, 0.177412, 0.624141, -0.334771)
+
+[node name="Suzanne" parent="Scene Root/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.900817, 0.123525, -0.416257, -0.0718427, 0.987868, 0.137678, 0.428214, -0.0941179, 0.898763, 0, 0, 0)
+skeleton = NodePath("..")
+
+[node name="JiggleBone" type="Node3D" parent="Scene Root/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.298838, 0.941387, -0.156484, -0.0846151, 0.18947, 0.978234, 0.950545, -0.279092, 0.136276, 0.912569, -0.950023, -0.663697)
+top_level = true
+script = ExtResource("2_5mecp")
+bone_name = "Ear.L"
+damping = 8.8
+use_gravity = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scene Root/Armature/Skeleton3D/JiggleBone"]
+mesh = SubResource("BoxMesh_31we1")
+
+[node name="AnimationPlayer" parent="Scene Root" index="1"]
+autoplay = "default"
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.573238, 0.661115, 0.48407, -0.674925, 0.0459793, 0.736452, 0.464623, -0.748874, 0.47256, 3.46112, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25885, -2.17987, -1.51131)
+mesh = SubResource("4")
+
+[node name="cam" type="Camera3D" parent="."]
+transform = Transform3D(0.997219, -0.036321, 0.0976642, 0, 0.937366, 0.348603, -0.103659, -0.345799, 0.929826, 0.336978, 1.45275, 3.92528)
+
+[editable path="Scene Root"]

@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/InhabitableTrigger.gd"
 }, {
+"base": "Node3D",
+"class": &"JiggleBone",
+"language": &"GDScript",
+"path": "res://addons/jigglebones/jigglebone.gd"
+}, {
 "base": "Button",
 "class": &"KeyBindButton",
 "language": &"GDScript",
@@ -63,6 +68,7 @@ _global_script_class_icons={
 "CameraPlacements": "",
 "ControlConfig": "",
 "InhabitableTrigger": "",
+"JiggleBone": "",
 "KeyBindButton": "",
 "PlayerController": "",
 "PlayerItem": "",
@@ -91,7 +97,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/camera_placements/plugin.cfg")
+enabled=PackedStringArray("res://addons/camera_placements/plugin.cfg", "res://addons/jigglebones/plugin.cfg")
 
 [filesystem]
 
