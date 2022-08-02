@@ -49,6 +49,13 @@ func _physics_process(delta):
 
 func _on_drill_body_entered(body):
 	if Input.is_action_pressed("voxeling_eraser_mode"):
+		if not is_on_floor():
+			if body is Voxel:
+				Jump()
+				body.call_deferred("queue_free") # This works but throws errors in editor.
+
+
+func _on_bump_body_entered(body):
+	if Input.is_action_pressed("voxeling_eraser_mode"):
 		if body is Voxel:
-			Jump()
-			body.queue_free() # This works but throws errors in editor.
+			body.call_deferred("queue_free") # This works but throws errors in editor. # This works but throws errors in editor.
