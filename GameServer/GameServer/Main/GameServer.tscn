@@ -9,17 +9,17 @@
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_81cvc"]
 
 [sub_resource type="Sky" id="Sky_qq3uq"]
-sky_material = SubResource( "ProceduralSkyMaterial_81cvc" )
+sky_material = SubResource("ProceduralSkyMaterial_81cvc")
 
 [sub_resource type="Environment" id="Environment_rbbmy"]
 background_mode = 2
-sky = SubResource( "Sky_qq3uq" )
+sky = SubResource("Sky_qq3uq")
 
 [node name="GameServer" type="Node"]
-script = ExtResource( "1_01c0a" )
+script = ExtResource("1_01c0a")
 
 [node name="PlayerVerification" type="Node" parent="."]
-script = ExtResource( "2_hibtb" )
+script = ExtResource("2_hibtb")
 
 [node name="VerificationExpiration" type="Timer" parent="PlayerVerification"]
 wait_time = 10.0
@@ -30,20 +30,20 @@ wait_time = 10.0
 autostart = true
 
 [node name="StateProcessing" type="Node" parent="."]
-script = ExtResource( "3_e68no" )
+script = ExtResource("3_e68no")
 
 [node name="World" type="Node3D" parent="."]
-script = ExtResource( "4_xrq02" )
+script = ExtResource("4_xrq02")
 
 [node name="Players" type="Node3D" parent="World"]
 
-[node name="Map" parent="World" instance=ExtResource( "5_6durd" )]
+[node name="Map" parent="World" instance=ExtResource("5_6durd")]
 
 [node name="Camera3D" type="Camera3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.897751, 0.440503, 0, -0.440503, 0.897751, 9.53674e-07, 6.29747, 11.9081)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_rbbmy" )
+environment = SubResource("Environment_rbbmy")
 
 [connection signal="timeout" from="PlayerVerification/VerificationExpiration" to="PlayerVerification" method="_on_verification_expiration_timeout"]
 [connection signal="timeout" from="TokenExpiration" to="." method="_on_TokenExpiration_timeout"]
