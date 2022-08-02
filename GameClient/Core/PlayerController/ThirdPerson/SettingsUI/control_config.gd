@@ -45,7 +45,7 @@ signal setting_changed(action, value)
 #------------------------- Main ----------------------------------
 
 func _ready():
-	print ("ControlConfig ready")
+	#print ("ControlConfig ready")
 	if not Engine.is_editor_hint():
 		#LoadSettings(settings_file)
 		SetBindingsFromCurrentLive()

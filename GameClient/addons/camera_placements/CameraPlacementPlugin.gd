@@ -18,7 +18,7 @@ func _enter_tree():
 
 func _on_selection_changed():
 	var selected = eds.get_selected_nodes() 
-	print("cam place plugin: selection changed: ", selected)
+	#print("cam place plugin: selection changed: ", selected)
 	if not selected.is_empty():
 		# Always pick first node in selection
 		gizmo_plugin.SetCurrentSelected(selected[0])

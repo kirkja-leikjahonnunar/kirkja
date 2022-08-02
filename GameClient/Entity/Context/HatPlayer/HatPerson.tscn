@@ -1,25 +1,139 @@
-[gd_scene load_steps=4 format=3 uid="uid://de363mxl62jy1"]
+[gd_scene load_steps=22 format=3 uid="uid://de363mxl62jy1"]
 
 [ext_resource type="PackedScene" uid="uid://dmcwjpni02ehq" path="res://Entity/Context/HatPlayer/HatPerson.glb" id="1_f5125"]
-[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerMesh.gd" id="2_vj8he"]
+[ext_resource type="Script" path="res://Entity/Context/HatPlayer/HatPerson.gd" id="2_6hob6"]
 [ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="3_pb5he"]
+[ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="3_ytfsg"]
 
-[node name="HatPerson" instance=ExtResource("1_f5125")]
-script = ExtResource("2_vj8he")
+[sub_resource type="BoxMesh" id="BoxMesh_qtety"]
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_106e1"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sdbx3"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rd2qc"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_7wp1p"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_106e1")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_sdbx3")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_rd2qc")
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_shrkr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xvhlg"]
+graph_offset = Vector2(189.927, 253.484)
+nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_7wp1p")
+nodes/BlendSpace1D/position = Vector2(360, 180)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_shrkr")
+nodes/TimeScale/position = Vector2(680, 180)
+nodes/output/position = Vector2(980, 200)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace1D"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eqldj"]
+animation = &"JumpEnd"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pdc8o"]
+animation = &"JumpIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pbfrn"]
+animation = &"JumpStart"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_caav8"]
+xfade_time = 0.05
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qa5f"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kquat"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cixea"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uu2xd"]
+xfade_time = 0.05
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o5dfp"]
+states/IdleWalkRun/node = SubResource("AnimationNodeBlendTree_xvhlg")
+states/IdleWalkRun/position = Vector2(523, 118)
+states/JumpEnd/node = SubResource("AnimationNodeAnimation_eqldj")
+states/JumpEnd/position = Vector2(791, 224)
+states/JumpIdle/node = SubResource("AnimationNodeAnimation_pdc8o")
+states/JumpIdle/position = Vector2(601, 224)
+states/JumpStart/node = SubResource("AnimationNodeAnimation_pbfrn")
+states/JumpStart/position = Vector2(382, 224)
+states/Start/position = Vector2(216, 118)
+transitions = ["JumpStart", "JumpIdle", SubResource("AnimationNodeStateMachineTransition_caav8"), "JumpIdle", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_8qa5f"), "Start", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_kquat"), "IdleWalkRun", "JumpStart", SubResource("AnimationNodeStateMachineTransition_cixea"), "JumpEnd", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_uu2xd")]
+graph_offset = Vector2(-184, 38)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_f20oo"]
+
+[node name="HatPerson" node_paths=PackedStringArray("animation_tree") instance=ExtResource("1_f5125")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431016, 0, 0)
+script = ExtResource("2_6hob6")
+animation_tree = NodePath("AnimationTree")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(6.58763e-18, 1.26456, 0.0631928)
-bones/2/rotation = Quaternion(-0.44666, 0.0943546, 0.291739, 0.840524)
-bones/3/rotation = Quaternion(-0.0771622, -0.000334991, -0.620411, 0.780472)
-bones/4/rotation = Quaternion(0.0211197, 0.0278135, 0.834982, 0.549168)
-bones/6/rotation = Quaternion(-0.540304, -0.101347, -0.0582367, 0.833312)
-bones/7/rotation = Quaternion(-0.370368, 0.0105845, 0.13982, 0.918241)
-bones/8/rotation = Quaternion(0.0379231, 0.0217059, 0.0693908, 0.996632)
-bones/25/rotation = Quaternion(-0.468597, -0.0341809, -0.186548, 0.862814)
-bones/26/rotation = Quaternion(-0.0454923, -7.65439e-05, 0.357875, 0.932661)
-bones/27/rotation = Quaternion(0.0966088, -0.00428597, -0.812912, 0.574302)
-bones/29/rotation = Quaternion(-0.550207, -0.0245003, -0.033119, 0.834012)
-bones/30/rotation = Quaternion(-0.36627, -0.0289676, -0.186679, 0.91113)
-bones/31/rotation = Quaternion(0.0796358, -0.0143249, -0.162986, 0.983305)
+bones/2/rotation = Quaternion(-0.47625, -2.30679e-07, 0.12694, 0.870099)
+bones/3/rotation = Quaternion(-0.0377975, 3.47602e-08, -0.302533, 0.952389)
+bones/4/rotation = Quaternion(0.102893, -2.45371e-08, 0.823559, 0.55782)
+bones/8/rotation = Quaternion(0.0167264, -5.36616e-07, 0.0304997, 0.999395)
+bones/25/rotation = Quaternion(-0.47625, 2.30679e-07, -0.12694, 0.870099)
+bones/26/rotation = Quaternion(-0.0377975, -3.47602e-08, 0.302533, 0.952389)
+bones/27/rotation = Quaternion(0.102893, 2.45371e-08, -0.823559, 0.55782)
+bones/29/rotation = Quaternion(-0.368021, -0.00576418, -0.0145611, 0.929686)
+bones/30/rotation = Quaternion(-0.267518, 0.0124641, -0.00405847, 0.963464)
+bones/31/rotation = Quaternion(-0.015102, 6.46267e-07, -0.063429, 0.997872)
 
-[node name="InhabitableTrigger" parent="." index="2" instance=ExtResource("3_pb5he")]
+[node name="JiggleBone" type="Node3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(-5.66244e-07, -1, 5.96046e-08, 5.06639e-07, 0, 1, -1, 5.66244e-07, 5.66244e-07, -0.00150999, 1.11357, 0.401101)
+top_level = true
+script = ExtResource("3_ytfsg")
+bone_name = "Tassle00"
+use_gravity = true
+rest_length = 0.2
+metadata/_edit_group_ = true
+
+[node name="CubeMesh2" type="MeshInstance3D" parent="Armature/Skeleton3D/JiggleBone" index="0"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999994, 0, 0, 0)
+mesh = SubResource("BoxMesh_qtety")
+skeleton = NodePath("../../JiggleBone2")
+
+[node name="JiggleBone2" type="Node3D" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(4.76837e-07, -1, 2.98023e-07, -5.36442e-07, 2.38419e-07, 1, -1, -4.76837e-07, -4.76837e-07, 0.264115, 1.14757, 0.255828)
+top_level = true
+script = ExtResource("3_ytfsg")
+bone_name = "Tassle2.L"
+use_gravity = true
+gravity = Vector3(0, -5, 0)
+rest_length = 0.2
+metadata/_edit_group_ = true
+
+[node name="CubeMesh" type="MeshInstance3D" parent="Armature/Skeleton3D/JiggleBone2" index="0"]
+mesh = SubResource("BoxMesh_qtety")
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_speed = 10.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_o5dfp")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_f20oo")
+parameters/IdleWalkRun/BlendSpace1D/blend_position = -1.0
+parameters/IdleWalkRun/TimeScale/scale = 3.0
+
+[node name="InhabitableTrigger" parent="." index="3" instance=ExtResource("3_pb5he")]
+
+[editable path="InhabitableTrigger"]

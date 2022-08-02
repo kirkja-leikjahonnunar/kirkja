@@ -49,7 +49,8 @@ var velocity_damp := .1
 @onready var camera_target = $CameraRig/Target
 @onready var camera_pitch  = $CameraRig/Target/SpringArm3D
 @onready var camera_boom   = $CameraRig/Target/SpringArm3D
-@onready var player_model  = $PlayerMesh
+@onready var player_model_parent  = $PlayerMesh
+var player_mesh
 var camera_gamma := 0.0  # applied to camera_pitch node, rotation around player x axis
 var min_camera_pitch := -PI/2
 var max_camera_pitch := PI/2
@@ -85,9 +86,9 @@ func _ready():
 	
 	if alt_player_mesh:
 		var pmesh = alt_player_mesh.instantiate()
-		for child in $PlayerMesh.get_children():
+		for child in player_model_parent.get_children():
 			child.visible = false
-		$PlayerMesh.add_child(pmesh)
+		player_model_parent.add_child(pmesh)
 	
 	if !SettingsOverlay.is_empty():
 		ConnectOptionsWindow(SettingsOverlay)
@@ -95,18 +96,25 @@ func _ready():
 	if !main_camera && has_node("../MainCamera"):
 		main_camera = get_node("../MainCamera")
 	
+	if player_model_parent.get_child_count() > 0: player_mesh = player_model_parent.get_child(0)
+	
 	call_deferred("ReadyClean")
 
 func ReadyClean():
-	if player_model.get_child_count() > 0:
-		player_model.get_child(0).SetAsInhabited()
+	if player_model_parent.get_child_count() > 0:
+		player_model_parent.get_child(0).SetAsInhabited()
 
+
+# some cached position status
+var last_on_floor: bool
 
 func _physics_process(delta):
-	# Coordinate gravity.
+	# Coordinate gravity. Sets up_direction.
 	UpdateGravity()
 	
 	var target_velocity : Vector3
+	
+	var just_jumped: bool = false
 	
 	if not is_on_floor():
 		#target_velocity -= (gravity * delta * 10) * up_direction
@@ -114,6 +122,7 @@ func _physics_process(delta):
 	else: #on floor
 		# Handle Jump.
 		if Input.is_action_just_pressed("char_jump"):
+			just_jumped = true
 			# replace up velocity with jump velocity.. old should be 0 since on floor
 			velocity = velocity - velocity.dot(up_direction) * up_direction + JUMP_VELOCITY * up_direction
 			#target_velocity = JUMP_VELOCITY * 10 * up_direction
@@ -141,8 +150,14 @@ func _physics_process(delta):
 	#print (player_dir)
 	var direction = (transform.basis * player_dir).normalized() # now in world space
 	
-	var speed = SPRINT_SPEED if Input.is_action_pressed("char_sprint") else SPEED
+	var sprinting : bool = Input.is_action_pressed("char_sprint")
+	var speed = SPRINT_SPEED if sprinting else SPEED
 	SetCharTilt(player_dir * speed / SPEED)
+	
+	# Animation syncing
+	if player_model_parent.get_child_count() > 0:
+		player_model_parent.get_child(0).SetSpeed(input_dir.length() * (2.0 if sprinting else 1.0) - 1.0)
+	
 	
 	# if no weird gravity stuff:
 #	if direction:
@@ -170,6 +185,22 @@ func _physics_process(delta):
 	move_and_slide()
 	#dpos -= position # this is world coordinates change in position
 	
+	if player_mesh:
+		if just_jumped:
+			if ! is_on_floor():
+				if last_on_floor: # we jumped while on the floor
+					player_mesh.JumpStart()
+				else: #jumped while not on floor, just make sure we are falling?
+					player_mesh.Falling()
+		else: # not just jumped
+			if last_on_floor && not is_on_floor(): # we probably walked off something
+				player_mesh.Falling()
+			elif not last_on_floor && is_on_floor(): # landed somewhere
+				player_mesh.JumpEnd()
+	
+	last_on_floor = is_on_floor()
+	
+	# network sync
 	DefinePlayerState()
 
 
@@ -247,20 +278,20 @@ var target_tilt := 0.0
 var tilt_damp := .2
 var rotation_damp := .3
 
-# Make player mesh point z in the provided direction (in player space), and also lean in that direction
+# Make player mesh parent point z in the provided direction (in player space), and also lean in that direction
 func SetCharTilt(direction: Vector3):
-	if player_model == null: return
+	if player_model_parent == null: return
 	
 	if direction.length() != 0: 
 		var amount = sqrt(direction.x*direction.x + direction.z*direction.z)
 		target_rotation = -atan2(-direction.x, direction.z)
-		player_model.rotation.y = lerp_angle(player_model.rotation.y, target_rotation, rotation_damp)
+		player_model_parent.rotation.y = lerp_angle(player_model_parent.rotation.y, target_rotation, rotation_damp)
 		#print ("angle: ", atan2(-direction.x, direction.z))
 		target_tilt = amount * .1 #* sign(direction.y)
-		player_model.rotation.x = lerp_angle(player_model.rotation.x, target_tilt, tilt_damp)
+		player_model_parent.rotation.x = lerp_angle(player_model_parent.rotation.x, target_tilt, tilt_damp)
 		#print ("tilt: ", rad2deg(amount * tilt_damp))
 	else:
-		player_model.rotation.x = lerp_angle(player_model.rotation.x, 0, tilt_damp)
+		player_model_parent.rotation.x = lerp_angle(player_model_parent.rotation.x, 0, tilt_damp)
 
 
 # Update camera yaw based on mouse movement x,y.
@@ -358,7 +389,7 @@ func SetThirdPerson():
 	#cam_vv_shift = $Proxy_Over.position.y - cam_v_shift # gets added to cam_v_offset
 	SetHoverVars()
 	SetCameraHoverTarget()
-	$PlayerMesh.visible = true
+	player_model_parent.visible = true
 
 
 # Turn off the player mesh, and move camera to Proxy_FPS position.
@@ -373,7 +404,7 @@ func SetFirstPerson():
 	cam_v_offset = camera_target.position.y 
 	cam_v_shift  = 0
 	cam_vv_shift = 0
-	$PlayerMesh.visible = false
+	player_model_parent.visible = false
 
 
 func Use1(node):
@@ -404,16 +435,17 @@ func Inhabit(object):
 	# - deparented
 	# - highlightable if not being removed
 	# - optionally removed
-	var old_player_model = player_model.get_child(0)
+	var old_player_model = player_model_parent.get_child(0)
 	
 	# we need this to later orient new model to orientation of old model
 	var target_global_basis = old_player_model.global_transform.basis
 	
 	# reparent old model
-	var tr = old_player_model.global_transform
-	player_model.remove_child(old_player_model)
+	var _tr = old_player_model.global_transform
+	player_model_parent.remove_child(old_player_model)
 	get_parent().add_child(old_player_model)
-	old_player_model.global_transform = tr
+	old_player_model.global_transform = _tr
+	player_mesh = null
 	
 	# get rid of the old model if we have to
 	if old_player_model.persistent_shell:
@@ -440,10 +472,11 @@ func Inhabit(object):
 # Callback to finish inhabiting.
 func ReparentNewModel():
 	print ("finishing inhabit of ", pending_player_model.name)
-	var tr = pending_player_model.global_transform
+	var gtr = pending_player_model.global_transform
 	pending_player_model.get_parent().remove_child(pending_player_model)
-	player_model.add_child(pending_player_model)
-	pending_player_model.global_transform = tr
+	player_model_parent.add_child(pending_player_model)
+	player_mesh = pending_player_model
+	pending_player_model.global_transform = gtr
 	pending_player_model.SetAsInhabited()
 	proximity_areas.erase(pending_player_model.get_node("InhabitableTrigger"))
 	pending_player_model = null
@@ -532,7 +565,7 @@ func DefinePlayerState():
 	var player_state = { "T": GameServer.client_clock, 
 						"P": global_transform.origin,
 						"R": global_transform.basis.get_rotation_quaternion(),
-						"R2": $PlayerMesh.basis.get_rotation_quaternion()
+						"R2": player_model_parent.basis.get_rotation_quaternion()
 						}
 	GameServer.SendPlayerState(player_state)
 

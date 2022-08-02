@@ -46,7 +46,7 @@ func _get_handle_name(gizmo, handle_id, secondary):
 		4: return "back"
 
 func _has_gizmo(node3d):
-	print ("gizmo node check on ", node3d.name, ": ", node3d is CameraPlacements)
+	#print ("gizmo node check on ", node3d.name, ": ", node3d is CameraPlacements)
 	return node3d is CameraPlacements
 
 

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b0urdil7tcis5"]
 
-[ext_resource type="Texture2D" uid="uid://s84kvfo1odi1" path="res://Core/PlayerController/Materials/flare.png" id="1_53mx2"]
+[ext_resource type="Texture2D" uid="uid://s84kvfo1odi1" path="res://Core/PlayerController/Materials/flare.png" id="1_b2o0w"]
 
 [sub_resource type="Shader" id="Shader_uw8au"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.0.alpha12's StandardMaterial3D.
@@ -48,5 +48,5 @@ void fragment() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_uw8au")
-shader_param/albedo = Color(1, 1, 1, 1)
-shader_param/texture_albedo = ExtResource("1_53mx2")
+albedo = Color(1, 1, 1, 1)
+texture_albedo = ExtResource("1_b2o0w")
