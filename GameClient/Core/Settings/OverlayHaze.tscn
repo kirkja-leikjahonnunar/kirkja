@@ -3,8 +3,8 @@
 [ext_resource type="Shader" path="res://Core/Main/Login/screenblur.gdshader" id="1_x0iep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_loccu"]
-shader = ExtResource( "1_x0iep" )
-shader_param/amount = 4.032
+shader = ExtResource("1_x0iep")
+amount = 2.161
 
 [sub_resource type="Texture2D" id="Texture2D_bdxle"]
 resource_local_to_scene = false
@@ -22,7 +22,7 @@ color = Color(0.203922, 0.0745098, 0.431373, 0.580392)
 metadata/_edit_layout_mode = 1
 
 [node name="BlurRect" type="TextureRect" parent="."]
-material = SubResource( "ShaderMaterial_loccu" )
+material = SubResource("ShaderMaterial_loccu")
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( "Texture2D_bdxle" )
+texture = SubResource("Texture2D_bdxle")
