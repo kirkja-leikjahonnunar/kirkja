@@ -18,7 +18,7 @@ Voidlings should be able to access a reasonable amount of jump space (maybe 3 ti
 Voidling movement is limited by a fog-of-war, but the fog is lifted as the player travels around the world within new contexts.
 
 ## Context Habitation
-Voidlings hop in and out out [contexts](../Context) to **interact with** and **affect** the in-game world. Contexts are usually NPC quest givers, but could also be animals, or inanimate objects.
+Voidlings hop-in and hop-out of [contexts](../Context) to **interact with** and **affect** the in-game world. Contexts are usually NPC quest givers, but could also be animals, or inanimate objects.
 
 ## Void Space
-Void Space is the persistent area that every voidling
+Void Space is the persistent personal area that every voidling has access to. It includes the main menu, inventory, neighborhoods, and portals.
