@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://wbrs5bitntau"]
+
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/CameraControls.gd" id="1_k8pfa"]
+[ext_resource type="Script" path="res://addons/camera_placements/CameraPlacements.gd" id="2_5suap"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t6c4u"]
+radius = 0.1
+
+[node name="CameraRig" type="Node3D" node_paths=PackedStringArray("camera_rig")]
+script = ExtResource("1_k8pfa")
+camera_rig = NodePath(".")
+
+[node name="CameraPlacements" type="Node3D" parent="."]
+script = ExtResource("2_5suap")
+proxy_fps = Vector3(-0.00668955, 1.33249, 0.00596285)
+proxy_over = Vector3(0.0143249, 2.05391, 0.0409417)
+proxy_right = Vector3(-0.715692, 1.12318, -0.0852035)
+proxy_left = Vector3(0.831598, 1.07325, -0.0541289)
+proxy_back = Vector3(0.0721449, 1.27959, -0.993644)
+
+[node name="Target" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Target"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_mask = 16777214
+shape = SubResource("SphereShape3D_t6c4u")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="Target/SpringArm3D"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 2.54461)

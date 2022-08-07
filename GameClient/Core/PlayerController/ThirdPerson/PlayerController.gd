@@ -1,42 +1,65 @@
 #
-# Mixed third and first person character controller.
+# PlayerController coordinates input to PlayerContext, as well as switching contexts.
+# Basic movement controls are built in, but can be overridden by the specific PlayerContext in use.
 #
 
 extends CharacterBody3D
 class_name PlayerController
 
 
-# @export_group  ... alpha 12
+#------------------------- Movement settings ----------------------------
+
+@export_group("Movement")
 @export var SPEED := 5.0
 @export var SPRINT_SPEED := 10.0
 @export var ROTATION_SPEED := .03
 @export var JUMP_VELOCITY := 8.5
 @export var GRAVITY_MULTIPLIER := 2.0
 
-@export var allow_fp : bool = true # allow First Person mode
-@export var min_camera_distance := 0.5  # below this, switch to 1st person
-@export var max_camera_distance := 5.0  # below this, switch to 1st person
-@export var zoom_amount := .2 #amound to zoom each wheel click
-@export var fov_degrees := 75.0
-@export var aim_fov_degrees := 40.0
+#------------------------- Camera settings ----------------------------
 
-@export var mouse_sensitivity := 1.0 #.02
-@export var invert_y := false
-@export var invert_x := true
+@export_group("Camera")
+@export var camera_rig : Node3D
+@export var allow_fp : bool = true # allow First Person mode
+#@export var min_camera_distance := 0.5  # below this, switch to 1st person
+#@export var max_camera_distance := 5.0  # maximum to position camera away from player
+#@export var zoom_amount := .2 #amount to zoom each wheel click
+#@export var fov_degrees := 75.0
+#@export var aim_fov_degrees := 40.0
+#@export var mouse_sensitivity := 1.0 #.02
+#@export var pad_sensitivity := 1.0
+#@export var invert_y := false
+#@export var invert_x := true
+
+#whether context allows using mouse cursor, should not be 
 @export var allow_mouse_toggle := true
+
+
+#------------------------- Overlay ui ----------------------------
+@export_group("Overlays")
 
 # We need direct link to settings to get things like fov or mouse sensitivity change
 @export var SettingsOverlay : NodePath
 #@onready var settings_overlay = get_node(SettingsOverlay) if !SettingsOverlay.is_empty() else null
 
-@export var PauseMenu : NodePath
-@onready var pause_menu = get_node(PauseMenu) if !PauseMenu.is_empty() else null
 
-var main_camera : Camera3D
+#------------------------- World Properties ----------------------------
+@export_group("World Properties")
 
-# If not null, use this as the player mesh instead of default capsule model
-@export var alt_player_mesh : PackedScene
+#TODO: these should probably be higher level globals
+@export var world_max_height := 10
+@export var world_min_height := -10
 
+
+@export_group("AAAA WHY!?!?!?! export_group broken?")
+## AAAA!! repeated properties in inspector.. why???
+
+
+#------------------------- Variables ----------------------------
+
+# The actual active camera. We really only need this to change fov.
+#TOOD: this should probably be coordinated more directly via settings window
+var main_camera : Camera3D # assume this will be "../MainCamera", set in ready
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -45,27 +68,25 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #var target_velocity := Vector3()
 var velocity_damp := .1
 
-@onready var camera_rig    = $CameraRig
-@onready var camera_target = $CameraRig/Target
-@onready var camera_pitch  = $CameraRig/Target/SpringArm3D
-@onready var camera_boom   = $CameraRig/Target/SpringArm3D
 @onready var player_model_parent  = $PlayerMesh
 var player_mesh
-var camera_gamma := 0.0  # applied to camera_pitch node, rotation around player x axis
-var min_camera_pitch := -PI/2
-var max_camera_pitch := PI/2
-var cam_h_shift := 0.0   # shift left or right off the player
-var cam_v_shift := 0.0   # shift front or back
-var cam_vv_shift := 0.0  # shift vertically to avoid head
-var cam_v_offset := 0.0  # distance from player base to optimal camera height
 
-enum CameraHover { Left, Right, Over } # How to center player in 3rd person view
-var camera_hover := CameraHover.Over
+#var camera_gamma := 0.0  # applied to camera_pitch node, rotation around player x axis
+#var min_camera_pitch := -PI/2
+#var max_camera_pitch := PI/2
+#var cam_h_shift := 0.0   # shift left or right off the player
+#var cam_v_shift := 0.0   # shift front or back
+#var cam_vv_shift := 0.0  # shift vertically to avoid head
+#var cam_v_offset := 0.0  # distance from player base to optimal camera height
 
+#enum CameraHover { Left, Right, Over } # How to center player in 3rd person view
+#var camera_hover := CameraHover.Over
+#
 enum CameraMode { Default, First, Third, VR } # TODO: VR!
-#@export_enum(CameraMode) var camera_mode : int = CameraMode.Third <- how to export named enum??
+##@export_enum(CameraMode) var camera_mode : int = CameraMode.Third <- how to export named enum??
 var camera_mode = CameraMode.Default
 
+# store initial spawn position for easy out of bounds respawn
 @onready var spawn_position := position
 
 
@@ -75,20 +96,37 @@ func GetCameraProxy() -> Node3D:
 	return get_node("CameraRig/Target/SpringArm3D/Camera3D")
 
 
+##--------------------------- Interface -----------------------------
+
+
+# Turn on the 3rd person player mesh, and move camera to minimum distance if necessary.
+func SetThirdPerson():
+	#if camera_mode == CameraMode.Third: return
+	print ("Set 3rd person")
+	if camera_rig: camera_rig.SetThirdPerson()
+	player_model_parent.visible = true
+
+
+# Turn off the player mesh, and move camera to Proxy_FPS position.
+#TODO: replace other player meshes with first person hands
+func SetFirstPerson():
+	if !allow_fp: return
+	print ("Set 1st person")
+	if camera_rig: camera_rig.SetFirstPerson()
+	player_model_parent.visible = false
+
+
 ##--------------------------- Run Loop Functions -----------------------------
 
 func _ready():
+	if camera_rig == null && has_node("CameraRig"):
+		camera_rig = get_node("CameraRig")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if camera_mode == CameraMode.First: SetFirstPerson()
 	else: SetThirdPerson()
-	cam_v_shift = abs($Proxy_Back.position.z)
-	#if pause_menu: pause_menu.visible = false
+	#cam_v_shift = abs($Proxy_Back.position.z)
 	
-	if alt_player_mesh:
-		var pmesh = alt_player_mesh.instantiate()
-		for child in player_model_parent.get_children():
-			child.visible = false
-		player_model_parent.add_child(pmesh)
 	
 	if !SettingsOverlay.is_empty():
 		ConnectOptionsWindow(SettingsOverlay)
@@ -130,18 +168,14 @@ func _physics_process(delta):
 			# add a little downward to help stick to weird surfaces
 			target_velocity = -up_direction
 	
-	
-	# rotate camera rig in response to input
-	#var rotate_amount = 1.0 if Input.is_action_pressed("char_rotate_right") else 0.0 \
-	#					- 1.0 if Input.is_action_pressed("char_rotate_left") else 0.0
-	#var rotate_amount = rotate_v.x
-	#if abs(rotate_amount) > 1e-5: camera_rig.rotate(Vector3(0,-1,0), rotate_amount)
-	var rotate_v = Input.get_vector("char_rotate_left", "char_rotate_right", "char_rotate_up", "char_rotate_down")
-	rotate_v *= delta * 60 * ROTATION_SPEED
-	if gathered_cam_move.length_squared() > 1e-5:
-		rotate_v += gathered_cam_move
-		gathered_cam_move = Vector2()
-	if rotate_v.length_squared() > 1e-5: HandleCameraMove(rotate_v.x, rotate_v.y)
+	if camera_rig: camera_rig.custom_physics_process(delta)
+#	# rotate camera rig in response to input
+#	var rotate_v = Input.get_vector("char_rotate_left", "char_rotate_right", "char_rotate_up", "char_rotate_down")
+#	rotate_v *= delta * 60 * ROTATION_SPEED
+#	if gathered_cam_move.length_squared() > 1e-5:
+#		rotate_v += gathered_cam_move
+#		gathered_cam_move = Vector2()
+#	if rotate_v.length_squared() > 1e-5: HandleCameraMove(rotate_v.x, rotate_v.y)
 	
 	
 	# Get the input direction
@@ -159,13 +193,6 @@ func _physics_process(delta):
 		player_model_parent.get_child(0).SetSpeed(input_dir.length() * (2.0 if sprinting else 1.0) - 1.0)
 	
 	
-	# if no weird gravity stuff:
-#	if direction:
-#		velocity.x = direction.x * speed
-#		velocity.z = direction.z * speed
-#	else: # damp toward 0
-#		velocity.x = move_toward(velocity.x, 0, speed)
-#		velocity.z = move_toward(velocity.z, 0, speed)
 	# if yes weird gravity stuff:
 	if direction:
 		target_velocity += direction * speed
@@ -175,6 +202,8 @@ func _physics_process(delta):
 
 	AlignPlayerToUp()
 	
+	#print (Input.is_action_just_pressed("char_zoom_in"), " ", Input.is_action_just_pressed("char_jump"))
+
 	
 	#var dpos = position
 	#velocity.move_toward(target_velocity, .5)
@@ -204,6 +233,7 @@ func _physics_process(delta):
 	DefinePlayerState()
 
 
+# Align the CharacterBody3D to the current up_direction.
 func AlignPlayerToUp():
 	var axis : Vector3 = global_transform.basis.y.cross(up_direction)
 	var dot = global_transform.basis.y.dot(up_direction)
@@ -227,14 +257,6 @@ func AlignPlayerToUp():
 	#global_transform.basis = global_transform.basis.rotated(axis, amount)
 
 
-#func _input(event):
-#	if pause_menu && pause_menu.visible:
-#		if event is InputEventKey:
-#			if event.physical_keycode == KEY_ESCAPE && event.pressed == false: # on key release
-#				pause_menu.visible = false
-#				get_viewport().set_input_as_handled()
-
-
 # we accumulate mouse movements that get applied during the next _physics_process()
 var gathered_cam_move : Vector2
 
@@ -243,25 +265,15 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		SetMouseVisible(false)
 	
-	# pan camera with mouse
-	elif event is InputEventMouseMotion:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			gathered_cam_move += Vector2((1 if invert_x else -1) * event.relative.x * mouse_sensitivity * .02,
-										(1 if invert_y else -1) * event.relative.y * mouse_sensitivity * .02)
-			#HandleCameraMove(-event.relative.x * mouse_sensitivity * .02,
-			#				event.relative.y * mouse_sensitivity * .02)
-	
 	# toggle mouse on/off
 	if allow_mouse_toggle && Input.is_action_just_pressed("char_toggle_mouse"):
 		SetMouseVisible(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
 	
-	# camera zoom in and out
-	if Input.is_action_just_pressed("char_zoom_in"):    HandleZoom(-zoom_amount)
-	elif Input.is_action_just_pressed("char_zoom_out"): HandleZoom(zoom_amount)
+	## change if camera hovers off to left, right, or center of player
+	#if camera_rig && camera_mode == CameraMode.Third && Input.is_action_just_pressed("char_camera_hover"):
+	# 	camera_rig.HandleHoverToggle()
 	
-	# change if camera hovers off to left, right, or center of player
-	if camera_mode == CameraMode.Third && Input.is_action_just_pressed("char_camera_hover"):
-		HandleHoverToggle()
+	if camera_rig: camera_rig.custom_unhandled_input(event)
 	
 	if Input.is_action_just_pressed("char_use1"):
 		Use1(null)
@@ -294,16 +306,6 @@ func SetCharTilt(direction: Vector3):
 		player_model_parent.rotation.x = lerp_angle(player_model_parent.rotation.x, 0, tilt_damp)
 
 
-# Update camera yaw based on mouse movement x,y.
-func HandleCameraMove(x,y):
-	if invert_x: x = -x
-	if invert_y: y = -y
-	#camera_rig.rotation.y += x
-	camera_rig.rotate(Vector3(0,1,0), x)
-	camera_gamma = clamp(camera_gamma + y, min_camera_pitch, max_camera_pitch)
-	SetCameraHoverTarget()
-
-
 # Handle mouse visibility
 func SetMouseVisible(yes: bool):
 	if yes:
@@ -312,113 +314,6 @@ func SetMouseVisible(yes: bool):
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		#if pause_menu: pause_menu.visible = false
-
-
-# Detect zoom related events and set camera boom distance
-func HandleZoom(amount):
-	if amount < 0:
-		print("zoom in")
-		if camera_boom.spring_length + amount < min_camera_distance:
-			SetFirstPerson()
-		else:
-			camera_boom.spring_length = clamp(camera_boom.spring_length+amount,
-											min_camera_distance, max_camera_distance)
-	elif amount > 0:
-		print("zoom out")
-		if camera_mode == CameraMode.First:
-			SetThirdPerson()
-		else:
-			camera_boom.spring_length = clamp(camera_boom.spring_length+amount,
-											min_camera_distance, max_camera_distance)
-
-
-# According to camera_hover, set the correct camera position
-func HandleHoverToggle():
-	match camera_hover:
-		CameraHover.Left:  camera_hover = CameraHover.Right
-		CameraHover.Right: camera_hover = CameraHover.Over
-		CameraHover.Over:  camera_hover = CameraHover.Left
-	SetHoverVars()
-	SetCameraHoverTarget()
-
-
-# According to camera_mode, set cam_v* offset variables.
-func SetHoverVars():
-	if camera_mode == CameraMode.First:
-		cam_v_offset = $Proxy_FPS.position.y 
-		cam_v_shift  = 0
-		cam_vv_shift = 0
-		
-	elif camera_mode == CameraMode.Third:
-		match camera_hover:
-			CameraHover.Right:
-				cam_h_shift = $Proxy_Right.position.x
-				cam_v_offset = $Proxy_Right.position.y
-			CameraHover.Over:
-				cam_h_shift = 0
-				cam_v_offset = $Proxy_FPS.position.y
-			CameraHover.Left:
-				cam_h_shift = $Proxy_Left.position.x
-				cam_v_offset = $Proxy_Left.position.y
-		cam_v_shift = abs($Proxy_Back.position.z)
-
-
-# Set the camera_target position to point to the proper target. 
-# Note camera_gamma, and cam_* need to be set beforehand.
-func SetCameraHoverTarget():
-	camera_pitch.rotation.x = camera_gamma
-	var cosg = cos(camera_gamma) # note: will be 0..1..0
-	var sing = sin(camera_gamma) # note: will be -1..0..1
-	
-	#print ("hoff: ", cam_h_shift, ", voff: ", cam_v_offset, ", v: ", cam_v_shift, ", vv: ", cam_vv_shift, " target.pos: ", camera_target.global_transform.origin)
-	#print ("cam_v_shift: ", cam_v_shift)
-	camera_target.position = Vector3(cam_h_shift * cosg,
-								cam_v_offset + cam_vv_shift * cosg,
-								-cam_v_shift * sing)
-
-
-# Turn on the 3rd person player mesh, and move camera to minimum distance if necessary.
-func SetThirdPerson():
-	#if camera_mode == CameraMode.Third: return
-	print ("Set 3rd person")
-	camera_mode = CameraMode.Third
-	if camera_boom.spring_length < min_camera_distance: 
-		camera_boom.spring_length = min_camera_distance
-	#cam_v_offset = $Proxy_Over.position.y
-	#cam_v_shift  = $Proxy_FPS.position.y
-	#cam_vv_shift = $Proxy_Over.position.y - cam_v_shift # gets added to cam_v_offset
-	SetHoverVars()
-	SetCameraHoverTarget()
-	player_model_parent.visible = true
-
-
-# Turn off the player mesh, and move camera to Proxy_FPS position.
-#TODO: replace other player meshes with first person hands
-func SetFirstPerson():
-	if !allow_fp: return
-	print ("Set 1st person")
-	#if camera_mode == CameraMode.First: return
-	camera_mode = CameraMode.First
-	camera_target.position = $Proxy_FPS.position
-	camera_boom.spring_length  = 0
-	cam_v_offset = camera_target.position.y 
-	cam_v_shift  = 0
-	cam_vv_shift = 0
-	player_model_parent.visible = false
-
-
-func Use1(node):
-	print("Use1: ", node.name if node != null else "null")
-	if proximity_areas.size() > 0:
-		#TODO: find area closest to 
-		var thing = proximity_areas[0]
-		if thing is InhabitableTrigger:
-			Inhabit(thing.get_parent())
-		else: thing.Use()
-
-func Use2(node):
-	print("Use2: ", node.name if node != null else "null")
-
 
 
 #--------------------------- Body hopping -----------------------------------
@@ -482,15 +377,32 @@ func ReparentNewModel():
 	pending_player_model = null
 
 
+##--------------------------- Action functions -----------------------------
+
+func Use1(node):
+	print("Use1: ", node.name if node != null else "null")
+	if proximity_areas.size() > 0:
+		#TODO: find area closest to 
+		var thing = proximity_areas[0]
+		if thing is InhabitableTrigger:
+			Inhabit(thing.get_parent())
+		else: thing.Use()
+
+func Use2(node):
+	print("Use2: ", node.name if node != null else "null")
+
+
 #------------------------- Proximity controls ----------------------------------
 
 var proximity_areas := []
 
+# A ProximityTrigger will call this so the player controller can coordinate interacting with things.
 func AddProximityTrigger(trigger):
 	if not proximity_areas.has(trigger):
 		#proximity_areas.append(trigger)
 		proximity_areas.push_front(trigger)
 
+# A ProximityTrigger will call this so the player controller can coordinate interacting with things.
 func RemoveProximityTrigger(trigger):
 	proximity_areas.erase(trigger)
 
@@ -498,17 +410,17 @@ func RemoveProximityTrigger(trigger):
 #------------------------- Environment Gravity control ----------------------------------
 
 var gravity_areas := []
-var world_gravity_floor := -1.0
-@export var world_max_height := 10
-@export var world_min_height := -10
+#var world_gravity_floor := -1.0
 
 
+# A GravityArea will call this so that the player can keep track of intended gravity.
 func EnteredGravityArea(area: Area3D):
 	if not (area in gravity_areas):
 		gravity_areas.append(area)
 		print ("Player adding gravity area: ", area.name)
 
 
+# A GravityArea will call this so that the player can keep track of intended gravity.
 func ExitedGravityArea(area: Area3D):
 	gravity_areas.erase(area)
 	print ("Player removing gravity area: ", area.name)
@@ -533,29 +445,28 @@ func UpdateGravity():
 
 #------------------------- Settings updates ----------------------------------
 
-
-func ConnectPauseMenu(win):
-	pause_menu = win
-
 func ConnectOptionsWindow(win):
 	#settings_overlay = win
 	#settings_overlay.setting_changed.connect(_on_settings_updated)
 	win.setting_changed.connect(_on_settings_updated)
 
+
 func _on_settings_updated(setting, value):
 	match setting:
 		"fov":
-			fov_degrees = value
+			camera_rig.camera_settings.fov_degrees = value
 			if main_camera:
-				main_camera.fov = fov_degrees
+				main_camera.fov = value
 		"aim_fov":
-			aim_fov_degrees = value
+			camera_rig.camera_settings.aim_fov_degrees = value
 		"mouse_sensitivity":
-			mouse_sensitivity = value
+			camera_rig.camera_settings.mouse_sensitivity = value
+		"pad_sensitivity":
+			camera_rig.camera_settings.pad_sensitivity = value
 		"invert_x":
-			invert_x = value
+			camera_rig.camera_settings.invert_x = value
 		"invert_y":
-			invert_y = value
+			camera_rig.camera_settings.invert_y = value
 
 
 #--------------------- Network sync helpers ---------------------------------

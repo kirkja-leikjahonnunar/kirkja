@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"CameraControls",
+"language": &"GDScript",
+"path": "res://Core/PlayerController/ThirdPerson/CameraControls.gd"
+}, {
 "base": "Node3D",
 "class": &"CameraPlacements",
 "language": &"GDScript",
@@ -34,6 +39,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/SettingsUI/KeyBindButton.gd"
 }, {
+"base": "Node3D",
+"class": &"PlayerContext",
+"language": &"GDScript",
+"path": "res://Core/PlayerController/ThirdPerson/PlayerContext.gd"
+}, {
 "base": "CharacterBody3D",
 "class": &"PlayerController",
 "language": &"GDScript",
@@ -43,11 +53,6 @@ _global_script_classes=[{
 "class": &"PlayerItem",
 "language": &"GDScript",
 "path": "res://Core/PlayerController/PlayerItems/PlayerItem.gd"
-}, {
-"base": "Node3D",
-"class": &"PlayerMesh",
-"language": &"GDScript",
-"path": "res://Core/PlayerController/ThirdPerson/PlayerMesh.gd"
 }, {
 "base": "Area3D",
 "class": &"ProximityButton",
@@ -75,14 +80,15 @@ _global_script_classes=[{
 "path": "res://Entity/Context/Voxeling/Voxeling.gd"
 }]
 _global_script_class_icons={
+"CameraControls": "",
 "CameraPlacements": "",
 "ControlConfig": "",
 "InhabitableTrigger": "",
 "JiggleBone": "",
 "KeyBindButton": "",
+"PlayerContext": "",
 "PlayerController": "",
 "PlayerItem": "",
-"PlayerMesh": "",
 "ProximityButton": "",
 "Voxel": "",
 "VoxelBlock": "",
@@ -106,10 +112,6 @@ GameServer="*res://Core/Singletons/GameServer.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/camera_placements/plugin.cfg", "res://addons/jigglebones/plugin.cfg")
 
 [filesystem]
 

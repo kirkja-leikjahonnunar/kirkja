@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://l0c5743t5n55"]
+[gd_scene load_steps=6 format=3 uid="uid://pbm6jn74p3br"]
 
-[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerMesh.gd" id="1_bpjvc"]
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerContext.gd" id="1_bpjvc"]
 [ext_resource type="Material" uid="uid://da5x8uitfjmbg" path="res://Entity/Context/CapsulePlayer/CapsulePlayer.material" id="1_l70m3"]
 [ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="3_jq6it"]
 

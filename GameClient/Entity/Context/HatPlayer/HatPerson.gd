@@ -1,4 +1,4 @@
-extends PlayerMesh
+extends PlayerContext
 
 
 @export var min_time_scale = 3

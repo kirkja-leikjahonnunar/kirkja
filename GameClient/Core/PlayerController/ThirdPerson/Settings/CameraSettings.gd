@@ -16,6 +16,6 @@ extends Resource
 @export var max_pitch_fp := PI/2
 @export var min_pitch := -PI/2
 @export var max_pitch := PI/2
-@export var min_dist := .2 # beneath this transfers to 1st person
-@export var max_dist := 10
+@export var min_camera_distance := 0.2  # below this, switch to 1st person
+@export var max_camera_distance := 10.0  # maximum to position camera away from player
 

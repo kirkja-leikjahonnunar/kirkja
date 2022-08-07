@@ -68,10 +68,11 @@ var PressAnyKey := "Press any key"
 enum DeviceType { NONE = 0, KEY = 1, MOUSE = 2, PAD = 3 }
 
 
-var properties := {
+var camera_settings := {
 	"fov": 75.0,
 	"aim_fov": 50.0,
 	"mouse_sensitivity": 1.0,
+	"pad_sensitivity": 1.0,
 	"invert_x": false,
 	"invert_y": false,
 }
@@ -104,10 +105,11 @@ var actions := {
 
 var settings := {
 		"id": "Default",
-		"fov_degrees": 75.0,
-		"mouse_sensitivity": 1.0,
-		"invert_x": false,
-		"invert_y": false,
+		"camera": camera_settings,
+#		"fov_degrees": 75.0,
+#		"mouse_sensitivity": 1.0,
+#		"invert_x": false,
+#		"invert_y": false,
 		"bindings": actions
 	}
 var settings_file = "user://TEST-SETTINGS-FILE.json"
@@ -148,16 +150,16 @@ func LoadSettings(file: String):
 #TODO: settings needs to be sanitized
 # Assuming settings is current, apply its values to various widgets.
 func ApplySettings(with_bindings: bool = true):
-	for key in settings:
+	for key in settings.camera:
 		match key:
 			"fov_degrees":
-				$VBoxContainer/ScrollContainer/Settings/HBoxContainer/FOV.text = str(settings[key])
+				$VBoxContainer/ScrollContainer/Settings/HBoxContainer/FOV.text = str(settings.camera[key])
 			"mouse_sensitivity":
-				$VBoxContainer/ScrollContainer/Settings/HBoxContainer2/Sensitivity.text = str(settings[key])
+				$VBoxContainer/ScrollContainer/Settings/HBoxContainer2/Sensitivity.text = str(settings.camera[key])
 			"invert_x":
-				$VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertX.button_pressed = settings[key]
+				$VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertX.button_pressed = settings.camera[key]
 			"invert_y":
-				$VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertX.button_pressed = settings[key]
+				$VBoxContainer/ScrollContainer/Settings/HBoxContainer3/InvertX.button_pressed = settings.camera[key]
 			"bindings":
 				if with_bindings:
 					print_debug("TODO apply bindings")
@@ -323,19 +325,19 @@ func SetBinding(action: String, device_type: int, index: int, device: int):
 # This function is called from ui changes, not for changes at arbitrary times
 # It is assumed value has already been sanitized before here.
 func SetPropertyFromUI(property: String, value):
-	if not (property in properties):
+	if not (property in camera_settings):
 		push_error("Trying to set non-existent property ", property)
 	match property:
 		"fov":
-			settings["fov"] = value
+			settings.camera["fov"] = value
 		"aim_fov":
-			settings["aim_fov"] = value
+			settings.camera["aim_fov"] = value
 		"mouse_sensitivity":
-			settings["mouse_sensitivity"] = value
+			settings.camera["mouse_sensitivity"] = value
 		"invert_x":
-			settings["invert_x"] = value
+			settings.camera["invert_x"] = value
 		"invert_y":
-			settings["invert_y"] = value
+			settings.camera["invert_y"] = value
 	
 	setting_changed.emit(property, value)
 	SaveSettings(settings_file)
