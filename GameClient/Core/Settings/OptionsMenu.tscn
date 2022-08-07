@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Core/Settings/OptionsMenu.gd" id="1_pii85"]
 [ext_resource type="Script" path="res://Core/Settings/GraphicsSettings.gd" id="2_o4rgi"]
 [ext_resource type="Script" path="res://Core/Settings/Audio.gd" id="2_s6inh"]
-[ext_resource type="AudioStream" uid="uid://myuvuxnsyw25" path="res://kirkja-assets/sounds/boop.ogg" id="4_7apwi"]
+[ext_resource type="AudioStream" uid="uid://myuvuxnsyw25" path="res://kirkja-assets/audio/sfx/boop.ogg" id="4_rvcde"]
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
@@ -199,7 +199,7 @@ size_flags_vertical = 4
 value = 100.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TabContainer/Audio"]
-stream = ExtResource("4_7apwi")
+stream = ExtResource("4_rvcde")
 
 [node name="Graphics" type="Control" parent="TabContainer"]
 visible = false

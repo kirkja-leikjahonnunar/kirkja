@@ -22,19 +22,38 @@ func GetSettingsDictionary():
 	return audio_settings
 
 
+# Make sure boop timers act on the proper bus.
 func SetBoop(which):
 	if which == current_boop: return
 	
 	var value
 	match which:
-		Boop.main:    value = audio_settings["volume"]
-		Boop.voice:   value = audio_settings["voice"]
-		Boop.effects: value = audio_settings["effects"]
-		Boop.music:   value = audio_settings["music"]
+		Boop.main:
+			value = audio_settings["volume"]
+			$AudioStreamPlayer2D.bus = "Master"
+		Boop.voice:
+			value = audio_settings["voice"]
+			$AudioStreamPlayer2D.bus = "Voice"
+		Boop.effects:
+			value = audio_settings["effects"]
+			$AudioStreamPlayer2D.bus = "Effects"
+		Boop.music:
+			value = audio_settings["music"]
+			$AudioStreamPlayer2D.bus = "Music"
 	last_boop_value = value
 	last_value = value
 	last_boop_time = 0.0
 	current_boop = which
+
+
+# Can be called anytime to set the volume on particular buses.
+func SetVolume(which_bus, value):
+	match which_bus:
+		Boop.main:    AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -35 + value/100.0*35.0)
+		Boop.voice:   AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Voice"),  -35 + value/100.0*35.0)
+		Boop.effects: AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"),-35 + value/100.0*35.0)
+		Boop.music:   AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),  -35 + value/100.0*35.0)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,8 +74,9 @@ func _process(delta):
 
 #--------------------- Signal Functions -----------------------------
 
-func DoBoop(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -35 + value/100.0*35.0)
+func UpdateBoop(value):
+	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -35 + value/100.0*35.0)
+	SetVolume(current_boop, value)
 	
 	#print ("volume change: ", value)
 	
@@ -78,21 +98,22 @@ func DoBoop(value):
 func _on_volume_value_changed(value):
 	audio_settings["volume"] = value
 	SetBoop(Boop.main)
-	DoBoop(value)
+	UpdateBoop(value)
 
 
 func _on_voice_volume_value_changed(value):
 	audio_settings["voice"] = value
 	SetBoop(Boop.voice)
-	DoBoop(value)
+	UpdateBoop(value)
+
 
 func _on_effects_volume_value_changed(value):
 	audio_settings["effects"] = value
 	SetBoop(Boop.effects)
-	DoBoop(value)
+	UpdateBoop(value)
 
 
 func _on_music_volume_value_changed(value):
 	audio_settings["music"] = value
 	SetBoop(Boop.music)
-	DoBoop(value)
+	UpdateBoop(value)
