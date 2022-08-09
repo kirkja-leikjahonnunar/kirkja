@@ -3,6 +3,11 @@ The **voxeling** entity is the primary context for voxel building games. Voxelin
 
 ![Voxeling form.](docs/voxeling_form.png)
 
+### Absorbing Colors
+Voxelings absorb color from the lights in the level. Stand under a light and the voxeling's hue will shift towards that color. The voxeling loses its color as it creates blocks.
+
+
+
 ## Entity Controls
 | Action | Keyboard / Mouse | Gamepad | Description |
 | - | :-: | :-: | - |
@@ -22,8 +27,11 @@ The voxeling will have a variety of animations that may have a different percent
 
 - Idle
 - Walk
+- Run
+- Cling
 - Jump
 - Fall
-- Turn
-- Hop
-- Cling
+- Land
+- Drop Voxel
+- Engage Drill
+- Hop Turn 90°

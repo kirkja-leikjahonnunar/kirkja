@@ -1,10 +1,55 @@
-# Voxel Village Overview
-The Voxel Village is an area within Kirkja that displays voxel creations. Within the village there are numerous quests. Upon completion of the player will be granted a set of Voxel Builder Goggles _(voidling bound)_.
+# Voxel Village
+The Voxel Village is an area within Kirkja that displays voxel creations. A fun and colorful place where the player will feel creative yet limited in the tasks and tools at hand. Within the village there are numerous quests. Upon completion of the player will be granted a Voxel Builder Lens that may be use within Void Space to create voxel creations by rotating the voxels in hand.
 
-A fun and colorful place where the player will feel creative yet limited in the tasks and tools at hand.
+## Storytellers
+Sprinkled throughout the village, **storytellers** are available to instill curiosity the wordcraft arts and facilitate language learning. They will take the player on a walking sim like tour of the village's tales. It could be a tour guide speech, or a fable, or interactive element.
+
+The objective of the storytellers is to present stories that may be listened to in different languages.
+
+### Tools
+- 3D speech bubbles.
+- Text, image, and layout editors.
+- Triggers that activate  further material.
+
+## Coordinate Space Levels
+The objective of the **Coordinate Space Levels** are to introduce the player to the coordinate systems start-to-finish. The camera is sometimes fixed to a specific vantage point to restrict the player's attention and controls.
+
+## Number Line ³
+The player journeys through areas that have environments that increase in difficulty as the player unlocks different dimensions.
+
+### Number Line
+The number line level starts in near top down mode. The player is restricted to their trench and can only move left and right.
+
+### Inverted Number Line
+
+### Infinity Everywhere
+The width of measurement.
+
+#### Delta Tape Measure
+Hold the tape measure and run to measure the length of the trench, field, maze, etc.
+
+### Number Line x2
+Forward.
+
+### Number Line x3
+Build up.
+
+#### 2D Space
+- Math Space
+- Screen Space
+
+### 3D Space
+- LH
+- RH
+- Y-up
+
+List of popular 3D coordinate systems.
+
+
 
 ## UX
 **Player Journey:** Voidling > Mecha Body > Voidling > Voxel Body
+
 
 ### Entering the Village
 Within the Mecha Body, the player runs into a dead end.
@@ -14,9 +59,6 @@ The block tumbles & slides as the player figures out its powers.
 
 ### Pedestal Forest
 The player passes through
-
-### Absorbing Colors
-Each color the Voxel Body
 
 ## Voxel Builder Goggles
 In their main body, the player equips their Voxel Goggles _(account bound)_, then uses their laser pointer to place blocks in 3D space. The player can scroll to increase or decrease the distance of the laser pointer's end. The `initial block` hovers at the end of the laser until the player presses the `begin_voxel_editing` action. Once placed, the camera moves to focus on the voxels' center of mass _(like GW2 mount cameras)_.
