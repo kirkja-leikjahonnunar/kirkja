@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vbk3cnc5lf4f"]
+
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerContext.gd" id="1_i7526"]
+
+[node name="PlayerContext" type="Node"]
+script = ExtResource("1_i7526")

@@ -68,6 +68,7 @@ NOTES
 Research
 --------
 - Godot voice over ip: https://github.com/c-as/godot-voip
+- local split screen
 
 
 Unanswered Questions

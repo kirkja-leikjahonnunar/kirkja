@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs1l77j2ah0x3"]
+[gd_scene load_steps=14 format=3 uid="uid://k6htpy14dhus"]
 
-[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerMesh.gd" id="1_7chwv"]
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerController.gd" id="1_bi45u"]
 [ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="2_wyqbg"]
+[ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_srsao"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qxh1u"]
 radius = 0.3
@@ -50,13 +51,23 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_pf7eh"]
 material = SubResource("StandardMaterial3D_qotwu")
 
-[node name="Voidling" type="Area3D"]
-collision_layer = 1048576
-script = ExtResource("1_7chwv")
+[node name="Voidling" type="CharacterBody3D"]
+collision_mask = 7
+script = ExtResource("1_bi45u")
+
+[node name="Name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948324, 0)
+billboard = 1
+no_depth_test = true
+text = "<name>"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.320877, 0)
 shape = SubResource("SphereShape3D_qxh1u")
+
+[node name="InhabitableTrigger" parent="." instance=ExtResource("2_wyqbg")]
+
+[node name="CameraRig" parent="." instance=ExtResource("3_srsao")]
 
 [node name="PlayerMesh" type="Node3D" parent="."]
 
@@ -68,14 +79,3 @@ visibility_aabb = AABB(-1.83677, -1.55046, -1.94824, 3.67356, 3.10091, 3.89647)
 local_coords = false
 process_material = SubResource("ParticlesMaterial_nn6im")
 draw_pass_1 = SubResource("QuadMesh_pf7eh")
-
-[node name="Name" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948324, 0)
-visible = false
-billboard = 1
-no_depth_test = true
-text = "<name>"
-
-[node name="InhabitableTrigger" parent="." instance=ExtResource("2_wyqbg")]
-
-[editable path="InhabitableTrigger"]

@@ -39,7 +39,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/SettingsUI/KeyBindButton.gd"
 }, {
-"base": "Node3D",
+"base": "Node",
 "class": &"PlayerContext",
 "language": &"GDScript",
 "path": "res://Core/PlayerController/ThirdPerson/PlayerContext.gd"
@@ -58,6 +58,11 @@ _global_script_classes=[{
 "class": &"ProximityButton",
 "language": &"GDScript",
 "path": "res://Maps/TestLevel/Interactables/ProximityButton.gd"
+}, {
+"base": "Node",
+"class": &"SomeClass",
+"language": &"GDScript",
+"path": "res://Tests/Inheritance/SomeClass.gd"
 }, {
 "base": "StaticBody3D",
 "class": &"Voxel",
@@ -90,6 +95,7 @@ _global_script_class_icons={
 "PlayerController": "",
 "PlayerItem": "",
 "ProximityButton": "",
+"SomeClass": "",
 "Voxel": "",
 "VoxelBlock": "",
 "VoxelObject": "",
@@ -107,6 +113,7 @@ config/icon="res://Core/icon.png"
 
 GatewayServer="*res://Core/Singletons/GatewayServer.gd"
 GameServer="*res://Core/Singletons/GameServer.gd"
+GameGlobals="*res://Core/Singletons/GameGlobals.gd"
 
 [display]
 
@@ -269,6 +276,11 @@ voxeling_add_voxel={
 voxeling_eraser_mode={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+]
+}
+TEST={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
 

@@ -1,21 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://6q2gb6dtgjyc"]
+[gd_scene load_steps=7 format=3 uid="uid://6q2gb6dtgjyc"]
 
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerController.gd" id="1_1g7x5"]
 [ext_resource type="PackedScene" uid="uid://pbm6jn74p3br" path="res://Entity/Context/CapsulePlayer/CapsulePlayerMesh.tscn" id="2_aoiep"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_0f4b1"]
+[ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="4_uomvw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3rjw"]
+radius = 0.25
+height = 1.65
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_veaop"]
 top_radius = 0.0
 bottom_radius = 0.2
 height = 0.5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3rjw"]
-radius = 0.25
-height = 1.65
-
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 7
 script = ExtResource("1_1g7x5")
+alt_player_mesh = ExtResource("2_aoiep")
+
+[node name="CameraRig" parent="." instance=ExtResource("3_0f4b1")]
+
+[node name="InhabitableTrigger" parent="." instance=ExtResource("4_uomvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0582943, 0)
 
 [node name="Name" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91886, 0)
@@ -23,29 +30,15 @@ billboard = 1
 no_depth_test = true
 text = "<name>"
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86287, 0)
+shape = SubResource("CapsuleShape3D_t3rjw")
+
 [node name="BaseDirIndicator" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.34374, 0, 0, 0, -4.37114e-08, -0.230035, 0, 1, -1.00552e-08, 0, 0.144161, 0.25433)
 visible = false
 mesh = SubResource("CylinderMesh_veaop")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86287, 0)
-shape = SubResource("CapsuleShape3D_t3rjw")
-
-[node name="ContextController" type="Node" parent="."]
-
 [node name="PlayerMesh" type="Node3D" parent="."]
 
-[node name="CapsulePlayer" parent="PlayerMesh" instance=ExtResource("2_aoiep")]
-persistent_shell = false
-
-[node name="CapsuleMesh" parent="PlayerMesh/CapsulePlayer" index="0"]
-skeleton = NodePath("../../..")
-
-[node name="InhabitableTrigger" parent="PlayerMesh/CapsulePlayer" index="2"]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CameraRig" parent="." instance=ExtResource("3_0f4b1")]
-
-[editable path="PlayerMesh/CapsulePlayer"]
+[editable path="CameraRig"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bpvqpepnvndh5"]
+[gd_scene load_steps=45 format=3 uid="uid://w68045nrgcn2"]
 
 [ext_resource type="PackedScene" uid="uid://ymxv0nvp3oof" path="res://Maps/TestLevel/DoricColumn/DoricColumn.tscn" id="1_vxuft"]
 [ext_resource type="Material" uid="uid://dl5lw2hid4m8f" path="res://Materials/GridTriplanar.tres" id="2_3qr5d"]
@@ -7,12 +7,12 @@
 [ext_resource type="Material" uid="uid://drs814wc1cfdi" path="res://Materials/Purple.tres" id="4_7pqim"]
 [ext_resource type="Material" uid="uid://bapk7flt3nht6" path="res://Maps/TestLevel/hover_indicator.material" id="5_aejce"]
 [ext_resource type="Material" uid="uid://22kvbxfs4q8h" path="res://Materials/Blue.tres" id="6_6kle7"]
-[ext_resource type="PackedScene" path="res://Entity/Context/MechaSuit/MechaVoidling.tscn" id="9_mcpla"]
+[ext_resource type="PackedScene" uid="uid://crj8s02solrdu" path="res://Entity/Context/MechaSuit/MechaVoidling.tscn" id="9_mcpla"]
 [ext_resource type="ArrayMesh" uid="uid://qfm3jwmujvl0" path="res://Maps/TestLevel/Torus/Hole.res" id="9_so0tq"]
 [ext_resource type="PackedScene" uid="uid://pbm6jn74p3br" path="res://Entity/Context/CapsulePlayer/CapsulePlayerMesh.tscn" id="10_fn1fj"]
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/GravityAreas/Torroidal.gd" id="10_rmf8n"]
-[ext_resource type="PackedScene" uid="uid://de363mxl62jy1" path="res://Entity/Context/HatPlayer/HatPerson.tscn" id="11_fys74"]
-[ext_resource type="PackedScene" path="res://Entity/Voidling/voidling.tscn" id="11_wuk0b"]
+[ext_resource type="PackedScene" uid="uid://de363mxl62jy1" path="res://Entity/Context/HatPlayer/HatPersonMesh.tscn" id="11_fys74"]
+[ext_resource type="PackedScene" uid="uid://k6htpy14dhus" path="res://Entity/Voidling/voidling.tscn" id="11_wuk0b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvq6k"]
 size = Vector3(30, 1, 30)
@@ -302,8 +302,6 @@ shape = SubResource("BoxShape3D_gk726")
 
 [node name="Voidling" parent="Environment/Pedestal Voidling" instance=ExtResource("11_wuk0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02701, 0.5, -0.143316)
-collision_layer = 0
-collision_mask = 0
 
 [node name="Pedestal Mecha" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00055, -0.0910941, 12.0017)

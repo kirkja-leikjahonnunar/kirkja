@@ -1,13 +1,10 @@
-extends CharacterBody3D
-class_name PlayerController
+extends Node
+
+# **** PROBABLY DON'T USE (?)... rename PlayerController to DefaultController??
 
 #
-# Basic CharacterBody3D movement controller.
-# Default movements are: left, right, forward, backward, jump, sprint.
+# Basic movement controls: left, right, forward, backward, jump, sprint.
 #
-# Also stores state for Handles gravity areas and proximity buttons.
-#
-
 
 #------------------------- Movement settings ----------------------------
 
@@ -35,21 +32,6 @@ class_name PlayerController
 @export var world_max_height := 10
 @export var world_min_height := -10
 
-#------------------------- Player mesh ----------------------------
-@export_group("Character")
-@export var alt_player_mesh: PackedScene
-
-# Some standard animation connections.
-@export var animation_tree: AnimationTree
-
-# Whether this model sticks around after player goes on to inhabit something else.
-@export var persistent_shell := true
-
-# Whether this controller is active. Usually this is controlled by PlayerContext
-var active := false
-
-@onready var char_body = self #get_parent()
-
 
 @export_group("AAAA WHY!?!?!?! export_group broken?") #TODO: remove this when inspector list doesn't get doubled
 ## AAAA!! repeated properties in inspector.. why???
@@ -57,11 +39,12 @@ var active := false
 
 #------------------------- Variables ----------------------------
 
+@onready var char_body = get_parent()
 
 
-## The actual active camera. We really only need this to change fov.
-##TOOD: this should probably be coordinated more directly via settings window
-#var main_camera : Camera3D # assume this will be "../MainCamera", set in ready
+# The actual active camera. We really only need this to change fov.
+#TOOD: this should probably be coordinated more directly via settings window
+var main_camera : Camera3D # assume this will be "../MainCamera", set in ready
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -95,11 +78,6 @@ func GetCameraProxy() -> Node3D:
 
 ##--------------------------- Interface -----------------------------
 
-func SetNameFromId(game_client_id):
-	name = str(game_client_id)
-	get_node("Name").text = name
-	#$Name.text = name
-
 
 # Turn on the 3rd person player mesh, and move camera to minimum distance if necessary.
 func SetThirdPerson():
@@ -131,37 +109,19 @@ func _ready():
 	#if camera_mode == CameraMode.First: SetFirstPerson()
 	#else: SetThirdPerson()
 	
-	#if !main_camera && has_node("../MainCamera"):
-	#	main_camera = get_node("../MainCamera")
+	if !main_camera && has_node("../MainCamera"):
+		main_camera = get_node("../MainCamera")
 	
-	if alt_player_mesh != null && alt_player_mesh.can_instantiate():
-		player_mesh = alt_player_mesh.instantiate()
-		player_model_parent.add_child(player_mesh)
-	
-	elif player_model_parent.get_child_count() > 0:
-		player_mesh = player_model_parent.get_child(0)
-	
-	if player_mesh == null:
-		player_mesh = load("res://Entity/Context/CapsulePlayer/CapsulePlayerMesh.tscn").instantiate()
-		player_model_parent.add_child(player_mesh)
+	if player_model_parent.get_child_count() > 0: player_mesh = player_model_parent.get_child(0)
+
 
 
 # some cached position status
 var last_on_floor: bool
 
 func _physics_process(delta):
-	if not active: return
-	
 	# Coordinate gravity. Sets up_direction.
 	UpdateGravity()
-	
-	# Make player conform to the up_direction
-	AlignPlayerToUp()
-	
-	HandleMovement(delta)
-
-
-func HandleMovement(delta):
 	
 	var target_velocity : Vector3
 	
@@ -199,8 +159,7 @@ func HandleMovement(delta):
 	
 	# Animation syncing
 	if player_model_parent.get_child_count() > 0:
-		#player_model_parent.get_child(0).SetSpeed(input_dir.length() * (2.0 if sprinting else 1.0) - 1.0)
-		SetSpeed(input_dir.length() * (2.0 if sprinting else 1.0) - 1.0)
+		player_model_parent.get_child(0).SetSpeed(input_dir.length() * (2.0 if sprinting else 1.0) - 1.0)
 	
 	
 	if direction:
@@ -209,6 +168,7 @@ func HandleMovement(delta):
 		#target_velocity.x = move_toward(velocity.x, 0, speed)
 		pass
 
+	AlignPlayerToUp()
 	
 	
 	#var dpos = position
@@ -219,7 +179,7 @@ func HandleMovement(delta):
 	#dpos -= position # this is world coordinates change in position
 	
 	# Animation syncing
-	if player_mesh && player_mesh.has_method("JumpStart"):
+	if player_mesh:
 		if just_jumped:
 			if ! char_body.is_on_floor():
 				if last_on_floor: # we jumped while on the floor
@@ -263,8 +223,6 @@ func AlignPlayerToUp():
 
 
 func _unhandled_input(event):
-	if not active: return
-	
 	# turn off mouse if you click
 	if event is InputEventMouseButton:
 		SetMouseVisible(false)
@@ -273,7 +231,6 @@ func _unhandled_input(event):
 	if allow_mouse_toggle && Input.is_action_just_pressed("char_toggle_mouse"):
 		SetMouseVisible(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
 	
-	# this accumulates mouse move events for the camera:
 	if camera_rig: camera_rig.custom_unhandled_input(event)
 	
 	if Input.is_action_just_pressed("char_use1"):
@@ -324,11 +281,11 @@ func Use1(node):
 	if proximity_areas.size() > 0:
 		#TODO: find area closest to 
 		var thing = proximity_areas[0]
-		if thing is InhabitableTrigger && has_node("PlayerContext"):
-			get_node("PlayerContext").Inhabit(thing.get_parent())
-		else: thing.Use()
+		#if thing is InhabitableTrigger:
+		#	Inhabit(thing.get_parent())
+		#else: thing.Use()
 		#----
-		#thing.Use()
+		thing.Use()
 
 func Use2(node):
 	print("Use2: ", node.name if node != null else "null")
@@ -339,13 +296,10 @@ func Use2(node):
 var proximity_areas := []
 
 # A ProximityTrigger will call this so the player controller can coordinate interacting with things.
-func AddProximityTrigger(trigger) -> bool:
-	if !active: return false
+func AddProximityTrigger(trigger):
 	if not proximity_areas.has(trigger):
 		#proximity_areas.append(trigger)
 		proximity_areas.push_front(trigger)
-		return true
-	return false
 
 # A ProximityTrigger will call this so the player controller can coordinate interacting with things.
 func RemoveProximityTrigger(trigger):
@@ -388,72 +342,6 @@ func UpdateGravity():
 		char_body.up_direction = -v.normalized()
 
 
-#------------------------ Overrideable functions, context related ----------------------------
-
-## Stub for custom camera placements.
-#func GetCameraPlacements() -> CameraPlacements: return null
-
-
-# Return the bounding box of the player at rest.
-#func GetRestAABB() -> AABB: return AABB()
-
-
-# Whether this mesh as various things implemented on it, such as "walk", or "climb".
-#(not used yet)
-func HasFeature(_feature) -> bool:
-	return false
-
-
-func SetAsInhabited():
-	if has_node("InhabitableTrigger"):
-		var node = get_node("InhabitableTrigger")
-		node.SetUninhabitable()
-
-func SetAsUninhabited():
-	if has_node("InhabitableTrigger"):
-		var node = get_node("InhabitableTrigger")
-		node.SetInhabitable()
-
-# Make the model disappear, and remove from tree
-func Deresolution():
-	print ("removing ", name)
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector3(0, 0, 0), 0.15).finished.connect(Finalize)
-
-# Callback to queue_free(). By default this is called from Deresolution().
-func Finalize():
-	queue_free()
-
-
-#--------------------------- Animation syncing ----------------------------
-
-# ***
-# *** make this stuff live on PlayerMesh? PlayerAnimation?
-# ***
-
-# Called when the desired speed of the player changes. Note this might be the actual speed, just an indication of speed.
-# The value speed will range 0 for idle, 1 for walk, up to 2 for full sprint.
-func SetSpeed(speed):
-	#print ("Move speed: ", value)
-	if animation_tree:
-		animation_tree["parameters/IdleWalkRun/blend_position"] = speed
-		#get_tree().create_tween().tween_property(animation_tree, "parameters/IdleWalkRun/blend_position", speed, .25)
-
-# called when a jump starts from the floor
-func JumpStart():
-	pass
-
-# called when going from falling to on floor.
-func JumpEnd():
-	pass
-
-# called if we are starting to fall, but it's not starting from jumping, such as when you walk off a ledge.
-func Falling():
-	pass
-
-
-
-
 #------------------------- Settings updates ----------------------------------
 
 func ConnectOptionsWindow(win):
@@ -466,8 +354,8 @@ func _on_settings_updated(setting, value):
 	match setting:
 		"fov":
 			camera_rig.camera_settings.fov_degrees = value
-			if GameGlobals.main_camera:
-				GameGlobals.main_camera.fov = value
+			if main_camera:
+				main_camera.fov = value
 		"aim_fov":
 			camera_rig.camera_settings.aim_fov_degrees = value
 		"mouse_sensitivity":
@@ -478,5 +366,6 @@ func _on_settings_updated(setting, value):
 			camera_rig.camera_settings.invert_x = value
 		"invert_y":
 			camera_rig.camera_settings.invert_y = value
+
 
 

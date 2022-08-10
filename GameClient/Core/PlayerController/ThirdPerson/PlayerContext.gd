@@ -1,76 +1,106 @@
 class_name PlayerContext
-extends Node3D
+extends Node
 
 
-# Base class for visual part of players.
+# Top level container for most general player state. Handles inhabiting new contexts.
 
 
-#---------------------------- Exports ---------------------------------
 
-# Some standard animation connections
-@export var animation_tree: AnimationTree
+#--------------------------- Body hopping -----------------------------------
+
+var pending_player_context = null
+
+func Inhabit(new_context):
+	if pending_player_context:
+		print ("cannot inhabit ", new_context.name, ", pending on ", pending_player_context.name)
+		return
+	print ("....trying to inhabit ", new_context.name)
+	
+	#-------- old model needs to be:
+	# - highlightable if not being removed
+	# - optionally removed
+	var old_player_context = get_parent()
+	old_player_context.remove_child(self)
+	new_context.add_child(self)
+	GameGlobals.current_player_object = new_context
+	
+#	# we need this to later orient new model to orientation of old model
+#	var target_global_basis = old_player_context.global_transform.basis
+#
+#	# reparent old model
+#	var _tr = old_player_context.global_transform
+#	player_model_parent.remove_child(old_player_context)
+#	get_parent().add_child(old_player_model)
+#	old_player_model.global_transform = _tr
+#	player_mesh = null
+	
+	old_player_context.active = false
+	new_context.active = true
+	print ("new context collision_layer: ", new_context.collision_layer)
+	print ("new context collision_mask: ", new_context.collision_mask)
+	
+	# get rid of the old model if we have to
+	if old_player_context.persistent_shell:
+		# old player model gets abandonded and just sits in the world
+		old_player_context.SetAsUninhabited()
+	else:
+		old_player_context.Deresolution()
+	
+	new_context.SetAsInhabited()
+	
+	#--------- new model:
+	# - must dehighlight
+	# - must be lerped to by player controller
+	# - reparent after lerp
+	#pending_player_context = new_context
+	if GameGlobals.main_camera: GameGlobals.main_camera.follow_proxy = new_context.GetCameraProxy()
+	
+	#TODO: need to create a temporary tracking object to smoothly transition the camera to a new target
+#	var tween : Tween = get_tree().create_tween()
+#	tween.tween_property(self, "global_position", object.global_position, 0.15) #.finished.connect(ReparentNewModel)
+#
+#	object.SetAsInhabited()
+#	#tween = get_tree().create_tween()
+#	tween.tween_property(pending_player_model, "global_transform:basis", target_global_basis, 0.15).finished.connect(ReparentNewModel)
 
 
-# Whether this model sticks around after player goes on to inhabit something else.
-@export var persistent_shell := true
+## Callback to finish inhabiting.
+#func ReparentNewModel():
+#	print ("finishing inhabit of ", pending_player_model.name)
+#	var gtr = pending_player_model.global_transform
+#	pending_player_model.get_parent().remove_child(pending_player_model)
+#	player_model_parent.add_child(pending_player_model)
+#	player_mesh = pending_player_model
+#	pending_player_model.global_transform = gtr
+#	pending_player_model.SetAsInhabited()
+#	proximity_areas.erase(pending_player_model.get_node("InhabitableTrigger"))
+#	pending_player_model = null
 
 
-#------------------------ Overrideable functions ----------------------------
+#--------------------- Network sync helpers ---------------------------------
 
-# Stub for custom camera placements.
-func GetCameraPlacements() -> CameraPlacements: return null
-
-
-# Return the bounding box of the player at rest.
-#func GetRestAABB() -> AABB: return AABB()
-
-
-# Whether this mesh as various things implemented on it, such as "walk", or "climb".
-#(not used yet)
-func HasFeature(_feature) -> bool:
-	return false
+# This needs to be called from _physics_process
+func DefinePlayerState():
+	var player = get_parent()
+	var player_state = { "T": GameServer.client_clock, 
+						"P": player.global_transform.origin,
+						"R": player.global_transform.basis.get_rotation_quaternion(),
+						"R2": player.player_model_parent.basis.get_rotation_quaternion()
+						}
+	GameServer.SendPlayerState(player_state)
 
 
-func SetAsInhabited():
-	if has_node("InhabitableTrigger"):
-		var node = get_node("InhabitableTrigger")
-		node.SetUninhabitable()
-
-func SetAsUninhabited():
-	if has_node("InhabitableTrigger"):
-		var node = get_node("InhabitableTrigger")
-		node.SetInhabitable()
-
-# Make the model disappear, and remove from tree
-func Deresolution():
-	print ("removing model ", name)
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector3(0, 0, 0), 0.15).finished.connect(Finalize)
-
-# Callback to queue_free(). By default this is called from Deresolution().
-func Finalize():
-	queue_free()
+func SetNameFromId(game_client_id):
+	name = str(game_client_id)
+	get_node("../Name").text = name
+	#$Name.text = name
 
 
-#--------------------------- Animation syncing ----------------------------
-
-# Called when the desired speed of the player changes. Note this might be the actual speed, just an indication of speed.
-# The value speed will range 0 for idle, 1 for walk, up to 2 for full sprint.
-func SetSpeed(speed):
-	#print ("Move speed: ", value)
-	if animation_tree:
-		animation_tree["parameters/IdleWalkRun/blend_position"] = speed
-		#get_tree().create_tween().tween_property(animation_tree, "parameters/IdleWalkRun/blend_position", speed, .25)
-
-# called when a jump starts from the floor
-func JumpStart():
+#TODO: this might be used if all collision processing is done on server
+func MovePlayer(_pos, _rot, _rot2):
 	pass
+	#global_transform.origin = pos
+	#global_transform.basis = Basis(rot)
 
-# called when going from falling to on floor.
-func JumpEnd():
-	pass
 
-# called if we are starting to fall, but it's not starting from jumping, such as when you walk off a ledge.
-func Falling():
-	pass
 

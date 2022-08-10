@@ -46,8 +46,15 @@ func SpawnOfflinePlayer(spawn_point: Vector3, spawn_rotation: Quaternion):
 	$Players.add_child(new_player)
 	#new_player.set_physics_process(true) unnecessary?
 	new_player.ConnectOptionsWindow(get_node("../OptionsMenu/TabContainer/Controls")) #TODO: this should probably not be coupled to the PlayerController?
-	new_player.main_camera = $MainCamera
+	#new_player.main_camera = $MainCamera
 	#TODO: if player despawns on server disconnect, we need to unconnect?
+	if not new_player.has_node("PlayerContext"):
+		var ctx = load("res://Core/PlayerController/ThirdPerson/PlayerContext.tscn").instantiate()
+		new_player.add_child(ctx)
+	new_player.SetAsInhabited()
+	new_player.active = true
+	new_player.persistent_shell = false # so default character will vanish once user leaves
+	
 	$MainCamera.follow_proxy = new_player.GetCameraProxy()
 
 

@@ -26,8 +26,8 @@ func _on_proximity_button_body_entered(body):
 	print ("Body ", body.name, " entered ", name)
 	body_near = body
 	if body.has_method("AddProximityTrigger"): # is PlayerController:
-		body.AddProximityTrigger(self)
-	Hover()
+		if body.AddProximityTrigger(self):
+			Hover()
 
 
 func _on_proximity_button_body_exited(body):
