@@ -34,7 +34,8 @@ enum Shapes # enum needs to be before using it in @export.
 
 
 func _init():
-	SwapShape(Shapes.WEDGE)
+	SwapShape(Shapes.CUBE)
+#	$Model/shapes/cube_base
 
 
 func SwapShape(shape : Shapes):
