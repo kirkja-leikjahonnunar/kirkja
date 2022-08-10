@@ -6,9 +6,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_t6c4u"]
 radius = 0.1
 
-[node name="CameraRig" type="Node3D" node_paths=PackedStringArray("camera_rig")]
+[node name="CameraRig" type="Node3D"]
 script = ExtResource("1_k8pfa")
-camera_rig = NodePath(".")
 
 [node name="CameraPlacements" type="Node3D" parent="."]
 script = ExtResource("2_5suap")

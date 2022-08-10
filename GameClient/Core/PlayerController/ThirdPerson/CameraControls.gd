@@ -4,16 +4,22 @@ class_name CameraControls
 
 #------------------------------------- Exports -------------------------------------------
 
-@export var camera_rig: Node3D
+#@export var camera_rig: Node3D
+@export var allow_fp := true
+
+# Whether these camera controls should just work out of the box, not integrated to the PlayerContext.
+@export var standalone := false
+
 
 #------- Camera settings like fov, sensitivity, etc TODO: coordinate with options menu
-var camera_settings := {}
+var camera_settings := {} #TOOD this needs to be integrated with settings ui
 @export var ROTATION_SPEED := .03
 
 
 #------------------------------------- Variables -------------------------------------------
 
 #------ Reference various camera components
+@onready var camera_rig    = self
 @onready var camera_target = camera_rig.get_node("Target") # where camera should point. may be offset left or right from center
 @onready var camera_pitch  = camera_rig.get_node("Target/SpringArm3D") # Rotate only around X 
 @onready var camera_boom   = camera_rig.get_node("Target/SpringArm3D")
@@ -46,12 +52,21 @@ var gathered_cam_move : Vector2
 #------------------------------------- Exports -------------------------------------------
 
 func _ready():
+	if standalone:
+		SetMouseVisible(false)
+	
 	# *** connect to global camera settings
 	if camera_settings.size() == 0:
 		SetDefaultCameraSettings()
 	
 	if camera_placements == null && has_node("CameraPlacements"):
 		camera_placements = get_node("CameraPlacements")
+	
+	if camera_mode == CameraMode.Default:
+		camera_mode = CameraMode.Third
+	SetHoverVars()
+	SetCameraHoverTarget()
+	#print ("camera placements on ",get_parent().name,": ", camera_placements)
 
 
 func SetDefaultCameraSettings():
@@ -71,6 +86,14 @@ func SetDefaultCameraSettings():
 		"min_camera_distance" : 0.5,  # below this, switch to 1st person
 		"max_camera_distance" : 5.0,  # maximum to position camera away from player
 		}
+
+func _unhandled_input(event):
+	if standalone: 
+		custom_unhandled_input(event)
+
+func _physics_process(delta):
+	if standalone:
+		custom_physics_process(delta)
 
 
 func custom_unhandled_input(event) -> bool:
@@ -143,7 +166,7 @@ func HandleZoom(amount):
 											camera_settings.min_camera_distance, camera_settings.max_camera_distance)
 
 
-# Handle mouse visibility
+# Handle mouse visibility. Camera controls will work only when mouse is captured.
 func SetMouseVisible(yes: bool):
 	if yes:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -165,13 +188,13 @@ func SetThirdPerson():
 	#cam_vv_shift = $Proxy_Over.position.y - cam_v_shift # gets added to cam_v_offset
 	SetHoverVars()
 	SetCameraHoverTarget()
-	#player_model_parent.visible = true
+	get_parent().SetThirdPerson()
 
 
 # Turn off the player mesh, and move camera to Proxy_FPS position.
 #TODO: replace other player meshes with first person hands
 func SetFirstPerson():
-	# if !allow_fp: return
+	if !allow_fp: return
 	print ("Set 1st person")
 	#if camera_mode == CameraMode.First: return
 	camera_mode = CameraMode.First
@@ -180,7 +203,7 @@ func SetFirstPerson():
 	cam_v_offset = camera_target.position.y 
 	cam_v_shift  = 0
 	cam_vv_shift = 0
-	#player_model_parent.visible = false
+	get_parent().SetFirstPerson()
 
 
 # According to camera_hover, set the correct camera position

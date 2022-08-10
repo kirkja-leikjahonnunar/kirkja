@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://pbm6jn74p3br"]
+[gd_scene load_steps=4 format=3 uid="uid://pbm6jn74p3br"]
 
-[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerContext.gd" id="1_bpjvc"]
 [ext_resource type="Material" uid="uid://da5x8uitfjmbg" path="res://Entity/Context/CapsulePlayer/CapsulePlayer.material" id="1_l70m3"]
-[ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="3_jq6it"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5rtks"]
 radius = 0.25
@@ -14,7 +12,6 @@ bottom_radius = 0.141
 height = 0.25
 
 [node name="PlayerMesh" type="Node3D"]
-script = ExtResource("1_bpjvc")
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86287, 0)
@@ -27,5 +24,3 @@ transform = Transform3D(5.96046e-08, 0, 1, 1, 5.96046e-08, 0, 0, 1, 5.96046e-08,
 mesh = SubResource("CylinderMesh_xv37c")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_l70m3")
-
-[node name="InhabitableTrigger" parent="." instance=ExtResource("3_jq6it")]

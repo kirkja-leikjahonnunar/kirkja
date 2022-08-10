@@ -1,15 +1,33 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://crj8s02solrdu"]
 
-[ext_resource type="PackedScene" uid="uid://o47inmoqb83t" path="res://kirkja-assets/models/mecha_voidling.glb" id="1_fpppc"]
-[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerContext.gd" id="2_ft5cq"]
+[ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerController.gd" id="1_28s7b"]
+[ext_resource type="PackedScene" uid="uid://o47inmoqb83t" path="res://kirkja-assets/models/mecha_voidling.glb" id="2_82ol6"]
 [ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="2_kyhrn"]
+[ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_dlmrc"]
 
-[node name="mecha_voidling" instance=ExtResource("1_fpppc")]
-script = ExtResource("2_ft5cq")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2q3o4"]
+radius = 0.25
+height = 1.65
 
-[node name="mecha_voidling2" parent="." index="0"]
-transform = Transform3D(0.354393, 0, 0, 0, 0.354393, 0, 0, 0, 0.354393, 0, 0, 0)
+[node name="mecha_voidling" type="CharacterBody3D"]
+collision_mask = 7
+script = ExtResource("1_28s7b")
 
-[node name="InhabitableTrigger" parent="." index="1" instance=ExtResource("2_kyhrn")]
+[node name="PlayerMesh" type="Node3D" parent="."]
 
-[editable path="InhabitableTrigger"]
+[node name="mecha_voidling" parent="PlayerMesh" instance=ExtResource("2_82ol6")]
+transform = Transform3D(0.354, 0, 0, 0, 0.354, 0, 0, 0, 0.354, 0, 0, 0)
+
+[node name="InhabitableTrigger" parent="." instance=ExtResource("2_kyhrn")]
+
+[node name="CameraRig" parent="." instance=ExtResource("3_dlmrc")]
+
+[node name="Name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91886, 0)
+billboard = 1
+no_depth_test = true
+text = "<name>"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86287, 0)
+shape = SubResource("CapsuleShape3D_2q3o4")
