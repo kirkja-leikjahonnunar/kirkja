@@ -219,18 +219,29 @@ func HandleMovement(delta):
 	#dpos -= position # this is world coordinates change in position
 	
 	# Animation syncing
-	if player_mesh && player_mesh.has_method("JumpStart"):
-		if just_jumped:
-			if ! char_body.is_on_floor():
-				if last_on_floor: # we jumped while on the floor
-					player_mesh.JumpStart()
-				else: #jumped while not on floor, just make sure we are falling?
-					player_mesh.Falling()
-		else: # not just jumped
-			if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
-				player_mesh.Falling()
-			elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
-				player_mesh.JumpEnd()
+#	if player_mesh && player_mesh.has_method("JumpStart"):
+#		if just_jumped:
+#			if ! char_body.is_on_floor():
+#				if last_on_floor: # we jumped while on the floor
+#					player_mesh.JumpStart()
+#				else: #jumped while not on floor, just make sure we are falling?
+#					player_mesh.Falling()
+#		else: # not just jumped
+#			if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+#				player_mesh.Falling()
+#			elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
+#				player_mesh.JumpEnd()
+	if just_jumped:
+		if ! char_body.is_on_floor():
+			if last_on_floor: # we jumped while on the floor
+				JumpStart()
+			else: #jumped while not on floor, just make sure we are falling?
+				Falling()
+	else: # not just jumped
+		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+			Falling()
+		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
+			JumpEnd()
 	
 	last_on_floor = char_body.is_on_floor() # cache to help select proper animation when transitioning
 	

@@ -4,7 +4,7 @@ extends PlayerController
 @export var min_time_scale = 3
 @export var max_time_scale = 10
 
-@onready var state_machine = $PlayerMesh/AnimationTree.get("parameters/playback")
+@onready var state_machine = $PlayerMesh/HatPerson/AnimationTree.get("parameters/playback")
 
 
 # Speed will be 0 for idle, 1 for walk, up to 2 for full sprint.
