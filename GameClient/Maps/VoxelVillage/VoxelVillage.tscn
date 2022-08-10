@@ -1,30 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://88t37py1klnr"]
+[gd_scene load_steps=5 format=3 uid="uid://ds5xgdrogmh1p"]
 
 [ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_ehfys"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelVillage.gd" id="1_fv4ve"]
-[ext_resource type="PackedScene" uid="uid://lk36t0n1voef" path="res://Maps/VoxelVillage/assets/Voxel.tscn" id="2_mpip6"]
-[ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://Core/icon.png" id="3_wlk6m"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t8ij"]
-resource_local_to_scene = true
-albedo_color = Color(1, 0.243137, 0.258824, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ace86"]
-resource_local_to_scene = true
-albedo_color = Color(0.45098, 0.764706, 0.415686, 1)
-albedo_texture = ExtResource("3_wlk6m")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j7ch"]
-resource_local_to_scene = true
-albedo_color = Color(0.921569, 0.482353, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngyah"]
-resource_local_to_scene = true
-albedo_color = Color(1, 0.988235, 0.0980392, 1)
+[ext_resource type="PackedScene" uid="uid://dfi3h4uwhw24v" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="2_mpip6"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d5n5n"]
 
-[node name="VoxelVillage" type="Node3D"]
+[node name="VoxeleyVillage" type="Node3D"]
+editor_description = "A fun and colorful place where the player can feel creative
+yet limited by the tasks and tools at hand."
 script = ExtResource("1_fv4ve")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -37,9 +21,6 @@ transform = Transform3D(0.979024, 0.158399, -0.128146, 0, 0.628954, 0.777442, 0.
 [node name="Voxel2" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 
-[node name="MeshInstance3D" parent="Landscape/Voxel2" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8t8ij")
-
 [node name="Voxel3" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 
@@ -48,9 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 
 [node name="Voxel5" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.3)
-
-[node name="MeshInstance3D" parent="Landscape/Voxel5" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ace86")
 
 [node name="Voxel6" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.2)
@@ -63,9 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 1.49012e-08)
 
 [node name="Voxel9" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.1)
-
-[node name="MeshInstance3D" parent="Landscape/Voxel9" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_2j7ch")
 
 [node name="Voxel10" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.2)
@@ -100,9 +75,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -0.3)
 [node name="Voxel24" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, -0.2)
 
-[node name="MeshInstance3D" parent="Landscape/Voxel24" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ngyah")
-
 [node name="Voxel26" parent="Landscape" instance=ExtResource("2_mpip6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.3, -0.2)
 
@@ -125,31 +97,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00168678, 0.0505893, 0.105286)
 
 [node name="Skeleton3D" parent="Voxeling/voxeling/ctrl_rig" index="0"]
-bones/1/position = Vector3(0, 0, 0.0316393)
-bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
-bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
-bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
-bones/7/position = Vector3(0.00670773, 0.0124832, 0.00473603)
-bones/7/rotation = Quaternion(-1.05856e-14, -4.54744e-12, -0.00233289, 0.999997)
-bones/8/position = Vector3(-0.00711697, 0.0125477, 0.00473603)
-bones/8/rotation = Quaternion(-1.05856e-14, -4.54744e-12, -0.00233289, 0.999997)
-bones/9/position = Vector3(0.0121038, 0.00733784, -0.00901323)
-bones/9/rotation = Quaternion(-3.30834e-10, -3.27663e-10, -0.710504, 0.703693)
-bones/10/rotation = Quaternion(-0.4992, 0.503214, 0.496936, 0.50063)
-bones/11/rotation = Quaternion(-0.00845723, -0.00242105, -0.0011225, 0.999961)
-bones/12/rotation = Quaternion(0.00460517, 5.2089e-06, -0.00138116, 0.999988)
-bones/13/position = Vector3(-0.00670773, 0.0124832, 0.00473603)
-bones/13/rotation = Quaternion(-1.05856e-14, 4.54744e-12, 0.00233289, 0.999997)
-bones/14/position = Vector3(0.00705734, 0.0124381, 0.00473603)
-bones/14/rotation = Quaternion(-1.05856e-14, 4.54744e-12, 0.00233289, 0.999997)
-bones/15/position = Vector3(-0.0121038, 0.00733783, -0.00901323)
-bones/15/rotation = Quaternion(-3.30834e-10, 3.27663e-10, 0.710504, 0.703693)
-bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
-bones/20/position = Vector3(0, 0, 0.0316393)
-bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
-bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
+bones/1/position = Vector3(0, 0, 0.0340143)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/20/position = Vector3(0, 0, 0.0340143)
+bones/23/rotation = Quaternion(0, 0, 0, 1)
+bones/30/rotation = Quaternion(0, 0, 0, 1)
 
 [node name="AnimationTree" parent="Voxeling" index="1"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_d5n5n")

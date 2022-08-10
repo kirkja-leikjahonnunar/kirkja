@@ -62,7 +62,7 @@ _global_script_classes=[{
 "base": "StaticBody3D",
 "class": &"Voxel",
 "language": &"GDScript",
-"path": "res://Maps/VoxelVillage/assets/Voxel.gd"
+"path": "res://Maps/VoxelVillage/Voxel/Voxel.gd"
 }, {
 "base": "MeshInstance3D",
 "class": &"VoxelBlock",

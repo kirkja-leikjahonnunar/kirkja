@@ -1,0 +1,233 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkm7q45ylguyg"]
+
+[ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_3ho4o"]
+[ext_resource type="PackedScene" uid="uid://dfi3h4uwhw24v" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
+
+[node name="VoxelCoords" type="Node3D"]
+editor_description = "An attraction within the VoxelVillage.tscn."
+
+[node name="Voxeling" parent="." instance=ExtResource("1_3ho4o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.231618, 0.252655, 0)
+
+[node name="TrenchX" type="Node3D" parent="."]
+
+[node name="Voxel4" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
+
+[node name="Voxel5" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03906, 0, -0.255302)
+
+[node name="Origin" parent="TrenchX" instance=ExtResource("1_cawmk")]
+
+[node name="x1" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="x2" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="x3" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+
+[node name="x4" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="x5" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="x10" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.336734)
+
+[node name="x6" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+
+[node name="x7" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0, 0)
+
+[node name="x8" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+
+[node name="x9" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+
+[node name="Voxel12" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -0.2)
+
+[node name="Voxel13" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -0.2)
+
+[node name="Voxel14" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -0.2)
+
+[node name="Voxel15" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.2)
+
+[node name="Voxel16" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.2)
+
+[node name="Voxel17" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.2)
+
+[node name="Voxel18" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.2)
+
+[node name="Voxel19" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.2)
+
+[node name="Voxel20" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.2)
+
+[node name="Voxel22" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -0.3)
+
+[node name="Voxel23" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -0.3)
+
+[node name="Voxel25" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.3)
+
+[node name="Voxel26" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.3)
+
+[node name="Voxel27" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.3)
+
+[node name="Voxel28" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.3)
+
+[node name="Voxel29" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.3)
+
+[node name="Voxel30" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.3)
+
+[node name="Voxel44" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -0.3)
+
+[node name="Voxel45" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.1)
+
+[node name="Voxel46" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.1)
+
+[node name="Voxel47" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.1)
+
+[node name="Voxel48" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.1)
+
+[node name="Voxel49" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.1)
+
+[node name="Voxel50" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.1)
+
+[node name="Voxel31" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Voxel11" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+
+[node name="Voxel53" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.3)
+
+[node name="Voxel54" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.053251)
+
+[node name="Voxel57" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+
+[node name="Voxel64" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Voxel65" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+
+[node name="Voxel70" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+
+[node name="Voxel59" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+
+[node name="Voxel58" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Voxel67" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="Voxel68" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Voxel71" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Voxel72" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="Voxel73" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="Voxel74" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Voxel75" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Voxel63" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0.1, 0.269241)
+
+[node name="Voxel69" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
+
+[node name="Voxel60" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+
+[node name="Voxel66" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+
+[node name="Voxel61" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256649, 0.9)
+
+[node name="Voxel62" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415719, 0.256649, 0.9)
+
+[node name="Voxel32" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.1)
+
+[node name="Voxel33" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.1)
+
+[node name="Voxel34" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.1)
+
+[node name="Voxel35" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.1)
+
+[node name="Voxel36" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.1)
+
+[node name="Voxel37" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.1)
+
+[node name="Voxel38" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0, 0.1)
+
+[node name="Voxel39" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.1)
+
+[node name="Voxel41" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 0.392406)
+
+[node name="Voxel40" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.1)
+
+[node name="Voxel" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+
+[node name="Voxel2" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="Voxel3" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
+
+[node name="Voxel" parent="TrenchX/Voxel3" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161542)
