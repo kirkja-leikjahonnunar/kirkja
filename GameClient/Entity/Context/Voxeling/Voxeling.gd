@@ -1,13 +1,14 @@
 extends CharacterBody3D
 class_name Voxeling
 
-const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/assets/Voxel.tscn")
+const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
 const SPEED = 0.4
 const JUMP_VELOCITY = 1.5
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 
 
 func SpawnVoxel():

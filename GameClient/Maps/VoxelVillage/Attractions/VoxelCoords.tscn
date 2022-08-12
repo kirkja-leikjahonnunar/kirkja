@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkm7q45ylguyg"]
 
 [ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_3ho4o"]
-[ext_resource type="PackedScene" uid="uid://dfi3h4uwhw24v" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
+[ext_resource type="PackedScene" uid="uid://bqp6ldefi5g41" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
 
 [node name="VoxelCoords" type="Node3D"]
 editor_description = "An attraction within the VoxelVillage.tscn."
 
 [node name="Voxeling" parent="." instance=ExtResource("1_3ho4o")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.231618, 0.252655, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.244046, 0.313781, 0.0941297)
 
 [node name="TrenchX" type="Node3D" parent="."]
 
@@ -18,36 +18,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03906, 0, -0.255302)
 
 [node name="Origin" parent="TrenchX" instance=ExtResource("1_cawmk")]
+base_color = Color(1, 0.901961, 0.0509804, 1)
 
 [node name="x1" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+base_color = Color(0.815686, 0.619608, 0.129412, 1)
 
 [node name="x2" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+base_color = Color(0.815686, 0.356863, 0.027451, 1)
 
 [node name="x3" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+base_color = Color(0.815686, 0.333333, 0.109804, 1)
 
 [node name="x4" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="x5" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="x10" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.336734)
 
 [node name="x6" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="x7" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="x8" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="x9" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [node name="Voxel12" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -0.2)
@@ -62,16 +72,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -0.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.2)
 
 [node name="Voxel16" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -0.2)
 
 [node name="Voxel17" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -0.2)
 
 [node name="Voxel18" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -0.2)
 
 [node name="Voxel19" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -0.2)
 
 [node name="Voxel20" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.2)
@@ -87,6 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.3)
 
 [node name="Voxel26" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.3)
+base_color = Color(0.862745, 0.247059, 0.286275, 1)
 
 [node name="Voxel27" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.3)
@@ -100,6 +111,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.3)
 [node name="Voxel30" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.3)
 
+[node name="Voxel21" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.4, 0.2, -0.2)
+shape = 1
+
+[node name="Voxel24" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0.2, -0.2)
+shape = 1
+
+[node name="Voxel42" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.2, -0.3)
+
+[node name="Voxel43" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.2, -0.3)
+base_color = Color(0.862745, 0.247059, 0.286275, 1)
+shape = 1
+
+[node name="Voxel78" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 0.2, -0.3)
+shape = 1
+
+[node name="Voxel79" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.701602, 0.2, -0.3)
+shape = 1
+
+[node name="Voxel80" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, 0.2, -0.3)
+shape = 1
+
+[node name="Voxel81" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -0.3)
+
+[node name="Voxel82" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, -0.3)
+
+[node name="Voxel83" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.3, -0.3)
+
+[node name="Voxel84" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -0.3)
+
+[node name="Voxel85" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.4, -0.3)
+
+[node name="Voxel86" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.5, -0.3)
+base_color = Color(0.172549, 0.0980392, 0.666667, 1)
+shape = 1
+
+[node name="Voxel87" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 8.74228e-08, 8.74228e-08, 8.74228e-08, -1, 7.64274e-15, 8.74228e-08, 0, -1, 0.9, 0.5, -0.3)
+base_color = Color(0.666667, 0.2, 0.384314, 1)
+shape = 2
+
 [node name="Voxel44" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -0.3)
 
@@ -107,13 +171,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -0.3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.1)
 
 [node name="Voxel46" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -0.1)
+shape = 1
 
 [node name="Voxel47" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -0.1)
 
 [node name="Voxel48" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -0.1)
+shape = 1
 
 [node name="Voxel49" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.1)
@@ -121,44 +187,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -0.1)
 [node name="Voxel50" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -0.1)
 
+[node name="Voxel51" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(-1, 0, 8.74228e-08, -7.64274e-15, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, 0.4, 0.2, -0.1)
+shape = 2
+
+[node name="Voxel52" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.1)
+
+[node name="Voxel55" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -0.1)
+shape = 1
+
+[node name="Voxel56" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -0.1)
+
+[node name="Voxel76" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -0.1)
+shape = 1
+
+[node name="Voxel77" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -0.1)
+shape = 2
+
 [node name="Voxel31" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+base_color = Color(0.764706, 0.784314, 0.596078, 1)
 
 [node name="Voxel11" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+base_color = Color(0.486275, 0.486275, 0.666667, 1)
 
 [node name="Voxel53" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.3)
+base_color = Color(0.905882, 0.345098, 0.945098, 1)
 
 [node name="Voxel54" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.053251)
 
 [node name="Voxel57" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+base_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [node name="Voxel64" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+base_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [node name="Voxel65" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+base_color = Color(0.313726, 0.329412, 0.666667, 1)
 
 [node name="Voxel70" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+base_color = Color(0.4, 0.392157, 0.666667, 1)
 
 [node name="Voxel59" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+base_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [node name="Voxel58" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+base_color = Color(0.823529, 0.905882, 0.141176, 1)
 
 [node name="Voxel67" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+base_color = Color(0.419608, 0.905882, 0.121569, 1)
 
 [node name="Voxel68" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+base_color = Color(0.337255, 0.905882, 0.105882, 1)
 
 [node name="Voxel71" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+base_color = Color(0, 0.905882, 0.121569, 1)
 
 [node name="Voxel72" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -173,16 +273,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Voxel63" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0.1, 0.269241)
+transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.1, 0.3)
+shape = 1
+
+[node name="Voxel88" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1.91069e-15, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.2, 0.3)
+shape = 1
+
+[node name="Voxel89" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.1, 0.3)
+shape = 1
+
+[node name="Voxel90" parent="TrenchX" instance=ExtResource("1_cawmk")]
+transform = Transform3D(4.37114e-08, 0, 1, 3.82137e-15, 1, 0, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.2, 0.3)
+shape = 1
 
 [node name="Voxel69" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
 
 [node name="Voxel60" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+base_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [node name="Voxel66" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+base_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [node name="Voxel61" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256649, 0.9)
@@ -192,33 +307,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415719, 0.256649, 0.9)
 
 [node name="Voxel32" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.1)
+base_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [node name="Voxel33" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.1)
+base_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [node name="Voxel34" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.1)
+base_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [node name="Voxel35" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.1)
+base_color = Color(0.176471, 0.796078, 0.211765, 1)
+shape = 1
 
 [node name="Voxel36" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.1)
+base_color = Color(0.176471, 0.796078, 0.211765, 1)
+shape = 1
 
 [node name="Voxel37" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.1)
+base_color = Color(0.176471, 0.796078, 0.211765, 1)
+shape = 1
 
 [node name="Voxel38" parent="TrenchX" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.1)
+base_color = Color(0.176471, 0.796078, 0.211765, 1)
+shape = 1
 
 [node name="Voxel39" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.1)
+base_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [node name="Voxel41" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 0.392406)
 
 [node name="Voxel40" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.1)
+base_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [node name="Voxel" parent="TrenchX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)

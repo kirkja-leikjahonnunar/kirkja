@@ -33,12 +33,11 @@ enum Shapes # enum needs to be before using it in @export.
 #@export var texture : Texture2D
 
 
-func _init():
-	SwapShape(Shapes.CUBE)
-#	$Model/shapes/cube_base
+func _ready():
+	SwapShape(shape)
 
 
-func SwapShape(shape : Shapes):
+func SwapShape(new_shape : Shapes):
 	$Model/shapes/cube_base.hide()
 	$Model/shapes/cube_flare.hide()
 	$Model/shapes/wedge_base.hide()
@@ -46,7 +45,7 @@ func SwapShape(shape : Shapes):
 	$Model/shapes/corner_base.hide()
 	$Model/shapes/corner_flare.hide()
 	
-	match shape:
+	match new_shape:
 		Shapes.CUBE:
 			$Model/shapes/cube_base.show()
 			$Model/shapes/cube_flare.show()

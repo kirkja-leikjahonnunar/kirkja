@@ -45,6 +45,19 @@ After adding an image to the icons folder: `update-icon-caches /home/unblinky/.l
 **`/usr/share/BespokeSynth/resource/`** (fonts and things)
 Has what in it?
 
+IANA (Internet Assigned Numbers Authority) [iana.org](https://www.iana.org/)
+"application/x-bespoke" application in this context means a binary file to be opened in Bespoke.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+ <mime-type type="application/bespoke">
+  <comment>BespokeSynth project</comment>
+  <glob pattern="*.bsk"/>
+  <glob pattern="*.BSK"/>
+ </mime-type>
+</mime-info>
+```
+
 
 ```
 $ dg-mime install --mode user graphml+xml-mime.xml
