@@ -1,5 +1,8 @@
 # Linux OS
 
+Terminal
+Select text then MMB to paste.
+
 ## How to register new mimetypes. (like "project.godot" files)
 ![Associating Mimetype](docs/godot_mimetype.png)
 
