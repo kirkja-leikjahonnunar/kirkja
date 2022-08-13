@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkm7q45ylguyg"]
+[gd_scene load_steps=7 format=3 uid="uid://dkm7q45ylguyg"]
 
 [ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_3ho4o"]
+[ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="1_76pdy"]
 [ext_resource type="PackedScene" uid="uid://bqp6ldefi5g41" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7hqp6"]
+
+[sub_resource type="Sky" id="Sky_2c3c1"]
+sky_material = SubResource("ProceduralSkyMaterial_7hqp6")
+
+[sub_resource type="Environment" id="Environment_d2463"]
+background_mode = 2
+sky = SubResource("Sky_2c3c1")
 
 [node name="VoxelCoords" type="Node3D"]
 editor_description = "An attraction within the VoxelVillage.tscn."
 
 [node name="Voxeling" parent="." instance=ExtResource("1_3ho4o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.244046, 0.313781, 0.0941297)
+active = true
+
+[node name="MainCamera" parent="." instance=ExtResource("1_76pdy")]
+FollowProxy = NodePath("../Voxeling")
 
 [node name="TrenchX" type="Node3D" parent="."]
 
@@ -359,3 +373,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
 
 [node name="Voxel" parent="TrenchX/Voxel3" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161542)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d2463")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.674006, -0.542227, 0.501703, 0, 0.679147, 0.734003, -0.738726, -0.494722, 0.457749, 2.78229, 3.15296, 2.08896)

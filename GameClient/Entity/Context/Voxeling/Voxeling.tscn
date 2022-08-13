@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ba5oadbsoymjf"]
 
-[ext_resource type="PackedScene" uid="uid://c04omrr6yot0s" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
+[ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Entity/Context/Voxeling/Voxeling.gd" id="1_xyc3q"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_onvl2"]
 
@@ -50,13 +50,19 @@ size = Vector3(0.02, 0.05, 0.02)
 
 [node name="Voxeling" type="CharacterBody3D"]
 script = ExtResource("1_xyc3q")
+SPEED = 0.4
+SPRINT_SPEED = 0.8
+JUMP_VELOCITY = 2.0
+GRAVITY_MULTIPLIER = 1.7
 
-[node name="voxeling" parent="." instance=ExtResource("1_m18wj")]
+[node name="PlayerMesh" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, 0.0836257, 0, 0.996497)
-bones/3/rotation = Quaternion(0, 0.0838586, 0, 0.996478)
+[node name="voxeling" parent="PlayerMesh" instance=ExtResource("1_m18wj")]
+
+[node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
+bones/2/rotation = Quaternion(0, 0.0250903, 0, 0.999685)
+bones/3/rotation = Quaternion(0, 0.0260475, 0, 0.999661)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -78,18 +84,19 @@ bones/15/rotation = Quaternion(-3.30834e-10, 3.27663e-10, 0.710504, 0.703693)
 bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, 0.0836257, 0, 0.996497)
-bones/30/rotation = Quaternion(0, 0.0838586, 0, 0.996478)
+bones/23/rotation = Quaternion(0, 0.0250903, 0, 0.999685)
+bones/30/rotation = Quaternion(0, 0.0260475, 0, 0.999661)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
-[node name="skin" parent="voxeling/ctrl_rig/Skeleton3D" index="0"]
+[node name="skin" parent="PlayerMesh/voxeling/ctrl_rig/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+lod_bias = 128.0
 surface_material_override/0 = SubResource("StandardMaterial3D_g8tkb")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_suupy")
-anim_player = NodePath("../voxeling/AnimationPlayer")
+anim_player = NodePath("../PlayerMesh/voxeling/AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qmfbt")
 
@@ -98,6 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656491, 0)
 shape = SubResource("CylinderShape3D_3j082")
 
 [node name="Drill" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0241113, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drill"]
 shape = SubResource("BoxShape3D_cykrc")
@@ -121,11 +129,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011128, 0.0857974, 0.08236
 shape = SubResource("BoxShape3D_cykrc")
 
 [node name="CameraRig" parent="." instance=ExtResource("3_onvl2")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 standalone = true
+ROTATION_SPEED = 0.01
+
+[node name="CameraPlacements" parent="CameraRig" index="0"]
+proxy_fps = Vector3(0.004, 0.1, 0.022)
+proxy_over = Vector3(0, 0.369, 0)
+proxy_right = Vector3(-0.1, 0.1, 0)
+proxy_left = Vector3(0.1, 0.1, 0)
+proxy_back = Vector3(0, 0.108, -0.262)
 
 [connection signal="body_entered" from="Drill" to="." method="_on_drill_body_entered"]
-[connection signal="area_entered" from="Bump" to="." method="_on_bump_area_entered"]
 [connection signal="body_entered" from="Bump" to="." method="_on_bump_body_entered"]
 
-[editable path="voxeling"]
+[editable path="PlayerMesh/voxeling"]
+[editable path="CameraRig"]

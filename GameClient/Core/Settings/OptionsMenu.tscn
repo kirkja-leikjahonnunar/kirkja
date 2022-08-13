@@ -12,7 +12,6 @@ anchor_bottom = 1.0
 size_flags_horizontal = 4
 script = ExtResource("1_pii85")
 node_components = [NodePath("TabContainer/Controls"), NodePath("TabContainer/Audio"), NodePath("TabContainer/Graphics")]
-node_array_test = [null]
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0

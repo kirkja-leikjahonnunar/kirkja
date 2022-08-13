@@ -35,6 +35,7 @@ enum Shapes # enum needs to be before using it in @export.
 
 func _ready():
 	SwapShape(shape)
+	$Model/shapes/cube_base.get_surface_override_material(0).albedo_color = base_color
 
 
 func SwapShape(new_shape : Shapes):

@@ -87,14 +87,10 @@ func SetDefaultCameraSettings():
 		"max_camera_distance" : 5.0,  # maximum to position camera away from player
 		}
 
+
 func _unhandled_input(event):
 	if standalone: 
 		custom_unhandled_input(event)
-
-func _physics_process(delta):
-	if standalone:
-		custom_physics_process(delta)
-
 
 func custom_unhandled_input(event) -> bool:
 	# pan camera with mouse
@@ -108,14 +104,18 @@ func custom_unhandled_input(event) -> bool:
 	
 	return false
 
-#func _process(delta):
-#	print (Input.is_action_just_pressed("char_zoom_in"))
+
+func _physics_process(delta):
+	if standalone:
+		custom_physics_process(delta)
 
 func custom_physics_process(delta):
+	#print ("camera custom_physics_process")
 	# rotate camera rig in response to input
 	var rotate_v = Input.get_vector("char_rotate_left", "char_rotate_right", "char_rotate_up", "char_rotate_down")
 	rotate_v *= delta * 60 * ROTATION_SPEED
 	if gathered_cam_move.length_squared() > 1e-5:
+		#print ("gathered_cam_move: ", gathered_cam_move)
 		rotate_v += gathered_cam_move
 		gathered_cam_move = Vector2()
 	if rotate_v.length_squared() > 1e-5: HandleCameraMove(rotate_v.x, rotate_v.y)
