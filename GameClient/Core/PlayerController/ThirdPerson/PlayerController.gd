@@ -46,13 +46,10 @@ class_name PlayerController
 @export var persistent_shell := true
 
 # Whether this controller is active. Usually this is controlled by PlayerContext
-var active := false
+@export var active := false
 
 @onready var char_body = self #get_parent()
 
-
-@export_group("AAAA WHY!?!?!?! export_group broken?") #TODO: remove this when inspector list doesn't get doubled
-## AAAA!! repeated properties in inspector.. why???
 
 
 #------------------------- Variables ----------------------------
@@ -122,6 +119,8 @@ func SetFirstPerson():
 ##--------------------------- Run Loop Functions -----------------------------
 
 func _ready():
+	print ("PlayerController _ready()")
+	
 	if camera_rig == null && has_node("CameraRig"):
 		camera_rig = get_node("CameraRig")
 	if camera_rig == null && has_node("../CameraRig"):

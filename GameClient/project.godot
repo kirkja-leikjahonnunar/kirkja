@@ -59,6 +59,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Maps/TestLevel/Interactables/ProximityButton.gd"
 }, {
+"base": "Node",
+"class": &"SomeClass",
+"language": &"GDScript",
+"path": "res://Tests/Inheritance/SomeClass.gd"
+}, {
 "base": "StaticBody3D",
 "class": &"Voxel",
 "language": &"GDScript",
@@ -74,7 +79,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Maps/VoxelVillage/VoxelTool/VoxelObject.gd"
 }, {
-"base": "CharacterBody3D",
+"base": "PlayerController",
 "class": &"Voxeling",
 "language": &"GDScript",
 "path": "res://Entity/Context/Voxeling/Voxeling.gd"
@@ -90,6 +95,7 @@ _global_script_class_icons={
 "PlayerController": "",
 "PlayerItem": "",
 "ProximityButton": "",
+"SomeClass": "",
 "Voxel": "",
 "VoxelBlock": "",
 "VoxelObject": "",
@@ -113,6 +119,10 @@ GameGlobals="*res://Core/Singletons/GameGlobals.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/camera_placements/plugin.cfg")
 
 [filesystem]
 

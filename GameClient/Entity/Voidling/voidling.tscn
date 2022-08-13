@@ -76,6 +76,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345681, 0)
 amount = 20
 lifetime = 0.69
 visibility_aabb = AABB(-1.83677, -1.55046, -1.94824, 3.67356, 3.10091, 3.89647)
-local_coords = false
 process_material = SubResource("ParticlesMaterial_nn6im")
 draw_pass_1 = SubResource("QuadMesh_pf7eh")

@@ -16,8 +16,13 @@ extends Camera3D
 func _ready():
 	GameGlobals.main_camera = self
 	
-	if follow_proxy == null && has_node("../Player"):
-		follow_proxy = get_node("../Player").GetCameraProxy()
+	if follow_proxy != null:
+		if follow_proxy.has_method("GetCameraProxy"):
+			follow_proxy = follow_proxy.GetCameraProxy()
+	else:
+		if follow_proxy == null && has_node("../Player"):
+			follow_proxy = get_node("../Player").GetCameraProxy()
+	
 	if follow_proxy == null:
 		follow_proxy = self # assume we will assign this to player's proxy later
 

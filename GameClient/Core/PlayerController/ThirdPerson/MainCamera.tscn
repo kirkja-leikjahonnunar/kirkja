@@ -14,6 +14,7 @@ script = ExtResource("1_nevyh")
 
 [node name="SelectorCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 8.74228e-08, 0, 0, 0, -1, -8.74228e-08, 1, 0, 0, 0.433872, 0)
+visible = false
 target_position = Vector3(0, -10, 0)
 collision_mask = 14
 debug_shape_custom_color = Color(0.847059, 0.211765, 0.847059, 1)
@@ -21,6 +22,7 @@ debug_shape_custom_color = Color(0.847059, 0.211765, 0.847059, 1)
 [node name="Indicator" type="Node" parent="."]
 
 [node name="TargetIndicator" type="MeshInstance3D" parent="Indicator"]
+visible = false
 mesh = SubResource("BoxMesh_37jow")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1ojb6")

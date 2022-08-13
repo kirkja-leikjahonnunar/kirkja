@@ -3,7 +3,7 @@ extends Control
 var parent_menu = null
 
 @export var node_components : Array[NodePath] = []
-@export var node_array_test : Array[Node] = []
+#@export var node_array_test : Array[Node] = []
 
 var settings := {}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://w68045nrgcn2"]
+[gd_scene load_steps=53 format=3 uid="uid://w68045nrgcn2"]
 
 [ext_resource type="PackedScene" uid="uid://ymxv0nvp3oof" path="res://Maps/TestLevel/DoricColumn/DoricColumn.tscn" id="1_vxuft"]
 [ext_resource type="Material" uid="uid://dl5lw2hid4m8f" path="res://Materials/GridTriplanar.tres" id="2_3qr5d"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/GravityAreas/Torroidal.gd" id="10_rmf8n"]
 [ext_resource type="PackedScene" uid="uid://de363mxl62jy1" path="res://Entity/Context/HatPlayer/HatPersonMesh.tscn" id="11_fys74"]
 [ext_resource type="PackedScene" uid="uid://k6htpy14dhus" path="res://Entity/Voidling/voidling.tscn" id="11_wuk0b"]
+[ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="14_8kd31"]
+[ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelMapTrigger.gd" id="14_sb7qk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvq6k"]
 size = Vector3(30, 1, 30)
@@ -195,6 +197,33 @@ height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c6je"]
 albedo_color = Color(0.294118, 0.972549, 0.301961, 1)
+
+[sub_resource type="Curve" id="Curve_q3oip"]
+_data = [Vector2(0, 0), 0.0, 8.78571, 0, 0, Vector2(0.264228, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.98182, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c727n"]
+curve = SubResource("Curve_q3oip")
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_nc3vh"]
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, -1.74, 0)
+initial_velocity_max = 3.97
+scale_min = 0.19
+scale_curve = SubResource("CurveTexture_c727n")
+turbulence_enabled = true
+turbulence_noise_scale = 6.19
+turbulence_noise_speed_random = 2.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b84i7"]
+albedo_color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6of8b"]
+material = SubResource("StandardMaterial3D_b84i7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hi5se"]
+size = Vector3(4.46328, 6.52455, 3.89369)
 
 [node name="TestArea" type="Node3D"]
 
@@ -601,6 +630,9 @@ major_radius = 7.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HoleStaticBody/TorroidalGravity"]
 shape = SubResource("BoxShape3D_vww11")
 
+[node name="VoxelCoords" parent="Environment" instance=ExtResource("14_8kd31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5272, 0, 0.036442)
+
 [node name="Platforms" type="Node3D" parent="."]
 
 [node name="AnimatedPlatform" type="AnimatableBody3D" parent="Platforms"]
@@ -667,6 +699,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3c6je")
 transform = Transform3D(3.18084, 0, 0, 0, 3.42649, -1.30537, 0, 1.30537, 3.42649, 0.00244141, 0.676539, 0.13897)
 mesh = SubResource("CylinderMesh_1c81i")
 surface_material_override/0 = SubResource("StandardMaterial3D_3c6je")
+
+[node name="VoxelMapTrigger" type="Area3D" parent="OtherObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9836, 0.401093, -0.0113847)
+script = ExtResource("14_sb7qk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="OtherObjects/VoxelMapTrigger"]
+amount = 15
+visibility_aabb = AABB(-2.54462, -2.78898, -2.57263, 5.08924, 5.57796, 5.14526)
+process_material = SubResource("ParticlesMaterial_nc3vh")
+draw_pass_1 = SubResource("BoxMesh_6of8b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OtherObjects/VoxelMapTrigger"]
+shape = SubResource("BoxShape3D_hi5se")
 
 [connection signal="body_entered" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_entered"]
 [connection signal="body_exited" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_exited"]

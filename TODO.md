@@ -107,6 +107,11 @@ shader:
         hint_white -> hint_default_white
         hint_black -> hint_default_black
 
+```
+var tween : Tween = get_tree().create_tween()
+tween.tween_property($HoverIndicate, "scale", Vector3(1, 1, 1), 0.15)
+```
+
 
 CHEATSHEET
 ----------
