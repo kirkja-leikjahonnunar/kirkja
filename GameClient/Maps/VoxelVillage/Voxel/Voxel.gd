@@ -2,6 +2,9 @@
 extends StaticBody3D
 class_name Voxel
 
+@onready var BASE = preload("res://Maps/VoxelVillage/Voxel/assets/base.material")
+@onready var FLARE = preload("res://Maps/VoxelVillage/Voxel/assets/flare.material")
+
 enum Shapes # enum needs to be before using it in @export.
 {
 	CUBE,
@@ -9,11 +12,23 @@ enum Shapes # enum needs to be before using it in @export.
 	CORNER
 }
 
+
 @export var base_color : Color = Color("999666"):
 	set(value):
 		base_color = value
 		if Engine.is_editor_hint():
-			$Model/shapes/cube_base.get_surface_override_material(0).albedo_color = base_color
+			for mesh in $Model/shapes.get_children(true):
+				if "base" in mesh.name:
+					if mesh.get_surface_override_material(0) == null:
+						mesh.set_surface_override_material(0, BASE)
+					else:
+						mesh.get_surface_override_material(0).albedo_color = base_color
+				elif "flare" in mesh.name:
+					if mesh.get_surface_override_material(0) == null:
+						mesh.set_surface_override_material(0, FLARE)
+					else:
+						mesh.get_surface_override_material(0).albedo_color = base_color * 0.60
+
 
 @export var shape : Shapes = Shapes.CUBE:
 	set(value):
@@ -31,10 +46,6 @@ enum Shapes # enum needs to be before using it in @export.
 				print("CORNER")
 
 #@export var texture : Texture2D
-
-
-func _ready():
-	SwapShape(shape)
 
 
 func SwapShape(new_shape : Shapes):
