@@ -3,8 +3,8 @@ extends EditorNode3DGizmoPlugin
 
 
 const CameraPlacementsObj = preload("res://addons/camera_placements/CameraPlacements.gd")
-const gizmo_mat = preload("res://addons/camera_placements/gizmo.material")
-const gizmo_mat2 = preload("res://addons/camera_placements/gizmocam.material")
+const gizmo_mat = preload("res://addons/camera_placements/gizmo_mat.tres")
+const gizmo_mat2 = preload("res://addons/camera_placements/gizmocam_mat.tres")
 #const gizmo_icon = preload("res://addons/camera_placements/camera_icon.png")
 
 var mesh
@@ -105,7 +105,7 @@ func SetCurrentSelected(node):
 
 
 func _redraw(gizmo: EditorNode3DGizmo):
-	print ("gizmo redraw ", Time.get_unix_time_from_system())
+	#print ("gizmo redraw ", Time.get_unix_time_from_system())
 	
 	last_gizmo = gizmo
 	gizmo.clear()

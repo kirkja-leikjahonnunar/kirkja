@@ -1,19 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://88t37py1klnr"]
+[gd_scene load_steps=4 format=3 uid="uid://d05kua5i8ge1w"]
 
-[ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_ehfys"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelVillage.gd" id="1_fv4ve"]
+[ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="3_86h1s"]
+[ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="3_xrda2"]
 
 [node name="VoxelVillage" type="Node3D"]
 script = ExtResource("1_fv4ve")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.979024, 0.158399, -0.128146, 0, 0.628954, 0.777442, 0.203744, -0.761135, 0.615761, 0, 0.728653, 0.498766)
-visible = false
-
 [node name="Landscape" type="Node3D" parent="."]
-
-[node name="Voxeling" parent="." instance=ExtResource("1_ehfys")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00168678, 0.0505893, 0.105286)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264686, 0.5149, 0.130078)
@@ -21,3 +15,14 @@ light_energy = 0.5
 shadow_enabled = true
 shadow_bias = 0.033
 omni_range = 2.6165
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96714, 0.0934842, 0.688785)
+light_energy = 0.17
+shadow_enabled = true
+shadow_bias = 0.033
+omni_range = 3.59188
+
+[node name="MainCamera" parent="." instance=ExtResource("3_86h1s")]
+
+[node name="VoxelCoords" parent="." instance=ExtResource("3_xrda2")]

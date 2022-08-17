@@ -59,6 +59,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Maps/TestLevel/Interactables/ProximityButton.gd"
 }, {
+"base": "Node",
+"class": &"SomeClass",
+"language": &"GDScript",
+"path": "res://Tests/Inheritance/SomeClass.gd"
+}, {
 "base": "StaticBody3D",
 "class": &"Voxel",
 "language": &"GDScript",
@@ -73,6 +78,11 @@ _global_script_classes=[{
 "class": &"VoxelObject",
 "language": &"GDScript",
 "path": "res://Maps/VoxelVillage/VoxelTool/VoxelObject.gd"
+}, {
+"base": "Node3D",
+"class": &"VoxelVillage",
+"language": &"GDScript",
+"path": "res://Maps/VoxelVillage/VoxelVillage.gd"
 }, {
 "base": "PlayerController",
 "class": &"Voxeling",
@@ -90,9 +100,11 @@ _global_script_class_icons={
 "PlayerController": "",
 "PlayerItem": "",
 "ProximityButton": "",
+"SomeClass": "",
 "Voxel": "",
 "VoxelBlock": "",
 "VoxelObject": "",
+"VoxelVillage": "",
 "Voxeling": ""
 }
 
@@ -280,6 +292,35 @@ TEST={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
+}
+voxel_rotate_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"unicode":0,"echo":false,"script":null)
+]
+}
+voxel_rotate_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"unicode":0,"echo":false,"script":null)
+]
+}
+voxel_rotate_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"unicode":0,"echo":false,"script":null)
+]
+}
+voxel_rotate_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"unicode":0,"echo":false,"script":null)
+]
+}
+voxel_next_type={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":53,"unicode":0,"echo":false,"script":null)
+]
+}
+voxel_previous_type={
+"deadzone": 0.5,
+"events": []
 }
 
 [layer_names]

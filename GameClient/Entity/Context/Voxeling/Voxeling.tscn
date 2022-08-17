@@ -61,8 +61,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="voxeling" parent="PlayerMesh" instance=ExtResource("1_m18wj")]
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, 0.0250903, 0, 0.999685)
-bones/3/rotation = Quaternion(0, 0.0260475, 0, 0.999661)
+bones/2/rotation = Quaternion(0, 0.0874034, 0, 0.996173)
+bones/3/rotation = Quaternion(0, 0.0881512, 0, 0.996107)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -84,8 +84,8 @@ bones/15/rotation = Quaternion(-3.30834e-10, 3.27663e-10, 0.710504, 0.703693)
 bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, 0.0250903, 0, 0.999685)
-bones/30/rotation = Quaternion(0, 0.0260475, 0, 0.999661)
+bones/23/rotation = Quaternion(0, 0.0874034, 0, 0.996173)
+bones/30/rotation = Quaternion(0, 0.0881512, 0, 0.996107)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -138,6 +138,12 @@ proxy_over = Vector3(0, 0.369, 0)
 proxy_right = Vector3(-0.1, 0.1, 0)
 proxy_left = Vector3(0.1, 0.1, 0)
 proxy_back = Vector3(0, 0.108, -0.262)
+
+[node name="VoxelSelectorRay" type="RayCast3D" parent="CameraRig/Target/SpringArm3D" index="1"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -1.42109e-14, 0, -1.24235e-21)
+visible = false
+enabled = false
+target_position = Vector3(0, -0.208, 0)
 
 [connection signal="body_entered" from="Drill" to="." method="_on_drill_body_entered"]
 [connection signal="body_entered" from="Bump" to="." method="_on_bump_body_entered"]

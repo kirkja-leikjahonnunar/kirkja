@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqp6ldefi5g41"]
+[gd_scene load_steps=5 format=3 uid="uid://bqp6ldefi5g41"]
 
 [ext_resource type="Script" path="res://Maps/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
 [ext_resource type="PackedScene" uid="uid://btp3jsuh8d00f" path="res://Maps/VoxelVillage/Voxel/assets/shapes.glb" id="2_otean"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="3_2bau1"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="4_20ebr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfggu"]
@@ -18,21 +17,21 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 
 [node name="corner_base" parent="Model/shapes" index="0"]
 visible = false
-surface_material_override/0 = ExtResource("3_2bau1")
+surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="corner_flare" parent="Model/shapes" index="1"]
 visible = false
 surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="cube_base" parent="Model/shapes" index="2"]
-surface_material_override/0 = ExtResource("3_2bau1")
+surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="cube_flare" parent="Model/shapes" index="3"]
 surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="wedge_base" parent="Model/shapes" index="4"]
 visible = false
-surface_material_override/0 = ExtResource("3_2bau1")
+surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="wedge_flare" parent="Model/shapes" index="5"]
 visible = false

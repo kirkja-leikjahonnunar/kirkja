@@ -8,7 +8,7 @@ editor_description = "An attraction within the VoxelVillage.tscn."
 
 [node name="Voxeling" parent="." instance=ExtResource("1_3ho4o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.244046, 0.149787, 0.0941297)
-visible = false
+active = true
 
 [node name="Origin" parent="." instance=ExtResource("1_cawmk")]
 base_color = Color(1, 0.901961, 0.0509804, 1)
@@ -454,7 +454,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [node name="Extras" type="Node3D" parent="."]
-visible = false
 
 [node name="Voxel4" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
@@ -642,10 +641,10 @@ shape = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
 
 [node name="Voxel61" parent="Extras" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.256649, 0.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.9)
 
 [node name="Voxel62" parent="Extras" instance=ExtResource("1_cawmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415719, 0.256649, 0.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0.9)
 
 [node name="Voxel" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3)

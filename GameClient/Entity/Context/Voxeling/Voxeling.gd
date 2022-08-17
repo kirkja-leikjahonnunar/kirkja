@@ -5,6 +5,11 @@ class_name Voxeling
 const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
 
+var voxel_world
+
+var current_voxel
+
+
 func _ready():
 	super._ready()
 	print ("Voxeling _ready()")
@@ -14,40 +19,24 @@ func _ready():
 	#JUMP_VELOCITY = 2.3
 
 
+func InitVoxelRealm():
+	var pnt = get_parent()
+	while pnt != null:
+		if pnt is VoxelVillage:
+			voxel_world = pnt
+			break
+		pnt = pnt.get_parent()
+
+
 func SpawnVoxel():
 	var voxel = VOXEL.instantiate()
 	voxel.position = position
-	#get_parent().AddVoxel(voxel)
-	get_parent().add_child(voxel)
-
-
-##func _physics_process(delta):
-## This is an override called during _physics_process().
-#func HandleMovementOLD(delta):
-#	if  Input.is_action_just_pressed("voxeling_add_voxel"):
-#		print("Adding voxel.")
-#		SpawnVoxel()
-#
-#	# Add the gravity.
-#	if not is_on_floor():
-#		velocity.y -= gravity * delta
-#
-#	# Handle Jump.
-#	if Input.is_action_just_pressed("char_jump") and is_on_floor():
-#		Jump()
-#
-#	# Get the input direction and handle the movement/deceleration.
-#	# As good practice, you should replace UI actions with custom gameplay actions.
-#	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-#	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-#	if direction:
-#		velocity.x = direction.x * SPEED
-#		velocity.z = direction.z * SPEED
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, SPEED)
-#		velocity.z = move_toward(velocity.z, 0, SPEED)
-#
-#	move_and_slide()
+	current_voxel = voxel
+	if voxel_world == null: InitVoxelRealm()
+	if voxel_world != null:
+		voxel_world.AddVoxel(self, voxel)
+	else:
+		push_error("Trying to add voxel, but no voxel world, this shouldn't happen?")
 
 
 var need_to_jump := false
@@ -56,9 +45,10 @@ func Jump():
 	need_to_jump = true
 
 
+# Helper function called during _physics_process()
 func HandleMovement(delta):
 	
-	if  Input.is_action_just_pressed("voxeling_add_voxel"):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && Input.is_action_just_pressed("voxeling_add_voxel"):
 		print("Adding voxel.")
 		SpawnVoxel()
 	
@@ -128,6 +118,28 @@ func HandleMovement(delta):
 	
 	# # network sync
 	# DefinePlayerState()
+
+
+# Helper function used during _physics_process()
+func HandleActions():
+	super.HandleActions()
+	
+	if current_voxel == null: return
+	
+	if Input.is_action_just_released("voxel_rotate_left"):
+		current_voxel.RotateHorizontal(PI/2)
+		
+	if Input.is_action_just_released("voxel_rotate_right"):
+		current_voxel.RotateHorizontal(-PI/2)
+		
+	if Input.is_action_just_released("voxel_rotate_up"): #TODO: this should adapt to camera direction? facing forward?
+		current_voxel.RotateVertical(PI/2)
+		
+	if Input.is_action_just_released("voxel_rotate_down"):
+		current_voxel.RotateVertical(-PI/2)
+	
+	if Input.is_action_just_released("voxel_next_type"):
+		current_voxel.NextType()
 
 
 func _on_drill_body_entered(body):

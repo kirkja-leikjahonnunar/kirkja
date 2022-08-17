@@ -121,6 +121,9 @@ func SetFirstPerson():
 func _ready():
 	print ("PlayerController _ready()")
 	
+	if GameGlobals.current_player_object == null:
+		GameGlobals.current_player_object = self
+	
 	if camera_rig == null && has_node("CameraRig"):
 		camera_rig = get_node("CameraRig")
 	if camera_rig == null && has_node("../CameraRig"):
@@ -156,6 +159,8 @@ func _physics_process(delta):
 	
 	# Make player conform to the up_direction
 	AlignPlayerToUp()
+	
+	HandleActions()
 	
 	HandleMovement(delta)
 
@@ -272,12 +277,15 @@ func AlignPlayerToUp():
 	#global_transform.basis = global_transform.basis.rotated(axis, amount)
 
 
-func _unhandled_input(event):
+#func _unhandled_input(event):
+func _input(event):
 	if not active: return
 	
 	# turn off mouse if you click
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton && event.pressed == false && Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		SetMouseVisible(false)
+		get_viewport().set_input_as_handled()
+		return
 	
 	# toggle mouse on/off
 	if allow_mouse_toggle && Input.is_action_just_pressed("char_toggle_mouse"):
@@ -285,7 +293,9 @@ func _unhandled_input(event):
 	
 	# this accumulates mouse move events for the camera:
 	if camera_rig: camera_rig.custom_unhandled_input(event)
-	
+
+
+func HandleActions():
 	if Input.is_action_just_pressed("char_use1"):
 		Use1(null)
 	
