@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqp6ldefi5g41"]
+[gd_scene load_steps=6 format=3 uid="uid://bqp6ldefi5g41"]
 
 [ext_resource type="Script" path="res://Maps/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
 [ext_resource type="PackedScene" uid="uid://btp3jsuh8d00f" path="res://Maps/VoxelVillage/Voxel/assets/shapes.glb" id="2_otean"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="4_20ebr"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="4_bqbo3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfggu"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -34,6 +35,14 @@ visible = false
 surface_material_override/0 = ExtResource("4_20ebr")
 
 [node name="wedge_flare" parent="Model/shapes" index="5"]
+visible = false
+surface_material_override/0 = ExtResource("4_20ebr")
+
+[node name="valley_base" parent="Model/shapes" index="6"]
+visible = false
+surface_material_override/0 = ExtResource("4_bqbo3")
+
+[node name="valley_flare" parent="Model/shapes" index="7"]
 visible = false
 surface_material_override/0 = ExtResource("4_20ebr")
 

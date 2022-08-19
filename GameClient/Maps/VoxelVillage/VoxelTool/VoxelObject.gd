@@ -161,7 +161,7 @@ func Serialize() -> String:
 	for child in get_children():
 		bb.append(child.index)
 	var json = JSON.new()
-	var str := json.stringify(data)
-	return str
+	var jstr := json.stringify(data)
+	return jstr
 
 func SetFromString(_data): push_error("IMPLEMENT ME")

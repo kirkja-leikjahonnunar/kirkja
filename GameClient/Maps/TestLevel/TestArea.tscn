@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://w68045nrgcn2"]
+[gd_scene load_steps=55 format=3 uid="uid://w68045nrgcn2"]
 
 [ext_resource type="PackedScene" uid="uid://ymxv0nvp3oof" path="res://Maps/TestLevel/DoricColumn/DoricColumn.tscn" id="1_vxuft"]
 [ext_resource type="Material" uid="uid://dl5lw2hid4m8f" path="res://Materials/GridTriplanar.tres" id="2_3qr5d"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/GravityAreas/Torroidal.gd" id="10_rmf8n"]
 [ext_resource type="PackedScene" uid="uid://de363mxl62jy1" path="res://Entity/Context/HatPlayer/HatPersonMesh.tscn" id="11_fys74"]
 [ext_resource type="PackedScene" uid="uid://k6htpy14dhus" path="res://Entity/Voidling/voidling.tscn" id="11_wuk0b"]
+[ext_resource type="PackedScene" uid="uid://c0xsc7n7ljrmi" path="res://Core/Controllers/Marble/MarbleController.tscn" id="12_t2cke"]
 [ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="14_8kd31"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelMapTrigger.gd" id="14_sb7qk"]
 
@@ -96,6 +97,8 @@ data = PackedVector3Array(1.05, -0.66, -1.5715, 1.4622, -0.66, -2.7357, 0.8909, 
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vww11"]
 size = Vector3(27.7884, 12.3226, 27.8623)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_apswt"]
 
 [sub_resource type="Animation" id="Animation_deqxu"]
 length = 0.001
@@ -380,6 +383,27 @@ shape = SubResource("BoxShape3D_gk726")
 [node name="HatPerson" parent="Environment/Pedestal HatPerson" instance=ExtResource("11_fys74")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5024, 0)
 
+[node name="Pedestal Marble" type="StaticBody3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99823, -0.0910941, 12.0032)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="Cube" type="MeshInstance3D" parent="Environment/Pedestal Marble"]
+layers = 524288
+mesh = SubResource("BoxMesh_3pplv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Pedestal Marble"]
+shape = SubResource("BoxShape3D_gk726")
+
+[node name="Marble" parent="Environment/Pedestal Marble" instance=ExtResource("12_t2cke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70165, 0)
+collision_mask = 3
+active = false
+
+[node name="CameraRig" parent="Environment/Pedestal Marble/Marble/FollowPosition" index="1"]
+standalone = false
+
 [node name="Ramps" type="Node3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31209, 0.531462, -9.30064)
 metadata/_edit_group_ = true
@@ -633,6 +657,23 @@ shape = SubResource("BoxShape3D_vww11")
 [node name="VoxelCoords" parent="Environment" instance=ExtResource("14_8kd31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5272, 0, 0.036442)
 
+[node name="Voxeling" parent="Environment/VoxelCoords" index="0"]
+active = false
+
+[node name="Skeleton3D" parent="Environment/VoxelCoords/Voxeling/PlayerMesh/voxeling/ctrl_rig" index="0"]
+bones/1/position = Vector3(0, 0, 0.0333483)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/20/position = Vector3(0, 0, 0.0333483)
+bones/23/rotation = Quaternion(0, 0, 0, 1)
+bones/30/rotation = Quaternion(0, 0, 0, 1)
+
+[node name="AnimationTree" parent="Environment/VoxelCoords/Voxeling" index="1"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_apswt")
+
+[node name="CameraRig" parent="Environment/VoxelCoords/Voxeling" index="5"]
+standalone = false
+
 [node name="Platforms" type="Node3D" parent="."]
 
 [node name="AnimatedPlatform" type="AnimatableBody3D" parent="Platforms"]
@@ -717,3 +758,11 @@ shape = SubResource("BoxShape3D_hi5se")
 [connection signal="body_exited" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_exited"]
 [connection signal="body_entered" from="Environment/HoleStaticBody/TorroidalGravity" to="Environment/HoleStaticBody/TorroidalGravity" method="_on_gravity_area_body_entered"]
 [connection signal="body_exited" from="Environment/HoleStaticBody/TorroidalGravity" to="Environment/HoleStaticBody/TorroidalGravity" method="_on_gravity_area_body_exited"]
+
+[editable path="Environment/Pedestal Marble/Marble"]
+[editable path="Environment/Pedestal Marble/Marble/FollowPosition/CameraRig"]
+[editable path="Environment/Pedestal Marble/Marble/FollowPosition/InhabitableTrigger"]
+[editable path="Environment/VoxelCoords"]
+[editable path="Environment/VoxelCoords/Voxeling"]
+[editable path="Environment/VoxelCoords/Voxeling/PlayerMesh/voxeling"]
+[editable path="Environment/VoxelCoords/Voxeling/CameraRig"]

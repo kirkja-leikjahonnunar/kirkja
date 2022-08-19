@@ -53,7 +53,8 @@ func Inhabit(new_context):
 	# - must be lerped to by player controller
 	# - reparent after lerp
 	#pending_player_context = new_context
-	if GameGlobals.main_camera: GameGlobals.main_camera.follow_proxy = new_context.GetCameraProxy()
+	if GameGlobals.main_camera:
+		GameGlobals.main_camera.follow_proxy = new_context.GetCameraProxy()
 	
 	#TODO: need to create a temporary tracking object to smoothly transition the camera to a new target
 #	var tween : Tween = get_tree().create_tween()

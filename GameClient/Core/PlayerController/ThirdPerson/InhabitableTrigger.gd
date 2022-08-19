@@ -6,10 +6,16 @@ class_name InhabitableTrigger
 # Place this as a child of the PlayerMesh
 
 @export var inhabitable := true
+@export var inhabitable_object : Node3D  # default to parent
 var initial_layer : int
 var initial_mask : int
 var scale_target : Vector3
 var hovered := false
+
+
+func GetInhabitableObject():
+	if inhabitable_object: return inhabitable_object
+	return get_parent()
 
 
 func _ready():
@@ -23,13 +29,13 @@ func _ready():
 
 
 func SetInhabitable():
-	print ("set ",get_parent().name," inhabitable with layer: ", initial_layer)
+	print ("set ",GetInhabitableObject().name," inhabitable with layer: ", initial_layer)
 	collision_layer = initial_layer
 	collision_mask = initial_mask
 	inhabitable = true
 
 func SetUninhabitable():
-	print ("set ",get_parent().name," uninhabitable")
+	print ("set ",GetInhabitableObject().name," uninhabitable")
 	collision_layer = 0
 	collision_mask = 0
 	inhabitable = false
@@ -37,7 +43,7 @@ func SetUninhabitable():
 
 
 func Hover():
-	print ("Hover on ", get_parent().name, ", hovered: ", hovered,", hl on: ", $Highlight.visible, ", ", collision_layer)
+	print ("Hover on ", GetInhabitableObject().name, ", hovered: ", hovered,", hl on: ", $Highlight.visible, ", ", collision_layer)
 	$Highlight.visible = true
 	hovered = true
 	var tween : Tween = get_tree().create_tween()
@@ -46,7 +52,7 @@ func Hover():
 
 func Unhover():
 	#$Highlight.visible = false
-	print ("unhover on ", get_parent().name, ", hovered: ", hovered,", hl on: ", $Highlight.visible, ", ", collision_layer)
+	print ("unhover on ", GetInhabitableObject().name, ", hovered: ", hovered,", hl on: ", $Highlight.visible, ", ", collision_layer)
 	if hovered:
 		hovered = false
 		var tween : Tween = get_tree().create_tween()

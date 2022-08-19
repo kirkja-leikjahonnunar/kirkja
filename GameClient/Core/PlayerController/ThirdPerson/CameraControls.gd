@@ -10,9 +10,12 @@ class_name CameraControls
 # Whether these camera controls should just work out of the box, not integrated to the PlayerContext.
 @export var standalone := false
 
+@export var _invert_x := false
+@export var _invert_y := false
+
 
 #------- Camera settings like fov, sensitivity, etc TODO: coordinate with options menu
-var camera_settings := {} #TOOD this needs to be integrated with settings ui
+var camera_settings := {} #TOOD this needs to be integrated with settings ui, and expose properties on node for easier new player building
 @export var ROTATION_SPEED := .03
 
 
@@ -48,6 +51,8 @@ var cam_v_offset := 0.0  # distance from player base to optimal camera height
 # we accumulate mouse movements that get applied during the next _physics_process()
 var gathered_cam_move : Vector2
 
+var player_controller
+
 
 #------------------------------------- Exports -------------------------------------------
 
@@ -58,6 +63,8 @@ func _ready():
 	# *** connect to global camera settings
 	if camera_settings.size() == 0:
 		SetDefaultCameraSettings()
+	camera_settings["invert_x"] = _invert_x
+	camera_settings["invert_y"] = _invert_y
 	
 	if camera_placements == null && has_node("CameraPlacements"):
 		camera_placements = get_node("CameraPlacements")
@@ -67,6 +74,11 @@ func _ready():
 	SetHoverVars()
 	SetCameraHoverTarget()
 	#print ("camera placements on ",get_parent().name,": ", camera_placements)
+	
+	player_controller = get_parent()
+	while player_controller != null and not (player_controller is CharacterBody3D or player_controller is RigidDynamicBody3D):
+		player_controller = player_controller.get_parent()
+	print ("player_controller on ", name, ": ", player_controller.name)
 
 
 func SetDefaultCameraSettings():
@@ -169,9 +181,11 @@ func HandleZoom(amount):
 # Handle mouse visibility. Camera controls will work only when mouse is captured.
 func SetMouseVisible(yes: bool):
 	if yes:
+		print ("CameraControls Set mouse mode visible")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		#if pause_menu: pause_menu.visible = true
 	else:
+		print ("CameraControls Set mouse mode captured")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		#if pause_menu: pause_menu.visible = false
 
@@ -188,7 +202,7 @@ func SetThirdPerson():
 	#cam_vv_shift = $Proxy_Over.position.y - cam_v_shift # gets added to cam_v_offset
 	SetHoverVars()
 	SetCameraHoverTarget()
-	get_parent().SetThirdPerson()
+	player_controller.SetThirdPerson()
 
 
 # Turn off the player mesh, and move camera to Proxy_FPS position.
@@ -203,7 +217,7 @@ func SetFirstPerson():
 	cam_v_offset = camera_target.position.y 
 	cam_v_shift  = 0
 	cam_vv_shift = 0
-	get_parent().SetFirstPerson()
+	player_controller.SetFirstPerson()
 
 
 # According to camera_hover, set the correct camera position

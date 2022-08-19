@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0xsc7n7ljrmi"]
+
+[ext_resource type="Script" path="res://Core/Controllers/Marble/MarbleController.gd" id="1_edaqs"]
+[ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="2_mow7s"]
+[ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="3_78ae5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lgpwp"]
+radius = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mftru"]
+
+[sub_resource type="NoiseTexture" id="NoiseTexture_ylhce"]
+seamless = true
+noise = SubResource("FastNoiseLite_mftru")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3g3u"]
+albedo_texture = SubResource("NoiseTexture_ylhce")
+
+[sub_resource type="SphereMesh" id="SphereMesh_vg1v0"]
+material = SubResource("StandardMaterial3D_q3g3u")
+radius = 1.0
+height = 2.0
+
+[node name="Marble" type="RigidDynamicBody3D"]
+contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_edaqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_lgpwp")
+
+[node name="PlayerMesh" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerMesh"]
+mesh = SubResource("SphereMesh_vg1v0")
+
+[node name="FollowPosition" type="Node3D" parent="."]
+top_level = true
+
+[node name="Name" type="Label3D" parent="FollowPosition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26609, 0)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "<name>"
+
+[node name="CameraRig" parent="FollowPosition" instance=ExtResource("2_mow7s")]
+standalone = true
+
+[node name="SpringArm3D" parent="FollowPosition/CameraRig/Target" index="0"]
+spring_length = 10.0
+
+[node name="InhabitableTrigger" parent="FollowPosition" node_paths=PackedStringArray("inhabitable_object") instance=ExtResource("3_78ae5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.53353, 0)
+inhabitable_object = NodePath("../..")
+
+[node name="Highlight" parent="FollowPosition/InhabitableTrigger" index="1"]
+transform = Transform3D(2.30774, 0, 0, 0, -1.00875e-07, -2.30774, 0, 2.30774, -1.00875e-07, 0, -0.385428, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_marble_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_marble_body_exited"]
+
+[editable path="FollowPosition/CameraRig"]
+[editable path="FollowPosition/InhabitableTrigger"]

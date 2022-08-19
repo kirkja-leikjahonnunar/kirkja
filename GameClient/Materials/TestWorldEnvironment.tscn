@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://44rd28j486vp"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_nxcta"]
+
+[sub_resource type="Sky" id="Sky_h3rn8"]
+sky_material = SubResource("PhysicalSkyMaterial_nxcta")
+
+[sub_resource type="Environment" id="Environment_88qcl"]
+background_mode = 2
+sky = SubResource("Sky_h3rn8")
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_88qcl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.829116, 0.187387, 0.526739, -0.473922, 0.735382, 0.484367, -0.29659, -0.651229, 0.698524, 36.5155, 32.2732, 0)

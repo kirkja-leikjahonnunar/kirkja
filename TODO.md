@@ -1,6 +1,24 @@
 TODO
 ====
 
+- Voxeling:
+    - [ ] better "valley" block
+	- [ ] Save creation
+	- [ ] Load creation
+    - [ ] Run around mode
+	    - [x] Add/remove blocks
+		- [x] Change type
+		- [x] Change color
+		- [x] Rotate blocks
+		- [ ] Hang/climb
+		- [ ] Better "current block" selection, rather that just last block laid down
+    - [ ] Wizard mode
+	    - [ ] Toggle mode on and off
+	    - [ ] Add/remove blocks
+		- [ ] Change type
+		- [ ] Change color
+		- [ ] Rotate blocks
+
 - GameClient:
     - [ ] controller can't operate the pause menu
     - [ ] proximity buttons: need to not be entirely proximity driven.. whether hovered, clickable should still determined by player direction, and only activate one at a time

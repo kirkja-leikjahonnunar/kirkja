@@ -57,7 +57,7 @@ func SetCurrentColor(index):
 	if index >= 0 && index < palette.size():
 		current_color = index
 		var mat = $RotatorPlatform/PotentialBlock/Cube.get_surface_override_material(0)
-		mat.set_shader_param("albedo", palette[current_color])
+		mat.set_shader_uniform("albedo", palette[current_color])
 
 
 func NewVoxelObject():

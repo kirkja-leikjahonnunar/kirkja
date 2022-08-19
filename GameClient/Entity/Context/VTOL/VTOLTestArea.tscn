@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcyv5h0okhtef"]
+
+[ext_resource type="Script" path="res://Entity/Context/VTOL/Ship.gd" id="1_kgkf3"]
+[ext_resource type="PackedScene" uid="uid://44rd28j486vp" path="res://Materials/TestWorldEnvironment.tscn" id="1_y5ls2"]
+[ext_resource type="Material" uid="uid://ci8ettuo3wpr8" path="res://addons/prettyprimitive/Materials/default.tres" id="2_cdc7k"]
+[ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_o84o3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h012"]
+size = Vector3(4.09205, 2.69702, 8.5879)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2dc0"]
+albedo_color = Color(0.462745, 1, 0.772549, 1)
+
+[node name="VTOL Test Area" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_y5ls2")]
+
+[node name="Ship" type="RigidDynamicBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43874, 0)
+angular_damp = 1.987
+script = ExtResource("1_kgkf3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship"]
+shape = SubResource("BoxShape3D_7h012")
+
+[node name="PlayerMesh" type="Node3D" parent="Ship"]
+
+[node name="ConeCSG" type="CSGCylinder3D" parent="Ship/PlayerMesh"]
+transform = Transform3D(1.39617e-15, 5.79929e-08, 1.32672, 0.730713, -5.79929e-08, -4.5643e-21, 3.19405e-08, 1.32672, -5.79929e-08, 0, 0, 0.755471)
+radius = 1.42258
+height = 6.58782
+sides = 16
+cone = true
+material = SubResource("StandardMaterial3D_r2dc0")
+
+[node name="ConeCSG2" type="CSGCylinder3D" parent="Ship/PlayerMesh"]
+transform = Transform3D(0.453504, -3.04353e-08, -6.12827e-08, -2.48303e-08, -0.207508, -1.33828, 1.30147e-08, 0.664638, -0.417826, 0, 1.0276, -2.33753)
+radius = 0.667516
+height = 2.5256
+sides = 16
+cone = true
+material = SubResource("StandardMaterial3D_r2dc0")
+
+[node name="ConeCSG3" type="CSGCylinder3D" parent="Ship/PlayerMesh"]
+transform = Transform3D(-0.0238294, 0.207221, 1.33643, 0.452878, 0.0109035, 0.0703198, 1.30147e-08, 0.664638, -0.417826, -1.49739, -0.181386, -1.48155)
+radius = 0.667516
+height = 4.76291
+sides = 16
+cone = true
+material = SubResource("StandardMaterial3D_r2dc0")
+
+[node name="ConeCSG4" type="CSGCylinder3D" parent="Ship/PlayerMesh"]
+transform = Transform3D(-0.020461, -0.162742, 1.36168, 0.452878, 0.0109035, 0.0703198, -0.0122142, 0.676904, 0.326244, 1.34458, -0.181386, -1.48155)
+radius = 0.667516
+height = 4.76291
+sides = 16
+cone = true
+material = SubResource("StandardMaterial3D_r2dc0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ship/PlayerMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.29668)
+visible = false
+size = Vector3(4.01394, 1.37938, 4.02468)
+
+[node name="FollowPosition" type="Node3D" parent="Ship"]
+top_level = true
+
+[node name="CameraRig" parent="Ship/FollowPosition" instance=ExtResource("3_o84o3")]
+standalone = true
+
+[node name="SpringArm3D" parent="Ship/FollowPosition/CameraRig/Target" index="0"]
+spring_length = 10.0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CubeCSG" type="CSGBox3D" parent="Ground"]
+use_collision = true
+size = Vector3(50, 1, 50)
+material = ExtResource("2_cdc7k")
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7798, 16.4794, 34.4143)
+
+[node name="CubeCSG" type="CSGBox3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.52, -7.5122, 5.08463)
+use_collision = true
+size = Vector3(21.3589, 17.6044, 21.0347)
+material = ExtResource("2_cdc7k")
+
+[editable path="Ship/FollowPosition/CameraRig"]

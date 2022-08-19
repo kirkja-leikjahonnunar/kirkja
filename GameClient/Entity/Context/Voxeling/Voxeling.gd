@@ -8,11 +8,28 @@ const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 var voxel_world
 
 var current_voxel
+var last_voxel_type := Voxel.Shapes.CUBE
+var last_voxel_rotation : Basis
+var last_voxel_material : Material
+var last_voxel_color : int = -1
+
+var palette := [
+				Color("#ff0000"),
+				Color("#ffff00"),
+				Color("#00ff00"),
+				Color("#00ffff"),
+				Color("#0000ff"),
+				Color("#ff00ff"),
+				Color("#ffffff"),
+				Color("#000000")
+				]
 
 
 func _ready():
 	super._ready()
 	print ("Voxeling _ready()")
+	
+	click_captures_mouse = false
 	
 	#SPRINT_SPEED = 0.8
 	#SPEED = 0.4
@@ -30,8 +47,13 @@ func InitVoxelRealm():
 
 func SpawnVoxel():
 	var voxel = VOXEL.instantiate()
+	voxel.SwapShape(last_voxel_type)
 	voxel.position = position
+	voxel.basis = last_voxel_rotation
+	if last_voxel_color < 0: last_voxel_color = 0
+	voxel.SetColor(palette[last_voxel_color])
 	current_voxel = voxel
+	
 	if voxel_world == null: InitVoxelRealm()
 	if voxel_world != null:
 		voxel_world.AddVoxel(self, voxel)
@@ -113,11 +135,16 @@ func HandleMovement(delta):
 	
 	last_on_floor = char_body.is_on_floor() # cache to help select proper animation when transitioning
 	
-	if char_body.global_transform.origin.y < world_min_height/2:
+	if char_body.global_transform.origin.y < world_min_height/2.0:
 		char_body.position = spawn_position
 	
 	# # network sync
 	# DefinePlayerState()
+
+
+# Overrides PlayerController, swap between wizard mode and run around mode.
+func HandleToggleMouse(on):
+	SetMouseVisible(on)
 
 
 # Helper function used during _physics_process()
@@ -127,19 +154,23 @@ func HandleActions():
 	if current_voxel == null: return
 	
 	if Input.is_action_just_released("voxel_rotate_left"):
-		current_voxel.RotateHorizontal(PI/2)
+		last_voxel_rotation = current_voxel.RotateHorizontal(PI/2)
 		
 	if Input.is_action_just_released("voxel_rotate_right"):
-		current_voxel.RotateHorizontal(-PI/2)
+		last_voxel_rotation = current_voxel.RotateHorizontal(-PI/2)
 		
 	if Input.is_action_just_released("voxel_rotate_up"): #TODO: this should adapt to camera direction? facing forward?
-		current_voxel.RotateVertical(PI/2)
+		last_voxel_rotation = current_voxel.RotateVertical(PI/2)
 		
 	if Input.is_action_just_released("voxel_rotate_down"):
-		current_voxel.RotateVertical(-PI/2)
+		last_voxel_rotation = current_voxel.RotateVertical(-PI/2)
 	
 	if Input.is_action_just_released("voxel_next_type"):
-		current_voxel.NextType()
+		last_voxel_type = current_voxel.NextType()
+	
+	if Input.is_action_just_released("voxel_color"):
+		last_voxel_color = (last_voxel_color + 1) % palette.size()
+		current_voxel.SetColor(palette[last_voxel_color])
 
 
 func _on_drill_body_entered(body):
@@ -156,3 +187,12 @@ func _on_bump_body_entered(body):
 	if Input.is_action_pressed("voxeling_eraser_mode"):
 		if body is Voxel:
 			body.call_deferred("queue_free") # This works but throws errors in editor. # This works but throws errors in editor.
+
+
+#-------------------------- Wizard mode (mouse controller) ---------------------------------
+
+var wizard_mode_active := false
+
+func ScanUnderMouse():
+	pass
+

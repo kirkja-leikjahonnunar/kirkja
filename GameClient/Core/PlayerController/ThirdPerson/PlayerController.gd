@@ -26,6 +26,7 @@ class_name PlayerController
 
 #whether context allows using mouse cursor, should not be 
 @export var allow_mouse_toggle := true
+var click_captures_mouse := true
 
 
 #------------------------- World Properties ----------------------------
@@ -83,7 +84,7 @@ var camera_mode = CameraMode.Default
 
 
 
-##--------------------------- Settings Accessors -----------------------------
+##--------------------------- Player context Accessors -----------------------------
 
 # This is used by MainCamera
 func GetCameraProxy() -> Node3D:
@@ -281,18 +282,22 @@ func AlignPlayerToUp():
 func _input(event):
 	if not active: return
 	
-	# turn off mouse if you click
-	if event is InputEventMouseButton && event.pressed == false && Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+	# turn off mouse if you click with any button
+	if click_captures_mouse && event is InputEventMouseButton && event.pressed == false && Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		SetMouseVisible(false)
 		get_viewport().set_input_as_handled()
 		return
 	
 	# toggle mouse on/off
-	if allow_mouse_toggle && Input.is_action_just_pressed("char_toggle_mouse"):
-		SetMouseVisible(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
+	if allow_mouse_toggle && Input.is_action_just_released("char_toggle_mouse"):
+		HandleToggleMouse(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
 	
 	# this accumulates mouse move events for the camera:
 	if camera_rig: camera_rig.custom_unhandled_input(event)
+
+
+func HandleToggleMouse(on):
+	SetMouseVisible(on)
 
 
 func HandleActions():
@@ -345,7 +350,8 @@ func Use1(node):
 		#TODO: find area closest to 
 		var thing = proximity_areas[0]
 		if thing is InhabitableTrigger && has_node("PlayerContext"):
-			get_node("PlayerContext").Inhabit(thing.get_parent())
+			#get_node("PlayerContext").Inhabit(thing.get_parent())
+			get_node("PlayerContext").Inhabit(thing.GetInhabitableObject())
 		else: thing.Use()
 		#----
 		#thing.Use()
@@ -438,7 +444,7 @@ func SetAsUninhabited():
 func Deresolution():
 	print ("removing ", name)
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector3(0, 0, 0), 0.15).finished.connect(Finalize)
+	tween.tween_property(self, "scale", Vector3(.001, .001, .001), 0.15).finished.connect(Finalize)
 
 # Callback to queue_free(). By default this is called from Deresolution().
 func Finalize():
