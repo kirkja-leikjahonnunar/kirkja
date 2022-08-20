@@ -113,7 +113,7 @@ func _redraw(gizmo: EditorNode3DGizmo):
 	#EditorInterface.get_selection()
 	
 	var node = gizmo.get_spatial_node()
-	if current_selected != node: return
+	if current_selected != node || node == null: return
 	
 	#var lines = PackedVector3Array()
 	#lines.append(Vector3(2,2,2))

@@ -46,19 +46,27 @@ func InitVoxelRealm():
 
 
 func SpawnVoxel():
-	var voxel = VOXEL.instantiate()
-	voxel.SwapShape(last_voxel_type)
-	voxel.position = position
-	voxel.basis = last_voxel_rotation
-	if last_voxel_color < 0: last_voxel_color = 0
-	voxel.SetColor(palette[last_voxel_color])
-	current_voxel = voxel
+	print ("SPAWN VOXEL")
 	
 	if voxel_world == null: InitVoxelRealm()
-	if voxel_world != null:
-		voxel_world.AddVoxel(self, voxel)
-	else:
+	if voxel_world == null:
 		push_error("Trying to add voxel, but no voxel world, this shouldn't happen?")
+		return
+	
+	var voxel = VOXEL.instantiate()
+	print ("===0")
+	voxel.position = position
+	voxel.basis = last_voxel_rotation
+	voxel_world.AddVoxel(self, voxel)
+	print ("===1  voxel shape: ", Voxel.Shapes.keys()[last_voxel_type])
+	voxel.SwapShape(last_voxel_type)
+	print ("===2")
+	voxel.SetColor(palette[last_voxel_color])
+	print ("===3")
+	if last_voxel_color < 0: last_voxel_color = 0
+	current_voxel = voxel
+	
+	print ("===4")
 
 
 var need_to_jump := false

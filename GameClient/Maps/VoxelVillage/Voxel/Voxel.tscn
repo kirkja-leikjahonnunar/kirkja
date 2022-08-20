@@ -1,52 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqp6ldefi5g41"]
+[gd_scene load_steps=13 format=3 uid="uid://bqp6ldefi5g41"]
 
 [ext_resource type="Script" path="res://Maps/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
-[ext_resource type="PackedScene" uid="uid://btp3jsuh8d00f" path="res://Maps/VoxelVillage/Voxel/assets/shapes.glb" id="2_otean"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="4_20ebr"]
+[ext_resource type="ArrayMesh" uid="uid://dqcxaym6ihc8i" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res" id="2_aimer"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="3_hwinp"]
+[ext_resource type="ArrayMesh" uid="uid://bh7hagvxb8gyr" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_base.res" id="4_4e26u"]
+[ext_resource type="ArrayMesh" uid="uid://vblq5hp6e543" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res" id="4_8pakw"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="4_bqbo3"]
+[ext_resource type="ArrayMesh" uid="uid://crtitqyy145ug" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_flare.res" id="5_slq6f"]
+[ext_resource type="ArrayMesh" uid="uid://bh5b7qpy7ldjo" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_base.res" id="6_ntmt0"]
+[ext_resource type="ArrayMesh" uid="uid://da05o58q3mbig" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_flare.res" id="7_t5p05"]
+[ext_resource type="ArrayMesh" uid="uid://ctgatu8s7e5b" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_base.res" id="8_ly3k8"]
+[ext_resource type="ArrayMesh" uid="uid://g1wp8l178jnt" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_flare.res" id="9_gy8eh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfggu"]
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Voxel" type="StaticBody3D"]
 script = ExtResource("1_2cj8q")
+base_color = Color(0.85098, 1, 0.639216, 1)
+BASE = ExtResource("4_bqbo3")
+FLARE = ExtResource("3_hwinp")
+mesh_list = [ExtResource("2_aimer"), ExtResource("4_8pakw"), ExtResource("4_4e26u"), ExtResource("5_slq6f"), ExtResource("6_ntmt0"), ExtResource("7_t5p05"), ExtResource("8_ly3k8"), ExtResource("9_gy8eh")]
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="shapes" parent="Model" instance=ExtResource("2_otean")]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
-
-[node name="corner_base" parent="Model/shapes" index="0"]
-visible = false
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="corner_flare" parent="Model/shapes" index="1"]
-visible = false
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="cube_base" parent="Model/shapes" index="2"]
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="cube_flare" parent="Model/shapes" index="3"]
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="wedge_base" parent="Model/shapes" index="4"]
-visible = false
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="wedge_flare" parent="Model/shapes" index="5"]
-visible = false
-surface_material_override/0 = ExtResource("4_20ebr")
-
-[node name="valley_base" parent="Model/shapes" index="6"]
-visible = false
+[node name="shape_base" type="MeshInstance3D" parent="Model"]
+material_override = ExtResource("4_bqbo3")
+mesh = ExtResource("2_aimer")
 surface_material_override/0 = ExtResource("4_bqbo3")
 
-[node name="valley_flare" parent="Model/shapes" index="7"]
-visible = false
-surface_material_override/0 = ExtResource("4_20ebr")
+[node name="shape_flare" type="MeshInstance3D" parent="Model"]
+material_override = ExtResource("3_hwinp")
+mesh = ExtResource("4_8pakw")
+surface_material_override/0 = ExtResource("3_hwinp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bfggu")
-
-[editable path="Model/shapes"]
