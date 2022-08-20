@@ -28,7 +28,8 @@ func _ready():
 
 func StartServer():
 	gateway_network = ENetMultiplayerPeer.new()
-	gateway_api = MultiplayerAPI.new()
+	#gateway_api = MultiplayerAPI.new()
+	gateway_api = MultiplayerAPI.create_default_interface()
 	
 	gateway_network.create_server(port, max_servers)
 	get_tree().set_multiplayer(gateway_api, "/root/GameServers")

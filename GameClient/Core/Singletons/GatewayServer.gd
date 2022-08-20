@@ -25,7 +25,8 @@ var loginscreen_path = "/root/Client/LoginScreen"
 func ConnectToServer(_username: String, _password: String, register: bool):
 	print ("Connect to GatewayServer at ", ip,"/", port, "...")
 	gateway_network = ENetMultiplayerPeer.new()
-	gateway_api = MultiplayerAPI.new()
+	#gateway_api = MultiplayerAPI.new()
+	gateway_api = MultiplayerAPI.create_default_interface()
 	
 	username = _username
 	password = _password

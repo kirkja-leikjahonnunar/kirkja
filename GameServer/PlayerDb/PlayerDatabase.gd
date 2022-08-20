@@ -5,7 +5,7 @@ extends Node
 var db : SQLite
 var db_path = "res://PlayerDb/player_data.db" #TODO: this can't be in res:// for deployment
 var db_user_table = "users"
-var db_verbose := true #TODO: FOR DEBUGGING ONLY! SET TO FALSE IN PRODUCTION CODE! It will output data to console otherwise.
+var db_verbose := 1 #TODO: FOR DEBUGGING ONLY! SET TO FALSE IN PRODUCTION CODE! It will output data to console otherwise.
 
 
 
@@ -18,7 +18,7 @@ func _ready():
 func InitializeDB_SQLite():
 	db = SQLite.new()
 	db.path = db_path
-	db.verbose_mode = db_verbose
+	db.verbosity_level = db_verbose
 	db.open_db() #TODO: figure out why this throws:  _ready: Condition "_instance_bindings != nullptr" is true.
 
 func CloseDB_SQLite():

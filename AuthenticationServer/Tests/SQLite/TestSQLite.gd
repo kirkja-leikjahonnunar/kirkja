@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var db : SQLite
+var db #: SQLite
 var db_path = "res://DataStore/kirkja_authentication.db"
 var db_user_table = "users"
 var db_verbose := true #TODO: FOR DEBUGGING ONLY! SET TO FALSE IN PRODUCTION CODE! It will output data to console otherwise.
@@ -74,7 +74,8 @@ func SetUserPassword_SQLite(username: String, hashed_password: String, salt: Str
 	if not HasPlayer_SQLite(user):
 		if is_new_user:
 			# INSERT INTO users (username,password,salt) VALUES (?,?,?)
-			var status = db.insert_row(db_user_table, { "username": user, "password": hashed_password, "salt": salt })
+			var dict = { "username": user, "password": hashed_password, "salt": salt }
+			var status = db.insert_row(db_user_table, dict)
 			if !status:
 				print ("Error adding user to database")
 				return false

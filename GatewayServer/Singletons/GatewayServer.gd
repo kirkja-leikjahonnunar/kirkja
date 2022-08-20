@@ -4,7 +4,8 @@ extends Node
 #note: this is a singleton!
 
 var network := ENetMultiplayerPeer.new()
-var gateway_api = MultiplayerAPI.new()
+var gateway_api = MultiplayerAPI.create_default_interface()
+#var gateway_api = MultiplayerAPI.new()
 var port := 1910
 var max_players := 100
 var cert = load("res://Certificate/X509_Certificate.crt")

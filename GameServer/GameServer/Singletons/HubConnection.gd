@@ -20,7 +20,8 @@ func ConnectToServer():
 	print("HubConnection.ConnectToServer called")
 	
 	hub_network = ENetMultiplayerPeer.new()
-	hub_api = MultiplayerAPI.new()
+	hub_api = MultiplayerAPI.create_default_interface()
+	#hub_api = MultiplayerAPI.new()
 	
 	hub_network.create_client(ip, port)
 	get_tree().set_multiplayer(hub_api, "/root/HubConnection")

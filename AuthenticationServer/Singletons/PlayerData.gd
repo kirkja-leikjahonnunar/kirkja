@@ -9,7 +9,7 @@ var use_sql := true # use sqlite, otherwise JSON version
 var db
 var db_path = "res://DataStore/kirkja_authentication.db"
 var db_user_table = "users"
-var db_verbose := true #TODO: FOR DEBUGGING ONLY! SET TO FALSE IN PRODUCTION CODE! It will output data to console otherwise.
+var db_verbose := 2 #TODO: FOR DEBUGGING ONLY! SET TO FALSE IN PRODUCTION CODE! It will output data to console otherwise.
 
 
 
@@ -51,7 +51,7 @@ func SetUserPassword(username: String, hashed_password: String, salt: String, is
 func InitializeDB_SQLite():
 	db = SQLite.new()
 	db.path = db_path
-	db.verbose_mode = db_verbose
+	db.verbosity_level = db_verbose
 	db.open_db() #TODO: figure out why this throws:  _ready: Condition "_instance_bindings != nullptr" is true.
 
 
