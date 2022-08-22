@@ -10,14 +10,22 @@ TODO
 		- [x] Change type
 		- [x] Change color
 		- [x] Rotate blocks
+		- [ ] Rotate up needs to select axis most orthogonal to camera
 		- [ ] Hang/climb
 		- [ ] Better "current block" selection, rather that just last block laid down
-    - [ ] Wizard mode
-	    - [ ] Toggle mode on and off
-	    - [ ] Add/remove blocks
-		- [ ] Change type
-		- [ ] Change color
-		- [ ] Rotate blocks
+	- [ ] Wizard mode ui improvements
+	    - [ ] Real mouse icons
+		- [ ] Need option for panning while in wizard mode. switching to character to pan is annoying
+		- [ ] Make game pad controls
+		    - [ ] Something to simulate mouse control
+			- [ ] 
+    - [x] Wizard mode first pass
+	    - [x] Port over mouse scanning from VoxelTool
+	    - [x] Toggle mode on and off
+	    - [x] Add/remove blocks
+		- [x] Change type
+		- [x] Change color
+		- [x] Rotate blocks
 
 - GameClient:
     - [ ] controller can't operate the pause menu
@@ -35,6 +43,7 @@ TODO
     - [x] make volume sliders boop as you slide them
 
 - networking:
+    - [ ] bug: cannot transition in menus between online and offline
     - [ ] double check player crash despawn race conditions
     - [ ] reset the latency clock every day or so, otherwise latency diffs get too divergent from reality
     - [ ] record current server of player in db? last login/logoff time?
@@ -113,6 +122,9 @@ custom_multiplayer  ->  get_tree().set_multiplayer(your_multiplayerapi, "/path/t
 custom_multiplayer.poll() not really needed explicitly, now: get_tree().multiplayer_poll = true (which is default)
 ```
 
+MultiplayerAPI.new() is gone, now use: `MultiplayerAPI.create_default_instance()`
+
+
 `int(string)?  <--  String.to_int()`
 
 `get_tree().get_rpc_sender_id()`  ->  `multiplayer.get_remote_sender_id()`
@@ -141,6 +153,7 @@ Kirkja Custom Addons (todo)
 ---------------------------
 - Markdown preview within Godot. See also this existing godot-proposal: https://github.com/godotengine/godot-proposals/issues/139
 - Streamline Blender to Godot workflow
+    - Armature cleanup before export (see also Godot Game Tools)
 
 
 GRIPES

@@ -10,6 +10,7 @@ extends Camera3D
 @onready var follow_proxy = get_node(FollowProxy) if not FollowProxy.is_empty() else null
 
 @export var lerp_speed := 30
+@export var show_target_indicator := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,7 +43,7 @@ func _physics_process(delta):
 	global_transform = global_transform.interpolate_with(follow_proxy.global_transform, lerp_speed*delta)
 
 func _process(_delta):
-	if $SelectorCast.is_colliding():
+	if show_target_indicator and $SelectorCast.is_colliding():
 		$Indicator/TargetIndicator.global_transform.origin = $SelectorCast.get_collision_point()
 		$Indicator/TargetIndicator.visible = true
 

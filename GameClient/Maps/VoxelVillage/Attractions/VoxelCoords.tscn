@@ -5,7 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7gqa"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(1, 0.901961, 0.0509804, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x0gg"]
 resource_local_to_scene = true
@@ -13,7 +13,7 @@ albedo_color = Color(0.6, 0.541177, 0.0305882, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erp5x"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.619608, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqhqu"]
 resource_local_to_scene = true
@@ -21,7 +21,7 @@ albedo_color = Color(0.489412, 0.371765, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok80n"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.356863, 0.027451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8ie8"]
 resource_local_to_scene = true
@@ -29,7 +29,7 @@ albedo_color = Color(0.489412, 0.214118, 0.0164706, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bklu2"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.333333, 0.109804, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he8ga"]
 resource_local_to_scene = true
@@ -37,7 +37,7 @@ albedo_color = Color(0.489412, 0.2, 0.0658824, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e5l1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8raj1"]
 resource_local_to_scene = true
@@ -45,7 +45,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0era"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21qtm"]
 resource_local_to_scene = true
@@ -53,7 +53,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1kca"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg72j"]
 resource_local_to_scene = true
@@ -61,7 +61,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmgi1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a44jy"]
 resource_local_to_scene = true
@@ -69,7 +69,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31fiv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykb12"]
 resource_local_to_scene = true
@@ -77,7 +77,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsvak"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ha42"]
 resource_local_to_scene = true
@@ -85,7 +85,7 @@ albedo_color = Color(0.489412, 0.0494117, 0.0376471, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ak7r7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.823529, 0.905882, 0.141176, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cbgr"]
 resource_local_to_scene = true
@@ -93,7 +93,7 @@ albedo_color = Color(0.494117, 0.543529, 0.0847056, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a215c"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.419608, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ikql"]
 resource_local_to_scene = true
@@ -101,7 +101,7 @@ albedo_color = Color(0.251765, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whpd0"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.337255, 0.905882, 0.105882, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsvdc"]
 resource_local_to_scene = true
@@ -109,7 +109,7 @@ albedo_color = Color(0.202353, 0.543529, 0.0635292, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6ch7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73jie"]
 resource_local_to_scene = true
@@ -117,7 +117,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uv22k"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aow1f"]
 resource_local_to_scene = true
@@ -125,7 +125,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evqg0"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekqr6"]
 resource_local_to_scene = true
@@ -133,7 +133,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndth5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwc7c"]
 resource_local_to_scene = true
@@ -141,7 +141,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g766r"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpann"]
 resource_local_to_scene = true
@@ -149,7 +149,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v02oi"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0, 0.905882, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fngwv"]
 resource_local_to_scene = true
@@ -157,7 +157,7 @@ albedo_color = Color(0, 0.543529, 0.0729414, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysdl1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.764706, 0.784314, 0.596078, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsjna"]
 resource_local_to_scene = true
@@ -165,7 +165,7 @@ albedo_color = Color(0.458824, 0.470588, 0.357647, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hycf0"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.486275, 0.486275, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3r8i"]
 resource_local_to_scene = true
@@ -173,7 +173,7 @@ albedo_color = Color(0.291765, 0.291765, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjtcm"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncvmq"]
 resource_local_to_scene = true
@@ -181,7 +181,7 @@ albedo_color = Color(0.0988236, 0.105883, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw7np"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pntpd"]
 resource_local_to_scene = true
@@ -189,7 +189,7 @@ albedo_color = Color(0.0988236, 0.105883, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo84q"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.313726, 0.329412, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ep6hi"]
 resource_local_to_scene = true
@@ -197,7 +197,7 @@ albedo_color = Color(0.188236, 0.197647, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n44rv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.4, 0.392157, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwo4h"]
 resource_local_to_scene = true
@@ -205,7 +205,7 @@ albedo_color = Color(0.24, 0.235294, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_podor"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4kxf"]
 resource_local_to_scene = true
@@ -213,7 +213,7 @@ albedo_color = Color(0.0988236, 0.105883, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e05hi"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk6kh"]
 resource_local_to_scene = true
@@ -221,7 +221,7 @@ albedo_color = Color(0.0988236, 0.105883, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3uka"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.164706, 0.176471, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isyop"]
 resource_local_to_scene = true
@@ -229,7 +229,7 @@ albedo_color = Color(0.0988236, 0.105883, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnj4n"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgkwo"]
 resource_local_to_scene = true
@@ -237,7 +237,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70gxa"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6ml4"]
 resource_local_to_scene = true
@@ -245,7 +245,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng2mv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25y65"]
 resource_local_to_scene = true
@@ -253,7 +253,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0ipm"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28dph"]
 resource_local_to_scene = true
@@ -261,7 +261,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78hgo"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tw3n"]
 resource_local_to_scene = true
@@ -269,7 +269,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apwb8"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dax8n"]
 resource_local_to_scene = true
@@ -277,7 +277,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvy5x"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn4y8"]
 resource_local_to_scene = true
@@ -285,7 +285,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdd1i"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l18j2"]
 resource_local_to_scene = true
@@ -293,7 +293,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfs3w"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfytw"]
 resource_local_to_scene = true
@@ -301,7 +301,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8vp1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmt5d"]
 resource_local_to_scene = true
@@ -309,7 +309,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03no0"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3ctb"]
 resource_local_to_scene = true
@@ -317,7 +317,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2lmb"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wn7b"]
 resource_local_to_scene = true
@@ -325,7 +325,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wqms"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wchy"]
 resource_local_to_scene = true
@@ -333,7 +333,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foxfm"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dnm5"]
 resource_local_to_scene = true
@@ -341,7 +341,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k63us"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0jtx"]
 resource_local_to_scene = true
@@ -349,7 +349,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrxtk"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kox53"]
 resource_local_to_scene = true
@@ -357,7 +357,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0lwk"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsw81"]
 resource_local_to_scene = true
@@ -365,7 +365,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pvw5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2vym"]
 resource_local_to_scene = true
@@ -373,7 +373,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm07q"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy2yw"]
 resource_local_to_scene = true
@@ -381,7 +381,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddts8"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxyxq"]
 resource_local_to_scene = true
@@ -389,7 +389,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwg0r"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7b2c"]
 resource_local_to_scene = true
@@ -397,7 +397,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs2rw"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocrw7"]
 resource_local_to_scene = true
@@ -405,7 +405,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03nwy"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5m1o"]
 resource_local_to_scene = true
@@ -413,7 +413,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dn5y"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8nh5"]
 resource_local_to_scene = true
@@ -421,7 +421,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqyky"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn5e2"]
 resource_local_to_scene = true
@@ -429,7 +429,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og12m"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdny6"]
 resource_local_to_scene = true
@@ -437,7 +437,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i70k7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d43cd"]
 resource_local_to_scene = true
@@ -445,7 +445,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxvng"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cuxp5"]
 resource_local_to_scene = true
@@ -453,7 +453,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwgsg"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_762ta"]
 resource_local_to_scene = true
@@ -461,7 +461,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysynu"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot5m0"]
 resource_local_to_scene = true
@@ -469,7 +469,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8sa5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvab4"]
 resource_local_to_scene = true
@@ -477,7 +477,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5oak"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqg2m"]
 resource_local_to_scene = true
@@ -485,7 +485,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcfat"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afevy"]
 resource_local_to_scene = true
@@ -493,7 +493,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bc6y"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f4w1"]
 resource_local_to_scene = true
@@ -501,7 +501,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkb28"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqwdk"]
 resource_local_to_scene = true
@@ -509,7 +509,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr4oq"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd228"]
 resource_local_to_scene = true
@@ -517,7 +517,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lle1h"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4syef"]
 resource_local_to_scene = true
@@ -525,7 +525,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2osp"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_semok"]
 resource_local_to_scene = true
@@ -533,7 +533,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlq3f"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4wxu"]
 resource_local_to_scene = true
@@ -541,7 +541,7 @@ albedo_color = Color(0.105883, 0.477647, 0.127059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05a67"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4jq2"]
 resource_local_to_scene = true
@@ -549,7 +549,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sstaf"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od7nc"]
 resource_local_to_scene = true
@@ -557,7 +557,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5gfe"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rjn0"]
 resource_local_to_scene = true
@@ -565,7 +565,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huso3"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cklqq"]
 resource_local_to_scene = true
@@ -573,7 +573,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt68y"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36v7e"]
 resource_local_to_scene = true
@@ -581,7 +581,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_samat"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt1iy"]
 resource_local_to_scene = true
@@ -589,7 +589,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4qf5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfal5"]
 resource_local_to_scene = true
@@ -597,7 +597,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu8mw"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdv56"]
 resource_local_to_scene = true
@@ -605,7 +605,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2nc1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7wsm"]
 resource_local_to_scene = true
@@ -613,7 +613,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y1x2"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2eflc"]
 resource_local_to_scene = true
@@ -621,7 +621,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpkjs"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yu2ye"]
 resource_local_to_scene = true
@@ -629,7 +629,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dgjt"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5h60"]
 resource_local_to_scene = true
@@ -637,7 +637,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3lfj"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olawh"]
 resource_local_to_scene = true
@@ -645,7 +645,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5voan"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5g7t"]
 resource_local_to_scene = true
@@ -653,7 +653,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joa1v"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbsif"]
 resource_local_to_scene = true
@@ -661,7 +661,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kipnc"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq5ve"]
 resource_local_to_scene = true
@@ -669,7 +669,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1n61"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b8k3"]
 resource_local_to_scene = true
@@ -677,7 +677,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdo1n"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upkm0"]
 resource_local_to_scene = true
@@ -685,7 +685,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ew3p"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4o8a"]
 resource_local_to_scene = true
@@ -693,7 +693,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2j2j"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sexqn"]
 resource_local_to_scene = true
@@ -701,7 +701,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4oj5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sow5"]
 resource_local_to_scene = true
@@ -709,7 +709,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woqbg"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htut3"]
 resource_local_to_scene = true
@@ -717,7 +717,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0mlp"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf2i5"]
 resource_local_to_scene = true
@@ -725,7 +725,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgb3f"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dfd5"]
 resource_local_to_scene = true
@@ -733,7 +733,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r025r"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4a87"]
 resource_local_to_scene = true
@@ -741,7 +741,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vrwn"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ipao"]
 resource_local_to_scene = true
@@ -749,7 +749,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5pjd"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lg026"]
 resource_local_to_scene = true
@@ -757,7 +757,7 @@ albedo_color = Color(0.105883, 0.477647, 0.127059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es6hk"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdl6t"]
 resource_local_to_scene = true
@@ -765,7 +765,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tsdp"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wllg1"]
 resource_local_to_scene = true
@@ -773,7 +773,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pv507"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgv2t"]
 resource_local_to_scene = true
@@ -781,7 +781,7 @@ albedo_color = Color(0.105883, 0.477647, 0.127059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0qnq"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp1hj"]
 resource_local_to_scene = true
@@ -789,7 +789,7 @@ albedo_color = Color(0.105883, 0.477647, 0.127059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58uay"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cgps"]
 resource_local_to_scene = true
@@ -797,7 +797,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohay3"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gj24"]
 resource_local_to_scene = true
@@ -805,7 +805,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdk8o"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eaj4y"]
 resource_local_to_scene = true
@@ -813,7 +813,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yq5h"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gshg1"]
 resource_local_to_scene = true
@@ -821,7 +821,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0uwv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w8ty"]
 resource_local_to_scene = true
@@ -829,7 +829,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5rjw"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ep78j"]
 resource_local_to_scene = true
@@ -837,7 +837,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8glkc"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmdgp"]
 resource_local_to_scene = true
@@ -845,7 +845,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hvd1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1pvy"]
 resource_local_to_scene = true
@@ -853,7 +853,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoi5v"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kogrt"]
 resource_local_to_scene = true
@@ -861,7 +861,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jc5f"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.2, 0.188235, 0.129412, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32g7s"]
 resource_local_to_scene = true
@@ -869,7 +869,7 @@ albedo_color = Color(0.12, 0.112941, 0.0776472, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0cuv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.176471, 0.796078, 0.211765, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3qnb"]
 resource_local_to_scene = true
@@ -877,71 +877,71 @@ albedo_color = Color(0.105883, 0.477647, 0.127059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dx5vd"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gult"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4bed"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqtx4"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbr41"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njuki"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xidmi"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlsxx"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p4ci"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0o7f"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfst7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro4ww"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17ca5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fx6e"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y471k"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50y33"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jjki"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.137255, 0.666667, 0.0980392, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aa4d"]
 resource_local_to_scene = true
@@ -949,47 +949,47 @@ albedo_color = Color(0.082353, 0.4, 0.0588235, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25ran"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yn4o"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vatnk"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcqja"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_in177"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4ewd"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eikru"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02y0w"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bywn"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meujf"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aykph"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.862745, 0.247059, 0.286275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1stv"]
 resource_local_to_scene = true
@@ -997,63 +997,63 @@ albedo_color = Color(0.517647, 0.148235, 0.171765, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6dnn"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_veamy"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjwx8"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un2i5"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8fob"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxyo7"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k181"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkp3p"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3w7l"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osksp"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lnbt"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv1v1"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70drv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htp12"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5caxe"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.862745, 0.247059, 0.286275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqx07"]
 resource_local_to_scene = true
@@ -1061,71 +1061,71 @@ albedo_color = Color(0.517647, 0.148235, 0.171765, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfsk1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr4le"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjl8i"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_037ee"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhae1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jvuk"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0wg7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7o4t"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxdm2"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dqw0"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd6fg"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_717yv"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpvub"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivbjw"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uokhm"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4ylw"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avgbi"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.172549, 0.0980392, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygxxa"]
 resource_local_to_scene = true
@@ -1133,7 +1133,7 @@ albedo_color = Color(0.103529, 0.0588235, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_miiig"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.666667, 0.2, 0.384314, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mch0w"]
 resource_local_to_scene = true
@@ -1141,39 +1141,39 @@ albedo_color = Color(0.4, 0.12, 0.230588, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiwhi"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npy12"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrrs7"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cemdc"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b71ds"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5qur"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5x0vc"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkkm3"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrtr0"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.603922, 0.458824, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i37wf"]
 resource_local_to_scene = true
@@ -1181,71 +1181,71 @@ albedo_color = Color(0.362353, 0.275294, 0.4, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fr4iv"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwhkg"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syod1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4lkv"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge75i"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a617r"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hpky"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cdj7"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gng4x"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmb3o"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym2cr"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5clr"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5wan"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs63i"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wih6x"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j87fm"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6783a"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.905882, 0.345098, 0.945098, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61eta"]
 resource_local_to_scene = true
@@ -1253,99 +1253,99 @@ albedo_color = Color(0.543529, 0.207059, 0.567059, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsopr"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kxqc"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77h7b"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r31mn"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpl2i"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_breux"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r25b5"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2a68"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4gno"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(1, 0.32549, 0.356863, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nprq"]
 resource_local_to_scene = true
-albedo_color = Color(0.527059, 0.6, 0.256471, 0.6)
+albedo_color = Color(0.6, 0.195294, 0.214118, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruhnj"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whmop"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bl36"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6msiy"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yfhc"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkiyf"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxna1"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cyor"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyw3l"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkvfi"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxw71"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tanw"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xw3d"]
 resource_local_to_scene = true
-albedo_color = Color(0.6, 0.588235, 0.4, 1)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suplg"]
 resource_local_to_scene = true
-albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [node name="VoxelCoords" type="Node3D"]
 editor_description = "An attraction within the VoxelVillage.tscn."

@@ -15,10 +15,20 @@ enum Shapes # enum needs to be before using it in @export.
 	VALLEY
 }
 
+enum Dir {
+	None,
+	x_minus,
+	x_plus,
+	y_minus,
+	y_plus,
+	z_minus,
+	z_plus
+}
+
 @export var base_color : Color = Color("999666"):
 	set(value):
-		print ("-----------")
-		print ("Voxel.base_color setter = ", value, "  ready_done: ", ready_done, "  in tree: ", is_inside_tree())
+		#print ("-----------")
+		#print ("Voxel.base_color setter = ", value, "  ready_done: ", ready_done, "  in tree: ", is_inside_tree())
 		base_color = value
 		
 		if !is_inside_tree(): return
@@ -27,11 +37,11 @@ enum Shapes # enum needs to be before using it in @export.
 			InitMats(false)
 		
 		if not has_node("Model/shape_base"):
-			print ("no Model/shape_base, skip base_color setter")
+			#print ("no Model/shape_base, skip base_color setter")
 			return
 		
-		print ("baseo: ", $Model/shape_base.get_surface_override_material(0), ", basemo: ", $Model/shape_base.material_override)
-		print ("flareo: ", $Model/shape_flare.get_surface_override_material(0), ", flaremo: ", $Model/shape_flare.material_override)
+		#print ("baseo: ", $Model/shape_base.get_surface_override_material(0), ", basemo: ", $Model/shape_base.material_override)
+		#print ("flareo: ", $Model/shape_flare.get_surface_override_material(0), ", flaremo: ", $Model/shape_flare.material_override)
 		
 		var mesh_base = $Model/shape_base
 		var mesh_flare = $Model/shape_flare
@@ -39,10 +49,10 @@ enum Shapes # enum needs to be before using it in @export.
 		var mat_flare = $Model/shape_flare.get_surface_override_material(0)
 		
 		if mat_base == mat_flare:
-			print ("ARRR! mat_base == mat_flare! BASE: ", BASE, "  FLARE: ", FLARE)
-			mat_base = BASE
+			print ("ARRR! mat_base == mat_flare! BASE: ", BASE, "  FLARE: ", FLARE, ", base: ", mat_base, ", flare: ", mat_flare)
+			mat_base = BASE.duplicate()
 			mesh_base.set_surface_override_material(0, mat_base)
-			mat_flare = FLARE
+			mat_flare = FLARE.duplicate()
 			mesh_flare.set_surface_override_material(0, mat_flare)
 		
 		if mat_base == null:
@@ -52,7 +62,7 @@ enum Shapes # enum needs to be before using it in @export.
 		#else:
 		mat_base.albedo_color = base_color
 		mesh_base.material_override = mat_base #TODO: THIS IS A HACK!!! the set_surface_override_material doesn't seem to work at runtime
-		print ("base get_surface_override: ", mesh_base.get_surface_override_material(0))
+		#print ("base get_surface_override: ", mesh_base.get_surface_override_material(0))
 		
 		if mat_flare == null:
 			print ("surface override was null, setting flare to ", FLARE)
@@ -61,10 +71,10 @@ enum Shapes # enum needs to be before using it in @export.
 		#else:
 		mat_flare.albedo_color = base_color * 0.60
 		mesh_flare.material_override = mat_flare
-		print ("flare get_surface_override ", mesh_flare.get_surface_override_material(0))
+		#print ("flare get_surface_override ", mesh_flare.get_surface_override_material(0))
 		
-		print ("BASE: ", BASE, ", basemat: ", mat_base, ", baseo: ", $Model/shape_base.get_surface_override_material(0), ", basemo: ", $Model/shape_base.material_override)
-		print ("FLARE: ", FLARE, ", flaremat: ", mat_flare, ", flareo: ", $Model/shape_flare.get_surface_override_material(0), ", flaremo: ", $Model/shape_flare.material_override)
+		#print ("BASE: ", BASE, ", basemat: ", mat_base, ", baseo: ", $Model/shape_base.get_surface_override_material(0), ", basemo: ", $Model/shape_base.material_override)
+		#print ("FLARE: ", FLARE, ", flaremat: ", mat_flare, ", flareo: ", $Model/shape_flare.get_surface_override_material(0), ", flaremo: ", $Model/shape_flare.material_override)
 		
 
 func SetColor(color : Color):
@@ -111,31 +121,77 @@ var target_rotation : Basis
 # Hack to try to reduce editor errors
 func InitMats(force : bool):
 	if BASE == null || force:
-		print ("BASE material was null, loading")
+		#print ("BASE material was null, loading")
 		BASE = load("res://Maps/VoxelVillage/Voxel/assets/base.material")
 	if FLARE == null || force:
-		print ("FLARE material was null, loading")
+		#print ("FLARE material was null, loading")
 		FLARE = load("res://Maps/VoxelVillage/Voxel/assets/flare.material")
 
 
 var ready_done := false
 func _ready():
 	target_rotation = basis
+	add_to_group("VoxelBlock")
 	
-	if BASE == FLARE:
-		print ("voxel_ready AAAAAAAA BASE: ", BASE, ", FLARE: ", FLARE)
+	if BASE == FLARE: #TODO: Why does this ever happen!?
+		#print ("voxel_ready AAAAAAAA BASE: ", BASE, ", FLARE: ", FLARE)
 		InitMats(true)
-	else: print ("voxel_ready diff BASE: ", BASE, ", FLARE: ", FLARE)
+	#else: print ("voxel_ready diff BASE: ", BASE, ", FLARE: ", FLARE)
 	
 	ready_done = true
 	
 	call_deferred("SetInitial")
 
+# Used after _ready() to ensure that shape and color are properly initialized.
 func SetInitial():
-	print ("voxel ready deferred")
-	print ("    BASE: ", BASE, ", FLARE: ", FLARE)
+	#print ("voxel ready deferred")
+	#print ("    BASE: ", BASE, ", FLARE: ", FLARE)
 	base_color = base_color # these have setters, and in Godot 4 unlike 3, script usage triggers setters
 	shape = shape
+
+
+#---------------------- Information Functions ----------------------------
+
+func NearestSide(world_point : Vector3):
+	var size = $CollisionShape3D.shape.extents
+
+	var closest = Dir.None
+	var dist = 10000.0
+	var d
+
+	var point = to_local(world_point)
+	#print ("find nearest: world: ", world_point, ", local: ", point)
+	
+	d = abs(point.x - size.x)
+	dist = d
+	closest = Dir.x_plus
+
+	d = abs(point.x + size.x)
+	if d < dist:
+		closest = Dir.x_minus
+		dist = d
+
+	d = abs(point.z - size.z)
+	if d < dist:
+		closest = Dir.z_plus
+		dist = d
+
+	d = abs(point.z + size.z)
+	if d < dist:
+		closest = Dir.z_minus
+		dist = d
+
+	d = abs(point.y - size.y)
+	if d < dist:
+		closest = Dir.y_plus
+		dist = d
+
+	d = abs(point.y + size.y)
+	if d < dist:
+		closest = Dir.y_minus
+		dist = d
+
+	return closest
 
 
 #----------------------- Interface -----------------------------
@@ -143,18 +199,16 @@ func SetInitial():
 
 
 func RotateHorizontal(amount) -> Basis:
-	#rotate_y(amount)
 	target_rotation = target_rotation.rotated(Vector3(0,1,0), amount)
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "basis", target_rotation, 0.15)
+	tween.tween_property($Model, "basis", target_rotation, 0.15)
 	return target_rotation
 
 
 func RotateVertical(amount) -> Basis:
-	#rotate_x(amount)
 	target_rotation = target_rotation.rotated(Vector3(1,0,0), amount)
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "basis", target_rotation, 0.15)
+	tween.tween_property($Model, "basis", target_rotation, 0.15)
 	return target_rotation
 
 
@@ -171,7 +225,9 @@ func NextType() -> int:
 			break
 	
 	shape = new_shape
-	#SwapShape(new_shape)
 	return new_shape
 
+
+func SelfDestruct():
+	queue_free()
 

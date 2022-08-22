@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c0xsc7n7ljrmi" path="res://Core/Controllers/Marble/MarbleController.tscn" id="12_t2cke"]
 [ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="14_8kd31"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelMapTrigger.gd" id="14_sb7qk"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_jbyns"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_li4a3"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="17_s5qj0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvq6k"]
@@ -1082,439 +1082,439 @@ standalone = false
 
 [node name="Origin" parent="Environment/VoxelCoords" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x1" parent="Environment/VoxelCoords/AxisX" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x2" parent="Environment/VoxelCoords/AxisX" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x3" parent="Environment/VoxelCoords/AxisX" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x4" parent="Environment/VoxelCoords/AxisX" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x5" parent="Environment/VoxelCoords/AxisX" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x6" parent="Environment/VoxelCoords/AxisX" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x7" parent="Environment/VoxelCoords/AxisX" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x8" parent="Environment/VoxelCoords/AxisX" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="x9" parent="Environment/VoxelCoords/AxisX" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel58" parent="Environment/VoxelCoords/AxisY" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel67" parent="Environment/VoxelCoords/AxisY" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel68" parent="Environment/VoxelCoords/AxisY" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel71" parent="Environment/VoxelCoords/AxisY" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel118" parent="Environment/VoxelCoords/AxisY" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel119" parent="Environment/VoxelCoords/AxisY" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel120" parent="Environment/VoxelCoords/AxisY" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel121" parent="Environment/VoxelCoords/AxisY" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel122" parent="Environment/VoxelCoords/AxisY" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel31" parent="Environment/VoxelCoords/AxisZ" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel11" parent="Environment/VoxelCoords/AxisZ" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel57" parent="Environment/VoxelCoords/AxisZ" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel64" parent="Environment/VoxelCoords/AxisZ" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel65" parent="Environment/VoxelCoords/AxisZ" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel70" parent="Environment/VoxelCoords/AxisZ" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel59" parent="Environment/VoxelCoords/AxisZ" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel60" parent="Environment/VoxelCoords/AxisZ" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel66" parent="Environment/VoxelCoords/AxisZ" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel125" parent="Environment/VoxelCoords/Maze" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel126" parent="Environment/VoxelCoords/Maze" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel127" parent="Environment/VoxelCoords/Maze" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel128" parent="Environment/VoxelCoords/Maze" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel129" parent="Environment/VoxelCoords/Maze" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel130" parent="Environment/VoxelCoords/Maze" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel135" parent="Environment/VoxelCoords/Maze" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel136" parent="Environment/VoxelCoords/Maze" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel137" parent="Environment/VoxelCoords/Maze" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel138" parent="Environment/VoxelCoords/Maze" index="9"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel139" parent="Environment/VoxelCoords/Maze" index="10"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel140" parent="Environment/VoxelCoords/Maze" index="11"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel145" parent="Environment/VoxelCoords/Maze" index="12"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel146" parent="Environment/VoxelCoords/Maze" index="13"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel147" parent="Environment/VoxelCoords/Maze" index="14"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel148" parent="Environment/VoxelCoords/Maze" index="15"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel149" parent="Environment/VoxelCoords/Maze" index="16"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel151" parent="Environment/VoxelCoords/Maze" index="17"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel152" parent="Environment/VoxelCoords/Maze" index="18"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel154" parent="Environment/VoxelCoords/Maze" index="19"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel155" parent="Environment/VoxelCoords/Maze" index="20"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel156" parent="Environment/VoxelCoords/Maze" index="21"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel157" parent="Environment/VoxelCoords/Maze" index="22"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel32" parent="Environment/VoxelCoords/Maze" index="23"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel33" parent="Environment/VoxelCoords/Maze" index="24"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel34" parent="Environment/VoxelCoords/Maze" index="25"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel35" parent="Environment/VoxelCoords/Maze" index="26"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel36" parent="Environment/VoxelCoords/Maze" index="27"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel37" parent="Environment/VoxelCoords/Maze" index="28"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel38" parent="Environment/VoxelCoords/Maze" index="29"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel39" parent="Environment/VoxelCoords/Maze" index="30"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel40" parent="Environment/VoxelCoords/Maze" index="31"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel91" parent="Environment/VoxelCoords/Maze" index="32"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel92" parent="Environment/VoxelCoords/Maze" index="33"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel93" parent="Environment/VoxelCoords/Maze" index="34"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel94" parent="Environment/VoxelCoords/Maze" index="35"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel95" parent="Environment/VoxelCoords/Maze" index="36"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel96" parent="Environment/VoxelCoords/Maze" index="37"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel97" parent="Environment/VoxelCoords/Maze" index="38"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel98" parent="Environment/VoxelCoords/Maze" index="39"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel99" parent="Environment/VoxelCoords/Maze" index="40"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel100" parent="Environment/VoxelCoords/Maze" index="41"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel101" parent="Environment/VoxelCoords/Maze" index="42"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel102" parent="Environment/VoxelCoords/Maze" index="43"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel103" parent="Environment/VoxelCoords/Maze" index="44"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel104" parent="Environment/VoxelCoords/Maze" index="45"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel105" parent="Environment/VoxelCoords/Maze" index="46"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel106" parent="Environment/VoxelCoords/Maze" index="47"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel107" parent="Environment/VoxelCoords/Maze" index="48"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel108" parent="Environment/VoxelCoords/Maze" index="49"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel109" parent="Environment/VoxelCoords/Maze" index="50"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel110" parent="Environment/VoxelCoords/Maze" index="51"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel111" parent="Environment/VoxelCoords/Maze" index="52"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel112" parent="Environment/VoxelCoords/Maze" index="53"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel113" parent="Environment/VoxelCoords/Maze" index="54"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel114" parent="Environment/VoxelCoords/Maze" index="55"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel115" parent="Environment/VoxelCoords/Maze" index="56"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel116" parent="Environment/VoxelCoords/Maze" index="57"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel117" parent="Environment/VoxelCoords/Maze" index="58"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel41" parent="Environment/VoxelCoords/Maze" index="59"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel123" parent="Environment/VoxelCoords/Maze" index="60"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel124" parent="Environment/VoxelCoords/Maze" index="61"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel131" parent="Environment/VoxelCoords/Maze" index="62"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel132" parent="Environment/VoxelCoords/Maze" index="63"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel133" parent="Environment/VoxelCoords/Maze" index="64"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel134" parent="Environment/VoxelCoords/Maze" index="65"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel141" parent="Environment/VoxelCoords/Maze" index="66"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel142" parent="Environment/VoxelCoords/Maze" index="67"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel143" parent="Environment/VoxelCoords/Maze" index="68"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel144" parent="Environment/VoxelCoords/Maze" index="69"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel150" parent="Environment/VoxelCoords/Maze" index="70"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel158" parent="Environment/VoxelCoords/Maze" index="71"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel159" parent="Environment/VoxelCoords/Maze" index="72"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel160" parent="Environment/VoxelCoords/Maze" index="73"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel161" parent="Environment/VoxelCoords/Maze" index="74"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel166" parent="Environment/VoxelCoords/Maze" index="75"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel162" parent="Environment/VoxelCoords/Maze" index="76"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel163" parent="Environment/VoxelCoords/Maze" index="77"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel164" parent="Environment/VoxelCoords/Maze" index="78"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel165" parent="Environment/VoxelCoords/Maze" index="79"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel153" parent="Environment/VoxelCoords/Maze" index="80"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel4" parent="Environment/VoxelCoords/Extras" index="0"]
 BASE = SubResource("StandardMaterial3D_lnpgh")
@@ -1550,7 +1550,7 @@ FLARE = SubResource("StandardMaterial3D_01uu0")
 
 [node name="Voxel18" parent="Environment/VoxelCoords/Extras" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel19" parent="Environment/VoxelCoords/Extras" index="9"]
 BASE = SubResource("StandardMaterial3D_68pbb")
@@ -1574,7 +1574,7 @@ FLARE = SubResource("StandardMaterial3D_ckyws")
 
 [node name="Voxel26" parent="Environment/VoxelCoords/Extras" index="14"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel27" parent="Environment/VoxelCoords/Extras" index="15"]
 BASE = SubResource("StandardMaterial3D_6gi0y")
@@ -1606,7 +1606,7 @@ FLARE = SubResource("StandardMaterial3D_avk6l")
 
 [node name="Voxel43" parent="Environment/VoxelCoords/Extras" index="22"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel78" parent="Environment/VoxelCoords/Extras" index="23"]
 BASE = SubResource("StandardMaterial3D_g23dg")
@@ -1642,11 +1642,11 @@ FLARE = SubResource("StandardMaterial3D_dp8j2")
 
 [node name="Voxel86" parent="Environment/VoxelCoords/Extras" index="31"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel87" parent="Environment/VoxelCoords/Extras" index="32"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel44" parent="Environment/VoxelCoords/Extras" index="33"]
 BASE = SubResource("StandardMaterial3D_8j1d5")
@@ -1666,7 +1666,7 @@ FLARE = SubResource("StandardMaterial3D_2nggp")
 
 [node name="Voxel48" parent="Environment/VoxelCoords/Extras" index="37"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel49" parent="Environment/VoxelCoords/Extras" index="38"]
 BASE = SubResource("StandardMaterial3D_fgm2o")
@@ -1702,7 +1702,7 @@ FLARE = SubResource("StandardMaterial3D_nrf26")
 
 [node name="Voxel53" parent="Environment/VoxelCoords/Extras" index="46"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel54" parent="Environment/VoxelCoords/Extras" index="47"]
 BASE = SubResource("StandardMaterial3D_c4wfg")
@@ -1722,7 +1722,7 @@ FLARE = SubResource("StandardMaterial3D_b5dw3")
 
 [node name="Voxel90" parent="Environment/VoxelCoords/Extras" index="51"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_jbyns")
+FLARE = ExtResource("17_li4a3")
 
 [node name="Voxel69" parent="Environment/VoxelCoords/Extras" index="52"]
 BASE = SubResource("StandardMaterial3D_dqxrd")

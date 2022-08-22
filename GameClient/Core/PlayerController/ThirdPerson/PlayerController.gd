@@ -288,19 +288,20 @@ func _input(event):
 		get_viewport().set_input_as_handled()
 		return
 	
-	# toggle mouse on/off
-	if allow_mouse_toggle && Input.is_action_just_released("char_toggle_mouse"):
-		HandleToggleMouse(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
-	
 	# this accumulates mouse move events for the camera:
 	if camera_rig: camera_rig.custom_unhandled_input(event)
 
 
+# Called from HandleActions(), which is called from _physics_process()
 func HandleToggleMouse(on):
 	SetMouseVisible(on)
 
-
+# Called from _physics_process()
 func HandleActions():
+	# toggle mouse on/off
+	if allow_mouse_toggle && Input.is_action_just_released("char_toggle_mouse"):
+		HandleToggleMouse(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
+	
 	if Input.is_action_just_pressed("char_use1"):
 		Use1(null)
 	

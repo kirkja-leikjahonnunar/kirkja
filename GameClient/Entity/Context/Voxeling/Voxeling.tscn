@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba5oadbsoymjf"]
+[gd_scene load_steps=19 format=3 uid="uid://ba5oadbsoymjf"]
 
 [ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Entity/Context/Voxeling/Voxeling.gd" id="1_xyc3q"]
@@ -48,8 +48,72 @@ radius = 0.0833355
 [sub_resource type="BoxShape3D" id="BoxShape3D_cykrc"]
 size = Vector3(0.02, 0.05, 0.02)
 
+[sub_resource type="Shader" id="Shader_p01f4"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.0.alpha14's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_burley,specular_schlick_ggx,unshaded;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	float l = length(base_uv - vec2(.5,.5));
+	float amount = (1.0 + sin(5.0*TIME + 40.0*l))/2.0;
+	//float amount = clamp((.5 - length(base_uv - vec2(.5,.5))), 0.0, 1.0);
+	ALPHA = clamp(1.8*(0.5 - l), 0.0, 1.0);
+	
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = amount * albedo.rgb * albedo_tex.rgb;
+	
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4wt0"]
+render_priority = 0
+shader = SubResource("Shader_p01f4")
+albedo = Color(0.243137, 1, 1, 1)
+metallic = 0.0
+metallic_texture_channel = Plane(1, 0, 0, 0)
+point_size = 1.0
+roughness = 1.0
+specular = 0.5
+uv1_offset = Vector3(0, 0, 0)
+uv1_scale = Vector3(1, 1, 1)
+uv2_offset = Vector3(0, 0, 0)
+uv2_scale = Vector3(1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_acob2"]
+material = SubResource("ShaderMaterial_d4wt0")
+size = Vector2(0.1, 0.1)
+
 [node name="Voxeling" type="CharacterBody3D"]
+collision_mask = 17
 script = ExtResource("1_xyc3q")
+block_collision_mask = 16
 SPEED = 0.4
 SPRINT_SPEED = 0.8
 JUMP_VELOCITY = 2.0
@@ -61,7 +125,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="voxeling" parent="PlayerMesh" instance=ExtResource("1_m18wj")]
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/1/position = Vector3(0, 0, 0.0303123)
+bones/2/rotation = Quaternion(0, 0.0778485, 0, 0.996965)
+bones/3/rotation = Quaternion(0, 0.0772935, 0, 0.997008)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -83,8 +148,9 @@ bones/15/rotation = Quaternion(-3.30834e-10, 3.27663e-10, 0.710504, 0.703693)
 bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
-bones/20/position = Vector3(0, 0, 0.0303123)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
+bones/23/rotation = Quaternion(0, 0.0778485, 0, 0.996965)
+bones/30/rotation = Quaternion(0, 0.0772935, 0, 0.997008)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -105,11 +171,13 @@ shape = SubResource("CylinderShape3D_3j082")
 
 [node name="Drill" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0241113, 0)
+collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drill"]
 shape = SubResource("BoxShape3D_cykrc")
 
 [node name="Bump" type="Area3D" parent="."]
+collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bump"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0857974, -0.0840286)
@@ -138,11 +206,19 @@ proxy_right = Vector3(-0.1, 0.1, 0)
 proxy_left = Vector3(0.1, 0.1, 0)
 proxy_back = Vector3(0, 0.108, -0.262)
 
+[node name="SpringArm3D" parent="CameraRig/Target" index="0"]
+collision_mask = 16777198
+
 [node name="VoxelSelectorRay" type="RayCast3D" parent="CameraRig/Target/SpringArm3D" index="1"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -1.42109e-14, 0, -1.24235e-21)
 visible = false
 enabled = false
 target_position = Vector3(0, -0.208, 0)
+
+[node name="Indicator" type="Node" parent="."]
+
+[node name="Potential" type="MeshInstance3D" parent="Indicator"]
+mesh = SubResource("PlaneMesh_acob2")
 
 [connection signal="body_entered" from="Drill" to="." method="_on_drill_body_entered"]
 [connection signal="body_entered" from="Bump" to="." method="_on_bump_body_entered"]
