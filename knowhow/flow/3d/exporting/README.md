@@ -42,5 +42,10 @@ Once the model is prepped:
 
 ![Rigged Model Export Settings](docs/rigged_model_export.png)
 
+### Naming Conventions
+Bone: `bone.l`
+Collider: `*-col` Turn into a Godot CollisionShape3D, named ???.
+
+
 ### Materials
 Needs testing.
