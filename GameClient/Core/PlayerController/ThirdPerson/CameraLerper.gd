@@ -32,11 +32,19 @@ func _ready():
 
 
 func PollForPlayer():
-	if GameGlobals.current_player_object != null:
-		follow_proxy = GameGlobals.current_player_object.GetCameraProxy()
-		set_physics_process(true)
-	else:
-		call_deferred("PollForPlayer")
+#	if GameGlobals.current_player_object != null:
+#		follow_proxy = GameGlobals.current_player_object.GetCameraProxy()
+#		set_physics_process(true)
+#	else:
+#		call_deferred("PollForPlayer") # *** this causes crash?
+	
+	while GameGlobals.current_player_object == null:
+		print ("polling for player")
+		await get_tree().physics_frame
+	
+	follow_proxy = GameGlobals.current_player_object.GetCameraProxy()
+	set_physics_process(true)
+	
 
 
 func _physics_process(delta):

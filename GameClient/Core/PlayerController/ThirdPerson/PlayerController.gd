@@ -122,7 +122,7 @@ func SetFirstPerson():
 func _ready():
 	print ("PlayerController _ready()")
 	
-	if GameGlobals.current_player_object == null:
+	if active and GameGlobals.current_player_object == null:
 		GameGlobals.current_player_object = self
 	
 	if camera_rig == null && has_node("CameraRig"):

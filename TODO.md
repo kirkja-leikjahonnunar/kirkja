@@ -3,8 +3,11 @@ TODO
 
 - Voxeling:
     - [ ] better "valley" block
+	- [ ] colliders should correspond to the shape
 	- [ ] Save creation
 	- [ ] Load creation
+	- [ ] World scaling
+	    - [ ] experiment with scale player rather than world
     - [ ] Run around mode
 	    - [x] Add/remove blocks
 		- [x] Change type
@@ -14,11 +17,13 @@ TODO
 		- [ ] Hang/climb
 		- [ ] Better "current block" selection, rather that just last block laid down
 	- [ ] Wizard mode ui improvements
+	    - [x] Right button and drag to orbit camera
+		- [x] Need option for panning while in wizard mode. switching to character to pan is annoying
+	    - [x] Change animation for solid scaling, not lerping the basis
 	    - [ ] Real mouse icons
-		- [ ] Need option for panning while in wizard mode. switching to character to pan is annoying
-		- [ ] Make game pad controls
-		    - [ ] Something to simulate mouse control
-			- [ ] 
+		- [ ] Pull the wizard mode orbit and left+right move into PlayerController from Voxeling, as it should be default
+		- [ ] Game pad controls
+		    - [ ] Something to simulate mouse position
     - [x] Wizard mode first pass
 	    - [x] Port over mouse scanning from VoxelTool
 	    - [x] Toggle mode on and off
@@ -28,6 +33,7 @@ TODO
 		- [x] Rotate blocks
 
 - GameClient:
+    - [ ] bug: cannot switch between online and offline, menus freeze up
     - [ ] controller can't operate the pause menu
     - [ ] proximity buttons: need to not be entirely proximity driven.. whether hovered, clickable should still determined by player direction, and only activate one at a time
     - [ ] finish implementing log off
@@ -67,7 +73,7 @@ TODO
  
 - [ ] export port number across projects
 
-- [ ] how to load test?
+- [ ] how to load test GameServers?
 
 - [ ] loading scene progress bar?  ->  see: `https://docs.godotengine.org/en/3.5/tutorials/io/background_loading.html`
 
@@ -95,7 +101,7 @@ NOTES
 Research
 --------
 - Godot voice over ip: https://github.com/c-as/godot-voip
-- local split screen
+- local split screen: godot-demo-projects has sample that does this with a shader and viewports
 
 
 Unanswered Questions
@@ -143,7 +149,7 @@ tween.tween_property($HoverIndicate, "scale", Vector3(1, 1, 1), 0.15)
 ```
 
 
-CHEATSHEET
+Cheatsheet / Recipes
 ----------
 - One off timers (4.0):  `get_tree().create_timer(1.0).timeout.connect(YourFunction)`
 - Blocking timer (4.0):  `await get_tree().create_timer(1.0).timeout`

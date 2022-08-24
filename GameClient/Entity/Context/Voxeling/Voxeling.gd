@@ -10,7 +10,8 @@ var voxel_world
 
 var current_voxel
 var last_voxel_type := Voxel.Shapes.CUBE
-var last_voxel_rotation : Basis
+#var last_voxel_rotation : Basis
+var last_voxel_rotation : Vector3
 var last_voxel_material : Material
 var last_voxel_color : int = -1
 
@@ -49,7 +50,7 @@ func InitVoxelRealm():
 
 
 func SpawnVoxel():
-	SpawnVoxelAt(global_position, true)
+	SpawnVoxelAt(global_position + Vector3(0,.05, 0), true)
 
 func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	if voxel_world == null: InitVoxelRealm()
@@ -59,7 +60,7 @@ func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	
 	var voxel = VOXEL.instantiate()
 	voxel.position = pos
-	voxel.basis = last_voxel_rotation
+	voxel.rotation = last_voxel_rotation
 	voxel_world.AddVoxel(self if use_self else null, voxel)
 	voxel.SwapShape(last_voxel_type) # this needs to happen AFTER voxel is inserted into tree because of setters!!!! arrrg!!
 	if last_voxel_color < 0: last_voxel_color = 0
@@ -79,7 +80,7 @@ func HandleMovement(delta):
 		CastFromCamera()
 		need_to_update_cast = false
 	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && Input.is_action_just_pressed("voxeling_add_voxel"):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && Input.is_action_just_released("voxeling_add_voxel"):
 		print("Adding voxel.")
 		SpawnVoxel()
 	
@@ -108,6 +109,14 @@ func HandleMovement(delta):
 #	
 	# Get the input direction
 	var input_dir = -Input.get_vector("char_strafe_left", "char_strafe_right", "char_forward", "char_backward")
+	
+	# special intercept for Left+Right to move player forward.... *** TODO: need to disable associated mouse actions in this case
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		if input_dir.length() == 0:
+			input_dir.y = 1
+			override_left_up = true
+			override_right_up = true
+	
 	var speed = input_dir.length()
 	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space
 	#print (player_dir)
@@ -162,16 +171,16 @@ func HandleActions():
 	if current_voxel == null: return
 	
 	if Input.is_action_just_released("voxel_rotate_left"):
-		last_voxel_rotation = current_voxel.RotateHorizontal(PI/2)
-		
+		last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+	
 	if Input.is_action_just_released("voxel_rotate_right"):
-		last_voxel_rotation = current_voxel.RotateHorizontal(-PI/2)
-		
+		last_voxel_rotation = current_voxel.RotateAroundY(-PI/2)
+	
 	if Input.is_action_just_released("voxel_rotate_up"): #TODO: this should adapt to camera direction? facing forward?
-		last_voxel_rotation = current_voxel.RotateVertical(PI/2)
-		
+		last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
+	
 	if Input.is_action_just_released("voxel_rotate_down"):
-		last_voxel_rotation = current_voxel.RotateVertical(-PI/2)
+		last_voxel_rotation = current_voxel.RotateAroundX(-PI/2)
 	
 	if Input.is_action_just_released("voxel_next_type"):
 		last_voxel_type = current_voxel.NextType()
@@ -211,6 +220,8 @@ func _on_drill_body_entered(body):
 			if body is Voxel:
 				Jump()
 				body.call_deferred("SelfDestruct")
+				if body == hovered_object:
+					hovered_object = null
 
 
 func _on_bump_body_entered(body):
@@ -221,6 +232,8 @@ func _on_bump_body_entered(body):
 		if body is Voxel:
 			print ("destroy block ")
 			body.call_deferred("SelfDestruct")
+			if body == hovered_object:
+					hovered_object = null
 
 
 #-------------------------------------------------------------------------------------------
@@ -245,12 +258,75 @@ var need_to_update_cast := true
 func wizard_ready():
 	voxel_camera = GameGlobals.main_camera
 	$Indicator/Potential.visible = false
+	
+	$CameraRig.camera_left_orbiting.connect(_on_camera_left_orbiting)
+	$CameraRig.camera_right_orbiting.connect(_on_camera_right_orbiting)
+	
+	# cache some things so we can force an override of an action on certain mouse activity
+	InitActionOverrideTest("voxeling_add_voxel")
+	InitActionOverrideTest("voxeling_eraser_mode")
+	print ("action_binds: ", action_binds)
 
+
+var action_binds := {}
+
+# Determine what mouse button, if any, the action is bound to
+func InitActionOverrideTest(action: String):
+	var events = InputMap.action_get_events(action)
+	
+	if events == null || events.size() == 0:
+		action_binds[action] = MOUSE_BUTTON_NONE
+	else:
+		for event in events:
+			if event is InputEventMouseButton:
+				action_binds[action] = event.button_index
+
+var override_left_up := false
+var override_right_up := false
+
+# Sent from CameraControls
+func _on_camera_left_orbiting(event):
+	override_left_up = true
+	print ("left orbiting")
+func _on_camera_right_orbiting(event):
+	override_right_up = true
+	print ("right orbiting")
 
 func wizard_input(event):
-	if wizard_mode_active and event is InputEventMouseMotion:
+	if not wizard_mode_active: return
+	
+	if event is InputEventMouseMotion:
 		#print ("at wizard_input, will cast")
 		need_to_update_cast = true
+		
+	elif event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				override_left_up = false
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
+				override_right_up = false
+
+
+# Kind of a hack to force overriding actions when left or right mouse dragging happens.
+func CurrentActionValid(action: String) -> bool:
+	if not Input.is_action_just_released(action):
+		return false
+	
+	# if action bound to left, and override left, then false
+	if action_binds[action] == MOUSE_BUTTON_LEFT:
+		if override_left_up:
+			override_left_up = false
+			return false
+	elif action_binds[action] == MOUSE_BUTTON_RIGHT:
+		if override_right_up:
+			override_right_up = false
+			return false
+	return true
+
+# Helper deferred function so that physics collision info gets updated before we 
+# try to cast again after adding or removing things.
+func NeedToCast():
+	need_to_update_cast = true
 
 # This gets called at some point during _physics_process()
 func HandleWizardModeActions():
@@ -261,31 +337,32 @@ func HandleWizardModeActions():
 	
 	match wizard_tool_mode:
 		ToolModes.AddRemove:
-			if Input.is_action_just_pressed("voxeling_add_voxel"):
+			if CurrentActionValid("voxeling_add_voxel"):
 				SpawnVoxelAt($Indicator/Potential.global_position, false)
 				need_to_update_cast = true
-			elif Input.is_action_just_pressed("voxeling_eraser_mode"):
+			elif CurrentActionValid("voxeling_eraser_mode"):
 				hovered_object.call_deferred("SelfDestruct")
-				need_to_update_cast = true
+				hovered_object = null
+				call_deferred("NeedToCast") # we must defer since collider is still in physics engine(?)
 		ToolModes.SetColor:
 			current_voxel = hovered_object
-			if Input.is_action_just_pressed("voxeling_add_voxel"):
+			if CurrentActionValid("voxeling_add_voxel"):
 				if last_voxel_color < 0 || last_voxel_color >= palette.size():
 					last_voxel_color = 0
 				current_voxel.SetColor(palette[last_voxel_color])
-			elif Input.is_action_just_pressed("voxeling_eraser_mode"):
+			elif CurrentActionValid("voxeling_eraser_mode"):
 				last_voxel_color = (last_voxel_color + 1) % palette.size()
 				current_voxel.SetColor(palette[last_voxel_color])
 		ToolModes.SetShape:
 			current_voxel = hovered_object
-			if Input.is_action_just_pressed("voxeling_add_voxel") || Input.is_action_just_pressed("voxeling_eraser_mode"):
+			if CurrentActionValid("voxeling_add_voxel") || CurrentActionValid("voxeling_eraser_mode"):
 				last_voxel_type = current_voxel.NextType()
 		ToolModes.Rotate:
 			current_voxel = hovered_object
-			if Input.is_action_just_pressed("voxeling_add_voxel"):
-				last_voxel_rotation = current_voxel.RotateHorizontal(PI/2)
-			elif Input.is_action_just_pressed("voxeling_eraser_mode"):
-				last_voxel_rotation = current_voxel.RotateVertical(PI/2)
+			if CurrentActionValid("voxeling_add_voxel"):
+				last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+			elif CurrentActionValid("voxeling_eraser_mode"):
+				last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
 
 
 # Update state about current wizard tool mode.
@@ -317,13 +394,13 @@ func CastFromCamera():
 	var point = Vector3()
 	
 	if collision:
-		print (collision)
+		#print (collision)
 		var vblock = collision.collider #.get_parent()
 		if vblock.is_in_group("VoxelBlock"):
 			hover = vblock
 			point = collision.position
 	else:
-		print ("no collision")
+		#print ("no collision")
 		hover = null
 		
 	if hover != hovered_object:
@@ -338,10 +415,10 @@ func CastFromCamera():
 		#var ppos = hover.get_parent().to_global(hover.position + .1 * normal)
 		var ppos = hover.to_global(voxel_size * .55 * normal)
 		var cbas = hover.global_transform.basis * BasisFromYVector(normal)
-		print ("hovered lpos: ", hover.position, 
-				", wpos: ", hover.global_transform.origin, 
-				", diff: ", DirVector(hovered_side), 
-				", ppos: ", ppos)
+#		print ("hovered lpos: ", hover.position, 
+#				", wpos: ", hover.global_transform.origin, 
+#				", diff: ", DirVector(hovered_side), 
+#				", ppos: ", ppos)
 		
 		$Indicator/Potential.visible = true
 		$Indicator/Potential.global_transform.origin = ppos

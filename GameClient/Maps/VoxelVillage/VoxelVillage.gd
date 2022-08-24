@@ -4,7 +4,8 @@ class_name VoxelVillage
 
 # Add voxel based on a character plopping down a block. Results in voxeling moving slightly.
 func AddVoxel(voxeling, voxel):
-	if voxeling: voxeling.position.y += 0.1 # Move the player before spawning a voxel.
+	if voxeling:
+		voxeling.position.y += 0.1 # Move the player before spawning a voxel.
 	
 	# Snap to grid or whatever.
 	voxel.position.y = ceil((voxel.position.y - 0.05) * 10) / 10
