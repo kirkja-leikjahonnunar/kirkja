@@ -21,7 +21,7 @@ TODO
 		- [x] Need option for panning while in wizard mode. switching to character to pan is annoying
 	    - [x] Change animation for solid scaling, not lerping the basis
 	    - [ ] Real mouse icons
-		- [ ] Pull the wizard mode orbit and left+right move into PlayerController from Voxeling, as it should be default
+		- [x] Pull the wizard mode orbit and left+right move into PlayerController from Voxeling, as it should be default
 		- [ ] Game pad controls
 		    - [ ] Something to simulate mouse position
     - [x] Wizard mode first pass
@@ -41,9 +41,9 @@ TODO
     - [ ] debug latency updating.. not rendering at correct time equivalent?
     - [ ] npcs/platforms/other moveable scene furniture must be network synced:
         - [ ] furniture state needs to be established on player login
-        - [x] DONE base event passing
+        - [x] base event passing
     - [ ] screen names, not just client ids
-    - we should have bad language filter for screen names, ANY other player input
+    - [ ] we should have bad language filter for screen names, ANY other player input
     - [x] despawned players spawn again
     - [x] while playing: esc to bring up menu, then esc closes menu (not quit). have button to quit
     - [x] make volume sliders boop as you slide them
@@ -162,8 +162,8 @@ Kirkja Custom Addons (todo)
     - Armature cleanup before export (see also Godot Game Tools)
 
 
-GRIPES
-------
+GODOT GRIPES
+------------
 Text editor needs to be its own window
 
 should be able to drag nodes to inspector for a different object, alpha 7 makes it go away on click on the node

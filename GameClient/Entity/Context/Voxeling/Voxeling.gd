@@ -75,12 +75,12 @@ func Jump():
 
 
 # Helper function called during _physics_process()
-func HandleMovement(delta):
+func HandleMovement(delta: float):
 	if wizard_mode_active and need_to_update_cast:
 		CastFromCamera()
 		need_to_update_cast = false
 	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && Input.is_action_just_released("voxeling_add_voxel"):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && CurrentActionValid("voxeling_add_voxel"):
 		print("Adding voxel.")
 		SpawnVoxel()
 	
@@ -110,12 +110,13 @@ func HandleMovement(delta):
 	# Get the input direction
 	var input_dir = -Input.get_vector("char_strafe_left", "char_strafe_right", "char_forward", "char_backward")
 	
-	# special intercept for Left+Right to move player forward.... *** TODO: need to disable associated mouse actions in this case
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		if input_dir.length() == 0:
-			input_dir.y = 1
-			override_left_up = true
-			override_right_up = true
+	# special intercept for Left+Right to move player forward.... 
+	input_dir = ModifyInputDirection(input_dir, delta)
+#	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+#		if input_dir.length() == 0:
+#			input_dir.y = 1
+#			override_left_up = true
+#			override_right_up = true
 	
 	var speed = input_dir.length()
 	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space
@@ -259,38 +260,11 @@ func wizard_ready():
 	voxel_camera = GameGlobals.main_camera
 	$Indicator/Potential.visible = false
 	
-	$CameraRig.camera_left_orbiting.connect(_on_camera_left_orbiting)
-	$CameraRig.camera_right_orbiting.connect(_on_camera_right_orbiting)
-	
 	# cache some things so we can force an override of an action on certain mouse activity
 	InitActionOverrideTest("voxeling_add_voxel")
 	InitActionOverrideTest("voxeling_eraser_mode")
-	print ("action_binds: ", action_binds)
+	print ("action_binds: ", action_override_binds)
 
-
-var action_binds := {}
-
-# Determine what mouse button, if any, the action is bound to
-func InitActionOverrideTest(action: String):
-	var events = InputMap.action_get_events(action)
-	
-	if events == null || events.size() == 0:
-		action_binds[action] = MOUSE_BUTTON_NONE
-	else:
-		for event in events:
-			if event is InputEventMouseButton:
-				action_binds[action] = event.button_index
-
-var override_left_up := false
-var override_right_up := false
-
-# Sent from CameraControls
-func _on_camera_left_orbiting(event):
-	override_left_up = true
-	print ("left orbiting")
-func _on_camera_right_orbiting(event):
-	override_right_up = true
-	print ("right orbiting")
 
 func wizard_input(event):
 	if not wizard_mode_active: return
@@ -299,29 +273,13 @@ func wizard_input(event):
 		#print ("at wizard_input, will cast")
 		need_to_update_cast = true
 		
-	elif event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				override_left_up = false
-			elif event.button_index == MOUSE_BUTTON_RIGHT:
-				override_right_up = false
+#	elif event is InputEventMouseButton:
+#		if event.pressed:
+#			if event.button_index == MOUSE_BUTTON_LEFT:
+#				override_left_up = false
+#			elif event.button_index == MOUSE_BUTTON_RIGHT:
+#				override_right_up = false
 
-
-# Kind of a hack to force overriding actions when left or right mouse dragging happens.
-func CurrentActionValid(action: String) -> bool:
-	if not Input.is_action_just_released(action):
-		return false
-	
-	# if action bound to left, and override left, then false
-	if action_binds[action] == MOUSE_BUTTON_LEFT:
-		if override_left_up:
-			override_left_up = false
-			return false
-	elif action_binds[action] == MOUSE_BUTTON_RIGHT:
-		if override_right_up:
-			override_right_up = false
-			return false
-	return true
 
 # Helper deferred function so that physics collision info gets updated before we 
 # try to cast again after adding or removing things.
