@@ -154,6 +154,8 @@ Cheatsheet / Recipes
 - One off timers (4.0):  `get_tree().create_timer(1.0).timeout.connect(YourFunction)`
 - Blocking timer (4.0):  `await get_tree().create_timer(1.0).timeout`
 
+- Pretty print json from command line: `python -m json.tool VoxelTest.voxels`
+
 
 Kirkja Custom Addons (todo)
 ---------------------------

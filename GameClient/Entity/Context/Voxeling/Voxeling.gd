@@ -31,7 +31,7 @@ func _ready():
 	super._ready()
 	print ("Voxeling _ready()")
 	
-	click_captures_mouse = false
+	click_captures_mouse = false # Overrides default PlayerController behavior
 	
 	wizard_ready()
 	
@@ -60,11 +60,13 @@ func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	
 	var voxel = VOXEL.instantiate()
 	voxel.position = pos
-	voxel.rotation = last_voxel_rotation
 	voxel_world.AddVoxel(self if use_self else null, voxel)
 	voxel.SwapShape(last_voxel_type) # this needs to happen AFTER voxel is inserted into tree because of setters!!!! arrrg!!
 	if last_voxel_color < 0: last_voxel_color = 0
 	voxel.SetColor(palette[last_voxel_color])
+	voxel.get_node("Model").rotation = last_voxel_rotation
+	voxel.target_rotation = last_voxel_rotation
+	voxel.target_basis = Basis(Quaternion(last_voxel_rotation))
 	current_voxel = voxel
 
 
@@ -165,6 +167,14 @@ func HandleMovement(delta: float):
 func HandleActions():
 	super.HandleActions()
 	
+	if Input.is_action_just_released("Save"):
+		if voxel_world == null: InitVoxelRealm()
+		voxel_world.SaveLandscape("VoxelTest.voxels")
+	if Input.is_action_just_released("Load"):
+		if voxel_world == null: InitVoxelRealm()
+		voxel_world.LoadLandscape("VoxelTest.voxels")
+	
+	
 	if wizard_mode_active:
 		HandleWizardModeActions()
 		return
@@ -177,11 +187,19 @@ func HandleActions():
 	if Input.is_action_just_released("voxel_rotate_right"):
 		last_voxel_rotation = current_voxel.RotateAroundY(-PI/2)
 	
-	if Input.is_action_just_released("voxel_rotate_up"): #TODO: this should adapt to camera direction? facing forward?
-		last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
+	if Input.is_action_just_released("voxel_rotate_up") or Input.is_action_just_released("voxel_rotate_down"):
+		#last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
+		var amount = PI/2
+		if Input.is_action_just_released("voxel_rotate_down"): amount = -amount
+		var axis = GetCameraDirection(current_voxel, current_voxel.global_position, true)
+		match axis:
+			Voxel.Dir.x_plus:  current_voxel.RotateAroundX( amount)
+			Voxel.Dir.x_minus: current_voxel.RotateAroundX(-amount)
+			Voxel.Dir.z_plus:  current_voxel.RotateAroundZ( amount)
+			Voxel.Dir.z_minus: current_voxel.RotateAroundZ(-amount)
 	
-	if Input.is_action_just_released("voxel_rotate_down"):
-		last_voxel_rotation = current_voxel.RotateAroundX(-PI/2)
+	#if Input.is_action_just_released("voxel_rotate_down"):
+	#	last_voxel_rotation = current_voxel.RotateAroundX(-PI/2)
 	
 	if Input.is_action_just_released("voxel_next_type"):
 		last_voxel_type = current_voxel.NextType()
@@ -248,7 +266,7 @@ var wizard_tool_mode := ToolModes.AddRemove
 
 var voxel_camera : Camera3D
 var hovered_object
-var hovered_point
+var hovered_point : Vector3
 var hovered_side = VoxelBlock.Dir.None
 var need_to_update_cast := true
 
@@ -319,9 +337,22 @@ func HandleWizardModeActions():
 			current_voxel = hovered_object
 			if CurrentActionValid("voxeling_add_voxel"):
 				last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+#			if CurrentActionValid("voxeling_add_voxel"):
+#				if hovered_side == Voxel.Dir.x_plus || hovered_side == Voxel.Dir.x_minus:
+#					last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
+#				elif hovered_side == Voxel.Dir.y_plus || hovered_side == Voxel.Dir.y_minus:
+#					last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+#				elif hovered_side == Voxel.Dir.z_plus || hovered_side == Voxel.Dir.z_minus:
+#					last_voxel_rotation = current_voxel.RotateAroundZ(PI/2)
 			elif CurrentActionValid("voxeling_eraser_mode"):
-				last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
-
+				var axis = GetCameraDirection(current_voxel, hovered_point, true)
+				match axis:
+					Voxel.Dir.x_plus:  current_voxel.RotateAroundX(PI/2)
+					Voxel.Dir.x_minus: current_voxel.RotateAroundX(-PI/2)
+					Voxel.Dir.y_plus:  current_voxel.RotateAroundY(PI/2)
+					Voxel.Dir.y_minus: current_voxel.RotateAroundY(-PI/2)
+					Voxel.Dir.z_plus:  current_voxel.RotateAroundZ(PI/2)
+					Voxel.Dir.z_minus: current_voxel.RotateAroundZ(-PI/2)
 
 # Update state about current wizard tool mode.
 func SwitchToolMode(mode):
@@ -349,7 +380,7 @@ func CastFromCamera():
 	params.collision_mask = block_collision_mask
 	var collision = direct_space.intersect_ray(params)
 	var hover = null
-	var point = Vector3()
+	var point := Vector3()
 	
 	if collision:
 		#print (collision)
@@ -407,3 +438,31 @@ func BasisFromYVector(y: Vector3) -> Basis:
 	x = y.cross(z)
 	
 	return Basis(x,y,z)
+
+func GetCameraDirection(voxel: Node3D, point: Vector3, ignore_y: bool) -> int:
+	var cam_ray = (voxel.get_parent().to_local(point) - voxel.get_parent().to_local(voxel_camera.global_position)).normalized()
+	
+	var closest := Voxel.Dir.None
+	var dist : float = abs(cam_ray.x)
+	closest = Voxel.Dir.x_plus
+	if -cam_ray.x > dist:
+		dist = -cam_ray.x
+		closest = Voxel.Dir.x_minus
+	if not ignore_y:
+		if cam_ray.y > dist:
+			closest = Voxel.Dir.y_plus
+			dist = cam_ray.y
+		if -cam_ray.y > dist:
+			closest = Voxel.Dir.y_minus
+			dist = -cam_ray.y
+	if cam_ray.z > dist:
+		closest = Voxel.Dir.z_plus
+		dist = cam_ray.z
+	if -cam_ray.z > dist:
+		closest = Voxel.Dir.z_minus
+		dist = -cam_ray.z
+	print ("found camera direction: ", Voxel.Dir.keys()[closest])
+	return closest
+
+
+

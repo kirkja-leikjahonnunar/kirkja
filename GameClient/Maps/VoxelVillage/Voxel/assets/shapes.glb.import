@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duxkure80ooyj"
+uid="uid://2cr52qxubo31"
 path="res://.godot/imported/shapes.glb-ef27560d89236c10f365e220aebb34c6.scn"
 
 [deps]
@@ -27,6 +27,26 @@ animation/fps=30
 import_script/path=""
 _subresources={
 "meshes": {
+"shapes_cap_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cap_base.res"
+},
+"shapes_cap_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cap_flare.res"
+},
 "shapes_corner_base": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -66,6 +86,26 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res"
+},
+"shapes_slope_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_slope_base.res"
+},
+"shapes_slope_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_slope_flare.res"
 },
 "shapes_valley_base": {
 "generate/lightmap_uv": 0,

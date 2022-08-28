@@ -263,7 +263,7 @@ func HandleMovement(delta):
 # Optionally modify a user's input direction for some reason
 # By default, this only checks for mouse Left and Right pressed at the same time, which results in
 # the same thing as the user pressing forward.
-func ModifyInputDirection(input_dir: Vector2, delta: float):
+func ModifyInputDirection(input_dir: Vector2, _delta: float):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		if input_dir.length() == 0:
 			input_dir.y = 1
@@ -355,10 +355,10 @@ var override_left_up := false
 var override_right_up := false
 
 # Sent from CameraControls
-func _on_camera_left_orbiting(event):
+func _on_camera_left_orbiting(_event):
 	override_left_up = true
 	print ("left orbiting")
-func _on_camera_right_orbiting(event):
+func _on_camera_right_orbiting(_event):
 	override_right_up = true
 	print ("right orbiting")
 
