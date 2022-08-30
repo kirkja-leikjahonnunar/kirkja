@@ -4,19 +4,33 @@ class_name CameraControls
 
 #------------------------------------- Exports -------------------------------------------
 
-#@export var camera_rig: Node3D
+# These get transferred to camera_settings:
+@export_group("User Pref Overrides")
+@export var _invert_x := false
+@export var _invert_y := false
+@export var _min_cam_distance := 0.5
+@export var _max_cam_distance := 5.0
+
+@export_group("Camera Internal")
 @export var allow_fp := true
+@export var left_button_orbits  := true # button dragging will orbit camera when mouse is visible
+@export var right_button_orbits := true # button dragging will orbit camera when mouse is visible
 
 # Whether these camera controls should just work out of the box, not integrated to the PlayerContext.
 @export var standalone := false
-
-@export var _invert_x := false
-@export var _invert_y := false
 
 
 #------- Camera settings like fov, sensitivity, etc TODO: coordinate with options menu
 var camera_settings := {} #TOOD this needs to be integrated with settings ui, and expose properties on node for easier new player building
 @export var ROTATION_SPEED := .03
+
+
+#----------------------------------- Signals --------------------------------------------
+
+# Some helpers to coordinate when the user is supposed to be able to orbit the camera with a left or right button drag.
+#signal camera_orbiting
+signal camera_left_orbiting(event)
+signal camera_right_orbiting(event)
 
 
 #------------------------------------- Variables -------------------------------------------
@@ -65,6 +79,8 @@ func _ready():
 		SetDefaultCameraSettings()
 	camera_settings["invert_x"] = _invert_x
 	camera_settings["invert_y"] = _invert_y
+	camera_settings["min_camera_distance"] = _min_cam_distance
+	camera_settings["max_camera_distance"] = _max_cam_distance
 	
 	if camera_placements == null && has_node("CameraPlacements"):
 		camera_placements = get_node("CameraPlacements")
@@ -104,15 +120,41 @@ func _unhandled_input(event):
 	if standalone: 
 		custom_unhandled_input(event)
 
+var possible_left_override := false
+var possible_right_override := false
+
+# Controllers can call this when they need to, rather than have it run directly during self._unhandled_input().
 func custom_unhandled_input(event) -> bool:
 	# pan camera with mouse
 	if event is InputEventMouseMotion:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var left_orbiting  = left_button_orbits  and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+		var right_orbiting = right_button_orbits and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+		
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED \
+			or left_orbiting \
+			or right_orbiting \
+			:
 			gathered_cam_move += Vector2((1 if camera_settings.invert_x else -1) * event.relative.x * camera_settings.mouse_sensitivity * .02,
 										(1 if camera_settings.invert_y else -1) * event.relative.y * camera_settings.mouse_sensitivity * .02)
-			#HandleCameraMove(-event.relative.x * mouse_sensitivity * .02,
-			#				event.relative.y * mouse_sensitivity * .02)
+			
+			# bit of a hack to help override actions bound to mouse buttons
+			if left_orbiting && possible_left_override && event.relative.length_squared() > 0:
+				possible_left_override = false
+				camera_left_orbiting.emit(event)
+			if right_orbiting && possible_right_override && event.relative.length_squared() > 0:
+				possible_right_override = false
+				camera_right_orbiting.emit(event)
+			
 			return true
+	elif event is InputEventMouseButton:
+		if event.pressed == true:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				possible_left_override = true
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
+				possible_right_override = true
+		else:
+			possible_left_override = false
+			possible_right_override = false
 	
 	return false
 
@@ -121,6 +163,7 @@ func _physics_process(delta):
 	if standalone:
 		custom_physics_process(delta)
 
+# Controllers can call this when they need to, rather than have it run directly during self._physics_process().
 func custom_physics_process(delta):
 	#print ("camera custom_physics_process")
 	# rotate camera rig in response to input
@@ -150,7 +193,8 @@ func custom_physics_process(delta):
 		HandleHoverToggle()
 
 
-# Update camera yaw based on movement x,y.
+# Update camera yaw based on movement x,y. Called from custom_physics_process().
+# Note that mouse movements are accumulated specially during custom_unhandled_input(), and applied during custom_physics_process().
 func HandleCameraMove(x,y):
 	if camera_settings.invert_x: x = -x
 	if camera_settings.invert_y: y = -y

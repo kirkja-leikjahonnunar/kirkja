@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://w68045nrgcn2"]
+[gd_scene load_steps=166 format=3 uid="uid://w68045nrgcn2"]
 
 [ext_resource type="PackedScene" uid="uid://ymxv0nvp3oof" path="res://Maps/TestLevel/DoricColumn/DoricColumn.tscn" id="1_vxuft"]
 [ext_resource type="Material" uid="uid://dl5lw2hid4m8f" path="res://Materials/GridTriplanar.tres" id="2_3qr5d"]
@@ -16,8 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://c0xsc7n7ljrmi" path="res://Core/Controllers/Marble/MarbleController.tscn" id="12_t2cke"]
 [ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="14_8kd31"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelMapTrigger.gd" id="14_sb7qk"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_li4a3"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_6d72w"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="17_s5qj0"]
+[ext_resource type="Script" path="res://Maps/TestLevel/Testpaths.gd" id="19_vbssi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvq6k"]
 size = Vector3(30, 1, 30)
@@ -100,7 +101,106 @@ data = PackedVector3Array(1.05, -0.66, -1.5715, 1.4622, -0.66, -2.7357, 0.8909, 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vww11"]
 size = Vector3(27.7884, 12.3226, 27.8623)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_apswt"]
+[sub_resource type="Animation" id="Animation_deqxu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"points": PackedFloat32Array(-17.0287, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"points": PackedFloat32Array(-0.261008, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bvens"]
+resource_name = "Travel"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"points": PackedFloat32Array(-17.0287, -0.25, 0, 0.25, 0, 1, -17.0287, -0.25, 0, 0.25, 0, 1, -17.0287, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"points": PackedFloat32Array(-0.261008, -0.25, 0, 0.25, 0, 1, -0.261008, -0.25, 0, 0.25, 0, 1, -0.261008, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"points": PackedFloat32Array(3.00459, -0.25, 0, 0.25, 0, 1, -4.88243, -0.25, 0, 0.25, 0, 1, 3.00459, -0.25, 0, 0.25, 0, 1),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16arg"]
+_data = {
+"RESET": SubResource("Animation_deqxu"),
+"Travel": SubResource("Animation_bvens")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_bs00g"]
+material = ExtResource("2_3qr5d")
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0q8l7"]
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vehxq"]
+radius = 0.216596
+height = 0.898931
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iy6ki"]
+top_radius = 0.1
+bottom_radius = 0.07
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinmh"]
+albedo_color = Color(0.607843, 0.403922, 0.0862745, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1c81i"]
+top_radius = 0.0
+bottom_radius = 0.03
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c6je"]
+albedo_color = Color(0.294118, 0.972549, 0.301961, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnpgh"]
 resource_local_to_scene = true
@@ -510,107 +610,6 @@ albedo_color = Color(0.6, 0.588235, 0.4, 1)
 resource_local_to_scene = true
 albedo_color = Color(0.36, 0.352941, 0.24, 0.6)
 
-[sub_resource type="Animation" id="Animation_deqxu"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"points": PackedFloat32Array(-17.0287, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"points": PackedFloat32Array(-0.261008, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_bvens"]
-resource_name = "Travel"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"points": PackedFloat32Array(-17.0287, -0.25, 0, 0.25, 0, 1, -17.0287, -0.25, 0, 0.25, 0, 1, -17.0287, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0, 1.5, 3)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"points": PackedFloat32Array(-0.261008, -0.25, 0, 0.25, 0, 1, -0.261008, -0.25, 0, 0.25, 0, 1, -0.261008, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0, 1.5, 3)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"points": PackedFloat32Array(3.00459, -0.25, 0, 0.25, 0, 1, -4.88243, -0.25, 0, 0.25, 0, 1, 3.00459, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0, 1.5, 3)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_16arg"]
-_data = {
-"RESET": SubResource("Animation_deqxu"),
-"Travel": SubResource("Animation_bvens")
-}
-
-[sub_resource type="BoxMesh" id="BoxMesh_bs00g"]
-material = ExtResource("2_3qr5d")
-size = Vector3(4, 0.5, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0q8l7"]
-size = Vector3(4, 0.5, 4)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vehxq"]
-radius = 0.216596
-height = 0.898931
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_iy6ki"]
-top_radius = 0.1
-bottom_radius = 0.07
-height = 0.25
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinmh"]
-albedo_color = Color(0.607843, 0.403922, 0.0862745, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1c81i"]
-top_radius = 0.0
-bottom_radius = 0.03
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c6je"]
-albedo_color = Color(0.294118, 0.972549, 0.301961, 1)
-
 [sub_resource type="Curve" id="Curve_q3oip"]
 _data = [Vector2(0, 0), 0.0, 8.78571, 0, 0, Vector2(0.264228, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.98182, 0.0, 0, 0]
 point_count = 3
@@ -637,6 +636,33 @@ material = SubResource("StandardMaterial3D_b84i7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hi5se"]
 size = Vector3(4.46328, 6.52455, 3.89369)
+
+[sub_resource type="Curve3D" id="Curve3D_l5goi"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0.0686663, -0.146283, -2.11146, -0.0686663, 0.146283, 2.11146, -0.0283102, 0.139034, -3.48037, -0.0748075, 0.331842, -1.93036, 0.0748075, -0.331842, 1.93036, -0.0703431, 0.0730147, 3.61585),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2fpg"]
+albedo_color = Color(0.192157, 1, 0.305882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p8wh2"]
+material = SubResource("StandardMaterial3D_u2fpg")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2e8ry"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3kly"]
+albedo_color = Color(1, 0.121569, 0.992157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_63qf1"]
+material = SubResource("StandardMaterial3D_u2fpg")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vajrm"]
+albedo_color = Color(0.164706, 0.411765, 0.647059, 1)
 
 [node name="TestArea" type="Node3D"]
 
@@ -1064,694 +1090,6 @@ major_radius = 7.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HoleStaticBody/TorroidalGravity"]
 shape = SubResource("BoxShape3D_vww11")
 
-[node name="VoxelCoords" parent="Environment" instance=ExtResource("14_8kd31")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5272, 0, 0.036442)
-
-[node name="Voxeling" parent="Environment/VoxelCoords" index="0"]
-active = false
-
-[node name="Skeleton3D" parent="Environment/VoxelCoords/Voxeling/PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/1/position = Vector3(0, 0, 0.0333483)
-bones/20/position = Vector3(0, 0, 0.0333483)
-
-[node name="AnimationTree" parent="Environment/VoxelCoords/Voxeling" index="1"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_apswt")
-
-[node name="CameraRig" parent="Environment/VoxelCoords/Voxeling" index="5"]
-standalone = false
-
-[node name="Origin" parent="Environment/VoxelCoords" index="1"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x1" parent="Environment/VoxelCoords/AxisX" index="0"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x2" parent="Environment/VoxelCoords/AxisX" index="1"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x3" parent="Environment/VoxelCoords/AxisX" index="2"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x4" parent="Environment/VoxelCoords/AxisX" index="3"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x5" parent="Environment/VoxelCoords/AxisX" index="4"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x6" parent="Environment/VoxelCoords/AxisX" index="5"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x7" parent="Environment/VoxelCoords/AxisX" index="6"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x8" parent="Environment/VoxelCoords/AxisX" index="7"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="x9" parent="Environment/VoxelCoords/AxisX" index="8"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel58" parent="Environment/VoxelCoords/AxisY" index="0"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel67" parent="Environment/VoxelCoords/AxisY" index="1"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel68" parent="Environment/VoxelCoords/AxisY" index="2"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel71" parent="Environment/VoxelCoords/AxisY" index="3"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel118" parent="Environment/VoxelCoords/AxisY" index="4"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel119" parent="Environment/VoxelCoords/AxisY" index="5"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel120" parent="Environment/VoxelCoords/AxisY" index="6"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel121" parent="Environment/VoxelCoords/AxisY" index="7"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel122" parent="Environment/VoxelCoords/AxisY" index="8"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel31" parent="Environment/VoxelCoords/AxisZ" index="0"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel11" parent="Environment/VoxelCoords/AxisZ" index="1"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel57" parent="Environment/VoxelCoords/AxisZ" index="2"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel64" parent="Environment/VoxelCoords/AxisZ" index="3"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel65" parent="Environment/VoxelCoords/AxisZ" index="4"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel70" parent="Environment/VoxelCoords/AxisZ" index="5"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel59" parent="Environment/VoxelCoords/AxisZ" index="6"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel60" parent="Environment/VoxelCoords/AxisZ" index="7"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel66" parent="Environment/VoxelCoords/AxisZ" index="8"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel125" parent="Environment/VoxelCoords/Maze" index="0"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel126" parent="Environment/VoxelCoords/Maze" index="1"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel127" parent="Environment/VoxelCoords/Maze" index="2"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel128" parent="Environment/VoxelCoords/Maze" index="3"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel129" parent="Environment/VoxelCoords/Maze" index="4"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel130" parent="Environment/VoxelCoords/Maze" index="5"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel135" parent="Environment/VoxelCoords/Maze" index="6"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel136" parent="Environment/VoxelCoords/Maze" index="7"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel137" parent="Environment/VoxelCoords/Maze" index="8"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel138" parent="Environment/VoxelCoords/Maze" index="9"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel139" parent="Environment/VoxelCoords/Maze" index="10"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel140" parent="Environment/VoxelCoords/Maze" index="11"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel145" parent="Environment/VoxelCoords/Maze" index="12"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel146" parent="Environment/VoxelCoords/Maze" index="13"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel147" parent="Environment/VoxelCoords/Maze" index="14"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel148" parent="Environment/VoxelCoords/Maze" index="15"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel149" parent="Environment/VoxelCoords/Maze" index="16"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel151" parent="Environment/VoxelCoords/Maze" index="17"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel152" parent="Environment/VoxelCoords/Maze" index="18"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel154" parent="Environment/VoxelCoords/Maze" index="19"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel155" parent="Environment/VoxelCoords/Maze" index="20"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel156" parent="Environment/VoxelCoords/Maze" index="21"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel157" parent="Environment/VoxelCoords/Maze" index="22"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel32" parent="Environment/VoxelCoords/Maze" index="23"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel33" parent="Environment/VoxelCoords/Maze" index="24"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel34" parent="Environment/VoxelCoords/Maze" index="25"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel35" parent="Environment/VoxelCoords/Maze" index="26"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel36" parent="Environment/VoxelCoords/Maze" index="27"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel37" parent="Environment/VoxelCoords/Maze" index="28"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel38" parent="Environment/VoxelCoords/Maze" index="29"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel39" parent="Environment/VoxelCoords/Maze" index="30"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel40" parent="Environment/VoxelCoords/Maze" index="31"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel91" parent="Environment/VoxelCoords/Maze" index="32"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel92" parent="Environment/VoxelCoords/Maze" index="33"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel93" parent="Environment/VoxelCoords/Maze" index="34"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel94" parent="Environment/VoxelCoords/Maze" index="35"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel95" parent="Environment/VoxelCoords/Maze" index="36"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel96" parent="Environment/VoxelCoords/Maze" index="37"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel97" parent="Environment/VoxelCoords/Maze" index="38"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel98" parent="Environment/VoxelCoords/Maze" index="39"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel99" parent="Environment/VoxelCoords/Maze" index="40"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel100" parent="Environment/VoxelCoords/Maze" index="41"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel101" parent="Environment/VoxelCoords/Maze" index="42"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel102" parent="Environment/VoxelCoords/Maze" index="43"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel103" parent="Environment/VoxelCoords/Maze" index="44"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel104" parent="Environment/VoxelCoords/Maze" index="45"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel105" parent="Environment/VoxelCoords/Maze" index="46"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel106" parent="Environment/VoxelCoords/Maze" index="47"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel107" parent="Environment/VoxelCoords/Maze" index="48"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel108" parent="Environment/VoxelCoords/Maze" index="49"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel109" parent="Environment/VoxelCoords/Maze" index="50"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel110" parent="Environment/VoxelCoords/Maze" index="51"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel111" parent="Environment/VoxelCoords/Maze" index="52"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel112" parent="Environment/VoxelCoords/Maze" index="53"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel113" parent="Environment/VoxelCoords/Maze" index="54"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel114" parent="Environment/VoxelCoords/Maze" index="55"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel115" parent="Environment/VoxelCoords/Maze" index="56"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel116" parent="Environment/VoxelCoords/Maze" index="57"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel117" parent="Environment/VoxelCoords/Maze" index="58"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel41" parent="Environment/VoxelCoords/Maze" index="59"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel123" parent="Environment/VoxelCoords/Maze" index="60"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel124" parent="Environment/VoxelCoords/Maze" index="61"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel131" parent="Environment/VoxelCoords/Maze" index="62"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel132" parent="Environment/VoxelCoords/Maze" index="63"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel133" parent="Environment/VoxelCoords/Maze" index="64"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel134" parent="Environment/VoxelCoords/Maze" index="65"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel141" parent="Environment/VoxelCoords/Maze" index="66"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel142" parent="Environment/VoxelCoords/Maze" index="67"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel143" parent="Environment/VoxelCoords/Maze" index="68"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel144" parent="Environment/VoxelCoords/Maze" index="69"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel150" parent="Environment/VoxelCoords/Maze" index="70"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel158" parent="Environment/VoxelCoords/Maze" index="71"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel159" parent="Environment/VoxelCoords/Maze" index="72"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel160" parent="Environment/VoxelCoords/Maze" index="73"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel161" parent="Environment/VoxelCoords/Maze" index="74"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel166" parent="Environment/VoxelCoords/Maze" index="75"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel162" parent="Environment/VoxelCoords/Maze" index="76"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel163" parent="Environment/VoxelCoords/Maze" index="77"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel164" parent="Environment/VoxelCoords/Maze" index="78"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel165" parent="Environment/VoxelCoords/Maze" index="79"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel153" parent="Environment/VoxelCoords/Maze" index="80"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel4" parent="Environment/VoxelCoords/Extras" index="0"]
-BASE = SubResource("StandardMaterial3D_lnpgh")
-FLARE = SubResource("StandardMaterial3D_ja35y")
-
-[node name="Voxel5" parent="Environment/VoxelCoords/Extras" index="1"]
-BASE = SubResource("StandardMaterial3D_3tgng")
-FLARE = SubResource("StandardMaterial3D_wkspy")
-
-[node name="Voxel12" parent="Environment/VoxelCoords/Extras" index="2"]
-BASE = SubResource("StandardMaterial3D_bqx76")
-FLARE = SubResource("StandardMaterial3D_o07ps")
-
-[node name="Voxel13" parent="Environment/VoxelCoords/Extras" index="3"]
-BASE = SubResource("StandardMaterial3D_yn8x2")
-FLARE = SubResource("StandardMaterial3D_jlf1i")
-
-[node name="Voxel14" parent="Environment/VoxelCoords/Extras" index="4"]
-BASE = SubResource("StandardMaterial3D_5wn7j")
-FLARE = SubResource("StandardMaterial3D_fky76")
-
-[node name="Voxel15" parent="Environment/VoxelCoords/Extras" index="5"]
-BASE = SubResource("StandardMaterial3D_fmdxr")
-FLARE = SubResource("StandardMaterial3D_nap6v")
-
-[node name="Voxel16" parent="Environment/VoxelCoords/Extras" index="6"]
-BASE = SubResource("StandardMaterial3D_gji8b")
-FLARE = SubResource("StandardMaterial3D_1vpb3")
-
-[node name="Voxel17" parent="Environment/VoxelCoords/Extras" index="7"]
-BASE = SubResource("StandardMaterial3D_m5igf")
-FLARE = SubResource("StandardMaterial3D_01uu0")
-
-[node name="Voxel18" parent="Environment/VoxelCoords/Extras" index="8"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel19" parent="Environment/VoxelCoords/Extras" index="9"]
-BASE = SubResource("StandardMaterial3D_68pbb")
-FLARE = SubResource("StandardMaterial3D_hcpgi")
-
-[node name="Voxel20" parent="Environment/VoxelCoords/Extras" index="10"]
-BASE = SubResource("StandardMaterial3D_owtnk")
-FLARE = SubResource("StandardMaterial3D_35feg")
-
-[node name="Voxel22" parent="Environment/VoxelCoords/Extras" index="11"]
-BASE = SubResource("StandardMaterial3D_b0q07")
-FLARE = SubResource("StandardMaterial3D_8u2oy")
-
-[node name="Voxel23" parent="Environment/VoxelCoords/Extras" index="12"]
-BASE = SubResource("StandardMaterial3D_p0vwt")
-FLARE = SubResource("StandardMaterial3D_y8rud")
-
-[node name="Voxel25" parent="Environment/VoxelCoords/Extras" index="13"]
-BASE = SubResource("StandardMaterial3D_n2v8p")
-FLARE = SubResource("StandardMaterial3D_ckyws")
-
-[node name="Voxel26" parent="Environment/VoxelCoords/Extras" index="14"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel27" parent="Environment/VoxelCoords/Extras" index="15"]
-BASE = SubResource("StandardMaterial3D_6gi0y")
-FLARE = SubResource("StandardMaterial3D_i4gtq")
-
-[node name="Voxel28" parent="Environment/VoxelCoords/Extras" index="16"]
-BASE = SubResource("StandardMaterial3D_cj6er")
-FLARE = SubResource("StandardMaterial3D_2k6qd")
-
-[node name="Voxel29" parent="Environment/VoxelCoords/Extras" index="17"]
-BASE = SubResource("StandardMaterial3D_im8jj")
-FLARE = SubResource("StandardMaterial3D_4uhyb")
-
-[node name="Voxel30" parent="Environment/VoxelCoords/Extras" index="18"]
-BASE = SubResource("StandardMaterial3D_e7p8b")
-FLARE = SubResource("StandardMaterial3D_del5s")
-
-[node name="Voxel21" parent="Environment/VoxelCoords/Extras" index="19"]
-BASE = SubResource("StandardMaterial3D_fg1sg")
-FLARE = SubResource("StandardMaterial3D_ury8b")
-
-[node name="Voxel24" parent="Environment/VoxelCoords/Extras" index="20"]
-BASE = SubResource("StandardMaterial3D_c7pn3")
-FLARE = SubResource("StandardMaterial3D_e0den")
-
-[node name="Voxel42" parent="Environment/VoxelCoords/Extras" index="21"]
-BASE = SubResource("StandardMaterial3D_opei0")
-FLARE = SubResource("StandardMaterial3D_avk6l")
-
-[node name="Voxel43" parent="Environment/VoxelCoords/Extras" index="22"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel78" parent="Environment/VoxelCoords/Extras" index="23"]
-BASE = SubResource("StandardMaterial3D_g23dg")
-FLARE = SubResource("StandardMaterial3D_mimj4")
-
-[node name="Voxel79" parent="Environment/VoxelCoords/Extras" index="24"]
-BASE = SubResource("StandardMaterial3D_kh2yi")
-FLARE = SubResource("StandardMaterial3D_itqis")
-
-[node name="Voxel80" parent="Environment/VoxelCoords/Extras" index="25"]
-BASE = SubResource("StandardMaterial3D_ecdsn")
-FLARE = SubResource("StandardMaterial3D_03h3s")
-
-[node name="Voxel81" parent="Environment/VoxelCoords/Extras" index="26"]
-BASE = SubResource("StandardMaterial3D_cchye")
-FLARE = SubResource("StandardMaterial3D_wwaiw")
-
-[node name="Voxel82" parent="Environment/VoxelCoords/Extras" index="27"]
-BASE = SubResource("StandardMaterial3D_u1bd5")
-FLARE = SubResource("StandardMaterial3D_ql7oo")
-
-[node name="Voxel83" parent="Environment/VoxelCoords/Extras" index="28"]
-BASE = SubResource("StandardMaterial3D_v0cay")
-FLARE = SubResource("StandardMaterial3D_douyk")
-
-[node name="Voxel84" parent="Environment/VoxelCoords/Extras" index="29"]
-BASE = SubResource("StandardMaterial3D_q1o1b")
-FLARE = SubResource("StandardMaterial3D_swh7j")
-
-[node name="Voxel85" parent="Environment/VoxelCoords/Extras" index="30"]
-BASE = SubResource("StandardMaterial3D_2fo4k")
-FLARE = SubResource("StandardMaterial3D_dp8j2")
-
-[node name="Voxel86" parent="Environment/VoxelCoords/Extras" index="31"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel87" parent="Environment/VoxelCoords/Extras" index="32"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel44" parent="Environment/VoxelCoords/Extras" index="33"]
-BASE = SubResource("StandardMaterial3D_8j1d5")
-FLARE = SubResource("StandardMaterial3D_dib74")
-
-[node name="Voxel45" parent="Environment/VoxelCoords/Extras" index="34"]
-BASE = SubResource("StandardMaterial3D_v1jhj")
-FLARE = SubResource("StandardMaterial3D_v8hsv")
-
-[node name="Voxel46" parent="Environment/VoxelCoords/Extras" index="35"]
-BASE = SubResource("StandardMaterial3D_q3cm7")
-FLARE = SubResource("StandardMaterial3D_teeiq")
-
-[node name="Voxel47" parent="Environment/VoxelCoords/Extras" index="36"]
-BASE = SubResource("StandardMaterial3D_6gg44")
-FLARE = SubResource("StandardMaterial3D_2nggp")
-
-[node name="Voxel48" parent="Environment/VoxelCoords/Extras" index="37"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel49" parent="Environment/VoxelCoords/Extras" index="38"]
-BASE = SubResource("StandardMaterial3D_fgm2o")
-FLARE = SubResource("StandardMaterial3D_eoueh")
-
-[node name="Voxel50" parent="Environment/VoxelCoords/Extras" index="39"]
-BASE = SubResource("StandardMaterial3D_4vwek")
-FLARE = SubResource("StandardMaterial3D_ho51i")
-
-[node name="Voxel51" parent="Environment/VoxelCoords/Extras" index="40"]
-BASE = SubResource("StandardMaterial3D_qc2ns")
-FLARE = SubResource("StandardMaterial3D_tqjky")
-
-[node name="Voxel52" parent="Environment/VoxelCoords/Extras" index="41"]
-BASE = SubResource("StandardMaterial3D_l1ll1")
-FLARE = SubResource("StandardMaterial3D_t56e3")
-
-[node name="Voxel55" parent="Environment/VoxelCoords/Extras" index="42"]
-BASE = SubResource("StandardMaterial3D_vb7fb")
-FLARE = SubResource("StandardMaterial3D_sb0ik")
-
-[node name="Voxel56" parent="Environment/VoxelCoords/Extras" index="43"]
-BASE = SubResource("StandardMaterial3D_1vqe0")
-FLARE = SubResource("StandardMaterial3D_vikds")
-
-[node name="Voxel76" parent="Environment/VoxelCoords/Extras" index="44"]
-BASE = SubResource("StandardMaterial3D_k3k5u")
-FLARE = SubResource("StandardMaterial3D_1s30w")
-
-[node name="Voxel77" parent="Environment/VoxelCoords/Extras" index="45"]
-BASE = SubResource("StandardMaterial3D_h5n25")
-FLARE = SubResource("StandardMaterial3D_nrf26")
-
-[node name="Voxel53" parent="Environment/VoxelCoords/Extras" index="46"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel54" parent="Environment/VoxelCoords/Extras" index="47"]
-BASE = SubResource("StandardMaterial3D_c4wfg")
-FLARE = SubResource("StandardMaterial3D_xcit1")
-
-[node name="Voxel63" parent="Environment/VoxelCoords/Extras" index="48"]
-BASE = SubResource("StandardMaterial3D_awg12")
-FLARE = SubResource("StandardMaterial3D_chv4a")
-
-[node name="Voxel88" parent="Environment/VoxelCoords/Extras" index="49"]
-BASE = SubResource("StandardMaterial3D_qb8eo")
-FLARE = SubResource("StandardMaterial3D_8k3js")
-
-[node name="Voxel89" parent="Environment/VoxelCoords/Extras" index="50"]
-BASE = SubResource("StandardMaterial3D_1qtrj")
-FLARE = SubResource("StandardMaterial3D_b5dw3")
-
-[node name="Voxel90" parent="Environment/VoxelCoords/Extras" index="51"]
-BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_li4a3")
-
-[node name="Voxel69" parent="Environment/VoxelCoords/Extras" index="52"]
-BASE = SubResource("StandardMaterial3D_dqxrd")
-FLARE = SubResource("StandardMaterial3D_u8bgs")
-
-[node name="Voxel61" parent="Environment/VoxelCoords/Extras" index="53"]
-BASE = SubResource("StandardMaterial3D_bpi5b")
-FLARE = SubResource("StandardMaterial3D_bb3ge")
-
-[node name="Voxel62" parent="Environment/VoxelCoords/Extras" index="54"]
-BASE = SubResource("StandardMaterial3D_6a7t8")
-FLARE = SubResource("StandardMaterial3D_lserj")
-
-[node name="Voxel" parent="Environment/VoxelCoords/Extras" index="55"]
-BASE = SubResource("StandardMaterial3D_eotql")
-FLARE = SubResource("StandardMaterial3D_w0ruo")
-
-[node name="Voxel2" parent="Environment/VoxelCoords/Extras" index="56"]
-BASE = SubResource("StandardMaterial3D_fd3n2")
-FLARE = SubResource("StandardMaterial3D_soosj")
-
-[node name="Voxel3" parent="Environment/VoxelCoords/Extras" index="57"]
-BASE = SubResource("StandardMaterial3D_3uct5")
-FLARE = SubResource("StandardMaterial3D_il0o6")
-
-[node name="Voxel" parent="Environment/VoxelCoords/Extras/Voxel3" index="2"]
-BASE = SubResource("StandardMaterial3D_bt74y")
-FLARE = SubResource("StandardMaterial3D_5a354")
-
 [node name="Platforms" type="Node3D" parent="."]
 
 [node name="AnimatedPlatform" type="AnimatableBody3D" parent="Platforms"]
@@ -1819,11 +1157,687 @@ transform = Transform3D(3.18084, 0, 0, 0, 3.42649, -1.30537, 0, 1.30537, 3.42649
 mesh = SubResource("CylinderMesh_1c81i")
 surface_material_override/0 = SubResource("StandardMaterial3D_3c6je")
 
+[node name="VoxelCoords" parent="OtherObjects" instance=ExtResource("14_8kd31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5272, 0, 0.036442)
+
+[node name="Origin" parent="OtherObjects/VoxelCoords" index="0"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x1" parent="OtherObjects/VoxelCoords/AxisX" index="0"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x2" parent="OtherObjects/VoxelCoords/AxisX" index="1"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x3" parent="OtherObjects/VoxelCoords/AxisX" index="2"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x4" parent="OtherObjects/VoxelCoords/AxisX" index="3"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x5" parent="OtherObjects/VoxelCoords/AxisX" index="4"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x6" parent="OtherObjects/VoxelCoords/AxisX" index="5"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x7" parent="OtherObjects/VoxelCoords/AxisX" index="6"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x8" parent="OtherObjects/VoxelCoords/AxisX" index="7"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="x9" parent="OtherObjects/VoxelCoords/AxisX" index="8"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel58" parent="OtherObjects/VoxelCoords/AxisY" index="0"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel67" parent="OtherObjects/VoxelCoords/AxisY" index="1"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel68" parent="OtherObjects/VoxelCoords/AxisY" index="2"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel71" parent="OtherObjects/VoxelCoords/AxisY" index="3"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel118" parent="OtherObjects/VoxelCoords/AxisY" index="4"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel119" parent="OtherObjects/VoxelCoords/AxisY" index="5"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel120" parent="OtherObjects/VoxelCoords/AxisY" index="6"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel121" parent="OtherObjects/VoxelCoords/AxisY" index="7"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel122" parent="OtherObjects/VoxelCoords/AxisY" index="8"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel31" parent="OtherObjects/VoxelCoords/AxisZ" index="0"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel11" parent="OtherObjects/VoxelCoords/AxisZ" index="1"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel57" parent="OtherObjects/VoxelCoords/AxisZ" index="2"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel64" parent="OtherObjects/VoxelCoords/AxisZ" index="3"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel65" parent="OtherObjects/VoxelCoords/AxisZ" index="4"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel70" parent="OtherObjects/VoxelCoords/AxisZ" index="5"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel59" parent="OtherObjects/VoxelCoords/AxisZ" index="6"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel60" parent="OtherObjects/VoxelCoords/AxisZ" index="7"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel66" parent="OtherObjects/VoxelCoords/AxisZ" index="8"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel125" parent="OtherObjects/VoxelCoords/Maze" index="0"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel126" parent="OtherObjects/VoxelCoords/Maze" index="1"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel127" parent="OtherObjects/VoxelCoords/Maze" index="2"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel128" parent="OtherObjects/VoxelCoords/Maze" index="3"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel129" parent="OtherObjects/VoxelCoords/Maze" index="4"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel130" parent="OtherObjects/VoxelCoords/Maze" index="5"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel135" parent="OtherObjects/VoxelCoords/Maze" index="6"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel136" parent="OtherObjects/VoxelCoords/Maze" index="7"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel137" parent="OtherObjects/VoxelCoords/Maze" index="8"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel138" parent="OtherObjects/VoxelCoords/Maze" index="9"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel139" parent="OtherObjects/VoxelCoords/Maze" index="10"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel140" parent="OtherObjects/VoxelCoords/Maze" index="11"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel145" parent="OtherObjects/VoxelCoords/Maze" index="12"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel146" parent="OtherObjects/VoxelCoords/Maze" index="13"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel147" parent="OtherObjects/VoxelCoords/Maze" index="14"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel148" parent="OtherObjects/VoxelCoords/Maze" index="15"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel149" parent="OtherObjects/VoxelCoords/Maze" index="16"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel151" parent="OtherObjects/VoxelCoords/Maze" index="17"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel152" parent="OtherObjects/VoxelCoords/Maze" index="18"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel154" parent="OtherObjects/VoxelCoords/Maze" index="19"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel155" parent="OtherObjects/VoxelCoords/Maze" index="20"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel156" parent="OtherObjects/VoxelCoords/Maze" index="21"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel157" parent="OtherObjects/VoxelCoords/Maze" index="22"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel32" parent="OtherObjects/VoxelCoords/Maze" index="23"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel33" parent="OtherObjects/VoxelCoords/Maze" index="24"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel34" parent="OtherObjects/VoxelCoords/Maze" index="25"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel35" parent="OtherObjects/VoxelCoords/Maze" index="26"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel36" parent="OtherObjects/VoxelCoords/Maze" index="27"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel37" parent="OtherObjects/VoxelCoords/Maze" index="28"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel38" parent="OtherObjects/VoxelCoords/Maze" index="29"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel39" parent="OtherObjects/VoxelCoords/Maze" index="30"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel40" parent="OtherObjects/VoxelCoords/Maze" index="31"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel91" parent="OtherObjects/VoxelCoords/Maze" index="32"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel92" parent="OtherObjects/VoxelCoords/Maze" index="33"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel93" parent="OtherObjects/VoxelCoords/Maze" index="34"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel94" parent="OtherObjects/VoxelCoords/Maze" index="35"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel95" parent="OtherObjects/VoxelCoords/Maze" index="36"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel96" parent="OtherObjects/VoxelCoords/Maze" index="37"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel97" parent="OtherObjects/VoxelCoords/Maze" index="38"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel98" parent="OtherObjects/VoxelCoords/Maze" index="39"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel99" parent="OtherObjects/VoxelCoords/Maze" index="40"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel100" parent="OtherObjects/VoxelCoords/Maze" index="41"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel101" parent="OtherObjects/VoxelCoords/Maze" index="42"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel102" parent="OtherObjects/VoxelCoords/Maze" index="43"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel103" parent="OtherObjects/VoxelCoords/Maze" index="44"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel104" parent="OtherObjects/VoxelCoords/Maze" index="45"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel105" parent="OtherObjects/VoxelCoords/Maze" index="46"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel106" parent="OtherObjects/VoxelCoords/Maze" index="47"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel107" parent="OtherObjects/VoxelCoords/Maze" index="48"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel108" parent="OtherObjects/VoxelCoords/Maze" index="49"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel109" parent="OtherObjects/VoxelCoords/Maze" index="50"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel110" parent="OtherObjects/VoxelCoords/Maze" index="51"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel111" parent="OtherObjects/VoxelCoords/Maze" index="52"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel112" parent="OtherObjects/VoxelCoords/Maze" index="53"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel113" parent="OtherObjects/VoxelCoords/Maze" index="54"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel114" parent="OtherObjects/VoxelCoords/Maze" index="55"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel115" parent="OtherObjects/VoxelCoords/Maze" index="56"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel116" parent="OtherObjects/VoxelCoords/Maze" index="57"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel117" parent="OtherObjects/VoxelCoords/Maze" index="58"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel41" parent="OtherObjects/VoxelCoords/Maze" index="59"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel123" parent="OtherObjects/VoxelCoords/Maze" index="60"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel124" parent="OtherObjects/VoxelCoords/Maze" index="61"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel131" parent="OtherObjects/VoxelCoords/Maze" index="62"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel132" parent="OtherObjects/VoxelCoords/Maze" index="63"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel133" parent="OtherObjects/VoxelCoords/Maze" index="64"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel134" parent="OtherObjects/VoxelCoords/Maze" index="65"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel141" parent="OtherObjects/VoxelCoords/Maze" index="66"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel142" parent="OtherObjects/VoxelCoords/Maze" index="67"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel143" parent="OtherObjects/VoxelCoords/Maze" index="68"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel144" parent="OtherObjects/VoxelCoords/Maze" index="69"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel150" parent="OtherObjects/VoxelCoords/Maze" index="70"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel158" parent="OtherObjects/VoxelCoords/Maze" index="71"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel159" parent="OtherObjects/VoxelCoords/Maze" index="72"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel160" parent="OtherObjects/VoxelCoords/Maze" index="73"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel161" parent="OtherObjects/VoxelCoords/Maze" index="74"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel166" parent="OtherObjects/VoxelCoords/Maze" index="75"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel162" parent="OtherObjects/VoxelCoords/Maze" index="76"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel163" parent="OtherObjects/VoxelCoords/Maze" index="77"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel164" parent="OtherObjects/VoxelCoords/Maze" index="78"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel165" parent="OtherObjects/VoxelCoords/Maze" index="79"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel153" parent="OtherObjects/VoxelCoords/Maze" index="80"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel4" parent="OtherObjects/VoxelCoords/Extras" index="0"]
+BASE = SubResource("StandardMaterial3D_lnpgh")
+FLARE = SubResource("StandardMaterial3D_ja35y")
+
+[node name="Voxel5" parent="OtherObjects/VoxelCoords/Extras" index="1"]
+BASE = SubResource("StandardMaterial3D_3tgng")
+FLARE = SubResource("StandardMaterial3D_wkspy")
+
+[node name="Voxel12" parent="OtherObjects/VoxelCoords/Extras" index="2"]
+BASE = SubResource("StandardMaterial3D_bqx76")
+FLARE = SubResource("StandardMaterial3D_o07ps")
+
+[node name="Voxel13" parent="OtherObjects/VoxelCoords/Extras" index="3"]
+BASE = SubResource("StandardMaterial3D_yn8x2")
+FLARE = SubResource("StandardMaterial3D_jlf1i")
+
+[node name="Voxel14" parent="OtherObjects/VoxelCoords/Extras" index="4"]
+BASE = SubResource("StandardMaterial3D_5wn7j")
+FLARE = SubResource("StandardMaterial3D_fky76")
+
+[node name="Voxel15" parent="OtherObjects/VoxelCoords/Extras" index="5"]
+BASE = SubResource("StandardMaterial3D_fmdxr")
+FLARE = SubResource("StandardMaterial3D_nap6v")
+
+[node name="Voxel16" parent="OtherObjects/VoxelCoords/Extras" index="6"]
+BASE = SubResource("StandardMaterial3D_gji8b")
+FLARE = SubResource("StandardMaterial3D_1vpb3")
+
+[node name="Voxel17" parent="OtherObjects/VoxelCoords/Extras" index="7"]
+BASE = SubResource("StandardMaterial3D_m5igf")
+FLARE = SubResource("StandardMaterial3D_01uu0")
+
+[node name="Voxel18" parent="OtherObjects/VoxelCoords/Extras" index="8"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel19" parent="OtherObjects/VoxelCoords/Extras" index="9"]
+BASE = SubResource("StandardMaterial3D_68pbb")
+FLARE = SubResource("StandardMaterial3D_hcpgi")
+
+[node name="Voxel20" parent="OtherObjects/VoxelCoords/Extras" index="10"]
+BASE = SubResource("StandardMaterial3D_owtnk")
+FLARE = SubResource("StandardMaterial3D_35feg")
+
+[node name="Voxel22" parent="OtherObjects/VoxelCoords/Extras" index="11"]
+BASE = SubResource("StandardMaterial3D_b0q07")
+FLARE = SubResource("StandardMaterial3D_8u2oy")
+
+[node name="Voxel23" parent="OtherObjects/VoxelCoords/Extras" index="12"]
+BASE = SubResource("StandardMaterial3D_p0vwt")
+FLARE = SubResource("StandardMaterial3D_y8rud")
+
+[node name="Voxel25" parent="OtherObjects/VoxelCoords/Extras" index="13"]
+BASE = SubResource("StandardMaterial3D_n2v8p")
+FLARE = SubResource("StandardMaterial3D_ckyws")
+
+[node name="Voxel26" parent="OtherObjects/VoxelCoords/Extras" index="14"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel27" parent="OtherObjects/VoxelCoords/Extras" index="15"]
+BASE = SubResource("StandardMaterial3D_6gi0y")
+FLARE = SubResource("StandardMaterial3D_i4gtq")
+
+[node name="Voxel28" parent="OtherObjects/VoxelCoords/Extras" index="16"]
+BASE = SubResource("StandardMaterial3D_cj6er")
+FLARE = SubResource("StandardMaterial3D_2k6qd")
+
+[node name="Voxel29" parent="OtherObjects/VoxelCoords/Extras" index="17"]
+BASE = SubResource("StandardMaterial3D_im8jj")
+FLARE = SubResource("StandardMaterial3D_4uhyb")
+
+[node name="Voxel30" parent="OtherObjects/VoxelCoords/Extras" index="18"]
+BASE = SubResource("StandardMaterial3D_e7p8b")
+FLARE = SubResource("StandardMaterial3D_del5s")
+
+[node name="Voxel21" parent="OtherObjects/VoxelCoords/Extras" index="19"]
+BASE = SubResource("StandardMaterial3D_fg1sg")
+FLARE = SubResource("StandardMaterial3D_ury8b")
+
+[node name="Voxel24" parent="OtherObjects/VoxelCoords/Extras" index="20"]
+BASE = SubResource("StandardMaterial3D_c7pn3")
+FLARE = SubResource("StandardMaterial3D_e0den")
+
+[node name="Voxel42" parent="OtherObjects/VoxelCoords/Extras" index="21"]
+BASE = SubResource("StandardMaterial3D_opei0")
+FLARE = SubResource("StandardMaterial3D_avk6l")
+
+[node name="Voxel43" parent="OtherObjects/VoxelCoords/Extras" index="22"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel78" parent="OtherObjects/VoxelCoords/Extras" index="23"]
+BASE = SubResource("StandardMaterial3D_g23dg")
+FLARE = SubResource("StandardMaterial3D_mimj4")
+
+[node name="Voxel79" parent="OtherObjects/VoxelCoords/Extras" index="24"]
+BASE = SubResource("StandardMaterial3D_kh2yi")
+FLARE = SubResource("StandardMaterial3D_itqis")
+
+[node name="Voxel80" parent="OtherObjects/VoxelCoords/Extras" index="25"]
+BASE = SubResource("StandardMaterial3D_ecdsn")
+FLARE = SubResource("StandardMaterial3D_03h3s")
+
+[node name="Voxel81" parent="OtherObjects/VoxelCoords/Extras" index="26"]
+BASE = SubResource("StandardMaterial3D_cchye")
+FLARE = SubResource("StandardMaterial3D_wwaiw")
+
+[node name="Voxel82" parent="OtherObjects/VoxelCoords/Extras" index="27"]
+BASE = SubResource("StandardMaterial3D_u1bd5")
+FLARE = SubResource("StandardMaterial3D_ql7oo")
+
+[node name="Voxel83" parent="OtherObjects/VoxelCoords/Extras" index="28"]
+BASE = SubResource("StandardMaterial3D_v0cay")
+FLARE = SubResource("StandardMaterial3D_douyk")
+
+[node name="Voxel84" parent="OtherObjects/VoxelCoords/Extras" index="29"]
+BASE = SubResource("StandardMaterial3D_q1o1b")
+FLARE = SubResource("StandardMaterial3D_swh7j")
+
+[node name="Voxel85" parent="OtherObjects/VoxelCoords/Extras" index="30"]
+BASE = SubResource("StandardMaterial3D_2fo4k")
+FLARE = SubResource("StandardMaterial3D_dp8j2")
+
+[node name="Voxel86" parent="OtherObjects/VoxelCoords/Extras" index="31"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel87" parent="OtherObjects/VoxelCoords/Extras" index="32"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel44" parent="OtherObjects/VoxelCoords/Extras" index="33"]
+BASE = SubResource("StandardMaterial3D_8j1d5")
+FLARE = SubResource("StandardMaterial3D_dib74")
+
+[node name="Voxel45" parent="OtherObjects/VoxelCoords/Extras" index="34"]
+BASE = SubResource("StandardMaterial3D_v1jhj")
+FLARE = SubResource("StandardMaterial3D_v8hsv")
+
+[node name="Voxel46" parent="OtherObjects/VoxelCoords/Extras" index="35"]
+BASE = SubResource("StandardMaterial3D_q3cm7")
+FLARE = SubResource("StandardMaterial3D_teeiq")
+
+[node name="Voxel47" parent="OtherObjects/VoxelCoords/Extras" index="36"]
+BASE = SubResource("StandardMaterial3D_6gg44")
+FLARE = SubResource("StandardMaterial3D_2nggp")
+
+[node name="Voxel48" parent="OtherObjects/VoxelCoords/Extras" index="37"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel49" parent="OtherObjects/VoxelCoords/Extras" index="38"]
+BASE = SubResource("StandardMaterial3D_fgm2o")
+FLARE = SubResource("StandardMaterial3D_eoueh")
+
+[node name="Voxel50" parent="OtherObjects/VoxelCoords/Extras" index="39"]
+BASE = SubResource("StandardMaterial3D_4vwek")
+FLARE = SubResource("StandardMaterial3D_ho51i")
+
+[node name="Voxel51" parent="OtherObjects/VoxelCoords/Extras" index="40"]
+BASE = SubResource("StandardMaterial3D_qc2ns")
+FLARE = SubResource("StandardMaterial3D_tqjky")
+
+[node name="Voxel52" parent="OtherObjects/VoxelCoords/Extras" index="41"]
+BASE = SubResource("StandardMaterial3D_l1ll1")
+FLARE = SubResource("StandardMaterial3D_t56e3")
+
+[node name="Voxel55" parent="OtherObjects/VoxelCoords/Extras" index="42"]
+BASE = SubResource("StandardMaterial3D_vb7fb")
+FLARE = SubResource("StandardMaterial3D_sb0ik")
+
+[node name="Voxel56" parent="OtherObjects/VoxelCoords/Extras" index="43"]
+BASE = SubResource("StandardMaterial3D_1vqe0")
+FLARE = SubResource("StandardMaterial3D_vikds")
+
+[node name="Voxel76" parent="OtherObjects/VoxelCoords/Extras" index="44"]
+BASE = SubResource("StandardMaterial3D_k3k5u")
+FLARE = SubResource("StandardMaterial3D_1s30w")
+
+[node name="Voxel77" parent="OtherObjects/VoxelCoords/Extras" index="45"]
+BASE = SubResource("StandardMaterial3D_h5n25")
+FLARE = SubResource("StandardMaterial3D_nrf26")
+
+[node name="Voxel53" parent="OtherObjects/VoxelCoords/Extras" index="46"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel54" parent="OtherObjects/VoxelCoords/Extras" index="47"]
+BASE = SubResource("StandardMaterial3D_c4wfg")
+FLARE = SubResource("StandardMaterial3D_xcit1")
+
+[node name="Voxel63" parent="OtherObjects/VoxelCoords/Extras" index="48"]
+BASE = SubResource("StandardMaterial3D_awg12")
+FLARE = SubResource("StandardMaterial3D_chv4a")
+
+[node name="Voxel88" parent="OtherObjects/VoxelCoords/Extras" index="49"]
+BASE = SubResource("StandardMaterial3D_qb8eo")
+FLARE = SubResource("StandardMaterial3D_8k3js")
+
+[node name="Voxel89" parent="OtherObjects/VoxelCoords/Extras" index="50"]
+BASE = SubResource("StandardMaterial3D_1qtrj")
+FLARE = SubResource("StandardMaterial3D_b5dw3")
+
+[node name="Voxel90" parent="OtherObjects/VoxelCoords/Extras" index="51"]
+BASE = ExtResource("17_s5qj0")
+FLARE = ExtResource("17_6d72w")
+
+[node name="Voxel69" parent="OtherObjects/VoxelCoords/Extras" index="52"]
+BASE = SubResource("StandardMaterial3D_dqxrd")
+FLARE = SubResource("StandardMaterial3D_u8bgs")
+
+[node name="Voxel61" parent="OtherObjects/VoxelCoords/Extras" index="53"]
+BASE = SubResource("StandardMaterial3D_bpi5b")
+FLARE = SubResource("StandardMaterial3D_bb3ge")
+
+[node name="Voxel62" parent="OtherObjects/VoxelCoords/Extras" index="54"]
+BASE = SubResource("StandardMaterial3D_6a7t8")
+FLARE = SubResource("StandardMaterial3D_lserj")
+
+[node name="Voxel" parent="OtherObjects/VoxelCoords/Extras" index="55"]
+BASE = SubResource("StandardMaterial3D_eotql")
+FLARE = SubResource("StandardMaterial3D_w0ruo")
+
+[node name="Voxel2" parent="OtherObjects/VoxelCoords/Extras" index="56"]
+BASE = SubResource("StandardMaterial3D_fd3n2")
+FLARE = SubResource("StandardMaterial3D_soosj")
+
+[node name="Voxel3" parent="OtherObjects/VoxelCoords/Extras" index="57"]
+BASE = SubResource("StandardMaterial3D_3uct5")
+FLARE = SubResource("StandardMaterial3D_il0o6")
+
+[node name="Voxel" parent="OtherObjects/VoxelCoords/Extras/Voxel3" index="2"]
+BASE = SubResource("StandardMaterial3D_bt74y")
+FLARE = SubResource("StandardMaterial3D_5a354")
+
 [node name="VoxelMapTrigger" type="Area3D" parent="OtherObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9836, 0.401093, -0.0113847)
 script = ExtResource("14_sb7qk")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="OtherObjects/VoxelMapTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442634, 0)
 amount = 15
 visibility_aabb = AABB(-2.54462, -2.78898, -2.57263, 5.08924, 5.57796, 5.14526)
 process_material = SubResource("ParticlesMaterial_nc3vh")
@@ -1831,6 +1845,24 @@ draw_pass_1 = SubResource("BoxMesh_6of8b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OtherObjects/VoxelMapTrigger"]
 shape = SubResource("BoxShape3D_hi5se")
+
+[node name="Path3D" type="Path3D" parent="OtherObjects"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.99612, -0.0675972, -0.137843)
+curve = SubResource("Curve3D_l5goi")
+script = ExtResource("19_vbssi")
+
+[node name="Closest" type="MeshInstance3D" parent="OtherObjects/Path3D"]
+mesh = SubResource("BoxMesh_p8wh2")
+
+[node name="Size" type="MeshInstance3D" parent="OtherObjects/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34915, 0.584686, -0.502653)
+mesh = SubResource("BoxMesh_2e8ry")
+surface_material_override/0 = SubResource("StandardMaterial3D_v3kly")
+
+[node name="pathpoint" type="MeshInstance3D" parent="OtherObjects/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.310988)
+mesh = SubResource("BoxMesh_63qf1")
+surface_material_override/0 = SubResource("StandardMaterial3D_vajrm")
 
 [connection signal="body_entered" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_entered"]
 [connection signal="body_exited" from="Environment/Columns/DoricColumn3/ProximityButton" to="Environment/Columns/DoricColumn3/ProximityButton" method="_on_proximity_button_body_exited"]
@@ -1840,7 +1872,4 @@ shape = SubResource("BoxShape3D_hi5se")
 [editable path="Environment/Pedestal Marble/Marble"]
 [editable path="Environment/Pedestal Marble/Marble/FollowPosition/CameraRig"]
 [editable path="Environment/Pedestal Marble/Marble/FollowPosition/InhabitableTrigger"]
-[editable path="Environment/VoxelCoords"]
-[editable path="Environment/VoxelCoords/Voxeling"]
-[editable path="Environment/VoxelCoords/Voxeling/PlayerMesh/voxeling"]
-[editable path="Environment/VoxelCoords/Voxeling/CameraRig"]
+[editable path="OtherObjects/VoxelCoords"]

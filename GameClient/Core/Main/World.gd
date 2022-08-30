@@ -55,6 +55,7 @@ func SpawnOfflinePlayer(spawn_point: Vector3, spawn_rotation: Quaternion):
 	new_player.SetAsInhabited()
 	new_player.active = true
 	new_player.persistent_shell = false # so default character will vanish once user leaves
+	GameGlobals.current_player_object = new_player
 	
 	$MainCamera.follow_proxy = new_player.GetCameraProxy()
 

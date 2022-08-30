@@ -42,8 +42,8 @@ graph_offset = Vector2(-30, -34)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qmfbt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3j082"]
-height = 0.13179
-radius = 0.0833355
+height = 0.091
+radius = 0.04
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cykrc"]
 size = Vector3(0.02, 0.05, 0.02)
@@ -123,10 +123,11 @@ GRAVITY_MULTIPLIER = 1.7
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="voxeling" parent="PlayerMesh" instance=ExtResource("1_m18wj")]
+transform = Transform3D(0.642589, 0, -1.12354e-07, 0, 0.642589, 0, 1.12354e-07, 0, 0.642589, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, 0.0778485, 0, 0.996965)
-bones/3/rotation = Quaternion(0, 0.0772935, 0, 0.997008)
+bones/2/rotation = Quaternion(0, 0.0242738, 0, 0.999705)
+bones/3/rotation = Quaternion(0, 0.0246331, 0, 0.999697)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -149,8 +150,8 @@ bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, 0.0778485, 0, 0.996965)
-bones/30/rotation = Quaternion(0, 0.0772935, 0, 0.997008)
+bones/23/rotation = Quaternion(0, 0.0242738, 0, 0.999705)
+bones/30/rotation = Quaternion(0, 0.0246331, 0, 0.999697)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -166,7 +167,7 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qmfbt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656491, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0493487, 0)
 shape = SubResource("CylinderShape3D_3j082")
 
 [node name="Drill" type="Area3D" parent="."]
@@ -177,6 +178,7 @@ collision_mask = 17
 shape = SubResource("BoxShape3D_cykrc")
 
 [node name="Bump" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0372854, 0)
 collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bump"]
@@ -196,15 +198,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011128, 0.0857974, 0.08236
 shape = SubResource("BoxShape3D_cykrc")
 
 [node name="CameraRig" parent="." instance=ExtResource("3_onvl2")]
+_min_cam_distance = 0.06
 standalone = true
 ROTATION_SPEED = 0.01
 
 [node name="CameraPlacements" parent="CameraRig" index="0"]
-proxy_fps = Vector3(0.004, 0.1, 0.022)
-proxy_over = Vector3(0, 0.369, 0)
+proxy_fps = Vector3(0, 0.08, 0)
+proxy_over = Vector3(0, 0.11, 0)
 proxy_right = Vector3(-0.1, 0.1, 0)
 proxy_left = Vector3(0.1, 0.1, 0)
-proxy_back = Vector3(0, 0.108, -0.262)
+proxy_back = Vector3(0, 0.05, -0.06)
 
 [node name="SpringArm3D" parent="CameraRig/Target" index="0"]
 collision_mask = 16777198

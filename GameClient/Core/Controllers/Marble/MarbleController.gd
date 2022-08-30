@@ -73,7 +73,7 @@ func _input(event):
 
 #------------------------------- Input handling ---------------------------------------
 
-func HandleMovement(delta):
+func HandleMovement(_delta):
 	var force_vector = Vector3()
 	
 #	if Input.is_action_pressed("char_fly_up"):

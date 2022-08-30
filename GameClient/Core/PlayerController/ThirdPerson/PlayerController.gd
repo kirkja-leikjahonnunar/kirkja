@@ -122,7 +122,7 @@ func SetFirstPerson():
 func _ready():
 	print ("PlayerController _ready()")
 	
-	if GameGlobals.current_player_object == null:
+	if active and GameGlobals.current_player_object == null:
 		GameGlobals.current_player_object = self
 	
 	if camera_rig == null && has_node("CameraRig"):
@@ -147,6 +147,10 @@ func _ready():
 	if player_mesh == null:
 		player_mesh = load("res://Entity/Context/CapsulePlayer/CapsulePlayerMesh.tscn").instantiate()
 		player_model_parent.add_child(player_mesh)
+	
+	# Functions that coordinate overriding some actions on mouse left or right presses
+	$CameraRig.camera_left_orbiting.connect(_on_camera_left_orbiting)
+	$CameraRig.camera_right_orbiting.connect(_on_camera_right_orbiting)
 
 
 # some cached position status
@@ -193,6 +197,10 @@ func HandleMovement(delta):
 	
 	# Get the input direction
 	var input_dir = -Input.get_vector("char_strafe_left", "char_strafe_right", "char_forward", "char_backward")
+	
+	# Some actions may change a user's default input direction vector, such as Left+Right to move player forward.... 
+	input_dir = ModifyInputDirection(input_dir, delta)
+	
 	var speed = input_dir.length()
 	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space
 	#print (player_dir)
@@ -213,7 +221,6 @@ func HandleMovement(delta):
 	else: # damp toward 0
 		#target_velocity.x = move_toward(velocity.x, 0, speed)
 		pass
-
 	
 	
 	#var dpos = position
@@ -253,6 +260,17 @@ func HandleMovement(delta):
 	# # network sync
 	# DefinePlayerState()
 
+# Optionally modify a user's input direction for some reason
+# By default, this only checks for mouse Left and Right pressed at the same time, which results in
+# the same thing as the user pressing forward.
+func ModifyInputDirection(input_dir: Vector2, _delta: float):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		if input_dir.length() == 0:
+			input_dir.y = 1
+			override_left_up = true
+			override_right_up = true
+	return input_dir
+
 
 # Align the CharacterBody3D to the current up_direction.
 func AlignPlayerToUp():
@@ -282,6 +300,14 @@ func AlignPlayerToUp():
 func _input(event):
 	if not active: return
 	
+	# on mouse down, reset mouse/action conflict resolution
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				override_left_up = false
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
+				override_right_up = false
+	
 	# turn off mouse if you click with any button
 	if click_captures_mouse && event is InputEventMouseButton && event.pressed == false && Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		SetMouseVisible(false)
@@ -307,6 +333,50 @@ func HandleActions():
 	
 	if Input.is_action_just_pressed("char_use2"):
 		Use2(null)
+
+
+##--------------------------- Action override hack --------------------------
+#TODO: try to find out if godot actions can be overridden somehow
+
+var action_override_binds := {}
+
+# Determine what mouse button, if any, the action is bound to
+func InitActionOverrideTest(action: String):
+	var events = InputMap.action_get_events(action)
+	
+	if events == null || events.size() == 0:
+		action_override_binds[action] = MOUSE_BUTTON_NONE
+	else:
+		for event in events:
+			if event is InputEventMouseButton:
+				action_override_binds[action] = event.button_index
+
+var override_left_up := false
+var override_right_up := false
+
+# Sent from CameraControls
+func _on_camera_left_orbiting(_event):
+	override_left_up = true
+	print ("left orbiting")
+func _on_camera_right_orbiting(_event):
+	override_right_up = true
+	print ("right orbiting")
+
+# Kind of a hack to force overriding on just_released actions when left or right mouse dragging happens.
+func CurrentActionValid(action: String) -> bool:
+	if not Input.is_action_just_released(action):
+		return false
+	
+	# if action bound to left, and override left, then false
+	if action_override_binds[action] == MOUSE_BUTTON_LEFT:
+		if override_left_up:
+			override_left_up = false
+			return false
+	elif action_override_binds[action] == MOUSE_BUTTON_RIGHT:
+		if override_right_up:
+			override_right_up = false
+			return false
+	return true
 
 
 ##--------------------------- Handler Functions -----------------------------

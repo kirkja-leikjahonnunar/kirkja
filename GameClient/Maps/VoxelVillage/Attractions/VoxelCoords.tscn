@@ -1,6 +1,5 @@
-[gd_scene load_steps=339 format=3 uid="uid://dkm7q45ylguyg"]
+[gd_scene load_steps=338 format=3 uid="uid://dkm7q45ylguyg"]
 
-[ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="1_3ho4o"]
 [ext_resource type="PackedScene" uid="uid://bqp6ldefi5g41" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7gqa"]
@@ -1349,10 +1348,6 @@ albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 
 [node name="VoxelCoords" type="Node3D"]
 editor_description = "An attraction within the VoxelVillage.tscn."
-
-[node name="Voxeling" parent="." instance=ExtResource("1_3ho4o")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.244046, 0.149787, 0.0941297)
-active = true
 
 [node name="Origin" parent="." instance=ExtResource("1_cawmk")]
 base_color = Color(1, 0.901961, 0.0509804, 1)

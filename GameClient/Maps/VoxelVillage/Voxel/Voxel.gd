@@ -12,7 +12,9 @@ enum Shapes # enum needs to be before using it in @export.
 	CUBE,
 	WEDGE,
 	CORNER,
-	VALLEY
+	VALLEY,
+	CAP,
+	SLOPE
 }
 
 enum Dir {
@@ -48,15 +50,15 @@ enum Dir {
 		var mat_base = $Model/shape_base.get_surface_override_material(0)
 		var mat_flare = $Model/shape_flare.get_surface_override_material(0)
 		
-		if mat_base == mat_flare:
-			print ("ARRR! mat_base == mat_flare! BASE: ", BASE, "  FLARE: ", FLARE, ", base: ", mat_base, ", flare: ", mat_flare)
+		if mat_base == mat_flare: #TODO FIXME *** why does this happen 100% of the time?
+			#print ("ARRR! mat_base == mat_flare! BASE: ", BASE, "  FLARE: ", FLARE, ", base: ", mat_base, ", flare: ", mat_flare)
 			mat_base = BASE.duplicate()
 			mesh_base.set_surface_override_material(0, mat_base)
 			mat_flare = FLARE.duplicate()
 			mesh_flare.set_surface_override_material(0, mat_flare)
 		
 		if mat_base == null:
-			print ("surface override was null, setting base to ", BASE)
+			#print ("surface override was null, setting base to ", BASE)
 			mat_base = BASE
 			mesh_base.set_surface_override_material(0, mat_base)
 		#else:
@@ -65,7 +67,7 @@ enum Dir {
 		#print ("base get_surface_override: ", mesh_base.get_surface_override_material(0))
 		
 		if mat_flare == null:
-			print ("surface override was null, setting flare to ", FLARE)
+			#print ("surface override was null, setting flare to ", FLARE)
 			mat_flare = FLARE
 			mesh_flare.set_surface_override_material(0, mat_flare)
 		#else:
@@ -111,11 +113,18 @@ func SetColor(color : Color):
 #]
 
 
+#------------------------------- Variables --------------------------------------
+
+# Spawn number that can be used to animatedly spawn areas.
+var number: int = -1
+
+
 #------------------------------- Main --------------------------------------
 
 # we cache this, since the actual basis will be flipping around a lot
-var target_rotation : Basis
-#var target_shape
+var target_rotation : Vector3 # Basis
+var target_basis : Basis
+#var target_quaternion : Quaternion
 
 
 # Hack to try to reduce editor errors
@@ -130,7 +139,12 @@ func InitMats(force : bool):
 
 var ready_done := false
 func _ready():
-	target_rotation = basis
+	print ("voxel ready")
+	#target_rotation = basis
+	target_rotation = rotation
+	target_basis = basis
+	#target_quaternion = quaternion
+	
 	add_to_group("VoxelBlock")
 	
 	if BASE == FLARE: #TODO: Why does this ever happen!?
@@ -144,10 +158,11 @@ func _ready():
 
 # Used after _ready() to ensure that shape and color are properly initialized.
 func SetInitial():
-	#print ("voxel ready deferred")
+	print ("voxel ready deferred")
 	#print ("    BASE: ", BASE, ", FLARE: ", FLARE)
 	base_color = base_color # these have setters, and in Godot 4 unlike 3, script usage triggers setters
 	shape = shape
+	print (name, ", basism: ", $Model.basis)
 
 
 #---------------------- Information Functions ----------------------------
@@ -196,20 +211,43 @@ func NearestSide(world_point : Vector3):
 
 #----------------------- Interface -----------------------------
 
+func RotateAroundY(amount) -> Vector3:
+	target_basis = target_basis.rotated(Vector3(0,1,0), amount)
+	target_rotation = target_basis.get_euler()
+	var tween : Tween = get_tree().create_tween().parallel()
+	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
+	
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
+	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	return target_basis.get_euler()
 
+func RotateAroundX(amount) -> Vector3:
+	target_basis = target_basis.rotated(Vector3(1,0,0), amount)
+	target_rotation = target_basis.get_euler()
+	var tween : Tween = get_tree().create_tween().parallel()
+	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
+	
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
+	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	return target_basis.get_euler()
 
-func RotateHorizontal(amount) -> Basis:
-	target_rotation = target_rotation.rotated(Vector3(0,1,0), amount)
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property($Model, "basis", target_rotation, 0.15)
-	return target_rotation
+func RotateAroundZ(amount) -> Vector3:
+	target_basis = target_basis.rotated(Vector3(0,0,1), amount)
+	target_rotation = target_basis.get_euler()
+	var tween : Tween = get_tree().create_tween().parallel()
+	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
+	
+	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
+	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	return target_basis.get_euler()
 
-
-func RotateVertical(amount) -> Basis:
-	target_rotation = target_rotation.rotated(Vector3(1,0,0), amount)
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property($Model, "basis", target_rotation, 0.15)
-	return target_rotation
+# Tweening function to help smooth out rotation lerping across large angles
+func lerp_quat(value, start_quat: Quaternion, end_quat: Quaternion):
+	var q = start_quat.slerp(end_quat, value)
+	$Model.quaternion = start_quat.slerp(end_quat, value)
 
 
 func SwapShape(new_shape : Shapes) -> int:
@@ -229,5 +267,9 @@ func NextType() -> int:
 
 
 func SelfDestruct():
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector3(.0001,.0001,.0001), .095)
+	
 	queue_free()
+
 
