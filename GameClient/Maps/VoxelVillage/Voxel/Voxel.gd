@@ -211,11 +211,14 @@ func NearestSide(world_point : Vector3):
 
 #----------------------- Interface -----------------------------
 
+var main_rot_scale := .8
+var off_rot_scale := .5
+
 func RotateAroundY(amount) -> Vector3:
 	target_basis = target_basis.rotated(Vector3(0,1,0), amount)
 	target_rotation = target_basis.get_euler()
 	var tween : Tween = get_tree().create_tween().parallel()
-	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_property($Model, "scale", Vector3(off_rot_scale,main_rot_scale,off_rot_scale), .095)
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
@@ -226,7 +229,7 @@ func RotateAroundX(amount) -> Vector3:
 	target_basis = target_basis.rotated(Vector3(1,0,0), amount)
 	target_rotation = target_basis.get_euler()
 	var tween : Tween = get_tree().create_tween().parallel()
-	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_property($Model, "scale", Vector3(main_rot_scale,off_rot_scale,off_rot_scale), .095)
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
@@ -237,7 +240,7 @@ func RotateAroundZ(amount) -> Vector3:
 	target_basis = target_basis.rotated(Vector3(0,0,1), amount)
 	target_rotation = target_basis.get_euler()
 	var tween : Tween = get_tree().create_tween().parallel()
-	tween.tween_property($Model, "scale", Vector3(.5,.5,.5), .095)
+	tween.tween_property($Model, "scale", Vector3(off_rot_scale,off_rot_scale,main_rot_scale), .095)
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.0, 0.5, 0.075).set_delay(.02)
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)

@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c0xsc7n7ljrmi" path="res://Core/Controllers/Marble/MarbleController.tscn" id="12_t2cke"]
 [ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="14_8kd31"]
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelMapTrigger.gd" id="14_sb7qk"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_6d72w"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="17_g4ci3"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="17_s5qj0"]
 [ext_resource type="Script" path="res://Maps/TestLevel/Testpaths.gd" id="19_vbssi"]
 
@@ -1162,675 +1162,1011 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5272, 0, 0.036442)
 
 [node name="Origin" parent="OtherObjects/VoxelCoords" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x1" parent="OtherObjects/VoxelCoords/AxisX" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x2" parent="OtherObjects/VoxelCoords/AxisX" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x3" parent="OtherObjects/VoxelCoords/AxisX" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x4" parent="OtherObjects/VoxelCoords/AxisX" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x5" parent="OtherObjects/VoxelCoords/AxisX" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x6" parent="OtherObjects/VoxelCoords/AxisX" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x7" parent="OtherObjects/VoxelCoords/AxisX" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x8" parent="OtherObjects/VoxelCoords/AxisX" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="x9" parent="OtherObjects/VoxelCoords/AxisX" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel58" parent="OtherObjects/VoxelCoords/AxisY" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel67" parent="OtherObjects/VoxelCoords/AxisY" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel68" parent="OtherObjects/VoxelCoords/AxisY" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel71" parent="OtherObjects/VoxelCoords/AxisY" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel118" parent="OtherObjects/VoxelCoords/AxisY" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel119" parent="OtherObjects/VoxelCoords/AxisY" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel120" parent="OtherObjects/VoxelCoords/AxisY" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel121" parent="OtherObjects/VoxelCoords/AxisY" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel122" parent="OtherObjects/VoxelCoords/AxisY" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel31" parent="OtherObjects/VoxelCoords/AxisZ" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel11" parent="OtherObjects/VoxelCoords/AxisZ" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel57" parent="OtherObjects/VoxelCoords/AxisZ" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel64" parent="OtherObjects/VoxelCoords/AxisZ" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel65" parent="OtherObjects/VoxelCoords/AxisZ" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel70" parent="OtherObjects/VoxelCoords/AxisZ" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel59" parent="OtherObjects/VoxelCoords/AxisZ" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel60" parent="OtherObjects/VoxelCoords/AxisZ" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel66" parent="OtherObjects/VoxelCoords/AxisZ" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel125" parent="OtherObjects/VoxelCoords/Maze" index="0"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel126" parent="OtherObjects/VoxelCoords/Maze" index="1"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel127" parent="OtherObjects/VoxelCoords/Maze" index="2"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel128" parent="OtherObjects/VoxelCoords/Maze" index="3"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel129" parent="OtherObjects/VoxelCoords/Maze" index="4"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel130" parent="OtherObjects/VoxelCoords/Maze" index="5"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel135" parent="OtherObjects/VoxelCoords/Maze" index="6"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel136" parent="OtherObjects/VoxelCoords/Maze" index="7"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel137" parent="OtherObjects/VoxelCoords/Maze" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel138" parent="OtherObjects/VoxelCoords/Maze" index="9"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel139" parent="OtherObjects/VoxelCoords/Maze" index="10"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel140" parent="OtherObjects/VoxelCoords/Maze" index="11"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel145" parent="OtherObjects/VoxelCoords/Maze" index="12"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel146" parent="OtherObjects/VoxelCoords/Maze" index="13"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel147" parent="OtherObjects/VoxelCoords/Maze" index="14"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel148" parent="OtherObjects/VoxelCoords/Maze" index="15"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel149" parent="OtherObjects/VoxelCoords/Maze" index="16"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel151" parent="OtherObjects/VoxelCoords/Maze" index="17"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel152" parent="OtherObjects/VoxelCoords/Maze" index="18"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel154" parent="OtherObjects/VoxelCoords/Maze" index="19"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel155" parent="OtherObjects/VoxelCoords/Maze" index="20"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel156" parent="OtherObjects/VoxelCoords/Maze" index="21"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel157" parent="OtherObjects/VoxelCoords/Maze" index="22"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel32" parent="OtherObjects/VoxelCoords/Maze" index="23"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel33" parent="OtherObjects/VoxelCoords/Maze" index="24"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel34" parent="OtherObjects/VoxelCoords/Maze" index="25"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel35" parent="OtherObjects/VoxelCoords/Maze" index="26"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel36" parent="OtherObjects/VoxelCoords/Maze" index="27"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel37" parent="OtherObjects/VoxelCoords/Maze" index="28"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel38" parent="OtherObjects/VoxelCoords/Maze" index="29"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel39" parent="OtherObjects/VoxelCoords/Maze" index="30"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel40" parent="OtherObjects/VoxelCoords/Maze" index="31"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel91" parent="OtherObjects/VoxelCoords/Maze" index="32"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel92" parent="OtherObjects/VoxelCoords/Maze" index="33"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel93" parent="OtherObjects/VoxelCoords/Maze" index="34"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel94" parent="OtherObjects/VoxelCoords/Maze" index="35"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel95" parent="OtherObjects/VoxelCoords/Maze" index="36"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel96" parent="OtherObjects/VoxelCoords/Maze" index="37"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel97" parent="OtherObjects/VoxelCoords/Maze" index="38"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel98" parent="OtherObjects/VoxelCoords/Maze" index="39"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel99" parent="OtherObjects/VoxelCoords/Maze" index="40"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel100" parent="OtherObjects/VoxelCoords/Maze" index="41"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel101" parent="OtherObjects/VoxelCoords/Maze" index="42"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel102" parent="OtherObjects/VoxelCoords/Maze" index="43"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel103" parent="OtherObjects/VoxelCoords/Maze" index="44"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel104" parent="OtherObjects/VoxelCoords/Maze" index="45"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel105" parent="OtherObjects/VoxelCoords/Maze" index="46"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel106" parent="OtherObjects/VoxelCoords/Maze" index="47"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel107" parent="OtherObjects/VoxelCoords/Maze" index="48"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel108" parent="OtherObjects/VoxelCoords/Maze" index="49"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel109" parent="OtherObjects/VoxelCoords/Maze" index="50"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel110" parent="OtherObjects/VoxelCoords/Maze" index="51"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel111" parent="OtherObjects/VoxelCoords/Maze" index="52"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel112" parent="OtherObjects/VoxelCoords/Maze" index="53"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel113" parent="OtherObjects/VoxelCoords/Maze" index="54"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel114" parent="OtherObjects/VoxelCoords/Maze" index="55"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel115" parent="OtherObjects/VoxelCoords/Maze" index="56"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel116" parent="OtherObjects/VoxelCoords/Maze" index="57"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel117" parent="OtherObjects/VoxelCoords/Maze" index="58"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel41" parent="OtherObjects/VoxelCoords/Maze" index="59"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel123" parent="OtherObjects/VoxelCoords/Maze" index="60"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel124" parent="OtherObjects/VoxelCoords/Maze" index="61"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel131" parent="OtherObjects/VoxelCoords/Maze" index="62"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel132" parent="OtherObjects/VoxelCoords/Maze" index="63"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel133" parent="OtherObjects/VoxelCoords/Maze" index="64"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel134" parent="OtherObjects/VoxelCoords/Maze" index="65"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel141" parent="OtherObjects/VoxelCoords/Maze" index="66"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel142" parent="OtherObjects/VoxelCoords/Maze" index="67"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel143" parent="OtherObjects/VoxelCoords/Maze" index="68"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel144" parent="OtherObjects/VoxelCoords/Maze" index="69"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel150" parent="OtherObjects/VoxelCoords/Maze" index="70"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel158" parent="OtherObjects/VoxelCoords/Maze" index="71"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel159" parent="OtherObjects/VoxelCoords/Maze" index="72"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel160" parent="OtherObjects/VoxelCoords/Maze" index="73"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel161" parent="OtherObjects/VoxelCoords/Maze" index="74"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel166" parent="OtherObjects/VoxelCoords/Maze" index="75"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel162" parent="OtherObjects/VoxelCoords/Maze" index="76"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel163" parent="OtherObjects/VoxelCoords/Maze" index="77"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel164" parent="OtherObjects/VoxelCoords/Maze" index="78"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel165" parent="OtherObjects/VoxelCoords/Maze" index="79"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel153" parent="OtherObjects/VoxelCoords/Maze" index="80"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel4" parent="OtherObjects/VoxelCoords/Extras" index="0"]
 BASE = SubResource("StandardMaterial3D_lnpgh")
 FLARE = SubResource("StandardMaterial3D_ja35y")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel5" parent="OtherObjects/VoxelCoords/Extras" index="1"]
 BASE = SubResource("StandardMaterial3D_3tgng")
 FLARE = SubResource("StandardMaterial3D_wkspy")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel12" parent="OtherObjects/VoxelCoords/Extras" index="2"]
 BASE = SubResource("StandardMaterial3D_bqx76")
 FLARE = SubResource("StandardMaterial3D_o07ps")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel13" parent="OtherObjects/VoxelCoords/Extras" index="3"]
 BASE = SubResource("StandardMaterial3D_yn8x2")
 FLARE = SubResource("StandardMaterial3D_jlf1i")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel14" parent="OtherObjects/VoxelCoords/Extras" index="4"]
 BASE = SubResource("StandardMaterial3D_5wn7j")
 FLARE = SubResource("StandardMaterial3D_fky76")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel15" parent="OtherObjects/VoxelCoords/Extras" index="5"]
 BASE = SubResource("StandardMaterial3D_fmdxr")
 FLARE = SubResource("StandardMaterial3D_nap6v")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel16" parent="OtherObjects/VoxelCoords/Extras" index="6"]
 BASE = SubResource("StandardMaterial3D_gji8b")
 FLARE = SubResource("StandardMaterial3D_1vpb3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel17" parent="OtherObjects/VoxelCoords/Extras" index="7"]
 BASE = SubResource("StandardMaterial3D_m5igf")
 FLARE = SubResource("StandardMaterial3D_01uu0")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel18" parent="OtherObjects/VoxelCoords/Extras" index="8"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel19" parent="OtherObjects/VoxelCoords/Extras" index="9"]
 BASE = SubResource("StandardMaterial3D_68pbb")
 FLARE = SubResource("StandardMaterial3D_hcpgi")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel20" parent="OtherObjects/VoxelCoords/Extras" index="10"]
 BASE = SubResource("StandardMaterial3D_owtnk")
 FLARE = SubResource("StandardMaterial3D_35feg")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel22" parent="OtherObjects/VoxelCoords/Extras" index="11"]
 BASE = SubResource("StandardMaterial3D_b0q07")
 FLARE = SubResource("StandardMaterial3D_8u2oy")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel23" parent="OtherObjects/VoxelCoords/Extras" index="12"]
 BASE = SubResource("StandardMaterial3D_p0vwt")
 FLARE = SubResource("StandardMaterial3D_y8rud")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel25" parent="OtherObjects/VoxelCoords/Extras" index="13"]
 BASE = SubResource("StandardMaterial3D_n2v8p")
 FLARE = SubResource("StandardMaterial3D_ckyws")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel26" parent="OtherObjects/VoxelCoords/Extras" index="14"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel27" parent="OtherObjects/VoxelCoords/Extras" index="15"]
 BASE = SubResource("StandardMaterial3D_6gi0y")
 FLARE = SubResource("StandardMaterial3D_i4gtq")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel28" parent="OtherObjects/VoxelCoords/Extras" index="16"]
 BASE = SubResource("StandardMaterial3D_cj6er")
 FLARE = SubResource("StandardMaterial3D_2k6qd")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel29" parent="OtherObjects/VoxelCoords/Extras" index="17"]
 BASE = SubResource("StandardMaterial3D_im8jj")
 FLARE = SubResource("StandardMaterial3D_4uhyb")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel30" parent="OtherObjects/VoxelCoords/Extras" index="18"]
 BASE = SubResource("StandardMaterial3D_e7p8b")
 FLARE = SubResource("StandardMaterial3D_del5s")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel21" parent="OtherObjects/VoxelCoords/Extras" index="19"]
 BASE = SubResource("StandardMaterial3D_fg1sg")
 FLARE = SubResource("StandardMaterial3D_ury8b")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel24" parent="OtherObjects/VoxelCoords/Extras" index="20"]
 BASE = SubResource("StandardMaterial3D_c7pn3")
 FLARE = SubResource("StandardMaterial3D_e0den")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel42" parent="OtherObjects/VoxelCoords/Extras" index="21"]
 BASE = SubResource("StandardMaterial3D_opei0")
 FLARE = SubResource("StandardMaterial3D_avk6l")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel43" parent="OtherObjects/VoxelCoords/Extras" index="22"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel78" parent="OtherObjects/VoxelCoords/Extras" index="23"]
 BASE = SubResource("StandardMaterial3D_g23dg")
 FLARE = SubResource("StandardMaterial3D_mimj4")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel79" parent="OtherObjects/VoxelCoords/Extras" index="24"]
 BASE = SubResource("StandardMaterial3D_kh2yi")
 FLARE = SubResource("StandardMaterial3D_itqis")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel80" parent="OtherObjects/VoxelCoords/Extras" index="25"]
 BASE = SubResource("StandardMaterial3D_ecdsn")
 FLARE = SubResource("StandardMaterial3D_03h3s")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel81" parent="OtherObjects/VoxelCoords/Extras" index="26"]
 BASE = SubResource("StandardMaterial3D_cchye")
 FLARE = SubResource("StandardMaterial3D_wwaiw")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel82" parent="OtherObjects/VoxelCoords/Extras" index="27"]
 BASE = SubResource("StandardMaterial3D_u1bd5")
 FLARE = SubResource("StandardMaterial3D_ql7oo")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel83" parent="OtherObjects/VoxelCoords/Extras" index="28"]
 BASE = SubResource("StandardMaterial3D_v0cay")
 FLARE = SubResource("StandardMaterial3D_douyk")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel84" parent="OtherObjects/VoxelCoords/Extras" index="29"]
 BASE = SubResource("StandardMaterial3D_q1o1b")
 FLARE = SubResource("StandardMaterial3D_swh7j")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel85" parent="OtherObjects/VoxelCoords/Extras" index="30"]
 BASE = SubResource("StandardMaterial3D_2fo4k")
 FLARE = SubResource("StandardMaterial3D_dp8j2")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel86" parent="OtherObjects/VoxelCoords/Extras" index="31"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel87" parent="OtherObjects/VoxelCoords/Extras" index="32"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel44" parent="OtherObjects/VoxelCoords/Extras" index="33"]
 BASE = SubResource("StandardMaterial3D_8j1d5")
 FLARE = SubResource("StandardMaterial3D_dib74")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel45" parent="OtherObjects/VoxelCoords/Extras" index="34"]
 BASE = SubResource("StandardMaterial3D_v1jhj")
 FLARE = SubResource("StandardMaterial3D_v8hsv")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel46" parent="OtherObjects/VoxelCoords/Extras" index="35"]
 BASE = SubResource("StandardMaterial3D_q3cm7")
 FLARE = SubResource("StandardMaterial3D_teeiq")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel47" parent="OtherObjects/VoxelCoords/Extras" index="36"]
 BASE = SubResource("StandardMaterial3D_6gg44")
 FLARE = SubResource("StandardMaterial3D_2nggp")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel48" parent="OtherObjects/VoxelCoords/Extras" index="37"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel49" parent="OtherObjects/VoxelCoords/Extras" index="38"]
 BASE = SubResource("StandardMaterial3D_fgm2o")
 FLARE = SubResource("StandardMaterial3D_eoueh")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel50" parent="OtherObjects/VoxelCoords/Extras" index="39"]
 BASE = SubResource("StandardMaterial3D_4vwek")
 FLARE = SubResource("StandardMaterial3D_ho51i")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel51" parent="OtherObjects/VoxelCoords/Extras" index="40"]
 BASE = SubResource("StandardMaterial3D_qc2ns")
 FLARE = SubResource("StandardMaterial3D_tqjky")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel52" parent="OtherObjects/VoxelCoords/Extras" index="41"]
 BASE = SubResource("StandardMaterial3D_l1ll1")
 FLARE = SubResource("StandardMaterial3D_t56e3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel55" parent="OtherObjects/VoxelCoords/Extras" index="42"]
 BASE = SubResource("StandardMaterial3D_vb7fb")
 FLARE = SubResource("StandardMaterial3D_sb0ik")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel56" parent="OtherObjects/VoxelCoords/Extras" index="43"]
 BASE = SubResource("StandardMaterial3D_1vqe0")
 FLARE = SubResource("StandardMaterial3D_vikds")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel76" parent="OtherObjects/VoxelCoords/Extras" index="44"]
 BASE = SubResource("StandardMaterial3D_k3k5u")
 FLARE = SubResource("StandardMaterial3D_1s30w")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel77" parent="OtherObjects/VoxelCoords/Extras" index="45"]
 BASE = SubResource("StandardMaterial3D_h5n25")
 FLARE = SubResource("StandardMaterial3D_nrf26")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel53" parent="OtherObjects/VoxelCoords/Extras" index="46"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel54" parent="OtherObjects/VoxelCoords/Extras" index="47"]
 BASE = SubResource("StandardMaterial3D_c4wfg")
 FLARE = SubResource("StandardMaterial3D_xcit1")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel63" parent="OtherObjects/VoxelCoords/Extras" index="48"]
 BASE = SubResource("StandardMaterial3D_awg12")
 FLARE = SubResource("StandardMaterial3D_chv4a")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel88" parent="OtherObjects/VoxelCoords/Extras" index="49"]
 BASE = SubResource("StandardMaterial3D_qb8eo")
 FLARE = SubResource("StandardMaterial3D_8k3js")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel89" parent="OtherObjects/VoxelCoords/Extras" index="50"]
 BASE = SubResource("StandardMaterial3D_1qtrj")
 FLARE = SubResource("StandardMaterial3D_b5dw3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel90" parent="OtherObjects/VoxelCoords/Extras" index="51"]
 BASE = ExtResource("17_s5qj0")
-FLARE = ExtResource("17_6d72w")
+FLARE = ExtResource("17_g4ci3")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel69" parent="OtherObjects/VoxelCoords/Extras" index="52"]
 BASE = SubResource("StandardMaterial3D_dqxrd")
 FLARE = SubResource("StandardMaterial3D_u8bgs")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel61" parent="OtherObjects/VoxelCoords/Extras" index="53"]
 BASE = SubResource("StandardMaterial3D_bpi5b")
 FLARE = SubResource("StandardMaterial3D_bb3ge")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel62" parent="OtherObjects/VoxelCoords/Extras" index="54"]
 BASE = SubResource("StandardMaterial3D_6a7t8")
 FLARE = SubResource("StandardMaterial3D_lserj")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel" parent="OtherObjects/VoxelCoords/Extras" index="55"]
 BASE = SubResource("StandardMaterial3D_eotql")
 FLARE = SubResource("StandardMaterial3D_w0ruo")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel2" parent="OtherObjects/VoxelCoords/Extras" index="56"]
 BASE = SubResource("StandardMaterial3D_fd3n2")
 FLARE = SubResource("StandardMaterial3D_soosj")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel3" parent="OtherObjects/VoxelCoords/Extras" index="57"]
 BASE = SubResource("StandardMaterial3D_3uct5")
 FLARE = SubResource("StandardMaterial3D_il0o6")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="Voxel" parent="OtherObjects/VoxelCoords/Extras/Voxel3" index="2"]
 BASE = SubResource("StandardMaterial3D_bt74y")
 FLARE = SubResource("StandardMaterial3D_5a354")
+main_rot_scale = null
+off_rot_scale = null
 
 [node name="VoxelMapTrigger" type="Area3D" parent="OtherObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9836, 0.401093, -0.0113847)

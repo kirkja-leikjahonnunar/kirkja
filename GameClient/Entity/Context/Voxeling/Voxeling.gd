@@ -347,12 +347,12 @@ func HandleWizardModeActions():
 			elif CurrentActionValid("voxeling_eraser_mode"):
 				var axis = GetCameraDirection(current_voxel, hovered_point, true)
 				match axis:
-					Voxel.Dir.x_plus:  current_voxel.RotateAroundX(PI/2)
-					Voxel.Dir.x_minus: current_voxel.RotateAroundX(-PI/2)
+					Voxel.Dir.x_plus:  current_voxel.RotateAroundZ(PI/2)
+					Voxel.Dir.x_minus: current_voxel.RotateAroundZ(-PI/2)
 					Voxel.Dir.y_plus:  current_voxel.RotateAroundY(PI/2)
 					Voxel.Dir.y_minus: current_voxel.RotateAroundY(-PI/2)
-					Voxel.Dir.z_plus:  current_voxel.RotateAroundZ(PI/2)
-					Voxel.Dir.z_minus: current_voxel.RotateAroundZ(-PI/2)
+					Voxel.Dir.z_plus:  current_voxel.RotateAroundX(PI/2)
+					Voxel.Dir.z_minus: current_voxel.RotateAroundX(-PI/2)
 
 # Update state about current wizard tool mode.
 func SwitchToolMode(mode):
