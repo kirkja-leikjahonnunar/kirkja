@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://ba5oadbsoymjf"]
 
-[ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
+[ext_resource type="PackedScene" uid="uid://c04omrr6yot0s" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Entity/Context/Voxeling/Voxeling.gd" id="1_xyc3q"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_onvl2"]
 

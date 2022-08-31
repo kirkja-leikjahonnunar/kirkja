@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5kpb5782a8dn"]
+[gd_scene load_steps=7 format=3 uid="uid://b26easv3j3dt8"]
 
-[ext_resource type="Script" path="res://Maps/Jamming/DotCatcher.gd" id="1_5va5k"]
 [ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="1_o87fu"]
-[ext_resource type="AudioStream" uid="uid://g7i42lf8o5d0" path="res://Maps/Jamming/33) And you bleed just to know you're alive.mp3" id="2_6en6s"]
+[ext_resource type="AudioStream" uid="uid://b3q84hoo16lxb" path="res://Maps/Jamming/HzTest_2022-08-30_20-49.wav" id="2_b2kor"]
+[ext_resource type="PackedScene" uid="uid://0cbir3a5pjwt" path="res://Maps/Jamming/RainbowAnalyzer.tscn" id="2_j7rpf"]
 
 [sub_resource type="Environment" id="Environment_vs1do"]
 ssao_enabled = true
@@ -13,14 +13,13 @@ size = Vector3(32, 24, 0.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfydk"]
 albedo_color = Color(0.305882, 0.027451, 0.290196, 1)
 
-[node name="DotCatcher" type="Node"]
-script = ExtResource("1_5va5k")
+[node name="StereoRainbow" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vs1do")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6en6s")
+stream = ExtResource("2_b2kor")
 autoplay = true
 
 [node name="Graphics" type="Node3D" parent="."]
@@ -28,7 +27,7 @@ autoplay = true
 [node name="LCA" type="Node3D" parent="Graphics"]
 
 [node name="Camera3D" type="Camera3D" parent="Graphics/LCA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 7.973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Graphics/LCA"]
 transform = Transform3D(0.599539, 0.603501, 0.52568, -0.784678, 0.313906, 0.53455, 0.157588, -0.732973, 0.661753, 7.81198, 4.32029, 11.0731)
@@ -37,21 +36,27 @@ shadow_opacity = 0.39
 shadow_blur = 3.008
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Graphics/LCA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13507, 0.0622795, 2.33564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13507, 2.05254, 23.1297)
 light_energy = 2.934
-omni_range = 12.9822
-omni_attenuation = 0.210224
+omni_range = 47.7348
+omni_attenuation = 1e-05
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Graphics/LCA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2928, 0.0622795, 2.33564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1454, -1.84674, 2.33564)
 light_energy = 2.934
 omni_range = 12.9822
 omni_attenuation = 0.210224
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Graphics"]
+[node name="BG" type="MeshInstance3D" parent="Graphics"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -0.5)
 mesh = SubResource("BoxMesh_72s8h")
 surface_material_override/0 = SubResource("StandardMaterial3D_wfydk")
+
+[node name="LeftAnalyzer" parent="Graphics" instance=ExtResource("2_j7rpf")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, -6, 0)
+
+[node name="RightAnalyzer" parent="Graphics" instance=ExtResource("2_j7rpf")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 12, -6, 0)
 
 [node name="Esc" type="Node" parent="."]
 script = ExtResource("1_o87fu")
