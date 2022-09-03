@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp4im3iwbykd1"]
+
+[ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://Core/icon.png" id="1_1g5l3"]
+[ext_resource type="Script" path="res://Entity/Context/Voxeling/tool_button.gd" id="2_hcqkd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0klk"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfcta"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bf74"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 14
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[node name="tool_button" type="Button"]
+offset_right = 66.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0klk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y0klk")
+text = "tool"
+icon = ExtResource("1_1g5l3")
+script = ExtResource("2_hcqkd")
+
+[node name="hotkey_button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="tooltips" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -12.0
+offset_right = 218.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 21
+metadata/_edit_group_ = true
+
+[node name="lmb_tip" type="Label" parent="tooltips"]
+layout_mode = 2
+offset_right = 86.0
+offset_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "LMB
+tip for lmb."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="lmb_bg" type="PanelContainer" parent="tooltips/lmb_tip"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfcta")
+
+[node name="rmb_tip" type="Label" parent="tooltips"]
+layout_mode = 2
+offset_left = 107.0
+offset_right = 196.0
+offset_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "RMB
+tip for rmb."
+vertical_alignment = 1
+
+[node name="rmb_bg" type="PanelContainer" parent="tooltips/rmb_tip"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bf74")
+
+[connection signal="mouse_entered" from="." to="." method="_on_tool_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_tool_button_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_tool_button_pressed"]
+[connection signal="pressed" from="hotkey_button" to="." method="_on_hotkey_pressed"]
