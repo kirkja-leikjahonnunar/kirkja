@@ -1353,8 +1353,6 @@ editor_description = "An attraction within the VoxelVillage.tscn."
 base_color = Color(1, 0.901961, 0.0509804, 1)
 BASE = SubResource("StandardMaterial3D_i7gqa")
 FLARE = SubResource("StandardMaterial3D_8x0gg")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="AxisX" type="Node3D" parent="."]
 
@@ -1363,72 +1361,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 base_color = Color(0.815686, 0.619608, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_erp5x")
 FLARE = SubResource("StandardMaterial3D_cqhqu")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x2" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 base_color = Color(0.815686, 0.356863, 0.027451, 1)
 BASE = SubResource("StandardMaterial3D_ok80n")
 FLARE = SubResource("StandardMaterial3D_s8ie8")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x3" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 base_color = Color(0.815686, 0.333333, 0.109804, 1)
 BASE = SubResource("StandardMaterial3D_bklu2")
 FLARE = SubResource("StandardMaterial3D_he8ga")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x4" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_2e5l1")
 FLARE = SubResource("StandardMaterial3D_8raj1")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x5" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_d0era")
 FLARE = SubResource("StandardMaterial3D_21qtm")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x6" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_t1kca")
 FLARE = SubResource("StandardMaterial3D_xg72j")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x7" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_cmgi1")
 FLARE = SubResource("StandardMaterial3D_a44jy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x8" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_31fiv")
 FLARE = SubResource("StandardMaterial3D_ykb12")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="x9" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
 BASE = SubResource("StandardMaterial3D_hsvak")
 FLARE = SubResource("StandardMaterial3D_2ha42")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="AxisY" type="Node3D" parent="."]
 
@@ -1437,72 +1417,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 base_color = Color(0.823529, 0.905882, 0.141176, 1)
 BASE = SubResource("StandardMaterial3D_ak7r7")
 FLARE = SubResource("StandardMaterial3D_3cbgr")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel67" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 base_color = Color(0.419608, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_a215c")
 FLARE = SubResource("StandardMaterial3D_4ikql")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel68" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 base_color = Color(0.337255, 0.905882, 0.105882, 1)
 BASE = SubResource("StandardMaterial3D_whpd0")
 FLARE = SubResource("StandardMaterial3D_tsvdc")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel71" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_l6ch7")
 FLARE = SubResource("StandardMaterial3D_73jie")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel118" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_uv22k")
 FLARE = SubResource("StandardMaterial3D_aow1f")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel119" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_evqg0")
 FLARE = SubResource("StandardMaterial3D_ekqr6")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel120" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_ndth5")
 FLARE = SubResource("StandardMaterial3D_xwc7c")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel121" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_g766r")
 FLARE = SubResource("StandardMaterial3D_vpann")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel122" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
 BASE = SubResource("StandardMaterial3D_v02oi")
 FLARE = SubResource("StandardMaterial3D_fngwv")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="AxisZ" type="Node3D" parent="."]
 
@@ -1511,72 +1473,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 base_color = Color(0.764706, 0.784314, 0.596078, 1)
 BASE = SubResource("StandardMaterial3D_ysdl1")
 FLARE = SubResource("StandardMaterial3D_vsjna")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel11" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 base_color = Color(0.486275, 0.486275, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_hycf0")
 FLARE = SubResource("StandardMaterial3D_u3r8i")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel57" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_gjtcm")
 FLARE = SubResource("StandardMaterial3D_ncvmq")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel64" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_yw7np")
 FLARE = SubResource("StandardMaterial3D_pntpd")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel65" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 base_color = Color(0.313726, 0.329412, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_bo84q")
 FLARE = SubResource("StandardMaterial3D_ep6hi")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel70" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 base_color = Color(0.4, 0.392157, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_n44rv")
 FLARE = SubResource("StandardMaterial3D_jwo4h")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel59" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_podor")
 FLARE = SubResource("StandardMaterial3D_k4kxf")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel60" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_e05hi")
 FLARE = SubResource("StandardMaterial3D_kk6kh")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel66" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
 BASE = SubResource("StandardMaterial3D_b3uka")
 FLARE = SubResource("StandardMaterial3D_isyop")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Maze" type="Node3D" parent="."]
 
@@ -1585,648 +1529,486 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_qnj4n")
 FLARE = SubResource("StandardMaterial3D_jgkwo")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel126" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_70gxa")
 FLARE = SubResource("StandardMaterial3D_b6ml4")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel127" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_ng2mv")
 FLARE = SubResource("StandardMaterial3D_25y65")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel128" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_g0ipm")
 FLARE = SubResource("StandardMaterial3D_28dph")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel129" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_78hgo")
 FLARE = SubResource("StandardMaterial3D_2tw3n")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel130" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_apwb8")
 FLARE = SubResource("StandardMaterial3D_dax8n")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel135" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_uvy5x")
 FLARE = SubResource("StandardMaterial3D_gn4y8")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel136" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_gdd1i")
 FLARE = SubResource("StandardMaterial3D_l18j2")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel137" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_mfs3w")
 FLARE = SubResource("StandardMaterial3D_nfytw")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel138" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_u8vp1")
 FLARE = SubResource("StandardMaterial3D_fmt5d")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel139" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_03no0")
 FLARE = SubResource("StandardMaterial3D_d3ctb")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel140" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_b2lmb")
 FLARE = SubResource("StandardMaterial3D_7wn7b")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel145" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_3wqms")
 FLARE = SubResource("StandardMaterial3D_5wchy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel146" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_foxfm")
 FLARE = SubResource("StandardMaterial3D_3dnm5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel147" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_k63us")
 FLARE = SubResource("StandardMaterial3D_n0jtx")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel148" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_hrxtk")
 FLARE = SubResource("StandardMaterial3D_kox53")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel149" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_i0lwk")
 FLARE = SubResource("StandardMaterial3D_lsw81")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel151" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_4pvw5")
 FLARE = SubResource("StandardMaterial3D_k2vym")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel152" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_xm07q")
 FLARE = SubResource("StandardMaterial3D_cy2yw")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel154" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_ddts8")
 FLARE = SubResource("StandardMaterial3D_hxyxq")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel155" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_dwg0r")
 FLARE = SubResource("StandardMaterial3D_c7b2c")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel156" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_fs2rw")
 FLARE = SubResource("StandardMaterial3D_ocrw7")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel157" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_03nwy")
 FLARE = SubResource("StandardMaterial3D_t5m1o")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel32" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_4dn5y")
 FLARE = SubResource("StandardMaterial3D_f8nh5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel33" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_uqyky")
 FLARE = SubResource("StandardMaterial3D_vn5e2")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel34" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_og12m")
 FLARE = SubResource("StandardMaterial3D_pdny6")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel35" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_i70k7")
 FLARE = SubResource("StandardMaterial3D_d43cd")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel36" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_gxvng")
 FLARE = SubResource("StandardMaterial3D_cuxp5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel37" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_dwgsg")
 FLARE = SubResource("StandardMaterial3D_762ta")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel38" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_ysynu")
 FLARE = SubResource("StandardMaterial3D_ot5m0")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel39" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_y8sa5")
 FLARE = SubResource("StandardMaterial3D_cvab4")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel40" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_p5oak")
 FLARE = SubResource("StandardMaterial3D_uqg2m")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel91" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_vcfat")
 FLARE = SubResource("StandardMaterial3D_afevy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel92" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_4bc6y")
 FLARE = SubResource("StandardMaterial3D_8f4w1")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel93" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_qkb28")
 FLARE = SubResource("StandardMaterial3D_lqwdk")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel94" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_xr4oq")
 FLARE = SubResource("StandardMaterial3D_pd228")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel95" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_lle1h")
 FLARE = SubResource("StandardMaterial3D_4syef")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel96" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_e2osp")
 FLARE = SubResource("StandardMaterial3D_semok")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel97" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.2, 0.2)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 BASE = SubResource("StandardMaterial3D_rlq3f")
 FLARE = SubResource("StandardMaterial3D_s4wxu")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel98" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_05a67")
 FLARE = SubResource("StandardMaterial3D_d4jq2")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel99" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_sstaf")
 FLARE = SubResource("StandardMaterial3D_od7nc")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel100" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_m5gfe")
 FLARE = SubResource("StandardMaterial3D_4rjn0")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel101" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_huso3")
 FLARE = SubResource("StandardMaterial3D_cklqq")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel102" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_nt68y")
 FLARE = SubResource("StandardMaterial3D_36v7e")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel103" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_samat")
 FLARE = SubResource("StandardMaterial3D_mt1iy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel104" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_g4qf5")
 FLARE = SubResource("StandardMaterial3D_yfal5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel105" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_uu8mw")
 FLARE = SubResource("StandardMaterial3D_kdv56")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel106" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_y2nc1")
 FLARE = SubResource("StandardMaterial3D_l7wsm")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel107" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_2y1x2")
 FLARE = SubResource("StandardMaterial3D_2eflc")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel108" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_vpkjs")
 FLARE = SubResource("StandardMaterial3D_yu2ye")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel109" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_3dgjt")
 FLARE = SubResource("StandardMaterial3D_m5h60")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel110" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_c3lfj")
 FLARE = SubResource("StandardMaterial3D_olawh")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel111" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_5voan")
 FLARE = SubResource("StandardMaterial3D_j5g7t")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel112" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_joa1v")
 FLARE = SubResource("StandardMaterial3D_jbsif")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel113" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_kipnc")
 FLARE = SubResource("StandardMaterial3D_xq5ve")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel114" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_r1n61")
 FLARE = SubResource("StandardMaterial3D_1b8k3")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel115" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_cdo1n")
 FLARE = SubResource("StandardMaterial3D_upkm0")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel116" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_5ew3p")
 FLARE = SubResource("StandardMaterial3D_q4o8a")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel117" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_f2j2j")
 FLARE = SubResource("StandardMaterial3D_sexqn")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel41" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_p4oj5")
 FLARE = SubResource("StandardMaterial3D_3sow5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel123" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_woqbg")
 FLARE = SubResource("StandardMaterial3D_htut3")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel124" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_s0mlp")
 FLARE = SubResource("StandardMaterial3D_vf2i5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel131" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_cgb3f")
 FLARE = SubResource("StandardMaterial3D_4dfd5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel132" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_r025r")
 FLARE = SubResource("StandardMaterial3D_e4a87")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel133" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_7vrwn")
 FLARE = SubResource("StandardMaterial3D_8ipao")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel134" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.6)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 BASE = SubResource("StandardMaterial3D_t5pjd")
 FLARE = SubResource("StandardMaterial3D_lg026")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel141" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_es6hk")
 FLARE = SubResource("StandardMaterial3D_mdl6t")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel142" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_3tsdp")
 FLARE = SubResource("StandardMaterial3D_wllg1")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel143" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 BASE = SubResource("StandardMaterial3D_pv507")
 FLARE = SubResource("StandardMaterial3D_kgv2t")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel144" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 BASE = SubResource("StandardMaterial3D_l0qnq")
 FLARE = SubResource("StandardMaterial3D_cp1hj")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel150" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_58uay")
 FLARE = SubResource("StandardMaterial3D_3cgps")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel158" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_ohay3")
 FLARE = SubResource("StandardMaterial3D_1gj24")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel159" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_fdk8o")
 FLARE = SubResource("StandardMaterial3D_eaj4y")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel160" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_3yq5h")
 FLARE = SubResource("StandardMaterial3D_gshg1")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel161" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_a0uwv")
 FLARE = SubResource("StandardMaterial3D_3w8ty")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel166" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_n5rjw")
 FLARE = SubResource("StandardMaterial3D_ep78j")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel162" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_8glkc")
 FLARE = SubResource("StandardMaterial3D_dmdgp")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel163" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_1hvd1")
 FLARE = SubResource("StandardMaterial3D_q1pvy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel164" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_aoi5v")
 FLARE = SubResource("StandardMaterial3D_kogrt")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel165" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
 BASE = SubResource("StandardMaterial3D_4jc5f")
 FLARE = SubResource("StandardMaterial3D_32g7s")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel153" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.8)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
 BASE = SubResource("StandardMaterial3D_u0cuv")
 FLARE = SubResource("StandardMaterial3D_r3qnb")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Extras" type="Node3D" parent="."]
 
@@ -2234,159 +2016,115 @@ off_rot_scale = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 BASE = SubResource("StandardMaterial3D_dx5vd")
 FLARE = SubResource("StandardMaterial3D_2gult")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel5" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03906, 0, -0.255302)
 BASE = SubResource("StandardMaterial3D_e4bed")
 FLARE = SubResource("StandardMaterial3D_cqtx4")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel12" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.1)
 BASE = SubResource("StandardMaterial3D_gbr41")
 FLARE = SubResource("StandardMaterial3D_njuki")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel13" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.1)
 BASE = SubResource("StandardMaterial3D_xidmi")
 FLARE = SubResource("StandardMaterial3D_vlsxx")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel14" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.1)
 BASE = SubResource("StandardMaterial3D_3p4ci")
 FLARE = SubResource("StandardMaterial3D_i0o7f")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel15" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.1)
 BASE = SubResource("StandardMaterial3D_gfst7")
 FLARE = SubResource("StandardMaterial3D_ro4ww")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel16" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1.1)
 BASE = SubResource("StandardMaterial3D_17ca5")
 FLARE = SubResource("StandardMaterial3D_2fx6e")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel17" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1.1)
 BASE = SubResource("StandardMaterial3D_y471k")
 FLARE = SubResource("StandardMaterial3D_50y33")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel18" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1.1)
 base_color = Color(0.137255, 0.666667, 0.0980392, 1)
 BASE = SubResource("StandardMaterial3D_5jjki")
 FLARE = SubResource("StandardMaterial3D_3aa4d")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel19" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1.1)
 BASE = SubResource("StandardMaterial3D_25ran")
 FLARE = SubResource("StandardMaterial3D_1yn4o")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel20" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.1)
 BASE = SubResource("StandardMaterial3D_vatnk")
 FLARE = SubResource("StandardMaterial3D_gcqja")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel22" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_in177")
 FLARE = SubResource("StandardMaterial3D_y4ewd")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel23" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_eikru")
 FLARE = SubResource("StandardMaterial3D_02y0w")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel25" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_8bywn")
 FLARE = SubResource("StandardMaterial3D_meujf")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel26" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1.2)
 base_color = Color(0.862745, 0.247059, 0.286275, 1)
 BASE = SubResource("StandardMaterial3D_aykph")
 FLARE = SubResource("StandardMaterial3D_n1stv")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel27" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_h6dnn")
 FLARE = SubResource("StandardMaterial3D_veamy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel28" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_rjwx8")
 FLARE = SubResource("StandardMaterial3D_un2i5")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel29" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_f8fob")
 FLARE = SubResource("StandardMaterial3D_qxyo7")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel30" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_4k181")
 FLARE = SubResource("StandardMaterial3D_gkp3p")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel21" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.4, 0.2, -1.1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_w3w7l")
 FLARE = SubResource("StandardMaterial3D_osksp")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel24" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0.2, -1.1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_1lnbt")
 FLARE = SubResource("StandardMaterial3D_wv1v1")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel42" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.2, -1.2)
 BASE = SubResource("StandardMaterial3D_70drv")
 FLARE = SubResource("StandardMaterial3D_htp12")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel43" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.2, -1.2)
@@ -2394,67 +2132,49 @@ base_color = Color(0.862745, 0.247059, 0.286275, 1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_5caxe")
 FLARE = SubResource("StandardMaterial3D_aqx07")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel78" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 0.2, -1.2)
 shape = 1
 BASE = SubResource("StandardMaterial3D_jfsk1")
 FLARE = SubResource("StandardMaterial3D_xr4le")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel79" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.701602, 0.2, -1.2)
 shape = 1
 BASE = SubResource("StandardMaterial3D_hjl8i")
 FLARE = SubResource("StandardMaterial3D_037ee")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel80" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, 0.2, -1.2)
 shape = 1
 BASE = SubResource("StandardMaterial3D_fhae1")
 FLARE = SubResource("StandardMaterial3D_4jvuk")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel81" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1.2)
 BASE = SubResource("StandardMaterial3D_a0wg7")
 FLARE = SubResource("StandardMaterial3D_e7o4t")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel82" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, -1.2)
 BASE = SubResource("StandardMaterial3D_xxdm2")
 FLARE = SubResource("StandardMaterial3D_8dqw0")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel83" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.3, -1.2)
 BASE = SubResource("StandardMaterial3D_bd6fg")
 FLARE = SubResource("StandardMaterial3D_717yv")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel84" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -1.2)
 BASE = SubResource("StandardMaterial3D_jpvub")
 FLARE = SubResource("StandardMaterial3D_ivbjw")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel85" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.4, -1.2)
 BASE = SubResource("StandardMaterial3D_uokhm")
 FLARE = SubResource("StandardMaterial3D_a4ylw")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel86" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.5, -1.2)
@@ -2462,8 +2182,6 @@ base_color = Color(0.172549, 0.0980392, 0.666667, 1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_avgbi")
 FLARE = SubResource("StandardMaterial3D_ygxxa")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel87" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 8.74228e-08, 8.74228e-08, 8.74228e-08, -1, 7.64274e-15, 8.74228e-08, 0, -1, 0.9, 0.5, -1.2)
@@ -2471,37 +2189,27 @@ base_color = Color(0.666667, 0.2, 0.384314, 1)
 shape = 2
 BASE = SubResource("StandardMaterial3D_miiig")
 FLARE = SubResource("StandardMaterial3D_mch0w")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel44" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.2)
 BASE = SubResource("StandardMaterial3D_kiwhi")
 FLARE = SubResource("StandardMaterial3D_npy12")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel45" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_nrrs7")
 FLARE = SubResource("StandardMaterial3D_cemdc")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel46" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_b71ds")
 FLARE = SubResource("StandardMaterial3D_m5qur")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel47" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_5x0vc")
 FLARE = SubResource("StandardMaterial3D_nkkm3")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel48" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1)
@@ -2509,107 +2217,79 @@ base_color = Color(0.603922, 0.458824, 0.666667, 1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_hrtr0")
 FLARE = SubResource("StandardMaterial3D_i37wf")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel49" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_fr4iv")
 FLARE = SubResource("StandardMaterial3D_rwhkg")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel50" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_syod1")
 FLARE = SubResource("StandardMaterial3D_i4lkv")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel51" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, 8.74228e-08, -7.64274e-15, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, 0.4, 0.2, -1)
 shape = 2
 BASE = SubResource("StandardMaterial3D_ge75i")
 FLARE = SubResource("StandardMaterial3D_a617r")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel52" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_2hpky")
 FLARE = SubResource("StandardMaterial3D_3cdj7")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel55" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_gng4x")
 FLARE = SubResource("StandardMaterial3D_kmb3o")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel56" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1)
 BASE = SubResource("StandardMaterial3D_ym2cr")
 FLARE = SubResource("StandardMaterial3D_h5clr")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel76" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_k5wan")
 FLARE = SubResource("StandardMaterial3D_gs63i")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel77" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1)
 shape = 2
 BASE = SubResource("StandardMaterial3D_wih6x")
 FLARE = SubResource("StandardMaterial3D_j87fm")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel53" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.3)
 base_color = Color(0.905882, 0.345098, 0.945098, 1)
 BASE = SubResource("StandardMaterial3D_6783a")
 FLARE = SubResource("StandardMaterial3D_61eta")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel54" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.053251)
 BASE = SubResource("StandardMaterial3D_jsopr")
 FLARE = SubResource("StandardMaterial3D_2kxqc")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel63" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.1, 0.3)
 shape = 1
 BASE = SubResource("StandardMaterial3D_77h7b")
 FLARE = SubResource("StandardMaterial3D_r31mn")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel88" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.2, 0.3)
 shape = 1
 BASE = SubResource("StandardMaterial3D_xpl2i")
 FLARE = SubResource("StandardMaterial3D_breux")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel89" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.1, 0.3)
 shape = 1
 BASE = SubResource("StandardMaterial3D_r25b5")
 FLARE = SubResource("StandardMaterial3D_u2a68")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel90" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(4.37114e-08, 0, 1, 3.82137e-15, 1, 0, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.2, 0.3)
@@ -2617,54 +2297,38 @@ base_color = Color(1, 0.32549, 0.356863, 1)
 shape = 1
 BASE = SubResource("StandardMaterial3D_w4gno")
 FLARE = SubResource("StandardMaterial3D_7nprq")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel69" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
 BASE = SubResource("StandardMaterial3D_ruhnj")
 FLARE = SubResource("StandardMaterial3D_whmop")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel61" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.9)
 BASE = SubResource("StandardMaterial3D_1bl36")
 FLARE = SubResource("StandardMaterial3D_6msiy")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel62" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0.9)
 BASE = SubResource("StandardMaterial3D_5yfhc")
 FLARE = SubResource("StandardMaterial3D_qkiyf")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3)
 BASE = SubResource("StandardMaterial3D_qxna1")
 FLARE = SubResource("StandardMaterial3D_2cyor")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel2" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
 BASE = SubResource("StandardMaterial3D_qyw3l")
 FLARE = SubResource("StandardMaterial3D_mkvfi")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel3" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 BASE = SubResource("StandardMaterial3D_gxw71")
 FLARE = SubResource("StandardMaterial3D_6tanw")
-main_rot_scale = null
-off_rot_scale = null
 
 [node name="Voxel" parent="Extras/Voxel3" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161542)
 BASE = SubResource("StandardMaterial3D_2xw3d")
 FLARE = SubResource("StandardMaterial3D_suplg")
-main_rot_scale = null
-off_rot_scale = null

@@ -6,7 +6,7 @@ const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 const voxel_size = .1
 
 
-var voxel_world
+var voxel_world : VoxelVillage
 
 var current_voxel
 var last_voxel_type := Voxel.Shapes.CUBE
@@ -310,6 +310,9 @@ func HandleWizardModeActions():
 	if Input.is_action_just_released("tool2"): SwitchToolMode(ToolModes.Rotate)
 	if Input.is_action_just_released("tool3"): SwitchToolMode(ToolModes.SetShape)
 	if Input.is_action_just_released("tool4"): SwitchToolMode(ToolModes.SetColor)
+	
+	if hovered_object == null:
+		return
 	
 	match wizard_tool_mode:
 		ToolModes.AddRemove:

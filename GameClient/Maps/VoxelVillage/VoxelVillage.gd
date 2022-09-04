@@ -4,6 +4,8 @@ class_name VoxelVillage
 
 const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
+@export var save_path : String = "user://voxels/"
+
 
 # Add voxel based on a character plopping down a block. Results in voxeling moving slightly.
 func AddVoxel(voxeling, voxel):
@@ -34,6 +36,7 @@ func AddVoxelAtGlobalPos(global_pos: Vector3, voxel: Voxel):
 
 func LoadLandscape(filename: String):
 	var file = File.new()
+	#if file.open(save_path + filename, File.READ) == OK:
 	if file.open(filename, File.READ) == OK:
 		print ("file opened..")
 		var json := JSON.new()
