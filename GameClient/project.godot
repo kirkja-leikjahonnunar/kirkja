@@ -128,8 +128,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/camera_placements/plugin.cfg")
-<<<<<<<Updatedupstreamenabled=PackedStringArray("res://addons/prettyprimitive/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 

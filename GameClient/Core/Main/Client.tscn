@@ -17,15 +17,31 @@ script = ExtResource("1_8xf8t")
 
 [node name="OverlayHaze" parent="." instance=ExtResource("3_ud1vi")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DebugOverlay" parent="." instance=ExtResource("3_dv8lm")]
 
 [node name="LoginScreen" parent="." instance=ExtResource("2_xkabq")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_y5i7l")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_37um4")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 LoginWindow = NodePath("../LoginScreen")
 OptionsWindow = NodePath("../OptionsMenu")
 OverlayHaze = NodePath("../OverlayHaze")
