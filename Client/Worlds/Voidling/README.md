@@ -1,8 +1,8 @@
 # Voidling
 
-**Voidlings** are ephemeral entities that may intersect and pass through most in-game objects. Voidlings are largely unable to affect the world on their own. Voidlings will need to pop in and out of  without a [context](../Context)  
+**Voidlings** are ephemeral entities that may intersect and pass through most in-game objects. Voidlings are largely unable to affect the world on their own but instead rely on hopping "in" and "out" of [world contexts](../). Voidlings will need to pop in and out of  without a [context](../Context)  
 
-As a voidling, we will be able to travel around the world of Kirkja looking for [new contexts](../Context) to inhabit.
+As a voidling, we will be able to travel around the [worlds](../../) of Kirkja looking for [new contexts](../Contexts) to inhabit.
 
 
 ## Look & Feel
@@ -17,8 +17,8 @@ Voidlings should be able to access a reasonable amount of jump space (maybe 3 ti
 
 Voidling movement is limited by a fog-of-war, but the fog is lifted as the player travels around the world within new contexts.
 
-## Context Habitation
+## Context Hopping
 Voidlings hop-in and hop-out of [contexts](../Context) to **interact with** and **affect** the in-game world. Contexts are usually NPC quest givers, but could also be animals, or inanimate objects.
 
 ## Void Space
-Void Space is the persistent personal area that every voidling has access to. It includes the main menu, inventory, neighborhoods, and portals.
+[Void space](../) is the persistent personal area that every voidling has access to. It surrounds the player's current context the player voidling It includes the main menu, inventory, neighborhoods, and portals. Similar to account bound or just the account itself? Yes!

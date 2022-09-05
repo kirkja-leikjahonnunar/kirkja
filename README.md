@@ -2,15 +2,23 @@
 
 This repo contains the primary Godot projects that make up the Kirkja runtime.
 
-exist.
-behave true.
-make mistakes.
-atone + grow.
+## Model Contributor Behavior
+
+> exist.
+> behave true.
+> make mistakes.
+> atone + grow.
 
 
-## Folder Structure
-Launch each of these Godot projects in order.
-1. [`AuthenticationServer`](AuthenticationServer)
-1. [`GatewayServer`](GatewayServer)
-1. [`GameServer`](GameServer)
-3. [`GameClient`](GameClient)
+## Project Folders
+- [`Client`](Client)
+- [`Server`](Server) 
+- [`Gateway`](Gateway)
+- [`Authentication`](Authentication)
+
+## Running from Editor
+Open all the projects in their own Godot instance. Then click `▶`, or `F5`, from within each editor in the following order:
+1. Authentication
+1. Gateway
+1. Server
+1. Client

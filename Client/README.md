@@ -1,5 +1,5 @@
-# Kirkja GameClient
+# Kirkja (Game Client)
 
-The game client connects to GameServers by way of the GatewayServer.
+The the **Kirkja game client** connects to GameServers by way of the GatewayServer.
 
 

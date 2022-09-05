@@ -10,10 +10,10 @@ In an attempt to stay consistent early on...
 
 ### General Rules
 Use the `code` markdown to denote:
-- Keyboard shortcuts.
+- Keyboard shortcuts: `Shift` + `H`
+- Navigate menus and buttons within an app: `File` > `Save`.
 - Object classes.
 - Variable names.
-- Open an app to a certain UI location.
 
 
 # How best to be understood on different platforms.
@@ -37,17 +37,18 @@ Once we have our text selected:
 - Codeblock: `?`
 
 
-## GDScript 4
+## How to organize GDScript 4 files.
 Organizing standards for Godot scripts:
+
 1. `extends` any parent class.
 1. `class_name` name of our class.
 1. `const` preload asset files.
 1. `@onready var ` wait until this object is loaded to get scene nodes.
-1. `export` exposed variables in the level editor.
+1. `@export` expose variables in the level editor.
 1. `var` class variables.
 1. `func _ready():` built-in functions
 1. `func DoIt():` class functions.
-1. `func _on_Button_pressed():` signal hooks.
+1. `func _on_button_pressed():` signal hooks.
 
 _Example_
 
