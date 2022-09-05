@@ -85,7 +85,7 @@ func SetColor(color : Color):
 
 @export var shape : Shapes = Shapes.CUBE:
 	set(value):
-		print ("Voxel.shape setter: ", value, " = ", Shapes.keys()[value])
+		#print ("Voxel.shape setter: ", value, " = ", Shapes.keys()[value])
 		shape = value
 		
 		if !is_inside_tree(): return # we rely on SetInitial() to properly initialize after _ready()
@@ -139,7 +139,7 @@ func InitMats(force : bool):
 
 var ready_done := false
 func _ready():
-	print ("voxel ready")
+	#print ("voxel ready")
 	#target_rotation = basis
 	target_rotation = rotation
 	target_basis = basis
@@ -158,11 +158,11 @@ func _ready():
 
 # Used after _ready() to ensure that shape and color are properly initialized.
 func SetInitial():
-	print ("voxel ready deferred")
+	#print ("voxel ready deferred")
 	#print ("    BASE: ", BASE, ", FLARE: ", FLARE)
 	base_color = base_color # these have setters, and in Godot 4 unlike 3, script usage triggers setters
 	shape = shape
-	print (name, ", basism: ", $Model.basis)
+	#print (name, ", basism: ", $Model.basis)
 
 
 #---------------------- Information Functions ----------------------------

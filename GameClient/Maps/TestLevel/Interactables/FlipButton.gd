@@ -44,7 +44,7 @@ func SetSwitch(pressed):
 	else:
 		on = true
 		var tween : Tween = get_tree().create_tween()
-		tween.tween_property($Switch, "rotation", Vector3(deg2rad(-30.9), 0, 0), 0.25)
+		tween.tween_property($Switch, "rotation", Vector3(deg_to_rad(-30.9), 0, 0), 0.25)
 		if seesaw:
 			tween = get_tree().create_tween()
 			tween.tween_property(seesaw, "rotation", Vector3(seesaw.rotation.x, seesaw.rotation.y, -seesaw_zrot), 0.1)

@@ -13,7 +13,7 @@ const MIN_DB = 60 # How loud is 60 dB SPF? The lowest a person can detect so we'
 var master_volume : float = 1.0:
 	set(value):
 		master_volume = value
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(master_volume))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(master_volume))
 
 
 var spectrum : AudioEffectSpectrumAnalyzerInstance
@@ -21,7 +21,7 @@ var knobs : Array
 
 
 func _ready():
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(0.2))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.2))
 	spectrum = AudioServer.get_bus_effect_instance(0, 0)
 	var delta_x : float = 16.0 / float(VU_COUNT)
 	
@@ -46,7 +46,7 @@ func _process(_delta):
 		#knobs[i - 1].position.y = magnitude * 1000
 #		knobs[i - 1].magnitude = 1.0 # magnitude * 1000 # log(magnitude * 1000)
 #		knobs[i - 1].SetMagnatude(db2linear(magnitude * 1000))
-		knobs[i - 1].SetMagnatude(((MIN_DB + linear2db(magnitude)) / MIN_DB) * 10)
+		knobs[i - 1].SetMagnatude(((MIN_DB + linear_to_db(magnitude)) / MIN_DB) * 10)
 		prev_hz = hz
 		
 #		print(db2linear(magnitude))

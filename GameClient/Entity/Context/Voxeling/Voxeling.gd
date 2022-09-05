@@ -150,6 +150,7 @@ func HandleMovement(delta: float):
 				Falling()
 	else: # not just jumped
 		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+			looking_for_hang = true
 			Falling()
 		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
 			JumpEnd()
@@ -243,6 +244,9 @@ func _on_drill_body_entered(body):
 					hovered_object = null
 
 
+var hanging := false
+var looking_for_hang := false
+
 func _on_bump_body_entered(body):
 	if wizard_mode_active: return
 	
@@ -253,6 +257,11 @@ func _on_bump_body_entered(body):
 			body.call_deferred("SelfDestruct")
 			if body == hovered_object:
 					hovered_object = null
+	else:
+		if looking_for_hang:
+			if not $FallDetector.is_colliding():
+				print ("HANG on ", body.name)
+				looking_for_hang = false
 
 
 #-------------------------------------------------------------------------------------------

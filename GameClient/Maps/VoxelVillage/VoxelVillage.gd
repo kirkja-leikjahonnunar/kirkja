@@ -5,6 +5,7 @@ class_name VoxelVillage
 const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
 @export var save_path : String = "user://voxels/"
+@export var current_save_file : String = "voxels0.vox"
 
 
 # Add voxel based on a character plopping down a block. Results in voxeling moving slightly.
@@ -59,25 +60,25 @@ func LoadLandscape(filename: String):
 				print ("after AddVoxel")
 				
 				var model = voxel.get_node("Model")
-				var q : Quaternion = str2var(vdata.rotq)
+				var q : Quaternion = str_to_var(vdata.rotq)
 				model.quaternion = q
 				voxel.target_rotation = q.get_euler()
 				voxel.target_basis = Basis(q)
 				#vox.get_node("Model").rotation = voxel.rot
 				#vox.get_node("Model").rotation = Vector3(voxel.rx, voxel.ry, voxel.rz)
 				#vox.get_node("Model").rotation = vox.target_rotation
-				#vox.target_rotation = str2var(voxel.rot)
+				#vox.target_rotation = str_to_var(voxel.rot)
 				#vox.get_node("Model").quaternion 
-				#vox.get_node("Model").quaternion = str2var(voxel.q)
+				#vox.get_node("Model").quaternion = str_to_var(voxel.q)
 				
 				voxel.number = vdata.number
 				voxel.SwapShape(vdata.shape) # this needs to happen AFTER voxel is inserted into tree because of setters!!!! arrrg!!
 				#vox.SetColor(voxel.color)
 				voxel.SetColor(Color(vdata.r, vdata.g, vdata.b))
 				voxel.name = vdata.name
-				print (voxel.name, " basis: ", voxel.basis)
-				print (voxel.name, " basism: ", model.basis)
-				print (voxel.name, " rotation: ", model.rotation)
+				#print (voxel.name, " basis: ", voxel.basis)
+				#print (voxel.name, " basism: ", model.basis)
+				#print (voxel.name, " rotation: ", model.rotation)
 		else: print ("Error parsing json")
 		print ("Loading from ",filename," complete!")
 	else:
@@ -95,12 +96,12 @@ func DataifyVoxels(node: Node3D):
 			voxels.append({ "x": voxel.position.x,
 							"y": voxel.position.y,
 							"z": voxel.position.z,
-							"rot": var2str(voxel.target_rotation),
-							"rotq": var2str(Quaternion(voxel.target_rotation)),
-							"q": var2str(model.quaternion),
-							"basis": var2str(voxel.basis),
-							"basism": var2str(model.basis),
-							"basismq": var2str(model.quaternion),
+							"rot": var_to_str(voxel.target_rotation),
+							"rotq": var_to_str(Quaternion(voxel.target_rotation)),
+							"q": var_to_str(model.quaternion),
+							"basis": var_to_str(voxel.basis),
+							"basism": var_to_str(model.basis),
+							"basismq": var_to_str(model.quaternion),
 							"rx": model.rotation.x,
 							"ry": model.rotation.y,
 							"rz": model.rotation.z,

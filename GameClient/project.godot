@@ -126,10 +126,6 @@ GameGlobals="*res://Core/Singletons/GameGlobals.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/prettyprimitive/plugin.cfg")
-
 [filesystem]
 
 import/blender/enabled=false
