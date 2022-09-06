@@ -20,6 +20,7 @@ var spectrum : AudioEffectSpectrumAnalyzerInstance
 var knobs : Array
 
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.2))
 	spectrum = AudioServer.get_bus_effect_instance(0, 0)
@@ -64,3 +65,6 @@ func _process(_delta):
 #		dB     Range [60.0  to 120.0]
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass

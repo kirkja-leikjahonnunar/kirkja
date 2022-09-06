@@ -1,4 +1,4 @@
-# BespokeSynth
+# BespokeSynth Setting up MimeTypes
 
 ## Download
 https://www.bespokesynth.com/
