@@ -151,6 +151,7 @@ func HandleMovement(delta: float):
 	else: # not just jumped
 		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
 			looking_for_hang = true
+			print ("Set looking_for_hang = true")
 			Falling()
 		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
 			JumpEnd()
@@ -170,10 +171,11 @@ func HandleActions():
 	
 	if Input.is_action_just_released("Save"):
 		if voxel_world == null: InitVoxelRealm()
-		voxel_world.SaveLandscape("VoxelTest.voxels")
+		#voxel_world.SaveLandscape()
+		voxel_world.InitiateSave()
 	if Input.is_action_just_released("Load"):
 		if voxel_world == null: InitVoxelRealm()
-		voxel_world.LoadLandscape("VoxelTest.voxels")
+		voxel_world.LoadLandscape()
 	
 	
 	if wizard_mode_active:

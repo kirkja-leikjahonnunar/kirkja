@@ -2,9 +2,6 @@
 extends StaticBody3D
 class_name Voxel
 
-#@onready var BASE = preload("res://Maps/VoxelVillage/Voxel/assets/base.material")
-#@onready var FLARE = preload("res://Maps/VoxelVillage/Voxel/assets/flare.material")
-
 
 # Note: these need to be in same order as mesh_list.
 enum Shapes # enum needs to be before using it in @export.
@@ -26,6 +23,7 @@ enum Dir {
 	z_minus,
 	z_plus
 }
+
 
 @export var base_color : Color = Color("999666"):
 	set(value):
@@ -90,27 +88,18 @@ func SetColor(color : Color):
 		
 		if !is_inside_tree(): return # we rely on SetInitial() to properly initialize after _ready()
 		
-		$Model/shape_base.mesh = mesh_list[value*2]
-		$Model/shape_flare.mesh = mesh_list[value*2+1]
+		$Model/shape_base.mesh  = shape_list.base_meshes[value]
+		$Model/shape_flare.mesh = shape_list.flare_meshes[value]
+		$CollisionShape3D.shape = shape_list.colliders[value]
 
 
 @export var BASE : Material
 @export var FLARE : Material
 
-#TODO: this could be simplified by having single mesh with two surfaces
 # Note: these need to be in same order as Shapes enum.
-@export var mesh_list : Array[Mesh]
-
-#const const_mesh_list = [
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_base.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_flare.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_base.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_flare.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_base.res"),
-#	preload("res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_flare.res")
-#]
+@export var shape_list : Resource
+#@export var mesh_list : Array[Mesh]
+#@export var colliders : Array[Shape3D]
 
 
 #------------------------------- Variables --------------------------------------
@@ -168,7 +157,8 @@ func SetInitial():
 #---------------------- Information Functions ----------------------------
 
 func NearestSide(world_point : Vector3):
-	var size = $CollisionShape3D.shape.extents
+	var size = Vector3(shape_list.voxel_size, shape_list.voxel_size, shape_list.voxel_size)
+	#var size = $CollisionShape3D.shape.extents
 
 	var closest = Dir.None
 	var dist = 10000.0
@@ -249,7 +239,6 @@ func RotateAroundZ(amount) -> Vector3:
 
 # Tweening function to help smooth out rotation lerping across large angles
 func lerp_quat(value, start_quat: Quaternion, end_quat: Quaternion):
-	var q = start_quat.slerp(end_quat, value)
 	$Model.quaternion = start_quat.slerp(end_quat, value)
 
 
@@ -260,9 +249,9 @@ func SwapShape(new_shape : Shapes) -> int:
 
 func NextType() -> int:
 	var new_shape = 0
-	for i in range(0, mesh_list.size(), 2):
-		if $Model/shape_base.mesh == mesh_list[i]:
-			new_shape = ((i+2) % mesh_list.size()) / 2
+	for i in range(0, shape_list.base_meshes.size()):
+		if $Model/shape_base.mesh == shape_list.base_meshes[i]:
+			new_shape = ((i+1) % shape_list.base_meshes.size())
 			break
 	
 	shape = new_shape
