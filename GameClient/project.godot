@@ -64,6 +64,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Maps/Jamming/RainbowAnalyzer.gd"
 }, {
+"base": "ColorRect",
+"class": &"SaveSlot",
+"language": &"GDScript",
+"path": "res://Maps/VoxelVillage/SavePanel/SaveSlot.gd"
+}, {
 "base": "StaticBody3D",
 "class": &"Voxel",
 "language": &"GDScript",
@@ -106,6 +111,7 @@ _global_script_class_icons={
 "PlayerItem": "",
 "ProximityButton": "",
 "RainbowAnalyzer": "",
+"SaveSlot": "",
 "Voxel": "",
 "VoxelBlock": "",
 "VoxelLibrary": "",

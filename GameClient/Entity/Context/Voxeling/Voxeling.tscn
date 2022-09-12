@@ -134,8 +134,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(0.642589, 0, -1.12354e-07, 0, 0.642589, 0, 1.12354e-07, 0, 0.642589, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, -0.0364888, 0, 0.999334)
-bones/3/rotation = Quaternion(0, -0.0378804, 0, 0.999282)
+bones/2/rotation = Quaternion(0, 0.0880849, 0, 0.996113)
+bones/3/rotation = Quaternion(0, 0.0914367, 0, 0.995811)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -158,8 +158,8 @@ bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, -0.0364888, 0, 0.999334)
-bones/30/rotation = Quaternion(0, -0.0378804, 0, 0.999282)
+bones/23/rotation = Quaternion(0, 0.0880849, 0, 0.996113)
+bones/30/rotation = Quaternion(0, 0.0914367, 0, 0.995811)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 

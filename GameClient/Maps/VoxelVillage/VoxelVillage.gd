@@ -5,7 +5,9 @@ class_name VoxelVillage
 const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
 @export var save_path : String = "user://voxels/"
-@export var current_save_file : String = "voxels0.vox"
+@export var save_extension : String = "vox"
+
+var current_save_file_path : String # this should have save_path inside it, for now we assume we don't change save_path at runtime
 
 
 # Note: these need to be in same order as Voxel.Shapes enum.
@@ -18,6 +20,8 @@ const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
 func _ready():
 	$SavePanel.save_pressed.connect(SavePressed)
+	$SavePanel.load_pressed.connect(LoadPressed)
+	$SavePanel.canceled.connect(SavePanelCanceled)
 	$SavePanel.visible = false
 
 
@@ -49,7 +53,7 @@ func AddVoxelAtGlobalPos(global_pos: Vector3, voxel: Voxel):
 
 
 func LoadLandscape() -> bool:
-	var file_path = save_path + current_save_file
+	var file_path = current_save_file_path
 	var file = File.new()
 	#if file.open(save_path + filename, File.READ) == OK:
 	if file.open(file_path, File.READ) == OK:
@@ -150,7 +154,7 @@ func SaveLandscape() -> bool:
 			push_error("Failed to make dir path: ", save_path)
 			return false
 	
-	var file_path = save_path + current_save_file
+	var file_path = current_save_file_path
 	
 	var file = File.new()
 	if file.open(file_path, File.WRITE) == OK:
@@ -181,29 +185,6 @@ func ScanForMaxNumber():
 			max_number = child.number
 
 
-# Return a list of files (not directories) at the directory path that end with ending.
-func GetSlots(path: String, ending: String):
-	var dir = Directory.new()
-	var elements = []
-	
-	if dir.open(path) != OK:
-		print_debug ("Could not open directory ", path)
-		return null
-		
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		if dir.current_is_dir():
-			print("Found directory: " + file_name)
-		else:
-			print("Found file: " + file_name)
-			if file_name.ends_with(ending):
-				elements.appenD(file_name)
-		file_name = dir.get_next()
-	
-	return elements
-
-
 #----------------------------- Signals / Interface ------------------------------
 
 var old_mouse_capture
@@ -211,11 +192,37 @@ var old_mouse_capture
 func InitiateSave():
 	old_mouse_capture = Input.get_mouse_mode()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	$SavePanel.visible = true
+	$SavePanel.FlushSlots()
+	$SavePanel.UpdateSaveSlots(save_path, save_extension)
+	$SavePanel.SetForSaving()
+	$SavePanel.Activate()
 
-
-func SavePressed():
-	$SavePanel.visible = false
+# signal callback when save triggered from SavePanel
+func SavePressed(path):
+	current_save_file_path = path
+	$SavePanel.Deactivate()
 	Input.set_mouse_mode(old_mouse_capture)
 	SaveLandscape()
+
+
+func InitiateLoad():
+	old_mouse_capture = Input.get_mouse_mode()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$SavePanel.FlushSlots()
+	$SavePanel.UpdateSaveSlots(save_path, save_extension)
+	$SavePanel.SetForLoading()
+	$SavePanel.Activate()
+
+# signal callback when load triggered from SavePanel
+func LoadPressed(path):
+	current_save_file_path = path
+	$SavePanel.Deactivate()
+	Input.set_mouse_mode(old_mouse_capture)
+	LoadLandscape()
+
+
+func SavePanelCanceled():
+	$SavePanel.Deactivate()
+	Input.set_mouse_mode(old_mouse_capture)
+
 

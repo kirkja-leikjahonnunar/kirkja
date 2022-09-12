@@ -1,4 +1,9 @@
 extends ColorRect
+class_name SaveSlot
+
+
+var path: String
+#var mod_time
 
 
 func SetText(new_text):
@@ -15,5 +20,5 @@ func SetUnselected():
 
 func SetColor(new_color: Color):
 	color = new_color
-	material.set_shader_uniform("color", new_color)
-	material.set_shader_uniform("border_color", new_color.darkened(.15))
+	material.set_shader_parameter("color", new_color)
+	material.set_shader_parameter("border_color", new_color.darkened(.15))

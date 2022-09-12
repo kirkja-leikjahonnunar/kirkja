@@ -53,7 +53,7 @@ func _process(_delta):
 			
 #		var magnitude : float = spectrum.get_magnitude_for_frequency_range(prev_hz, hz, 0).length() # MagnitudeMode.
 		
-		knobs[i - 1].SetMagnatude(((MIN_DB + linear2db(magnitude)) / MIN_DB) * 10, knob_radius)
+		knobs[i - 1].SetMagnatude(((MIN_DB + linear_to_db(magnitude)) / MIN_DB) * 10, knob_radius)
 		prev_hz = hz
 
 

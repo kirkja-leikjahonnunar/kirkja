@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Maps/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
 [ext_resource type="ArrayMesh" uid="uid://dqcxaym6ihc8i" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res" id="2_aimer"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="3_a4wep"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/flare.material" id="3_3s3dd"]
 [ext_resource type="Resource" uid="uid://diosgih4es15i" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/voxel_shapes.tres" id="4_6juql"]
 [ext_resource type="ArrayMesh" uid="uid://vblq5hp6e543" path="res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res" id="4_8pakw"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="4_bqbo3"]
@@ -21,7 +21,7 @@ collision_layer = 16
 script = ExtResource("1_2cj8q")
 base_color = Color(0.85098, 1, 0.639216, 1)
 BASE = ExtResource("4_bqbo3")
-FLARE = ExtResource("3_a4wep")
+FLARE = ExtResource("3_3s3dd")
 shape_list = ExtResource("4_6juql")
 
 [node name="Model" type="Node3D" parent="."]

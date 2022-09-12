@@ -98,8 +98,6 @@ func SetColor(color : Color):
 
 # Note: these need to be in same order as Shapes enum.
 @export var shape_list : Resource
-#@export var mesh_list : Array[Mesh]
-#@export var colliders : Array[Shape3D]
 
 
 #------------------------------- Variables --------------------------------------

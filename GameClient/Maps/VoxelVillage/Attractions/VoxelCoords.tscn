@@ -1,823 +1,823 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkm7q45ylguyg"]
 
 [ext_resource type="PackedScene" uid="uid://bqp6ldefi5g41" path="res://Maps/VoxelVillage/Voxel/Voxel.tscn" id="1_cawmk"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="2_ydjgt"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Maps/VoxelVillage/Voxel/assets/base.material" id="2_wlsf0"]
 
 [node name="VoxelCoords" type="Node3D"]
 editor_description = "An attraction within the VoxelVillage.tscn."
 
 [node name="Origin" parent="." instance=ExtResource("1_cawmk")]
 base_color = Color(1, 0.901961, 0.0509804, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="AxisX" type="Node3D" parent="."]
 
 [node name="x1" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 base_color = Color(0.815686, 0.619608, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x2" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 base_color = Color(0.815686, 0.356863, 0.027451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x3" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 base_color = Color(0.815686, 0.333333, 0.109804, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x4" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x5" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x6" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x7" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x8" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="x9" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="AxisY" type="Node3D" parent="."]
 
 [node name="Voxel58" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 base_color = Color(0.823529, 0.905882, 0.141176, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel67" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 base_color = Color(0.419608, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel68" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 base_color = Color(0.337255, 0.905882, 0.105882, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel71" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel118" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel119" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel120" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel121" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel122" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="AxisZ" type="Node3D" parent="."]
 
 [node name="Voxel31" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 base_color = Color(0.764706, 0.784314, 0.596078, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel11" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 base_color = Color(0.486275, 0.486275, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel57" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel64" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel65" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 base_color = Color(0.313726, 0.329412, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel70" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 base_color = Color(0.4, 0.392157, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel59" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel60" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel66" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Maze" type="Node3D" parent="."]
 
 [node name="Voxel125" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel126" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel127" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel128" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel129" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel130" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel135" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel136" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel137" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel138" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel139" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel140" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel145" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel146" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel147" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel148" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel149" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel151" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel152" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel154" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel155" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel156" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel157" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel32" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel33" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel34" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel35" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel36" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel37" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel38" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel39" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel40" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel91" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel92" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel93" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel94" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel95" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel96" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel97" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.2, 0.2)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel98" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel99" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel100" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel101" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel102" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel103" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel104" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel105" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel106" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel107" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel108" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel109" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel110" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel111" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel112" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel113" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel114" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel115" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel116" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel117" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel41" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel123" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel124" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel131" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel132" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel133" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel134" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.6)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel141" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel142" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel143" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel144" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel150" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel158" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel159" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel160" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel161" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel166" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel162" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel163" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel164" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel165" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel153" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.8)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Extras" type="Node3D" parent="."]
 
 [node name="Voxel4" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel5" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03906, 0, -0.255302)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel12" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel13" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel14" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel15" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel16" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel17" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel18" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1.1)
 base_color = Color(0.137255, 0.666667, 0.0980392, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel19" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel20" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel22" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel23" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel25" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel26" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1.2)
 base_color = Color(0.862745, 0.247059, 0.286275, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel27" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel28" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel29" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel30" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel21" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.4, 0.2, -1.1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel24" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0.2, -1.1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel42" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.2, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel43" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.2, -1.2)
 base_color = Color(0.862745, 0.247059, 0.286275, 1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel78" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 0.2, -1.2)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel79" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.701602, 0.2, -1.2)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel80" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, 0.2, -1.2)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel81" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel82" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel83" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.3, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel84" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel85" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.4, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel86" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.5, -1.2)
 base_color = Color(0.172549, 0.0980392, 0.666667, 1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel87" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 8.74228e-08, 8.74228e-08, 8.74228e-08, -1, 7.64274e-15, 8.74228e-08, 0, -1, 0.9, 0.5, -1.2)
 base_color = Color(0.666667, 0.2, 0.384314, 1)
 shape = 2
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel44" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.2)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel45" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel46" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel47" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel48" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1)
 base_color = Color(0.603922, 0.458824, 0.666667, 1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel49" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel50" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel51" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, 8.74228e-08, -7.64274e-15, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, 0.4, 0.2, -1)
 shape = 2
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel52" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel55" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel56" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel76" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel77" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1)
 shape = 2
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel53" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.3)
 base_color = Color(0.905882, 0.345098, 0.945098, 1)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel54" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.053251)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel63" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.1, 0.3)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel88" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.2, 0.3)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel89" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.1, 0.3)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel90" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(4.37114e-08, 0, 1, 3.82137e-15, 1, 0, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.2, 0.3)
 base_color = Color(1, 0.32549, 0.356863, 1)
 shape = 1
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel69" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel61" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.9)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel62" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0.9)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel2" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel3" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")
 
 [node name="Voxel" parent="Extras/Voxel3" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161542)
-BASE = ExtResource("2_ydjgt")
+BASE = ExtResource("2_wlsf0")

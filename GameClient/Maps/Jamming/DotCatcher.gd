@@ -64,7 +64,3 @@ func _process(_delta):
 #		Linear Range [100.0 to 1,000,000.0]
 #		dB     Range [60.0  to 120.0]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

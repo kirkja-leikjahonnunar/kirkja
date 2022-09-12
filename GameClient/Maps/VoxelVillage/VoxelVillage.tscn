@@ -1,24 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://d05kua5i8ge1w"]
+[gd_scene load_steps=11 format=3 uid="uid://bajrq60b3olfe"]
 
 [ext_resource type="Script" path="res://Maps/VoxelVillage/VoxelVillage.gd" id="1_fv4ve"]
 [ext_resource type="PackedScene" uid="uid://44rd28j486vp" path="res://Materials/TestWorldEnvironment.tscn" id="2_rr6oq"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="3_86h1s"]
 [ext_resource type="PackedScene" uid="uid://dkm7q45ylguyg" path="res://Maps/VoxelVillage/Attractions/VoxelCoords.tscn" id="3_xrda2"]
 [ext_resource type="PackedScene" uid="uid://ba5oadbsoymjf" path="res://Entity/Context/Voxeling/Voxeling.tscn" id="5_jw5en"]
-[ext_resource type="Script" path="res://Maps/VoxelVillage/SavePanel.gd" id="6_yjdou"]
-[ext_resource type="Shader" path="res://Materials/roundedborder.gdshader" id="7_b73pr"]
-[ext_resource type="Material" uid="uid://ca3c75sb4jji0" path="res://Materials/roundedborder_mat.tres" id="7_i5148"]
-[ext_resource type="Script" path="res://Maps/VoxelVillage/SavePanel/SaveSlot.gd" id="8_bpch6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltm1b"]
-shader = ExtResource("7_b73pr")
-border_color = null
-border_thickness = 0.053
-color = null
-radius = 0.169
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8rau"]
-bg_color = Color(0.6, 0.6, 0.6, 0.305882)
+[ext_resource type="Script" path="res://Maps/VoxelVillage/SavePanel/SavePanel.gd" id="6_yjdou"]
 
 [sub_resource type="Gradient" id="Gradient_p12to"]
 
@@ -64,14 +51,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_yjdou")
 
-[node name="ColorRect" type="ColorRect" parent="SavePanel"]
+[node name="BG" type="ColorRect" parent="SavePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.505882, 0.329412, 1, 0.439216)
+color = Color(0.505882, 0.329412, 1, 0.384314)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SavePanel"]
 layout_mode = 1
@@ -111,52 +98,10 @@ offset_bottom = 662.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer"]
-material = ExtResource("7_i5148")
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_right = 100.0
-offset_bottom = 100.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-script = ExtResource("8_bpch6")
-
-[node name="TextureRect" type="ColorRect" parent="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/ColorRect"]
-material = SubResource("ShaderMaterial_ltm1b")
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -44.0
-offset_right = 38.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -26.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
-text = "Slot"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="AddNew" type="ColorRect" parent="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = 104.0
-offset_right = 204.0
+offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -195,8 +140,8 @@ color = Color(0.533333, 0.533333, 0.533333, 1)
 [node name="TextureRect" type="TextureRect" parent="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = 208.0
-offset_right = 308.0
+offset_left = 104.0
+offset_right = 204.0
 offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -228,7 +173,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/bg = SubResource("StyleBoxFlat_h8rau")
 item_count = 2
 max_columns = 0
 icon_mode = 0
@@ -279,6 +223,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 color = Color(0.533333, 0.533333, 0.533333, 1)
 
+[connection signal="gui_input" from="SavePanel" to="SavePanel" method="_on_save_panel_gui_input"]
 [connection signal="gui_input" from="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/AddNew" to="SavePanel" method="_on_add_new_gui_input"]
 [connection signal="mouse_entered" from="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/AddNew" to="SavePanel" method="_on_add_new_mouse_entered"]
 [connection signal="mouse_exited" from="SavePanel/VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/AddNew" to="SavePanel" method="_on_add_new_mouse_exited"]
