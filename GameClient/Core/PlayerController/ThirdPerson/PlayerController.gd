@@ -398,7 +398,7 @@ func SetCharTilt(direction: Vector3):
 		#print ("angle: ", atan2(-direction.x, direction.z))
 		target_tilt = amount * .1 #* sign(direction.y)
 		player_model_parent.rotation.x = lerp_angle(player_model_parent.rotation.x, target_tilt, tilt_damp)
-		#print ("tilt: ", rad2deg(amount * tilt_damp))
+		#print ("tilt: ", rad_to_deg(amount * tilt_damp))
 	else:
 		player_model_parent.rotation.x = lerp_angle(player_model_parent.rotation.x, 0, tilt_damp)
 

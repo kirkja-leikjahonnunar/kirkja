@@ -6,7 +6,7 @@ const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 const voxel_size = .1
 
 
-var voxel_world
+var voxel_world : VoxelVillage
 
 var current_voxel
 var last_voxel_type := Voxel.Shapes.CUBE
@@ -82,6 +82,10 @@ func HandleMovement(delta: float):
 		CastFromCamera()
 		need_to_update_cast = false
 	
+	if hanging:
+		HandleMovementHanging(delta)
+		return
+	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && CurrentActionValid("voxeling_add_voxel"):
 		print("Adding voxel.")
 		SpawnVoxel()
@@ -150,6 +154,8 @@ func HandleMovement(delta: float):
 				Falling()
 	else: # not just jumped
 		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+			looking_for_hang = true
+			print ("Set looking_for_hang = true")
 			Falling()
 		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
 			JumpEnd()
@@ -169,10 +175,13 @@ func HandleActions():
 	
 	if Input.is_action_just_released("Save"):
 		if voxel_world == null: InitVoxelRealm()
-		voxel_world.SaveLandscape("VoxelTest.voxels")
+		#voxel_world.SaveLandscape()
+		voxel_world.InitiateSave()
+	
 	if Input.is_action_just_released("Load"):
 		if voxel_world == null: InitVoxelRealm()
-		voxel_world.LoadLandscape("VoxelTest.voxels")
+		voxel_world.InitiateLoad()
+		#voxel_world.LoadLandscape()
 	
 	
 	if wizard_mode_active:
@@ -253,6 +262,42 @@ func _on_bump_body_entered(body):
 			body.call_deferred("SelfDestruct")
 			if body == hovered_object:
 					hovered_object = null
+	else:
+		if looking_for_hang:
+			if not $FallDetector.is_colliding():
+				print ("HANG on ", body.name)
+				StartToHang(body)
+				looking_for_hang = false
+
+
+#-------------------------------------------------------------------------------------------
+#-------------------------------- Hanging Controller ---------------------------------------
+#-------------------------------------------------------------------------------------------
+
+var hanging := false
+var looking_for_hang := false
+var last_hang : Voxel
+var hang_lerping : bool
+
+func StartToHang(on_this: Voxel):
+	last_hang = on_this
+	hanging = true
+	var hang_side = on_this.NearestSide(global_position)
+	var v_size = on_this.shape_list.voxel_size
+	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(hang_side))
+	
+	hang_lerping = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
+
+func FinishHangLerp():
+	hang_lerping = false
+
+
+func HandleMovementHanging(delta: float):
+	if Input.is_action_just_pressed("char_jump"):
+		hanging = false
+		looking_for_hang = true
 
 
 #-------------------------------------------------------------------------------------------
@@ -310,6 +355,9 @@ func HandleWizardModeActions():
 	if Input.is_action_just_released("tool2"): SwitchToolMode(ToolModes.Rotate)
 	if Input.is_action_just_released("tool3"): SwitchToolMode(ToolModes.SetShape)
 	if Input.is_action_just_released("tool4"): SwitchToolMode(ToolModes.SetColor)
+	
+	if hovered_object == null:
+		return
 	
 	match wizard_tool_mode:
 		ToolModes.AddRemove:

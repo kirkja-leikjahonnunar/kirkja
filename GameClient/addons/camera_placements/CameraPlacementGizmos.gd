@@ -138,7 +138,7 @@ func _redraw(gizmo: EditorNode3DGizmo):
 	handles.append(node.to_global(node.proxy_left))
 	handles.append(node.to_global(node.proxy_back))
 	
-	var bas = Basis().scaled(Vector3(5.05,5.05,5.05)).rotated(Vector3(0,1,0),deg2rad(45)).rotated(Vector3(1,0,0),deg2rad(90))
+	var bas = Basis().scaled(Vector3(5.05,5.05,5.05)).rotated(Vector3(0,1,0),deg_to_rad(45)).rotated(Vector3(1,0,0),deg_to_rad(90))
 	gizmo.add_mesh(mesh, gizmo_mat2, Transform3D(bas, node.to_global(node.proxy_fps)))
 	gizmo.add_mesh(mesh, gizmo_mat2, Transform3D(bas, node.to_global(node.proxy_over)))
 	gizmo.add_mesh(mesh, gizmo_mat2, Transform3D(bas, node.to_global(node.proxy_right)))

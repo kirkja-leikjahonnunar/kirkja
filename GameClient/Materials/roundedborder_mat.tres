@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b7hxsnfeap3"]
+
+[ext_resource type="Shader" path="res://Materials/roundedborder.gdshader" id="1_yhecl"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_yhecl")
+border_color = Color(0.827451, 0.831373, 0.796078, 1)
+border_thickness = 0.036
+color = Color(1, 0.976471, 0.968627, 1)
+radius = 0.127

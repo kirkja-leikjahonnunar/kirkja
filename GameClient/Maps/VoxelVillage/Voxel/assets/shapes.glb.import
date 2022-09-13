@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/shapes.glb-ef27560d89236c10f365e220aebb34c6.s
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true

@@ -4,6 +4,26 @@ class_name VoxelVillage
 
 const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
 
+@export var save_path : String = "user://voxels/"
+@export var save_extension : String = "vox"
+
+var current_save_file_path : String # this should have save_path inside it, for now we assume we don't change save_path at runtime
+
+
+# Note: these need to be in same order as Voxel.Shapes enum.
+@export var base_meshes : Array[Mesh]
+@export var flare_meshes : Array[Mesh]
+@export var colliders : Array[Shape3D]
+
+
+#------------------------------------- main --------------------------------------
+
+func _ready():
+	$SavePanel.save_pressed.connect(SavePressed)
+	$SavePanel.load_pressed.connect(LoadPressed)
+	$SavePanel.canceled.connect(SavePanelCanceled)
+	$SavePanel.visible = false
+
 
 # Add voxel based on a character plopping down a block. Results in voxeling moving slightly.
 func AddVoxel(voxeling, voxel):
@@ -32,9 +52,11 @@ func AddVoxelAtGlobalPos(global_pos: Vector3, voxel: Voxel):
 
 
 
-func LoadLandscape(filename: String):
+func LoadLandscape() -> bool:
+	var file_path = current_save_file_path
 	var file = File.new()
-	if file.open(filename, File.READ) == OK:
+	#if file.open(save_path + filename, File.READ) == OK:
+	if file.open(file_path, File.READ) == OK:
 		print ("file opened..")
 		var json := JSON.new()
 		var err = json.parse(file.get_as_text())
@@ -56,29 +78,33 @@ func LoadLandscape(filename: String):
 				print ("after AddVoxel")
 				
 				var model = voxel.get_node("Model")
-				var q : Quaternion = str2var(vdata.rotq)
+				var q : Quaternion = str_to_var(vdata.rotq)
 				model.quaternion = q
 				voxel.target_rotation = q.get_euler()
 				voxel.target_basis = Basis(q)
 				#vox.get_node("Model").rotation = voxel.rot
 				#vox.get_node("Model").rotation = Vector3(voxel.rx, voxel.ry, voxel.rz)
 				#vox.get_node("Model").rotation = vox.target_rotation
-				#vox.target_rotation = str2var(voxel.rot)
+				#vox.target_rotation = str_to_var(voxel.rot)
 				#vox.get_node("Model").quaternion 
-				#vox.get_node("Model").quaternion = str2var(voxel.q)
+				#vox.get_node("Model").quaternion = str_to_var(voxel.q)
 				
 				voxel.number = vdata.number
 				voxel.SwapShape(vdata.shape) # this needs to happen AFTER voxel is inserted into tree because of setters!!!! arrrg!!
 				#vox.SetColor(voxel.color)
 				voxel.SetColor(Color(vdata.r, vdata.g, vdata.b))
 				voxel.name = vdata.name
-				print (voxel.name, " basis: ", voxel.basis)
-				print (voxel.name, " basism: ", model.basis)
-				print (voxel.name, " rotation: ", model.rotation)
-		else: print ("Error parsing json")
-		print ("Loading from ",filename," complete!")
+				#print (voxel.name, " basis: ", voxel.basis)
+				#print (voxel.name, " basism: ", model.basis)
+				#print (voxel.name, " rotation: ", model.rotation)
+			
+			print ("Loading from ",file_path," complete!")
+			return true
+		else:
+			print ("Error parsing json")
 	else:
-		print ("Error opening ", filename)
+		print ("Error opening ", file_path)
+	return false
 
 
 # Note, saved data currently will not preserve child tree
@@ -92,15 +118,15 @@ func DataifyVoxels(node: Node3D):
 			voxels.append({ "x": voxel.position.x,
 							"y": voxel.position.y,
 							"z": voxel.position.z,
-							"rot": var2str(voxel.target_rotation),
-							"rotq": var2str(Quaternion(voxel.target_rotation)),
-							"q": var2str(model.quaternion),
-							"basis": var2str(voxel.basis),
-							"basism": var2str(model.basis),
-							"basismq": var2str(model.quaternion),
-							"rx": model.rotation.x,
-							"ry": model.rotation.y,
-							"rz": model.rotation.z,
+							#"rot": var_to_str(voxel.target_rotation),
+							"rotq": var_to_str(Quaternion(voxel.target_rotation)),
+							#"q": var_to_str(model.quaternion),
+							#"basis": var_to_str(voxel.basis),
+							#"basism": var_to_str(model.basis),
+							#"basismq": var_to_str(model.quaternion),
+							#"rx": model.rotation.x,
+							#"ry": model.rotation.y,
+							#"rz": model.rotation.z,
 							"shape": voxel.shape,
 							#"color": voxel.base_color,
 							"r": voxel.base_color.r,
@@ -116,20 +142,32 @@ func DataifyVoxels(node: Node3D):
 			voxels.append_array(more)
 	return voxels
 
-func SaveLandscape(filename: String):
+
+func SaveLandscape() -> bool:
 	#TODO: optimize this, text json really huge
 	var voxels := DataifyVoxels($Landscape)
 	var data := { "voxels": voxels }
 	
+	var dir = Directory.new()
+	if not dir.dir_exists(save_path):
+		if dir.make_dir_recursive(save_path) != OK:
+			push_error("Failed to make dir path: ", save_path)
+			return false
+	
+	var file_path = current_save_file_path
+	
 	var file = File.new()
-	if file.open(filename, File.WRITE) == OK:
+	if file.open(file_path, File.WRITE) == OK:
 		var json = JSON.new()
 		var jstr := json.stringify(data)
 		file.store_string(jstr)
-		print ("Saved to ",filename,"! -> ", file.get_path_absolute())
+		print ("Saved to ",file_path,"! -> ", file.get_path_absolute())
 		file.close()
+		return true
 	else:
-		print ("Error saving to ", filename)
+		push_error ("Error saving to ", file_path)
+		return false
+		
 
 
 func ResetLandscape():
@@ -137,11 +175,54 @@ func ResetLandscape():
 	pass
 
 
+#--------------------------------- Helper functions -------------------------------
+
 var max_number := 0
 func ScanForMaxNumber():
 	for child in $Landscape.get_children():
 		if not child is Voxel: continue
 		if child.number > max_number:
 			max_number = child.number
+
+
+#----------------------------- Signals / Interface ------------------------------
+
+var old_mouse_capture
+
+func InitiateSave():
+	old_mouse_capture = Input.get_mouse_mode()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$SavePanel.FlushSlots()
+	$SavePanel.UpdateSaveSlots(save_path, save_extension)
+	$SavePanel.SetForSaving()
+	$SavePanel.Activate()
+
+# signal callback when save triggered from SavePanel
+func SavePressed(path):
+	current_save_file_path = path
+	$SavePanel.Deactivate()
+	Input.set_mouse_mode(old_mouse_capture)
+	SaveLandscape()
+
+
+func InitiateLoad():
+	old_mouse_capture = Input.get_mouse_mode()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$SavePanel.FlushSlots()
+	$SavePanel.UpdateSaveSlots(save_path, save_extension)
+	$SavePanel.SetForLoading()
+	$SavePanel.Activate()
+
+# signal callback when load triggered from SavePanel
+func LoadPressed(path):
+	current_save_file_path = path
+	$SavePanel.Deactivate()
+	Input.set_mouse_mode(old_mouse_capture)
+	LoadLandscape()
+
+
+func SavePanelCanceled():
+	$SavePanel.Deactivate()
+	Input.set_mouse_mode(old_mouse_capture)
 
 

@@ -92,7 +92,7 @@ func _ready():
 	#print ("camera placements on ",get_parent().name,": ", camera_placements)
 	
 	player_controller = get_parent()
-	while player_controller != null and not (player_controller is CharacterBody3D or player_controller is RigidDynamicBody3D):
+	while player_controller != null and not (player_controller is CharacterBody3D or player_controller is RigidBody3D):
 		player_controller = player_controller.get_parent()
 	print ("player_controller on ", name, ": ", player_controller.name)
 
