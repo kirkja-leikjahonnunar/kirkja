@@ -278,6 +278,7 @@ var hanging := false
 var looking_for_hang := false
 var last_hang : Voxel
 var hang_lerping : bool
+var hanging_tween : Tween
 
 func StartToHang(on_this: Voxel):
 	last_hang = on_this
@@ -287,14 +288,16 @@ func StartToHang(on_this: Voxel):
 	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(hang_side))
 	
 	hang_lerping = true
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
+	hanging_tween = get_tree().create_tween()
+	hanging_tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
 
 func FinishHangLerp():
 	hang_lerping = false
 
 
 func HandleMovementHanging(delta: float):
+	if hang_lerping: return
+	
 	if Input.is_action_just_pressed("char_jump"):
 		hanging = false
 		looking_for_hang = true
