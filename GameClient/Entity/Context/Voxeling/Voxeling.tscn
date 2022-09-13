@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://ba5oadbsoymjf"]
+[gd_scene load_steps=21 format=3 uid="uid://ba5oadbsoymjf"]
 
 [ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Entity/Context/Voxeling/Voxeling.gd" id="1_xyc3q"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_onvl2"]
+[ext_resource type="PackedScene" uid="uid://baaftyjce75qb" path="res://kirkja-assets/models/CubeCage.glb" id="4_ovgtm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8tkb"]
 
@@ -134,8 +135,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(0.642589, 0, -1.12354e-07, 0, 0.642589, 0, 1.12354e-07, 0, 0.642589, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, 0.0880849, 0, 0.996113)
-bones/3/rotation = Quaternion(0, 0.0914367, 0, 0.995811)
+bones/2/rotation = Quaternion(0, 0.0965589, 0, 0.995327)
+bones/3/rotation = Quaternion(0, 0.100231, 0, 0.994964)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -158,8 +159,8 @@ bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, 0.0880849, 0, 0.996113)
-bones/30/rotation = Quaternion(0, 0.0914367, 0, 0.995811)
+bones/23/rotation = Quaternion(0, 0.0965589, 0, 0.995327)
+bones/30/rotation = Quaternion(0, 0.100231, 0, 0.994964)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -235,6 +236,12 @@ target_position = Vector3(0, -0.208, 0)
 
 [node name="Potential" type="MeshInstance3D" parent="Indicator"]
 mesh = SubResource("PlaneMesh_acob2")
+
+[node name="ActiveBlock" type="Node" parent="."]
+
+[node name="CubeCage" parent="ActiveBlock" instance=ExtResource("4_ovgtm")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+visible = false
 
 [connection signal="body_entered" from="Drill" to="." method="_on_drill_body_entered"]
 [connection signal="body_entered" from="Bump" to="." method="_on_bump_body_entered"]
