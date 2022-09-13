@@ -32,7 +32,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GameServer"
+config/name="KirkjaServer"
 run/main_scene="res://GameServer/Main/GameServer.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.png"

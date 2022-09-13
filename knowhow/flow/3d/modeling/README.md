@@ -7,9 +7,9 @@
 ## What should our open source modeling workflow be?
 Different workflow types:
 
-- **Box Model:** Model > UV > Texture.
-- **Hi Poly Sculpts:** Vert Model + Skin Modifier > Sculpt. (color paint?)
-- **Lo Poly Retopo:** Snap Model > UV > Texture Bake > Texture Paint.
+- **Box Model:** Model > UV > Texture Paint.
+- **Hi Poly Sculpts:** [Vert Model + Skin Modifier](skin_mod/) > [Sculpt](sculpting/). (color paint?)
+- **Lo Poly Retopo:** [Retopo Snap](retopology/) > UV > Texture Bake > Texture Paint.
 - **Materials & Texturing:** Stitch > Touch Up > Export > ORM.
 
 ## 3D Deliverables

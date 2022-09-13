@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cln42ej5dji5g"
-path="res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.ctex"
+path.s3tc="res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.s3tc.ctex"
+path.etc2="res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc", "etc2"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Core/kir_kja.png"
-dest_files=["res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.ctex"]
+dest_files=["res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.s3tc.ctex", "res://.godot/imported/kir_kja.png-305bde3b3537fc78d0d4fadb8f5c52b2.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/bptc_ldr=0

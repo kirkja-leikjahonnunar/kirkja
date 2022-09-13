@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Library/Maps/VoxelVillage/VoxelTool/VoxelObject.gd" id="1_r5nrf"]
+
+[node name="VoxelObject" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931168, 0)
+script = ExtResource("1_r5nrf")
