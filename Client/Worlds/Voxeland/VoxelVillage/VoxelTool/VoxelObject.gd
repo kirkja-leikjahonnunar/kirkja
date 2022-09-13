@@ -10,7 +10,7 @@ var min_index := Vector3i()
 var max_index := Vector3i()
 var size := Vector3() # gets computed on change from max_index - min_index + 1
 
-var block_resource = "res://Maps/VoxelVillage/VoxelTool/Objects/VoxelBlock.tscn"
+var block_resource = "res://Worlds/Voxeland/VoxelVillage/VoxelTool/Objects/VoxelBlock.tscn"
 
 
 # min_index and max_index must be set already

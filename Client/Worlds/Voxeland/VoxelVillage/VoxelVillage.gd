@@ -2,7 +2,7 @@ extends Node3D
 class_name VoxelVillage
 
 
-const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
+const VOXEL : PackedScene = preload("res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn")
 
 @export var save_path : String = "user://voxels/"
 @export var save_extension : String = "vox"

@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b32t1figv0qlx" path="res://Core/Settings/OverlayHaze.tscn" id="3_ud1vi"]
 [ext_resource type="PackedScene" uid="uid://c2a81qxecmi65" path="res://Core/Settings/PauseMenu.tscn" id="5_37um4"]
 [ext_resource type="PackedScene" uid="uid://bduqfqfy5x7bh" path="res://Core/Settings/OptionsMenu.tscn" id="5_y5i7l"]
-[ext_resource type="PackedScene" uid="uid://6q2gb6dtgjyc" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="6_w2lpd"]
+[ext_resource type="PackedScene" path="res://Core/PlayerController/ThirdPerson/Player.tscn" id="6_w2lpd"]
 [ext_resource type="PackedScene" uid="uid://b78vylyw2clvk" path="res://Core/PlayerController/ThirdPerson/OtherPlayer.tscn" id="7_g71u3"]
-[ext_resource type="PackedScene" uid="uid://w68045nrgcn2" path="res://Maps/TestLevel/TestArea.tscn" id="8_jc6q2"]
+[ext_resource type="PackedScene" path="res://Worlds/Devland/TestLevel/TestArea.tscn" id="8_jc6q2"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="9_yoiwk"]
 
 [node name="Client" type="Node"]

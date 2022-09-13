@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://cod8xppgychh4"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/VoxelVillage.gd" id="1_fv4ve"]
-[ext_resource type="PackedScene" path="res://Worlds/Devland/Materials/TestWorldEnvironment.tscn" id="2_rr6oq"]
+[ext_resource type="PackedScene" uid="uid://44rd28j486vp" path="res://Worlds/Devland/Materials/TestWorldEnvironment.tscn" id="2_rr6oq"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="3_86h1s"]
 [ext_resource type="PackedScene" path="res://Worlds/Voxeland/VoxelVillage/Attractions/VoxelCoords.tscn" id="3_xrda2"]
 [ext_resource type="PackedScene" path="res://Worlds/Voxeland/Contexts/Voxeling/Voxeling.tscn" id="5_jw5en"]

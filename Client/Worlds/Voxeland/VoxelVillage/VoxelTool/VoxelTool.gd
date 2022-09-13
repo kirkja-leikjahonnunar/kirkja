@@ -61,7 +61,7 @@ func SetCurrentColor(index):
 
 
 func NewVoxelObject():
-	return load("res://Maps/VoxelVillage/VoxelTool/Objects/VoxelObject.tscn").instantiate()
+	return load("res://Worlds/Voxeland/VoxelVillage/VoxelTool/Objects/VoxelObject.tscn").instantiate()
 
 
 func AddBlock():

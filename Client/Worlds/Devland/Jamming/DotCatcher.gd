@@ -5,7 +5,7 @@ const FREQ_MAX = 11050.0 / 4.0 # hz? That seems like a lot?
 const MIN_DB = 60 # How loud is 60 dB SPF? The lowest a person can detect so we'll make that our 0.0 volume.
 
 
-@onready var KNOB : PackedScene = preload("res://Maps/Jamming/HzKnob.tscn")
+@onready var KNOB : PackedScene = preload("res://Worlds/Devland/Jamming/HzKnob.tscn")
 @onready var music : AudioStreamPlayer = $Music
 
 

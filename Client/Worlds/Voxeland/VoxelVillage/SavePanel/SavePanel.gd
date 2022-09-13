@@ -16,7 +16,7 @@ signal load_pressed(path: String)
 signal canceled
 
 
-var slot_template = preload("res://Maps/VoxelVillage/SavePanel/SaveSlot.tscn")
+var slot_template = preload("res://Worlds/Voxeland/VoxelVillage/SavePanel/SaveSlot.tscn")
 
 var current_hovered #: SaveSlot
 var current_item

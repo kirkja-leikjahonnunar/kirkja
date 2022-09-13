@@ -118,10 +118,10 @@ var target_basis : Basis
 func InitMats(force : bool):
 	if BASE == null || force:
 		#print ("BASE material was null, loading")
-		BASE = load("res://Maps/VoxelVillage/Voxel/assets/base.material")
+		BASE = load("res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material")
 	if FLARE == null || force:
 		#print ("FLARE material was null, loading")
-		FLARE = load("res://Maps/VoxelVillage/Voxel/assets/flare.material")
+		FLARE = load("res://Worlds/Voxeland/VoxelVillage/Voxel/assets/flare.material")
 
 
 var ready_done := false

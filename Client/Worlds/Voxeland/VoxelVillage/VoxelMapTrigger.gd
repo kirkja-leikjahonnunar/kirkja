@@ -3,7 +3,7 @@ extends ProximityButton
 
 #TODO: this should probably be a generic map portal trigger
 
-var voxel_village_resource := "res://Maps/VoxelVillage/VoxelVillage.tscn"
+var voxel_village_resource := "res://Worlds/Voxeland/VoxelVillage/VoxelVillage.tscn"
 
 
 # Called when the node enters the scene tree for the first time.

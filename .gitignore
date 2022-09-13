@@ -1,6 +1,7 @@
 
 # Godot-specific ignores
 .import/
+.godot/
 export.cfg
 export_presets.cfg
 
@@ -13,5 +14,5 @@ data_*/
 *~
 *blend1
 
-# Ignoring the kirkja-assets link in the res:// folder.
-GameClient/kirkja-assets
+# Ignoring the kirkja-assets symbolic link in the res:// folder.
+Client/kirkja-assets

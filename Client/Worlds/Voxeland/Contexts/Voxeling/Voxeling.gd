@@ -2,7 +2,7 @@ extends PlayerController
 class_name Voxeling
 
 
-const VOXEL : PackedScene = preload("res://Maps/VoxelVillage/Voxel/Voxel.tscn")
+const VOXEL : PackedScene = preload("res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn")
 const voxel_size = .1
 
 
