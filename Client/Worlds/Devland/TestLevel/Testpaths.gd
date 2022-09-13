@@ -20,7 +20,7 @@ var last_percent : float
 func _physics_process(_delta):
 	if GameGlobals.current_player_object == null: return
 	
-	$pathpoint.position = curve.interpolatef(ticker)
+	$pathpoint.position = curve.samplef(ticker)
 	ticker += _delta
 	if ticker > curve.point_count: ticker = 0
 	
