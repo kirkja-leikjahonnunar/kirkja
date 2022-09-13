@@ -10,17 +10,17 @@ The **Maps** folder contains Godot scenes that act as levels or parts of a level
 ## Contexts
 There is no limit to the number of contexts a world can have.
 
-A **context** is an entity from which a player's [voidling](../Voidling) may request control. The amount and type of control depends on amount of affinity the context has built towards the player. Some contexts may have prerequisites that need to be met before a voidling is granted a control seat within the context. Contexts may contain multiple seats for multiple players.
+A **context** is an entity from which a player's [voidling](../Voidling) may request control. The amount and type of control depends on amount of affinity the context has built towards the player. Some contexts may have prerequisites that need to be met before a voidling is granted a _control seat_ within the context. May contexts may contain multiple seats for multiple players?
 
 ## Affinity
-*Values: 0 - 100*
+*Values: `0` - `100`*
 
 Affinity is the measurement of how well the player is regarded by the context. The levels of affinity and the rewards for having high amounts affinity vary per context.
 
-### Gaining Affinity for Habitation
-Once we find an appropriate context, we intersect our voidling with the context and request habitation privileges. In basic contexts, the _default affinity_ is already high enough to gain a habitation seat.
+### Gaining Affinity
+Once we find an appropriate context to hop in, we intersect our voidling with the context and request habitation privileges. In basic contexts, the _default affinity_ is already high enough to gain a control seat.
 
-> Example, an NPC quest giver allows our voidling to inhabit them in order to complete a quest. If we achieve the quest with little harm to the NPC, we gain affinity, we unlock a new ability, and they will also increase our affinity with their associates.
+> Example, an NPC quest giver could allow our voidling to inhabit them in order to complete a particular quest. If we achieve the quest with little harm to the NPC, we gain more affinity that if we completed it with serious harm.  We unlock new context abilities, as we progress, and gain the trust of their associates, allowing us to grow into new contexts.
 
 ### Params
 - Player controller.
@@ -29,16 +29,14 @@ Once we find an appropriate context, we intersect our voidling with the context 
 - Seat count & positions.
 - Affinity.
 
+### Ambassadors
+Ambassadors are contexts who can travel between worlds. Voidlings may only twist between worlds with an ambassador with **port privileges** in both worlds.
+
 ### Pausing
 The player uses the `Esc` key to enter pause mode. A small pocked of [void space](../../Maps/VoidSpace) opens and the context hangs out while the player chooses an action:
 
 - Hop out of the context and continue in the current biom in voidling form.
 - Twist into void space.
-
-### Context Ambassadors
-Ambassadors are contexts that can travel between worlds.
-Our Voidling will have to context hop between worlds. Port contexts...
-
 
 ## Mounts
 A mount is an entity that may be ridden. It gives perks like a speed boost or armor. They may be animals, vehicles, ect.
