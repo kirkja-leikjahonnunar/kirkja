@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/VoxelNote/VoxelNote.gd" id="1_ktps1"]
+
+[sub_resource type="TextMesh" id="TextMesh_c0d21"]
+resource_local_to_scene = true
+text = "!!!"
+font_size = 7
+depth = 0.009
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_624ax"]
+albedo_color = Color(0.6, 0.588235, 0.4, 1)
+
+[node name="VoxelNote" type="Node3D"]
+script = ExtResource("1_ktps1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0795579, 0)
+mesh = SubResource("TextMesh_c0d21")
+surface_material_override/0 = SubResource("StandardMaterial3D_624ax")

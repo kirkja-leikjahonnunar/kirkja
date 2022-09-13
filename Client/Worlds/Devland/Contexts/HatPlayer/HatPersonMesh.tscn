@@ -1,0 +1,126 @@
+[gd_scene load_steps=22 format=3]
+
+[ext_resource type="Script" path="res://Worlds/Devland/Contexts/HatPlayer/HatPerson.gd" id="2_7pwvh"]
+[ext_resource type="PackedScene" path="res://Worlds/Devland/Contexts/HatPlayer/HatPerson.glb" id="2_57y8d"]
+[ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="4_hqu2q"]
+[ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="5_ekjo5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_106e1"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sdbx3"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rd2qc"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_7wp1p"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_106e1")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_sdbx3")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_rd2qc")
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_shrkr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xvhlg"]
+graph_offset = Vector2(189.927, 253.484)
+nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_7wp1p")
+nodes/BlendSpace1D/position = Vector2(360, 180)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_shrkr")
+nodes/TimeScale/position = Vector2(680, 180)
+nodes/output/position = Vector2(980, 200)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace1D"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eqldj"]
+animation = &"JumpEnd"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pdc8o"]
+animation = &"JumpIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pbfrn"]
+animation = &"JumpStart"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_caav8"]
+xfade_time = 0.05
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qa5f"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kquat"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cixea"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uu2xd"]
+xfade_time = 0.05
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o5dfp"]
+states/IdleWalkRun/node = SubResource("AnimationNodeBlendTree_xvhlg")
+states/IdleWalkRun/position = Vector2(523, 118)
+states/JumpEnd/node = SubResource("AnimationNodeAnimation_eqldj")
+states/JumpEnd/position = Vector2(791, 224)
+states/JumpIdle/node = SubResource("AnimationNodeAnimation_pdc8o")
+states/JumpIdle/position = Vector2(601, 224)
+states/JumpStart/node = SubResource("AnimationNodeAnimation_pbfrn")
+states/JumpStart/position = Vector2(382, 224)
+states/Start/position = Vector2(216, 118)
+transitions = ["JumpStart", "JumpIdle", SubResource("AnimationNodeStateMachineTransition_caav8"), "JumpIdle", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_8qa5f"), "Start", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_kquat"), "IdleWalkRun", "JumpStart", SubResource("AnimationNodeStateMachineTransition_cixea"), "JumpEnd", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_uu2xd")]
+graph_offset = Vector2(-184, 38)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_f20oo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wigns"]
+radius = 0.3
+
+[node name="HatPerson" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree")]
+collision_mask = 7
+script = ExtResource("2_7pwvh")
+animation_tree = NodePath("PlayerMesh/HatPerson/AnimationTree")
+
+[node name="PlayerMesh" type="Node3D" parent="."]
+
+[node name="HatPerson" parent="PlayerMesh" instance=ExtResource("2_57y8d")]
+
+[node name="Skeleton3D" parent="PlayerMesh/HatPerson/Armature" index="0"]
+bones/2/rotation = Quaternion(-0.47625, -2.30679e-07, 0.12694, 0.870099)
+bones/3/rotation = Quaternion(-0.0377975, 3.47602e-08, -0.302533, 0.952389)
+bones/4/rotation = Quaternion(0.102893, -2.45371e-08, 0.823559, 0.55782)
+bones/8/rotation = Quaternion(0.0167264, -5.36616e-07, 0.0304997, 0.999395)
+bones/25/rotation = Quaternion(-0.47625, 2.30679e-07, -0.12694, 0.870099)
+bones/26/rotation = Quaternion(-0.0377975, -3.47602e-08, 0.302533, 0.952389)
+bones/27/rotation = Quaternion(0.102893, 2.45371e-08, -0.823559, 0.55782)
+bones/29/rotation = Quaternion(-0.368021, -0.00576418, -0.0145611, 0.929686)
+bones/30/rotation = Quaternion(-0.267518, 0.0124641, -0.00405847, 0.963464)
+bones/31/rotation = Quaternion(-0.015102, 6.46267e-07, -0.063429, 0.997872)
+
+[node name="AnimationTree" type="AnimationTree" parent="PlayerMesh/HatPerson"]
+tree_root = SubResource("AnimationNodeStateMachine_o5dfp")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_f20oo")
+parameters/IdleWalkRun/BlendSpace1D/blend_position = -1.0
+parameters/IdleWalkRun/TimeScale/scale = 3.0
+
+[node name="CameraRig" parent="." instance=ExtResource("4_hqu2q")]
+
+[node name="InhabitableTrigger" parent="." instance=ExtResource("5_ekjo5")]
+
+[node name="Name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91886, 0)
+billboard = 1
+no_depth_test = true
+text = "<name>"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.320877, 0)
+shape = SubResource("SphereShape3D_wigns")
+
+[editable path="PlayerMesh/HatPerson"]
+[editable path="CameraRig"]

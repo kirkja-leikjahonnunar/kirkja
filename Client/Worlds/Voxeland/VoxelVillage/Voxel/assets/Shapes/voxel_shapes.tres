@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=20 format=3]
+
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res" id="1_dip43"]
+[ext_resource type="Script" path="res://voxel_library.gd" id="1_u773d"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cap_base.res" id="2_bffs0"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_corner_base.res" id="3_mfbd3"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_slope_base.res" id="4_67csl"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_valley_base.res" id="5_1x7cy"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_base.res" id="6_2gx2g"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res" id="7_35xf1"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/cube_shape.tres" id="7_e4tqe"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/wedge_shape.tres" id="8_123k6"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cap_flare.res" id="8_eegsq"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_corner_flare.res" id="9_0xx3g"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/corner_shape.tres" id="9_8gpt3"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_slope_flare.res" id="10_8axgn"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/valley_shape.tres" id="10_mrygi"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_valley_flare.res" id="11_40rh0"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/cap_shape.tres" id="11_nremn"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/slope_shape.tres" id="12_4nw2q"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_flare.res" id="12_cvirf"]
+
+[resource]
+script = ExtResource("1_u773d")
+voxel_size = 0.1
+base_meshes = [ExtResource("1_dip43"), ExtResource("6_2gx2g"), ExtResource("3_mfbd3"), ExtResource("5_1x7cy"), ExtResource("2_bffs0"), ExtResource("4_67csl")]
+flare_meshes = [ExtResource("7_35xf1"), ExtResource("12_cvirf"), ExtResource("9_0xx3g"), ExtResource("11_40rh0"), ExtResource("8_eegsq"), ExtResource("10_8axgn")]
+colliders = [ExtResource("7_e4tqe"), ExtResource("8_123k6"), ExtResource("9_8gpt3"), ExtResource("10_mrygi"), ExtResource("11_nremn"), ExtResource("12_4nw2q")]

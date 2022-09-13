@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6q2gb6dtgjyc"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://Core/PlayerController/ThirdPerson/PlayerController.gd" id="1_1g7x5"]
-[ext_resource type="PackedScene" uid="uid://pbm6jn74p3br" path="res://Entity/Context/CapsulePlayer/CapsulePlayerMesh.tscn" id="2_aoiep"]
+[ext_resource type="PackedScene" path="res://Worlds/Devland/Contexts/CapsulePlayer/CapsulePlayerMesh.tscn" id="2_aoiep"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_0f4b1"]
 [ext_resource type="PackedScene" uid="uid://dmmc4tigj2nqh" path="res://Core/PlayerController/ThirdPerson/InhabitableTrigger.tscn" id="4_uomvw"]
 

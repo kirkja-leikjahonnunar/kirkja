@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res" id="2_aimer"]
+[ext_resource type="Material" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/flare.material" id="3_3s3dd"]
+[ext_resource type="Resource" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/voxel_shapes.tres" id="4_6juql"]
+[ext_resource type="ArrayMesh" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res" id="4_8pakw"]
+[ext_resource type="Material" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/flare.material" id="4_bqbo3"]
+[ext_resource type="Shape3D" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/cube_shape.tres" id="16_vuxlf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0a8iy"]
+resource_local_to_scene = true
+albedo_color = Color(0.85098, 1, 0.639216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j066"]
+resource_local_to_scene = true
+albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
+
+[node name="Voxel" type="StaticBody3D"]
+collision_layer = 16
+script = ExtResource("1_2cj8q")
+base_color = Color(0.85098, 1, 0.639216, 1)
+BASE = ExtResource("4_bqbo3")
+FLARE = ExtResource("3_3s3dd")
+shape_list = ExtResource("4_6juql")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="shape_base" type="MeshInstance3D" parent="Model"]
+material_override = SubResource("StandardMaterial3D_0a8iy")
+mesh = ExtResource("2_aimer")
+surface_material_override/0 = SubResource("StandardMaterial3D_0a8iy")
+
+[node name="shape_flare" type="MeshInstance3D" parent="Model"]
+material_override = SubResource("StandardMaterial3D_2j066")
+mesh = ExtResource("4_8pakw")
+surface_material_override/0 = SubResource("StandardMaterial3D_2j066")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("16_vuxlf")
