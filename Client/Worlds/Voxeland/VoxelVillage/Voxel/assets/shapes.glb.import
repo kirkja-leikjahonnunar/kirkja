@@ -1,0 +1,152 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://2cr52qxubo31"
+path="res://.godot/imported/shapes.glb-f015a5e0f3e2919ec882943e9e151a0e.scn"
+
+[deps]
+
+source_file="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/shapes.glb"
+dest_files=["res://.godot/imported/shapes.glb-f015a5e0f3e2919ec882943e9e151a0e.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"meshes": {
+"shapes_cap_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cap_base.res"
+},
+"shapes_cap_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cap_flare.res"
+},
+"shapes_corner_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_base.res"
+},
+"shapes_corner_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_corner_flare.res"
+},
+"shapes_cube_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res"
+},
+"shapes_cube_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res"
+},
+"shapes_slope_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_slope_base.res"
+},
+"shapes_slope_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_slope_flare.res"
+},
+"shapes_valley_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_base.res"
+},
+"shapes_valley_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_valley_flare.res"
+},
+"shapes_wedge_base": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_base.res"
+},
+"shapes_wedge_flare": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Maps/VoxelVillage/Voxel/assets/Shapes/shapes_wedge_flare.res"
+}
+}
+}
