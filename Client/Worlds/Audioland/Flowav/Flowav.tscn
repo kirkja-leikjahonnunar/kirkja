@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://btf0rtkeulr8g"]
+
+[ext_resource type="Script" path="res://Worlds/Audioland/Flowav/Flowav.gd" id="1_1ot4b"]
+[ext_resource type="AudioStream" uid="uid://cn5bh07mrvqb6" path="res://Worlds/Audioland/Jamming/HzTest_2022-09-15_21-34.wav" id="2_yv11m"]
+[ext_resource type="PackedScene" uid="uid://cnggelg2l46na" path="res://Worlds/Audioland/Jamming/RainbowAnalyzer.tscn" id="3_42glk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x2oiu"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_la1l3"]
+sky_material = SubResource("ProceduralSkyMaterial_x2oiu")
+
+[sub_resource type="Environment" id="Environment_667wn"]
+background_mode = 2
+sky = SubResource("Sky_la1l3")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Flowave" type="Node3D"]
+script = ExtResource("1_1ot4b")
+
+[node name="LCA" type="Node3D" parent="."]
+
+[node name="CameraRig" type="Node3D" parent="LCA"]
+transform = Transform3D(1, 0, 0, 0, 0.954209, 0.299141, 0, -0.299141, 0.954209, 0, 0, 0)
+
+[node name="Camera3d" type="Camera3D" parent="LCA/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38419e-07, 13.365)
+
+[node name="Sun" type="DirectionalLight3D" parent="LCA"]
+transform = Transform3D(-0.943223, 0.326278, -0.0622408, 0, 0.187381, 0.982287, 0.332161, 0.926516, -0.176742, -0.440148, 6.94643, -1.24987)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="LCA"]
+environment = SubResource("Environment_667wn")
+
+[node name="MusicTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yv11m")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="RainbowAnalyzer" parent="." instance=ExtResource("3_42glk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.877625)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

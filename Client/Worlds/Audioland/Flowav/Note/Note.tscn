@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6kcvkvqt888p"]
+
+[ext_resource type="Script" path="res://Worlds/Audioland/Flowav/Note/Note.gd" id="1_hcxvs"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_7k5gb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1tbxx"]
+radius = 0.423
+height = 1.583
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nr5uu"]
+height = 0.324722
+radius = 0.991739
+
+[node name="Note" type="Area3D"]
+script = ExtResource("1_hcxvs")
+
+[node name="Taurus" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_7k5gb")
+
+[node name="Capsule" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1tbxx")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_nr5uu")
