@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://c56hx4tmfd06y"]
 
+[ext_resource type="AudioStream" uid="uid://cn5bh07mrvqb6" path="res://Worlds/Audioland/Jamming/HzTest_2022-09-15_21-34.wav" id="1_h00l2"]
 [ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="1_o87fu"]
-[ext_resource type="AudioStream" path="res://Worlds/Devland/Jamming/HzTest_2022-08-30_20-49.wav" id="2_b2kor"]
-[ext_resource type="PackedScene" path="res://Worlds/Devland/Jamming/RainbowAnalyzer.tscn" id="2_j7rpf"]
+[ext_resource type="PackedScene" uid="uid://cnggelg2l46na" path="res://Worlds/Audioland/Jamming/RainbowAnalyzer.tscn" id="2_j7rpf"]
 
 [sub_resource type="Environment" id="Environment_vs1do"]
 ssao_enabled = true
@@ -19,7 +19,7 @@ albedo_color = Color(0.305882, 0.027451, 0.290196, 1)
 environment = SubResource("Environment_vs1do")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_b2kor")
+stream = ExtResource("1_h00l2")
 autoplay = true
 
 [node name="Graphics" type="Node3D" parent="."]
@@ -54,9 +54,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wfydk")
 
 [node name="LeftAnalyzer" parent="Graphics" instance=ExtResource("2_j7rpf")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, -6, 0)
+stereo_enum = 1
 
 [node name="RightAnalyzer" parent="Graphics" instance=ExtResource("2_j7rpf")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 12, -6, 0)
+stereo_enum = 2
 
 [node name="Esc" type="Node" parent="."]
 script = ExtResource("1_o87fu")

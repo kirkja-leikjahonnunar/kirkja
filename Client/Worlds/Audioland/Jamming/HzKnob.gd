@@ -1,12 +1,12 @@
 extends Node3D
 
-@onready var knob : MeshInstance3D = $Knob
-#var radius : float
+@onready var knob: MeshInstance3D = $Knob
+#var radius: float
 
 #func _ready():
 #	radius = knob.mesh.radius
 
-func SetMagnatude(magnitude : float, radius : float):
+func SetMagnatude(magnitude: float, radius: float):
 	knob.mesh.height = magnitude
 	knob.mesh.radius = radius
 	var material = knob.get_surface_override_material(0)

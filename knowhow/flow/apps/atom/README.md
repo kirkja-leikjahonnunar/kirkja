@@ -1,4 +1,24 @@
 # Atom
+How do we tame the most hackable open source text editor? We'll see soon enough!
+
+## Sort
+The items below still need to be sorted.
+
+## keymap.cson
+One can edit their key bindings by clicking `Edit` > `Preferences` > `Keybindings` > `your keymap file`.
+
+- Linux location: ["~/.atom/keybindings.cson"](~/.atom/keybindings.cson)
+
+![keybindings](docs/keybindings.png)
+
+> You can override these keybindings by copying _**(click the `copy` button)**_ and pasting them _**(`Ctrl` + `V`)**_ into [your keymap file](~/.atom/keybindings.cson)
+
+
+
+```cson
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-/': 'editor:toggle-line-comments'
+```
 
 ## Addons
 MD and GitHub.

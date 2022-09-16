@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3q84hoo16lxb"
-path="res://.godot/imported/HzTest_2022-08-30_20-49.wav-0f1d146e8e909aaa79069599221c7ee1.sample"
+path="res://.godot/imported/HzTest_2022-08-30_20-49.wav-e6b8d4855df35f41bcd067cd9e552c12.sample"
 
 [deps]
 
-source_file="res://Worlds/Devland/Jamming/HzTest_2022-08-30_20-49.wav"
-dest_files=["res://.godot/imported/HzTest_2022-08-30_20-49.wav-0f1d146e8e909aaa79069599221c7ee1.sample"]
+source_file="res://Worlds/Audioland/Jamming/HzTest_2022-08-30_20-49.wav"
+dest_files=["res://.godot/imported/HzTest_2022-08-30_20-49.wav-e6b8d4855df35f41bcd067cd9e552c12.sample"]
 
 [params]
 
