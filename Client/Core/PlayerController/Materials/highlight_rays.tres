@@ -48,5 +48,5 @@ void fragment() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_uw8au")
-albedo = Color(1, 1, 1, 1)
-texture_albedo = ExtResource("1_b2o0w")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_b2o0w")
