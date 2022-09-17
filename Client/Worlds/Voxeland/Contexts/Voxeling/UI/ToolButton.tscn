@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccpm7pxphx3hb"]
+
+[ext_resource type="Texture2D" uid="uid://cimfcakt4fd57" path="res://Core/icon.png" id="1_1g5l3"]
+[ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/ToolButton.gd" id="2_sort1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0klk"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6k3w"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t1dx"]
+content_margin_left = 24.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 42
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0g5t"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 24.0
+content_margin_bottom = 6.0
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 42
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiaap"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[node name="ToolButton" type="Button"]
+offset_right = 66.0
+offset_bottom = 64.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0klk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y0klk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y0klk")
+text = "tool"
+icon = ExtResource("1_1g5l3")
+script = ExtResource("2_sort1")
+
+[node name="HotkeyButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_y6k3w")
+text = "1"
+
+[node name="Tooltips" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 1.35052
+anchor_top = 0.5
+anchor_right = 1.35052
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 263.0
+offset_bottom = 18.5
+grow_vertical = 2
+theme_override_constants/separation = 26
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="PanelLMB" type="PanelContainer" parent="Tooltips"]
+offset_right = 119.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t1dx")
+
+[node name="LabelLMB" type="Label" parent="Tooltips/PanelLMB"]
+offset_left = 24.0
+offset_top = 6.0
+offset_right = 113.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "Tip for lmb."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelRMB" type="PanelContainer" parent="Tooltips"]
+offset_left = 145.0
+offset_right = 266.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0g5t")
+
+[node name="LabelRMB" type="Label" parent="Tooltips/PanelRMB"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 97.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "Tip for rmb."
+vertical_alignment = 1
+
+[node name="AnyKeyPopup" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 1.35052
+anchor_top = 0.5
+anchor_right = 1.35052
+anchor_bottom = 0.5
+offset_top = -33.5
+offset_right = 131.0
+offset_bottom = 33.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aiaap")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PressAnyKey" type="VBoxContainer" parent="AnyKeyPopup"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 125.0
+offset_bottom = 62.0
+
+[node name="ToolName" type="Label" parent="AnyKeyPopup/PressAnyKey"]
+offset_right = 119.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "Tool Hotkey"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnyKey" type="Label" parent="AnyKeyPopup/PressAnyKey"]
+offset_top = 30.0
+offset_right = 119.0
+offset_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.709804, 0.709804, 0.709804, 1)
+theme_override_constants/shadow_offset_y = -1
+text = "Press any key..."
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_tool_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_tool_button_mouse_exited"]
+[connection signal="pressed" from="HotkeyButton" to="." method="_on_hotkey_pressed"]
