@@ -45,6 +45,7 @@ The voxeling controls should closely mirror the standard Kirkja 3rd person contr
 - [ ] delete_voxel
 
 ### Model
+- [ ] voxeling.glb
 - [x] Game Mesh
   - [x] T-pose
   - [ ] Unwrap

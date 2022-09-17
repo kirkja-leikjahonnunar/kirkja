@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://fpmhc30ehj0x"]
+
+[ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.gd" id="1_bpbxp"]
+[ext_resource type="PackedScene" uid="uid://ccpm7pxphx3hb" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/ToolButton.tscn" id="2_kgcyi"]
+
+[node name="VoxelingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bpbxp")
+
+[node name="Toolbar" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 111.0
+offset_bottom = 317.0
+theme_override_constants/separation = 16
+metadata/_edit_group_ = true
+
+[node name="ToolCreate" parent="Toolbar" instance=ExtResource("2_kgcyi")]
+layout_mode = 2
+offset_right = 97.0
+tool_name = "CREATE"
+hotkey = "1"
+lmb_tip = "Add Voxel"
+rmb_tip = "Subtract Voxel"
+
+[node name="ToolColor" parent="Toolbar" instance=ExtResource("2_kgcyi")]
+layout_mode = 2
+offset_top = 80.0
+offset_right = 97.0
+offset_bottom = 144.0
+tool_name = "COLOR"
+hotkey = "2"
+lmb_tip = "Paint Voxel"
+rmb_tip = "Color Palette"
+
+[node name="ToolShape" parent="Toolbar" instance=ExtResource("2_kgcyi")]
+layout_mode = 2
+offset_top = 160.0
+offset_right = 97.0
+offset_bottom = 224.0
+tool_name = "SHAPE"
+hotkey = "3"
+lmb_tip = "Previous shape"
+rmb_tip = "Next shape"
+
+[node name="ToolRotate" parent="Toolbar" instance=ExtResource("2_kgcyi")]
+layout_mode = 2
+offset_top = 240.0
+offset_right = 97.0
+offset_bottom = 304.0
+tool_name = "ROTATE"
+hotkey = "4"
+lmb_tip = "Spin"
+rmb_tip = "Tumble"
