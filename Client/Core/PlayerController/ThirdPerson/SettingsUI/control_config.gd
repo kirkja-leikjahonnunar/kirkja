@@ -45,6 +45,9 @@ signal setting_changed(action, value)
 #------------------------- Main ----------------------------------
 
 func _ready():
+	if not Engine.is_editor_hint():
+		GameGlobals.hotkey_manager = self
+	
 	#print ("ControlConfig ready")
 	if not Engine.is_editor_hint():
 		#LoadSettings(settings_file)
@@ -81,6 +84,7 @@ var camera_settings := {
 var actions := {
 		# index is physical key code, or mouse button number, or joypad button
 		#"action": { "label": "Human Readable", "device": dev_type, "index": index } 
+		#"action": { "label": "Human Readable", { "device": { "dev_type": int, "keys" : [ index, index, ... ] }}} 
 		"char_forward":      { "label": "Forward"     , "device": 0, "index": -1 },
 		"char_backward":     { "label": "Backward"    , "device": 0, "index": -1 },
 		"char_strafe_left":  { "label": "Left"        , "device": 0, "index": -1 },

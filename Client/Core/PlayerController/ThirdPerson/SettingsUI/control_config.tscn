@@ -12,11 +12,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="ControlConfig" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7s4x1")
 
 [node name="BG" type="NinePatchRect" parent="."]
+anchors_preset = -1
 anchor_left = 0.327
 anchor_right = 0.673
 anchor_bottom = 1.0
@@ -33,6 +38,7 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
 anchor_left = 0.366
 anchor_top = 0.043
 anchor_right = 0.632
@@ -47,7 +53,7 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
 [node name="SettingsLabel" type="Label" parent="VBoxContainer"]
-offset_right = 271.0
+offset_right = 340.0
 offset_bottom = 45.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
@@ -89,13 +95,13 @@ popup/item_4/id = 4
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 offset_top = 49.0
-offset_right = 271.0
+offset_right = 340.0
 offset_bottom = 53.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 offset_top = 57.0
-offset_right = 271.0
-offset_bottom = 546.0
+offset_right = 340.0
+offset_bottom = 655.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -104,8 +110,8 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
 [node name="Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
-offset_right = 181.0
-offset_bottom = 101.0
+offset_right = 340.0
+offset_bottom = 598.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -115,62 +121,60 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 194.0
-offset_right = 271.0
-offset_bottom = 225.0
+offset_top = 248.0
+offset_right = 340.0
+offset_bottom = 279.0
 
 [node name="FOVLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer"]
 offset_top = 2.0
-offset_right = 133.0
+offset_right = 168.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "FOV"
 
 [node name="FOV" type="LineEdit" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer"]
-offset_left = 137.0
-offset_right = 271.0
+offset_left = 172.0
+offset_right = 340.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 alignment = 1
 caret_blink = true
-caret_blink_speed = 0.5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 229.0
-offset_right = 271.0
-offset_bottom = 260.0
+offset_top = 283.0
+offset_right = 340.0
+offset_bottom = 314.0
 
 [node name="SensitivityLabel" type="Label" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer2"]
 offset_top = 2.0
-offset_right = 133.0
+offset_right = 168.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "Sensitivity
 "
 
 [node name="Sensitivity" type="LineEdit" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer2"]
-offset_left = 137.0
-offset_right = 271.0
+offset_left = 172.0
+offset_right = 340.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 alignment = 1
 caret_blink = true
-caret_blink_speed = 0.5
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Settings"]
-offset_top = 264.0
-offset_right = 271.0
-offset_bottom = 295.0
+offset_top = 318.0
+offset_right = 340.0
+offset_bottom = 349.0
 
 [node name="InvertX" type="CheckBox" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer3"]
-offset_right = 133.0
+offset_right = 168.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "Invert X"
 
 [node name="InvertY" type="CheckBox" parent="VBoxContainer/ScrollContainer/Settings/HBoxContainer3"]
-offset_left = 137.0
-offset_right = 271.0
+offset_left = 172.0
+offset_right = 340.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "Invert Y"

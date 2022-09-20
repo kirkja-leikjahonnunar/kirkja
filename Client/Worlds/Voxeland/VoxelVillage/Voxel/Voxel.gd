@@ -211,6 +211,7 @@ func RotateAroundY(amount) -> Vector3:
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
 	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	$CollisionShape3D.basis = target_basis
 	return target_basis.get_euler()
 
 func RotateAroundX(amount) -> Vector3:
@@ -222,6 +223,7 @@ func RotateAroundX(amount) -> Vector3:
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
 	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	$CollisionShape3D.basis = target_basis
 	return target_basis.get_euler()
 
 func RotateAroundZ(amount) -> Vector3:
@@ -233,6 +235,7 @@ func RotateAroundZ(amount) -> Vector3:
 	
 	tween.tween_method(lerp_quat.bind($Model.basis.get_rotation_quaternion(), target_basis), 0.5, 1.0, 0.075).set_delay(.02)
 	tween.tween_property($Model, "scale", Vector3(1.0,1.0,1.0), .075).set_delay(.02)
+	$CollisionShape3D.basis = target_basis
 	return target_basis.get_euler()
 
 # Tweening function to help smooth out rotation lerping across large angles

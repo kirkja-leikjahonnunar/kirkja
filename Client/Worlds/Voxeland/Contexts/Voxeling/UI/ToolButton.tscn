@@ -144,7 +144,6 @@ text = "Tip for rmb."
 vertical_alignment = 1
 
 [node name="AnyKeyPopup" type="PanelContainer" parent="."]
-visible = false
 anchors_preset = -1
 anchor_left = 1.35052
 anchor_top = 0.5

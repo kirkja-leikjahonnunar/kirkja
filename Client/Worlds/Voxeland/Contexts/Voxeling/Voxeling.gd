@@ -26,6 +26,12 @@ var palette := [
 				Color("#000000")
 				]
 
+@onready var tool_ui = preload("res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.tscn").instantiate()
+
+
+#-------------------------------------------------------------------------------------------
+#--------------------------------------- main ----------------------------------------------
+#-------------------------------------------------------------------------------------------
 
 func _ready():
 	super._ready()
@@ -35,9 +41,8 @@ func _ready():
 	
 	wizard_ready()
 	
-	#SPRINT_SPEED = 0.8
-	#SPEED = 0.4
-	#JUMP_VELOCITY = 2.3
+	tool_ui.tool_selected.connect(ToolSelectedFromUI)
+	get_tree().root.call_deferred("add_child", tool_ui)
 
 
 func InitVoxelRealm():
@@ -58,6 +63,7 @@ func SpawnVoxelAt(pos: Vector3, use_self: bool):
 		push_error("Trying to add voxel, but no voxel world, this shouldn't happen?")
 		return
 	
+	print("Adding voxel at ", pos)
 	var voxel = VOXEL.instantiate()
 	voxel.position = pos
 	voxel_world.AddVoxel(self if use_self else null, voxel)
@@ -67,7 +73,19 @@ func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	voxel.get_node("Model").rotation = last_voxel_rotation
 	voxel.target_rotation = last_voxel_rotation
 	voxel.target_basis = Basis(Quaternion(last_voxel_rotation))
+	SetCurrentVoxel(voxel)
+
+
+func SetCurrentVoxel(voxel):
+	if current_voxel == voxel: return
+	
+	print ("Set current voxel: ", voxel.name if voxel != null else "null")
 	current_voxel = voxel
+	if voxel == null:
+		$ActiveBlock/CubeCage.visible = false
+	else:
+		$ActiveBlock/CubeCage.global_transform = current_voxel.global_transform
+		$ActiveBlock/CubeCage.visible = true
 
 
 var need_to_jump := false
@@ -82,17 +100,13 @@ func HandleMovement(delta: float):
 		CastFromCamera()
 		need_to_update_cast = false
 	
+	print ("Hanging: ", hanging,"  looking for hang: ", looking_for_hang)
 	if hanging:
 		HandleMovementHanging(delta)
 		return
 	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED && CurrentActionValid("voxeling_add_voxel"):
-		print("Adding voxel.")
-		SpawnVoxel()
-	
 	
 	var target_velocity : Vector3
-	
 	var just_jumped: bool = false
 	
 	if not char_body.is_on_floor():
@@ -118,11 +132,6 @@ func HandleMovement(delta: float):
 	
 	# special intercept for Left+Right to move player forward.... 
 	input_dir = ModifyInputDirection(input_dir, delta)
-#	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-#		if input_dir.length() == 0:
-#			input_dir.y = 1
-#			override_left_up = true
-#			override_right_up = true
 	
 	var speed = input_dir.length()
 	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space
@@ -169,7 +178,7 @@ func HandleMovement(delta: float):
 	# DefinePlayerState()
 
 
-# Helper function used during _physics_process()
+# Helper function for running around mode, used during _physics_process()
 func HandleActions():
 	super.HandleActions()
 	
@@ -183,39 +192,63 @@ func HandleActions():
 		voxel_world.InitiateLoad()
 		#voxel_world.LoadLandscape()
 	
+	if Input.is_action_just_released("tool1"): SwitchToolMode(ToolModes.Create)
+	if Input.is_action_just_released("tool2"): SwitchToolMode(ToolModes.Rotate)
+	if Input.is_action_just_released("tool3"): SwitchToolMode(ToolModes.Shape)
+	if Input.is_action_just_released("tool4"): SwitchToolMode(ToolModes.Color)
 	
-	if wizard_mode_active:
-		HandleWizardModeActions()
+	if wizard_mode_active && hovered_object == null:
 		return
 	
-	if current_voxel == null: return
+	if not wizard_mode_active:
+		hovered_object = current_voxel
+		if current_voxel == null:
+			if tool_mode == ToolModes.Create && CurrentActionValid("voxeling_add_voxel"):
+				SpawnVoxel()
+			return
 	
-	if Input.is_action_just_released("voxel_rotate_left"):
-		last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
-	
-	if Input.is_action_just_released("voxel_rotate_right"):
-		last_voxel_rotation = current_voxel.RotateAroundY(-PI/2)
-	
-	if Input.is_action_just_released("voxel_rotate_up") or Input.is_action_just_released("voxel_rotate_down"):
-		#last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
-		var amount = PI/2
-		if Input.is_action_just_released("voxel_rotate_down"): amount = -amount
-		var axis = GetCameraDirection(current_voxel, current_voxel.global_position, true)
-		match axis:
-			Voxel.Dir.x_plus:  current_voxel.RotateAroundX( amount)
-			Voxel.Dir.x_minus: current_voxel.RotateAroundX(-amount)
-			Voxel.Dir.z_plus:  current_voxel.RotateAroundZ( amount)
-			Voxel.Dir.z_minus: current_voxel.RotateAroundZ(-amount)
-	
-	#if Input.is_action_just_released("voxel_rotate_down"):
-	#	last_voxel_rotation = current_voxel.RotateAroundX(-PI/2)
-	
-	if Input.is_action_just_released("voxel_next_type"):
-		last_voxel_type = current_voxel.NextType()
-	
-	if Input.is_action_just_released("voxel_color"):
-		last_voxel_color = (last_voxel_color + 1) % palette.size()
-		current_voxel.SetColor(palette[last_voxel_color])
+	match tool_mode:
+		ToolModes.Create:
+			#print ("create, add_voxel: ", CurrentActionValid("voxeling_add_voxel"))
+			if CurrentActionValid("voxeling_add_voxel"):
+				if wizard_mode_active:
+					SpawnVoxelAt($Indicator/Potential.global_position, false)
+					need_to_update_cast = true
+				else:
+					SpawnVoxel()
+			elif CurrentActionValid("voxeling_eraser_mode"):
+				hovered_object.call_deferred("SelfDestruct")
+				if hovered_object == current_voxel:
+					SetCurrentVoxel(null)
+				hovered_object = null
+				call_deferred("NeedToCast") # we must defer since collider is still in physics engine(?)
+		ToolModes.Color:
+			SetCurrentVoxel(hovered_object)
+			
+			if CurrentActionValid("voxeling_add_voxel"):
+				if last_voxel_color < 0 || last_voxel_color >= palette.size():
+					last_voxel_color = 0
+				current_voxel.SetColor(palette[last_voxel_color])
+			elif CurrentActionValid("voxeling_eraser_mode"):
+				last_voxel_color = (last_voxel_color + 1) % palette.size()
+				current_voxel.SetColor(palette[last_voxel_color])
+		ToolModes.Shape:
+			SetCurrentVoxel(hovered_object)
+			if CurrentActionValid("voxeling_add_voxel") || CurrentActionValid("voxeling_eraser_mode"):
+				last_voxel_type = current_voxel.NextType()
+		ToolModes.Rotate:
+			SetCurrentVoxel(hovered_object)
+			if CurrentActionValid("voxeling_add_voxel"):
+				last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+			elif CurrentActionValid("voxeling_eraser_mode"):
+				var axis = GetCameraDirection(current_voxel, hovered_point, true)
+				match axis:
+					Voxel.Dir.x_plus:  current_voxel.RotateAroundZ(PI/2)
+					Voxel.Dir.x_minus: current_voxel.RotateAroundZ(-PI/2)
+					Voxel.Dir.y_plus:  current_voxel.RotateAroundY(PI/2)
+					Voxel.Dir.y_minus: current_voxel.RotateAroundY(-PI/2)
+					Voxel.Dir.z_plus:  current_voxel.RotateAroundX(PI/2)
+					Voxel.Dir.z_minus: current_voxel.RotateAroundX(-PI/2)
 
 
 # Overrides PlayerController, swap between wizard mode and run around mode.
@@ -224,7 +257,7 @@ func HandleToggleMouse(on):
 	wizard_mode_active = on
 	need_to_update_cast = true
 	if on:
-		SwitchToolMode(wizard_tool_mode)
+		SwitchToolMode(tool_mode)
 	else:
 		$Indicator/Potential.visible = false
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -240,6 +273,7 @@ func _input(event):
 	super._input(event)
 
 
+# the collider underneath player
 func _on_drill_body_entered(body):
 	if wizard_mode_active: return
 	
@@ -252,6 +286,7 @@ func _on_drill_body_entered(body):
 					hovered_object = null
 
 
+# Colliders left, right, forward, back from player
 func _on_bump_body_entered(body):
 	if wizard_mode_active: return
 	
@@ -271,21 +306,43 @@ func _on_bump_body_entered(body):
 
 
 #-------------------------------------------------------------------------------------------
+#---------------------------------- UI Coordination ----------------------------------------
+#-------------------------------------------------------------------------------------------
+
+# UI Callback
+func ToolSelectedFromUI(tool):
+	match tool:
+		"CREATE":
+			SwitchToolMode(ToolModes.Create)
+		"ROTATE":
+			SwitchToolMode(ToolModes.Rotate)
+		"COLOR":
+			SwitchToolMode(ToolModes.Shape)
+		"SHAPE":
+			SwitchToolMode(ToolModes.Color)
+
+
+func SyncShortcutsWithUI():
+	push_error ("IMPLEMENT ME")
+
+
+#-------------------------------------------------------------------------------------------
 #-------------------------------- Hanging Controller ---------------------------------------
 #-------------------------------------------------------------------------------------------
 
 var hanging := false
 var looking_for_hang := false
 var last_hang : Voxel
+var last_hang_side : int
 var hang_lerping : bool
 var hanging_tween : Tween
 
 func StartToHang(on_this: Voxel):
 	last_hang = on_this
 	hanging = true
-	var hang_side = on_this.NearestSide(global_position)
+	last_hang_side = on_this.NearestSide(global_position)
 	var v_size = on_this.shape_list.voxel_size
-	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(hang_side))
+	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(last_hang_side))
 	
 	hang_lerping = true
 	hanging_tween = get_tree().create_tween()
@@ -295,12 +352,31 @@ func FinishHangLerp():
 	hang_lerping = false
 
 
-func HandleMovementHanging(delta: float):
+func HandleMovementHanging(_delta: float):
 	if hang_lerping: return
 	
 	if Input.is_action_just_pressed("char_jump"):
 		hanging = false
 		looking_for_hang = true
+		return
+	
+	
+	# Get the input direction
+	var input_dir = -Input.get_vector("char_strafe_left", "char_strafe_right", "char_forward", "char_backward")
+	
+	var speed = input_dir.length()
+	
+#	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in player space
+#	var direction = (char_body.transform.basis * player_dir).normalized() # now in player parent space
+	var player_dir = input_dir.x * GameGlobals.main_camera.global_transform.basis.x
+	
+	if last_hang_side == Voxel.Dir.z_minus: # we are hanging onto a ceiling
+		player_dir += input_dir.y * (GameGlobals.main_camera.global_transform.basis * up_direction)
+	else:
+		player_dir += input_dir.y * (char_body.global_transform.basis * up_direction)
+	
+	player_dir = voxel_size * (char_body.get_parent().global_transform.basis.inverse() * player_dir).normalized()
+
 
 
 #-------------------------------------------------------------------------------------------
@@ -309,8 +385,8 @@ func HandleMovementHanging(delta: float):
 
 var wizard_mode_active := false
 
-enum ToolModes { AddRemove, SetColor, SetShape, Rotate }
-var wizard_tool_mode := ToolModes.AddRemove
+enum ToolModes { Create, Color, Shape, Rotate }
+var tool_mode := ToolModes.Create
 
 var voxel_camera : Camera3D
 var hovered_object
@@ -318,7 +394,7 @@ var hovered_point : Vector3
 var hovered_side = VoxelBlock.Dir.None
 var need_to_update_cast := true
 
-@export var current_object: Node3D
+#@export_group("Wizard Mode")
 @export_flags_3d_physics var block_collision_mask := 0
 
 
@@ -352,67 +428,16 @@ func wizard_input(event):
 func NeedToCast():
 	need_to_update_cast = true
 
-# This gets called at some point during _physics_process()
-func HandleWizardModeActions():
-	if Input.is_action_just_released("tool1"): SwitchToolMode(ToolModes.AddRemove)
-	if Input.is_action_just_released("tool2"): SwitchToolMode(ToolModes.Rotate)
-	if Input.is_action_just_released("tool3"): SwitchToolMode(ToolModes.SetShape)
-	if Input.is_action_just_released("tool4"): SwitchToolMode(ToolModes.SetColor)
-	
-	if hovered_object == null:
-		return
-	
-	match wizard_tool_mode:
-		ToolModes.AddRemove:
-			if CurrentActionValid("voxeling_add_voxel"):
-				SpawnVoxelAt($Indicator/Potential.global_position, false)
-				need_to_update_cast = true
-			elif CurrentActionValid("voxeling_eraser_mode"):
-				hovered_object.call_deferred("SelfDestruct")
-				hovered_object = null
-				call_deferred("NeedToCast") # we must defer since collider is still in physics engine(?)
-		ToolModes.SetColor:
-			current_voxel = hovered_object
-			if CurrentActionValid("voxeling_add_voxel"):
-				if last_voxel_color < 0 || last_voxel_color >= palette.size():
-					last_voxel_color = 0
-				current_voxel.SetColor(palette[last_voxel_color])
-			elif CurrentActionValid("voxeling_eraser_mode"):
-				last_voxel_color = (last_voxel_color + 1) % palette.size()
-				current_voxel.SetColor(palette[last_voxel_color])
-		ToolModes.SetShape:
-			current_voxel = hovered_object
-			if CurrentActionValid("voxeling_add_voxel") || CurrentActionValid("voxeling_eraser_mode"):
-				last_voxel_type = current_voxel.NextType()
-		ToolModes.Rotate:
-			current_voxel = hovered_object
-			if CurrentActionValid("voxeling_add_voxel"):
-				last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
-#			if CurrentActionValid("voxeling_add_voxel"):
-#				if hovered_side == Voxel.Dir.x_plus || hovered_side == Voxel.Dir.x_minus:
-#					last_voxel_rotation = current_voxel.RotateAroundX(PI/2)
-#				elif hovered_side == Voxel.Dir.y_plus || hovered_side == Voxel.Dir.y_minus:
-#					last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
-#				elif hovered_side == Voxel.Dir.z_plus || hovered_side == Voxel.Dir.z_minus:
-#					last_voxel_rotation = current_voxel.RotateAroundZ(PI/2)
-			elif CurrentActionValid("voxeling_eraser_mode"):
-				var axis = GetCameraDirection(current_voxel, hovered_point, true)
-				match axis:
-					Voxel.Dir.x_plus:  current_voxel.RotateAroundZ(PI/2)
-					Voxel.Dir.x_minus: current_voxel.RotateAroundZ(-PI/2)
-					Voxel.Dir.y_plus:  current_voxel.RotateAroundY(PI/2)
-					Voxel.Dir.y_minus: current_voxel.RotateAroundY(-PI/2)
-					Voxel.Dir.z_plus:  current_voxel.RotateAroundX(PI/2)
-					Voxel.Dir.z_minus: current_voxel.RotateAroundX(-PI/2)
 
 # Update state about current wizard tool mode.
 func SwitchToolMode(mode):
-	wizard_tool_mode = mode
-	match wizard_tool_mode:
-		ToolModes.AddRemove: Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
-		ToolModes.SetColor:  Input.set_default_cursor_shape(Input.CursorShape.CURSOR_BUSY)
-		ToolModes.SetShape:  Input.set_default_cursor_shape(Input.CursorShape.CURSOR_DRAG)
-		ToolModes.Rotate:    Input.set_default_cursor_shape(Input.CursorShape.CURSOR_WAIT)
+	tool_mode = mode
+	tool_ui.SelectToolById(ToolModes.keys()[mode])
+	match tool_mode:
+		ToolModes.Create: Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
+		ToolModes.Color:  Input.set_default_cursor_shape(Input.CursorShape.CURSOR_BUSY)
+		ToolModes.Shape:  Input.set_default_cursor_shape(Input.CursorShape.CURSOR_DRAG)
+		ToolModes.Rotate: Input.set_default_cursor_shape(Input.CursorShape.CURSOR_WAIT)
 		#CURSOR_BUSY CURSOR_DRAG
 
 

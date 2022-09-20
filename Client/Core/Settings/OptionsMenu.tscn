@@ -7,13 +7,18 @@
 [ext_resource type="AudioStream" uid="uid://myuvuxnsyw25" path="res://kirkja-assets/audio/sfx/boop.ogg" id="4_rvcde"]
 
 [node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_pii85")
 node_components = [NodePath("TabContainer/Controls"), NodePath("TabContainer/Audio"), NodePath("TabContainer/Graphics")]
 
 [node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 233.0
@@ -27,6 +32,8 @@ metadata/_edit_layout_mode = 1
 
 [node name="Controls" parent="TabContainer" instance=ExtResource("1_g167d")]
 offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BG" parent="TabContainer/Controls" index="0"]
 offset_left = -187.736
@@ -90,14 +97,19 @@ offset_right = 568.0
 
 [node name="Audio" type="Control" parent="TabContainer"]
 visible = false
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_s6inh")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
@@ -109,8 +121,8 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/ScrollContainer"]
-offset_right = 783.0
-offset_bottom = 640.0
+offset_right = 113.0
+offset_bottom = 116.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -202,12 +214,17 @@ stream = ExtResource("4_rvcde")
 
 [node name="Graphics" type="Control" parent="TabContainer"]
 visible = false
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_o4rgi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 26.0

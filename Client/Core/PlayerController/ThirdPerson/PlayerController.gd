@@ -202,9 +202,10 @@ func HandleMovement(delta):
 	input_dir = ModifyInputDirection(input_dir, delta)
 	
 	var speed = input_dir.length()
-	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space
+	# transform input vector to use camera xz plane
+	var player_dir = camera_rig.transform.basis * Vector3(input_dir.x, 0, input_dir.y) # now in Player space.. todo: should be using main camera, not cam rig
 	#print (player_dir)
-	var direction = (char_body.transform.basis * player_dir).normalized() # now in parent space
+	var direction = (char_body.transform.basis * player_dir).normalized() # now in player parent space
 	
 	var sprinting : bool = Input.is_action_pressed("char_sprint")
 	speed = speed * (SPRINT_SPEED if sprinting else SPEED)

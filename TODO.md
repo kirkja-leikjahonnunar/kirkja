@@ -2,10 +2,11 @@ TODO
 ====
 
 - Voxeling:
-    - [ ] better "valley" block
 	- [ ] colliders should correspond to the shape
-	- [ ] Save creation
-	- [ ] Load creation
+    - [ ] better "valley" block
+	- [x] new block types: cap, slope
+	- [x] Save creation
+	- [x] Load creation
 	- [ ] World scaling
 	    - [ ] experiment with scale player rather than world
     - [ ] Run around mode
@@ -13,7 +14,7 @@ TODO
 		- [x] Change type
 		- [x] Change color
 		- [x] Rotate blocks
-		- [ ] Rotate up needs to select axis most orthogonal to camera
+		- [x] Rotate up needs to select axis most orthogonal to camera
 		- [ ] Hang/climb
 		- [ ] Better "current block" selection, rather that just last block laid down
 	- [ ] Wizard mode ui improvements

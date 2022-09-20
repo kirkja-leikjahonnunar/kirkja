@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://b8pq45i626xtu"]
 
 [ext_resource type="Material" path="res://Worlds/Devland/Materials/roundedborder_mat.tres" id="1_jwkep"]
 [ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/SavePanel/SaveSlot.gd" id="2_fe4kv"]
@@ -6,14 +6,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ltm1b"]
 shader = ExtResource("3_tsj7q")
-border_color = null
-border_thickness = 0.053
-color = null
-radius = 0.169
+shader_parameter/border_color = null
+shader_parameter/border_thickness = 0.053
+shader_parameter/color = null
+shader_parameter/radius = 0.169
 
 [node name="ColorRect" type="ColorRect"]
 material = ExtResource("1_jwkep")
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2i(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
@@ -22,7 +22,7 @@ script = ExtResource("2_fe4kv")
 
 [node name="TextureRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ltm1b")
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2i(70, 70)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
