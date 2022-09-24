@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://datbja5ajhcm1"]
+
+[ext_resource type="PackedScene" uid="uid://1vc8838jdu8s" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.tscn" id="1_bc0f4"]
+[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="1_rkosn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b0drp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_piuk8"]
+sky_material = SubResource("ProceduralSkyMaterial_b0drp")
+
+[sub_resource type="Environment" id="Environment_xlubu"]
+background_mode = 2
+sky = SubResource("Sky_piuk8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bukci"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xniff"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhe8h"]
+albedo_color = Color(0.686275, 0.552941, 0.137255, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ccqms"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqhc2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e3a3"]
+albedo_color = Color(1, 0.341176, 0.196078, 1)
+
+[node name="hovergar_testing" type="Node"]
+
+[node name="Hovergar" parent="." instance=ExtResource("1_bc0f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.782966, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xlubu")
+script = ExtResource("1_rkosn")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 8.06766, 4.93629)
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody3D" parent="Level"]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_bukci")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_xniff")
+surface_material_override/0 = SubResource("StandardMaterial3D_jhe8h")
+
+[node name="Obstesticle" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, 8, 0, -8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle2" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, -8, 0, -8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle2"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle2"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle3" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, 0, 0, -16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle3"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle3"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
