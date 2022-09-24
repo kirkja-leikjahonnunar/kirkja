@@ -1,19 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://1vc8838jdu8s"]
+[gd_scene load_steps=10 format=3 uid="uid://1vc8838jdu8s"]
 
 [ext_resource type="Script" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.gd" id="1_oiqsd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xb6oj"]
+size = Vector3(1.67787, 1, 2.79604)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qlrtt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egixf"]
-albedo_color = Color(0.12549, 0.278431, 0.380392, 1)
-emission_enabled = true
-emission = Color(0.109804, 0.47451, 1, 1)
-emission_energy_multiplier = 0.0
-
-[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
-left_to_right = 0.0
+[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
+left_to_right = 1.0
 size = Vector3(0.5, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67lra"]
@@ -23,9 +16,19 @@ emission_enabled = true
 emission = Color(0.109804, 0.47451, 1, 1)
 emission_energy_multiplier = 0.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
-left_to_right = 1.0
+[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
+left_to_right = 0.0
 size = Vector3(0.5, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlrtt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egixf"]
+albedo_color = Color(0.12549, 0.278431, 0.380392, 1)
+emission_enabled = true
+emission = Color(0.109804, 0.47451, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4da4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40ifb"]
 content_margin_left = 13.0
@@ -42,6 +45,7 @@ corner_radius_bottom_left = 24
 script = ExtResource("1_oiqsd")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.621768)
 shape = SubResource("BoxShape3D_xb6oj")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -51,22 +55,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Looks" type="Node3D" parent="."]
 
-[node name="Hull" type="MeshInstance3D" parent="Looks"]
+[node name="LeftFender" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.682781, 0, 0, 0, -0.359133, 5.40022e-08, 0, -3.13964e-08, -0.617713, -0.8, 0.025, 0)
+mesh = SubResource("PrismMesh_2ilha")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="RightFender" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.682781, 0, 0, 0, -0.359133, 5.40022e-08, 0, -3.13964e-08, -0.617713, 0.8, 0.025, 0)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="FrontLeft" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("BoxMesh_qlrtt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
-[node name="RightFender" type="MeshInstance3D" parent="Looks/Hull"]
-transform = Transform3D(1, 0, 0, 0, -0.534289, 5.40022e-08, 0, -4.6709e-08, -0.617713, 0.75, 0.14824, 0)
-mesh = SubResource("PrismMesh_y86gc")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
-
-[node name="LeftFender" type="MeshInstance3D" parent="Looks/Hull"]
-transform = Transform3D(1, 0, 0, 0, -0.534289, 5.40022e-08, 0, -4.6709e-08, -0.617713, -0.75, 0.14824, 0)
-mesh = SubResource("PrismMesh_2ilha")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+[node name="FrontRight" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_qlrtt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
 [node name="Hull2" type="MeshInstance3D" parent="Looks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.33682)
@@ -75,13 +86,13 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
 [node name="RightFender" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(1, 0, 0, 0, -1, 5.40022e-08, 0, -8.74228e-08, -0.617713, 0.75, 0, 0.19472)
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0.570329, -0.155908, 0.0166061)
 mesh = SubResource("PrismMesh_y86gc")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
 
 [node name="LeftFender" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(1, 0, 0, 0, -1, 5.40022e-08, 0, -8.74228e-08, -0.617713, -0.75, 0, 0.19472)
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, -0.570329, -0.155908, 0.0166061)
 mesh = SubResource("PrismMesh_2ilha")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
@@ -93,10 +104,14 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
 
 [node name="LeftFender2" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(-4.37114e-08, -8.74228e-08, -0.617713, 0, -1, 5.40022e-08, -1, 3.82137e-15, 2.70011e-08, 3.27835e-08, -0.10434, 0.413251)
+transform = Transform3D(-4.37114e-08, -7.32523e-08, -0.617713, 0, -0.837908, 5.40022e-08, -1, 3.20196e-15, 2.70011e-08, 3.27835e-08, -0.0493165, 0.413251)
 mesh = SubResource("PrismMesh_2ilha")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="GpuParticles3d" type="GPUParticles3D" parent="Looks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.213975, 2.79011)
+process_material = SubResource("ShaderMaterial_f4da4")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -107,11 +122,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
+layout_mode = 0
 offset_right = 170.0
 offset_bottom = 56.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_40ifb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
 offset_left = 13.0
 offset_top = 13.0
 offset_right = 183.0
@@ -120,11 +137,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="SpeedUI" type="Label" parent="UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 170.0
 offset_bottom = 26.0
 text = "Speed: 9999999999"
 
 [node name="VelocityUI" type="Label" parent="UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 30.0
 offset_right = 170.0
 offset_bottom = 56.0

@@ -61,7 +61,7 @@ mesh = SubResource("BoxMesh_xniff")
 surface_material_override/0 = SubResource("StandardMaterial3D_jhe8h")
 
 [node name="Obstesticle" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, 8, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 6.19651, 0, 0, 0, 1, 8, 0, -8)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle"]
@@ -72,7 +72,7 @@ mesh = SubResource("BoxMesh_pqhc2")
 surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
 
 [node name="Obstesticle2" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, -8, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, -9.24186, 5.17893, -8)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle2"]
@@ -83,12 +83,111 @@ mesh = SubResource("BoxMesh_pqhc2")
 surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
 
 [node name="Obstesticle3" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, 0, 0, -16)
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, 0, -0.347481, -16)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle3"]
 shape = SubResource("BoxShape3D_ccqms")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle3"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle10" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 6.19651, 0, 0, 0, 1, 8, 2.3151, 2.9717)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle10"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle10"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle11" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, -2.3803, 7.49403, -51.1253)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle11"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle11"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle12" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 9.26417, 0, 0, 0, 1, 0, 2.91486, 17.0716)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle12"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle12"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle4" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 5.8692, 0, 0, 0, 1, -42.9401, 3.8147e-06, 49.6444)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle4"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle4"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle5" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 7.34253, 0, 0, 0, 1, -58.9401, 1.12657, 49.6444)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle5"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle5"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle6" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 2.1413, 0, 0, 0, 1, -50.9401, 3.8147e-06, 41.6444)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle6"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle6"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle7" type="StaticBody3D" parent="Level"]
+transform = Transform3D(0.561231, 0, 0.827659, 0, 2.1413, 0, -0.827659, 0, 0.561231, -39.9778, 3.8147e-06, 46.352)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle7"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle7"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle8" type="StaticBody3D" parent="Level"]
+transform = Transform3D(0.561231, 0, 0.827659, 0, 4.06976, 0, -0.827659, 0, 0.561231, -48.9575, 3.8147e-06, 59.5946)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle8"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle8"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle9" type="StaticBody3D" parent="Level"]
+transform = Transform3D(0.561231, 0, 0.827659, 0, 2.1413, 0, -0.827659, 0, 0.561231, -51.089, 3.8147e-06, 48.4834)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle9"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle9"]
 mesh = SubResource("BoxMesh_pqhc2")
 surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")

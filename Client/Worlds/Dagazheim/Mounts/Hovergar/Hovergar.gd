@@ -11,13 +11,14 @@ const MY_G = 40
 
 # m/s.
 @export var IsGliding: bool = true # Use flying or sticky gravity. Magnetic stick?
-@export var MaxSpeed: float = 10.0
+@export var MaxSpeed: float = 5.0
 @export var MinSpeed: float = 0.1
 @export var AccelerationRate: float = 0.666
 @export var BreakDecay: float = 0.95 # Damping.
 
 var thrust: Vector3 # Thrust vector from the user's keyboard, mouse, or gamepad.
 var gravity: Vector3 = Vector3.DOWN * ONE_G # Gravitational velocity vector can point toward other directions.
+var using_rudder: bool = false
 
 
 func _ready():
@@ -27,13 +28,14 @@ func _ready():
 
 func _physics_process(delta):
 	# Calculate the thrust
-	thrust = Vector3.ZERO
+	#thrust = Vector3.ZERO
 	
-	# TODO: Add gamepad support.
 	if Input.is_action_pressed("char_forward"):
 		thrust += -transform.basis.z * AccelerationRate
+		
 	if Input.is_action_pressed("char_backward"):
 		thrust += transform.basis.z * AccelerationRate
+		
 	if Input.is_action_pressed("char_strafe_left"):
 		thrust += -transform.basis.x * AccelerationRate
 	if Input.is_action_pressed("char_strafe_right"):
@@ -41,20 +43,14 @@ func _physics_process(delta):
 	if Input.is_action_pressed("char_jump"):
 		velocity *= BreakDecay
 	
-	if IsGliding:
-		if Input.is_action_pressed("char_fly_up"):
-			thrust += -transform.basis.y * AccelerationRate
-		if Input.is_action_pressed("char_fly_down"):
-			thrust += transform.basis.y * AccelerationRate
-#	else:
-#		if Input.is_action_pressed("jump"):
-#			pass
-		
-		gravity *= delta
-		velocity += gravity
-	
+	if Input.is_action_pressed("char_fly_up"):
+		thrust += -transform.basis.y * AccelerationRate
+	if Input.is_action_pressed("char_fly_down"):
+		thrust += transform.basis.y * AccelerationRate
+
+
 	# Orient the thrust around the player's y axis, so the [wsad] controls are relative to the viewport.
-	thrust = thrust.rotated(Vector3.UP, PIVOT.rotation.y)#.normalized()
+	#thrust = thrust.rotated(Vector3.UP, PIVOT.rotation.y)#.normalized()
 	
 	# Add player input.
 	velocity += thrust
@@ -75,6 +71,15 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		self.rotate_y(event.get_relative().x * -MouseSenesitivity) # Yaw.
 		PIVOT.rotate_object_local(Vector3.RIGHT, event.get_relative().y * -MouseSenesitivity) # Pitch.
-
+		if using_rudder:
+			rotate_y(event.get_relative().x * -MouseSenesitivity) # Yaw.
+		else:
+			PIVOT.rotate_y(event.get_relative().x * -MouseSenesitivity) # Yaw.
+	
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			using_rudder = true
+		elif not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			using_rudder = false
+			
