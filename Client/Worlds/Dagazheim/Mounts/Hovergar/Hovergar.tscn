@@ -1,19 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://1vc8838jdu8s"]
+[gd_scene load_steps=11 format=3 uid="uid://c6lydfkks06qs"]
 
 [ext_resource type="Script" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.gd" id="1_oiqsd"]
+[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="2_hn856"]
+[ext_resource type="PackedScene" uid="uid://i7dsa88imhux" path="res://Worlds/Dagazheim/Mounts/Hovergar/assets/Rudder.tscn" id="3_sgo51"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xb6oj"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ige3"]
+radius = 1.10275
+height = 3.41729
 
-[sub_resource type="BoxMesh" id="BoxMesh_qlrtt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egixf"]
-albedo_color = Color(0.12549, 0.278431, 0.380392, 1)
-emission_enabled = true
-emission = Color(0.109804, 0.47451, 1, 1)
-emission_energy_multiplier = 0.0
-
-[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
-left_to_right = 0.0
+[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
+left_to_right = 1.0
 size = Vector3(0.5, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67lra"]
@@ -23,9 +19,17 @@ emission_enabled = true
 emission = Color(0.109804, 0.47451, 1, 1)
 emission_energy_multiplier = 0.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
-left_to_right = 1.0
+[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
+left_to_right = 0.0
 size = Vector3(0.5, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlrtt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egixf"]
+albedo_color = Color(0.12549, 0.278431, 0.380392, 1)
+emission_enabled = true
+emission = Color(0.109804, 0.47451, 1, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40ifb"]
 content_margin_left = 13.0
@@ -41,32 +45,90 @@ corner_radius_bottom_left = 24
 [node name="Hovergar" type="CharacterBody3D"]
 script = ExtResource("1_oiqsd")
 
+[node name="Esc" type="Node" parent="."]
+script = ExtResource("2_hn856")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="RearEngines" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0339119, 0, 2.50456)
+
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_xb6oj")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.621768)
+shape = SubResource("CapsuleShape3D_3ige3")
 
 [node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.885386, 0.464857, 0, -0.464857, 0.885386, 0, 0, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Looks" type="Node3D" parent="."]
 
-[node name="Hull" type="MeshInstance3D" parent="Looks"]
+[node name="AttachRudderL" type="Node3D" parent="Looks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.728018, 0.112429, 1.35343)
+
+[node name="Rudder" parent="Looks/AttachRudderL" instance=ExtResource("3_sgo51")]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, 0, 1, 0, -0.4, 0)
+
+[node name="RudderLeft" type="MeshInstance3D" parent="Looks/AttachRudderL/Rudder"]
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0, -0.260214, 0)
+mesh = SubResource("PrismMesh_2ilha")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="AttachRudderR" type="Node3D" parent="Looks"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, 0, 1, 0.734755, 0.104306, 1.35343)
+
+[node name="Rudder" parent="Looks/AttachRudderR" instance=ExtResource("3_sgo51")]
+
+[node name="RudderRight" type="MeshInstance3D" parent="Looks/AttachRudderR/Rudder"]
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0, -0.260214, 1.19209e-07)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="RightFender3" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(-1.26284e-08, -4.151e-08, -0.489966, 0, -0.474819, 4.28342e-08, -0.288905, 1.81446e-15, 2.14171e-08, 0.497178, 0.101979, -0.66791)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="RightFender4" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(-1.26284e-08, -4.151e-08, -0.489966, 0, -0.474819, 4.28342e-08, -0.288905, 1.81446e-15, 2.14171e-08, -0.477352, 0.101979, -0.66791)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="LeftFender3" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(-4.37114e-08, -7.32523e-08, -0.617713, 0, -0.837908, 5.40022e-08, -1, 3.20196e-15, 2.70011e-08, 3.27835e-08, -0.0493165, 1.75007)
+mesh = SubResource("PrismMesh_2ilha")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="LeftFender" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.682781, 0, 0, 0, -0.359133, 5.40022e-08, 0, -3.13964e-08, -0.617713, -0.9226, 0.025, 0)
+mesh = SubResource("PrismMesh_2ilha")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="RightFender" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.682781, 0, 0, 0, -0.359133, 5.40022e-08, 0, -3.13964e-08, -0.617713, 0.928475, 0.025, 0)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+
+[node name="FrontLeft" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("BoxMesh_qlrtt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
-[node name="RightFender" type="MeshInstance3D" parent="Looks/Hull"]
-transform = Transform3D(1, 0, 0, 0, -0.534289, 5.40022e-08, 0, -4.6709e-08, -0.617713, 0.75, 0.14824, 0)
-mesh = SubResource("PrismMesh_y86gc")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
-
-[node name="LeftFender" type="MeshInstance3D" parent="Looks/Hull"]
-transform = Transform3D(1, 0, 0, 0, -0.534289, 5.40022e-08, 0, -4.6709e-08, -0.617713, -0.75, 0.14824, 0)
-mesh = SubResource("PrismMesh_2ilha")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+[node name="FrontRight" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_qlrtt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
 [node name="Hull2" type="MeshInstance3D" parent="Looks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.33682)
@@ -74,29 +136,11 @@ mesh = SubResource("BoxMesh_qlrtt")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
-[node name="RightFender" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(1, 0, 0, 0, -1, 5.40022e-08, 0, -8.74228e-08, -0.617713, 0.75, 0, 0.19472)
-mesh = SubResource("PrismMesh_y86gc")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
-
-[node name="LeftFender" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(1, 0, 0, 0, -1, 5.40022e-08, 0, -8.74228e-08, -0.617713, -0.75, 0, 0.19472)
-mesh = SubResource("PrismMesh_2ilha")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
-
-[node name="RightFender2" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(-4.37114e-08, -8.74228e-08, -0.617713, 0, -1, 5.40022e-08, -1, 3.82137e-15, 2.70011e-08, -3.27835e-08, 0.101979, -1.90174)
-mesh = SubResource("PrismMesh_y86gc")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
-
-[node name="LeftFender2" type="MeshInstance3D" parent="Looks/Hull2"]
-transform = Transform3D(-4.37114e-08, -8.74228e-08, -0.617713, 0, -1, 5.40022e-08, -1, 3.82137e-15, 2.70011e-08, 3.27835e-08, -0.10434, 0.413251)
-mesh = SubResource("PrismMesh_2ilha")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+[node name="Hull3" type="MeshInstance3D" parent="Looks"]
+transform = Transform3D(0.509043, 0, 0, 0, 1.1895, -0.174181, 0, 0.210404, 0.984714, 0, 0.356692, 1.20233)
+mesh = SubResource("BoxMesh_qlrtt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_egixf")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
