@@ -32,8 +32,6 @@ metadata/_edit_layout_mode = 1
 
 [node name="Controls" parent="TabContainer" instance=ExtResource("1_g167d")]
 offset_top = 31.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="BG" parent="TabContainer/Controls" index="0"]
 offset_left = -187.736

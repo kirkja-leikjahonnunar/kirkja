@@ -1,6 +1,11 @@
 TODO
 ====
 
+
+- Fix:
+    - [ ] bug: press on widget not setting tool
+
+
 - Voxeling:
 	- [ ] colliders should correspond to the shape
     - [ ] better "valley" block
@@ -15,9 +20,10 @@ TODO
 		- [x] Change color
 		- [x] Rotate blocks
 		- [x] Rotate up needs to select axis most orthogonal to camera
-		- [ ] Hang/climb
 		- [ ] Better "current block" selection, rather that just last block laid down
-	- [ ] Wizard mode ui improvements
+	- [ ] Hang/climb movement mode
+	- [ ] UI improvements
+	    - [ ] Control click for sampling, per tool mode
 	    - [x] Right button and drag to orbit camera
 		- [x] Need option for panning while in wizard mode. switching to character to pan is annoying
 	    - [x] Change animation for solid scaling, not lerping the basis
@@ -34,6 +40,7 @@ TODO
 		- [x] Rotate blocks
 
 - GameClient:
+    - [ ] setting to specify local folder for export/import
     - [ ] bug: cannot switch between online and offline, menus freeze up
     - [ ] controller can't operate the pause menu
     - [ ] proximity buttons: need to not be entirely proximity driven.. whether hovered, clickable should still determined by player direction, and only activate one at a time

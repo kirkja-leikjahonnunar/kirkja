@@ -14,6 +14,10 @@ var last_voxel_type := Voxel.Shapes.CUBE
 var last_voxel_rotation : Vector3
 var last_voxel_material : Material
 var last_voxel_color : int = -1
+var last_voxel_rgb : Color
+@onready var hang_detector : RayCast3D = $PlayerMesh/HangDetector
+
+var last_position : Vector3
 
 var palette := [
 				Color("#ff0000"),
@@ -25,6 +29,16 @@ var palette := [
 				Color("#ffffff"),
 				Color("#000000")
 				]
+
+
+enum InputModes { Wizard, Run, Sample }
+var input_mode := InputModes.Run
+var last_input_mode = InputModes.Run
+
+enum ToolModes { Create, Color, Shape, Rotate }
+var tool_mode := ToolModes.Create
+var is_sampling := false # whether we are trying to sample a voxel setting
+
 
 @onready var tool_ui = preload("res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.tscn").instantiate()
 
@@ -40,6 +54,7 @@ func _ready():
 	click_captures_mouse = false # Overrides default PlayerController behavior
 	
 	wizard_ready()
+	last_position = position
 	
 	tool_ui.tool_selected.connect(ToolSelectedFromUI)
 	get_tree().root.call_deferred("add_child", tool_ui)
@@ -96,11 +111,11 @@ func Jump():
 
 # Helper function called during _physics_process()
 func HandleMovement(delta: float):
-	if wizard_mode_active and need_to_update_cast:
+	if (input_mode == InputModes.Wizard || input_mode == InputModes.Sample) and need_to_update_cast:
 		CastFromCamera()
 		need_to_update_cast = false
 	
-	print ("Hanging: ", hanging,"  looking for hang: ", looking_for_hang)
+	#print ("Hanging: ", hanging,"  looking for hang: ", looking_for_hang)
 	if hanging:
 		HandleMovementHanging(delta)
 		return
@@ -138,6 +153,11 @@ func HandleMovement(delta: float):
 	#print (player_dir)
 	var direction = (char_body.transform.basis * player_dir).normalized() # now in parent space
 	
+	if not looking_for_hang:
+		var vertical_mv : float = direction.dot(up_direction)
+		if vertical_mv < 0 && not $FallDetector.is_colliding():
+			looking_for_hang = true
+	
 	var sprinting : bool = Input.is_action_pressed("char_sprint")
 	speed = speed * (SPRINT_SPEED if sprinting else SPEED)
 	SetCharTilt(player_dir * speed / SPEED)
@@ -155,6 +175,16 @@ func HandleMovement(delta: float):
 	char_body.velocity = vertical_v + target_velocity.lerp(char_body.velocity - vertical_v, .1) #note: velocity can't move_toward like a normal vector3
 	char_body.move_and_slide()
 	
+	UpdateHangDetector()
+	
+	if looking_for_hang:
+		if char_body.is_on_floor():
+			looking_for_hang = false
+		else:
+			if hang_detector.is_colliding():
+				looking_for_hang = false
+				StartToHang(hang_detector.get_collider())
+	
 	if just_jumped:
 		if ! char_body.is_on_floor():
 			if last_on_floor: # we jumped while on the floor
@@ -163,8 +193,6 @@ func HandleMovement(delta: float):
 				Falling()
 	else: # not just jumped
 		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
-			looking_for_hang = true
-			print ("Set looking_for_hang = true")
 			Falling()
 		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
 			JumpEnd()
@@ -177,10 +205,27 @@ func HandleMovement(delta: float):
 	# # network sync
 	# DefinePlayerState()
 
+func UpdateHangDetector():
+	var v = position - last_position
+	if v.length() > 1e-5:
+		## set detector based on actual movement
+		v = (hang_detector.global_transform.basis.inverse() * get_parent().global_transform.basis * v).normalized()
+		v = Vector3(0, v.y, -.5)
+		hang_detector.target_position = voxel_size * v.normalized()
+		#print ("Hang dir: ", v)
+	last_position = position
+	
+	if input_mode == InputModes.Run && not hanging && hang_detector.is_colliding():
+		SetCurrentVoxel(hang_detector.get_collider())
 
 # Helper function for running around mode, used during _physics_process()
 func HandleActions():
 	super.HandleActions()
+	
+	if Input.is_action_just_pressed("voxel_sample"):
+		SwitchInputMode(InputModes.Sample)
+	elif Input.is_action_just_released("voxel_sample"):
+		SwitchInputMode(last_input_mode)
 	
 	if Input.is_action_just_released("Save"):
 		if voxel_world == null: InitVoxelRealm()
@@ -197,10 +242,10 @@ func HandleActions():
 	if Input.is_action_just_released("tool3"): SwitchToolMode(ToolModes.Shape)
 	if Input.is_action_just_released("tool4"): SwitchToolMode(ToolModes.Color)
 	
-	if wizard_mode_active && hovered_object == null:
+	if input_mode == InputModes.Wizard && hovered_object == null:
 		return
 	
-	if not wizard_mode_active:
+	if input_mode == InputModes.Run:
 		hovered_object = current_voxel
 		if current_voxel == null:
 			if tool_mode == ToolModes.Create && CurrentActionValid("voxeling_add_voxel"):
@@ -211,7 +256,7 @@ func HandleActions():
 		ToolModes.Create:
 			#print ("create, add_voxel: ", CurrentActionValid("voxeling_add_voxel"))
 			if CurrentActionValid("voxeling_add_voxel"):
-				if wizard_mode_active:
+				if input_mode == InputModes.Wizard:
 					SpawnVoxelAt($Indicator/Potential.global_position, false)
 					need_to_update_cast = true
 				else:
@@ -254,28 +299,35 @@ func HandleActions():
 # Overrides PlayerController, swap between wizard mode and run around mode.
 func HandleToggleMouse(on):
 	print ("Voxeling.HandleToggleMouse: ", on)
-	wizard_mode_active = on
-	need_to_update_cast = true
+	
 	if on:
+		input_mode = InputModes.Wizard
+		need_to_update_cast = true
 		SwitchToolMode(tool_mode)
 	else:
+		input_mode = InputModes.Run
 		$Indicator/Potential.visible = false
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	
 	SetMouseVisible(on)
 
 
 func _input(event):
 	if not active: return
 	
-	if wizard_mode_active:
+	if input_mode == InputModes.Wizard:
 		wizard_input(event)
+	
+	if input_mode == InputModes.Sample:
+		if event is InputEventMouseMotion:
+			need_to_update_cast = true
 	
 	super._input(event)
 
 
 # the collider underneath player
 func _on_drill_body_entered(body):
-	if wizard_mode_active: return
+	if input_mode != InputModes.Run: return
 	
 	if Input.is_action_pressed("voxeling_eraser_mode"):
 		if not is_on_floor():
@@ -288,7 +340,7 @@ func _on_drill_body_entered(body):
 
 # Colliders left, right, forward, back from player
 func _on_bump_body_entered(body):
-	if wizard_mode_active: return
+	if input_mode != InputModes.Run: return
 	
 	print ("bump entered ", body.name, ", ", body.get_parent().name)
 	if Input.is_action_pressed("voxeling_eraser_mode"):
@@ -297,12 +349,12 @@ func _on_bump_body_entered(body):
 			body.call_deferred("SelfDestruct")
 			if body == hovered_object:
 					hovered_object = null
-	else:
-		if looking_for_hang:
-			if not $FallDetector.is_colliding():
-				print ("HANG on ", body.name)
-				StartToHang(body)
-				looking_for_hang = false
+#	else:
+#		if looking_for_hang:
+#			if not $FallDetector.is_colliding():
+#				print ("HANG on ", body.name)
+#				StartToHang(body)
+#				looking_for_hang = false
 
 
 #-------------------------------------------------------------------------------------------
@@ -357,7 +409,7 @@ func HandleMovementHanging(_delta: float):
 	
 	if Input.is_action_just_pressed("char_jump"):
 		hanging = false
-		looking_for_hang = true
+		#looking_for_hang = true
 		return
 	
 	
@@ -383,11 +435,6 @@ func HandleMovementHanging(_delta: float):
 #-------------------------- Wizard mode (mouse controller) ---------------------------------
 #-------------------------------------------------------------------------------------------
 
-var wizard_mode_active := false
-
-enum ToolModes { Create, Color, Shape, Rotate }
-var tool_mode := ToolModes.Create
-
 var voxel_camera : Camera3D
 var hovered_object
 var hovered_point : Vector3
@@ -409,7 +456,7 @@ func wizard_ready():
 
 
 func wizard_input(event):
-	if not wizard_mode_active: return
+	if input_mode != InputModes.Wizard: return
 	
 	if event is InputEventMouseMotion:
 		#print ("at wizard_input, will cast")
@@ -428,6 +475,13 @@ func wizard_input(event):
 func NeedToCast():
 	need_to_update_cast = true
 
+
+func SwitchInputMode(mode):
+	if mode == InputModes.Sample:
+		if input_mode != InputModes.Sample:
+			last_input_mode = input_mode
+	input_mode = mode
+	
 
 # Update state about current wizard tool mode.
 func SwitchToolMode(mode):
@@ -490,6 +544,13 @@ func CastFromCamera():
 		$Indicator/Potential.global_transform.basis = cbas #hover.global_transform.basis
 	else:
 		$Indicator/Potential.visible = false
+	
+	if input_mode == InputModes.Sample && hovered_object != null:
+		last_voxel_rgb = hovered_object.base_color
+		last_voxel_color = FindNearestPalette(last_voxel_rgb)
+		last_voxel_type = hovered_object.shape
+		last_voxel_rotation = hovered_object.target_rotation
+		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
 
 
 # Return a direction vector corresponding to the direction enum.
@@ -541,4 +602,13 @@ func GetCameraDirection(voxel: Node3D, point: Vector3, ignore_y: bool) -> int:
 	return closest
 
 
+func FindNearestPalette(color : Color) -> int:
+	var closest_i := -1
+	var d := 10000
+	for i in range(palette.size()):
+		var dd : float = Vector4(color.r - palette[i].r, color.g - palette[i].g, color.b - palette[i].b, color.a - palette[i].a).length()
+		if dd < d:
+			d = dd
+			closest_i = i
+	return closest_i
 
