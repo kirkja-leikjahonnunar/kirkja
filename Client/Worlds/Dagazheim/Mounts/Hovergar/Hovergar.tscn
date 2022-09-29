@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://1vc8838jdu8s"]
+[gd_scene load_steps=11 format=3 uid="uid://c6lydfkks06qs"]
 
 [ext_resource type="Script" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.gd" id="1_oiqsd"]
-[ext_resource type="PackedScene" uid="uid://bw7ip77cn8qkp" path="res://Worlds/Dagazheim/Mounts/Hovergar/assets/Exaust.tscn" id="2_sh2rg"]
+[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="2_hn856"]
+[ext_resource type="PackedScene" uid="uid://i7dsa88imhux" path="res://Worlds/Dagazheim/Mounts/Hovergar/assets/Rudder.tscn" id="3_sgo51"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ige3"]
 radius = 1.10275
 height = 3.41729
 
-[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
-left_to_right = 0.0
+[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
+left_to_right = 1.0
 size = Vector3(0.5, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67lra"]
@@ -18,8 +19,8 @@ emission_enabled = true
 emission = Color(0.109804, 0.47451, 1, 1)
 emission_energy_multiplier = 0.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_2ilha"]
-left_to_right = 1.0
+[sub_resource type="PrismMesh" id="PrismMesh_y86gc"]
+left_to_right = 0.0
 size = Vector3(0.5, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qlrtt"]
@@ -44,6 +45,14 @@ corner_radius_bottom_left = 24
 [node name="Hovergar" type="CharacterBody3D"]
 script = ExtResource("1_oiqsd")
 
+[node name="Esc" type="Node" parent="."]
+script = ExtResource("2_hn856")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="RearEngines" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0339119, 0, 2.50456)
+
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.621768)
 shape = SubResource("CapsuleShape3D_3ige3")
@@ -56,23 +65,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Looks" type="Node3D" parent="."]
 
-[node name="RightFender2" type="MeshInstance3D" parent="Looks"]
-transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0.734755, -0.155908, 1.35343)
-mesh = SubResource("PrismMesh_y86gc")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
+[node name="AttachRudderL" type="Node3D" parent="Looks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.728018, 0.112429, 1.35343)
 
-[node name="ExaustR" parent="Looks/RightFender2" instance=ExtResource("2_sh2rg")]
-transform = Transform3D(-5.74818e-08, 0, 1.31503, 1.34386e-07, -1.5372, 5.87421e-15, 1.11085, 9.71133e-08, 4.85567e-08, -0.0142443, -0.704661, -0.0878342)
+[node name="Rudder" parent="Looks/AttachRudderL" instance=ExtResource("3_sgo51")]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, 0, 1, 0, -0.4, 0)
 
-[node name="LeftFender2" type="MeshInstance3D" parent="Looks"]
-transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, -0.728018, -0.155908, 1.35343)
+[node name="RudderLeft" type="MeshInstance3D" parent="Looks/AttachRudderL/Rudder"]
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0, -0.260214, 0)
 mesh = SubResource("PrismMesh_2ilha")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
 
-[node name="ExaustL" parent="Looks/LeftFender2" instance=ExtResource("2_sh2rg")]
-transform = Transform3D(-5.74818e-08, 0, 1.31503, 1.34386e-07, -1.5372, 5.87421e-15, 1.11085, 9.71133e-08, 4.85567e-08, 0.0236262, -0.731273, -0.0878344)
+[node name="AttachRudderR" type="Node3D" parent="Looks"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, 0, 1, 0.734755, 0.104306, 1.35343)
+
+[node name="Rudder" parent="Looks/AttachRudderR" instance=ExtResource("3_sgo51")]
+
+[node name="RudderRight" type="MeshInstance3D" parent="Looks/AttachRudderR/Rudder"]
+transform = Transform3D(0.760438, 0, 0, 0, -0.650534, 7.86992e-08, 0, -5.68715e-08, -0.900214, 0, -0.260214, 1.19209e-07)
+mesh = SubResource("PrismMesh_y86gc")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_67lra")
 
 [node name="RightFender3" type="MeshInstance3D" parent="Looks"]
 transform = Transform3D(-1.26284e-08, -4.151e-08, -0.489966, 0, -0.474819, 4.28342e-08, -0.288905, 1.81446e-15, 2.14171e-08, 0.497178, 0.101979, -0.66791)

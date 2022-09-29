@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://datbja5ajhcm1"]
+[gd_scene load_steps=11 format=3 uid="uid://datbja5ajhcm1"]
 
-[ext_resource type="PackedScene" uid="uid://1vc8838jdu8s" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.tscn" id="1_bc0f4"]
-[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="1_rkosn"]
+[ext_resource type="PackedScene" uid="uid://c6lydfkks06qs" path="res://Worlds/Dagazheim/Mounts/Hovergar/Hovergar.tscn" id="1_bc0f4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b0drp"]
 sky_top_color = Color(0.54902, 0.227451, 0.231373, 1)
@@ -47,7 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.0092, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xlubu")
-script = ExtResource("1_rkosn")
 
 [node name="Sunset" type="DirectionalLight3D" parent="."]
 editor_description = "Affects the `WorldEnvironment`."
@@ -136,6 +134,17 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_ccqms")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle12"]
+mesh = SubResource("BoxMesh_pqhc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
+
+[node name="Obstesticle13" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 9.26417, 0, 0, 0, 1, 13.2278, 2.91486, 17.0716)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Obstesticle13"]
+shape = SubResource("BoxShape3D_ccqms")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/Obstesticle13"]
 mesh = SubResource("BoxMesh_pqhc2")
 surface_material_override/0 = SubResource("StandardMaterial3D_4e3a3")
 
