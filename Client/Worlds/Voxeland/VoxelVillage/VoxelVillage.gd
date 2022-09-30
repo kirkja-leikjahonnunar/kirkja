@@ -56,9 +56,9 @@ func AddVoxelAtGlobalPos(global_pos: Vector3, voxel: Voxel):
 
 func LoadLandscape() -> bool:
 	var file_path = current_save_file_path
-	var file = File.new()
+	var file := FileAccess.open(file_path, FileAccess.READ)
 	#if file.open(save_path + filename, File.READ) == OK:
-	if file.open(file_path, File.READ) == OK:
+	if file.get_error() == OK:
 		print ("file opened..")
 		var json := JSON.new()
 		var err = json.parse(file.get_as_text())
@@ -150,7 +150,7 @@ func SaveLandscape() -> bool:
 	var voxels := DataifyVoxels($Landscape)
 	var data := { "voxels": voxels }
 	
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if not dir.dir_exists(save_path):
 		if dir.make_dir_recursive(save_path) != OK:
 			push_error("Failed to make dir path: ", save_path)
@@ -158,8 +158,8 @@ func SaveLandscape() -> bool:
 	
 	var file_path = current_save_file_path
 	
-	var file = File.new()
-	if file.open(file_path, File.WRITE) == OK:
+	var file := FileAccess.open(file_path, FileAccess.WRITE)
+	if file.get_error() == OK:
 		var json = JSON.new()
 		var jstr := json.stringify(data)
 		file.store_string(jstr)

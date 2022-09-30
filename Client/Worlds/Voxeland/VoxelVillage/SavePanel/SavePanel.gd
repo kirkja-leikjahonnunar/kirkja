@@ -68,10 +68,10 @@ func UpdateSaveSlots(path: String, ending: String):
 	save_path = path
 	save_extension = ending
 	
-	var dir = Directory.new()
+	var dir = DirAccess.open(path)
 	var elements := []
 	
-	if dir.open(path) != OK:
+	if dir.get_error() != OK:
 		print_debug ("Could not open directory ", path)
 		return
 		

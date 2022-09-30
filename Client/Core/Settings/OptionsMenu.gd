@@ -29,9 +29,8 @@ func SaveSettings(filename: String) -> bool:
 	var json := JSON.new()
 	var json_string = json.stringify(settings, '  ')
 	
-	var file = File.new()
-	var err = file.open(filename, File.WRITE)
-	if err != OK:
+	var file = FileAccess.open(filename, FileAccess.WRITE)
+	if file.get_error() != OK:
 		return false
 	file.store_string(json_string)
 	file.close()
@@ -41,8 +40,8 @@ func SaveSettings(filename: String) -> bool:
 
 # Return success (true) or failure (false).
 func LoadSettings(file: String) -> bool:
-	var player_data_file = File.new()
-	if player_data_file.open(file, File.READ) != OK:
+	var player_data_file = FileAccess.open(file, FileAccess.READ)
+	if player_data_file.get_error() != OK:
 		print_debug("Could not open settings file! ", file)
 		return false
 

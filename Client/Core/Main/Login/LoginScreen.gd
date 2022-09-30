@@ -196,8 +196,8 @@ func _on_back_to_login_pressed():
 var connection_file = "user://connect.json"
 
 func LoadConnectionSettings():
-	var file = File.new()
-	if file.open(connection_file, File.READ) != OK:
+	var file := FileAccess.open(connection_file, FileAccess.READ)
+	if file.get_error() != OK:
 		print("No connection settings file at ", connection_file)
 		return
 
@@ -216,9 +216,8 @@ func SaveConnectionSettings():
 	var data = { "ip": SERVER_IP.text }
 	var json_string = json.stringify(data, '  ')
 	
-	var file = File.new()
-	var err = file.open(connection_file, File.WRITE)
-	if err != OK:
+	var file = FileAccess.open(connection_file, FileAccess.WRITE)
+	if file.get_error() != OK:
 		return false
 	file.store_string(json_string)
 	file.close()

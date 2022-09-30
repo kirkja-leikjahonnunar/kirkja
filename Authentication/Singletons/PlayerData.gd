@@ -142,8 +142,8 @@ func RemoveUser_SQLite(username: String) -> bool:
 var users : Dictionary = {}
 
 func InitializeUserDB_JSON():
-	var player_data_file = File.new()
-	if player_data_file.open("res://DataStore/UserData.json", File.READ) != OK:
+	var player_data_file = FileAccess.open("res://DataStore/UserData.json", FileAccess.READ)
+	if player_data_file.get_error() != OK:
 		print ("Could not open user database.")
 		return
 	
@@ -177,9 +177,8 @@ func UserData_JSON(username: String):
 func SaveUserDatabase_JSON() -> bool:
 	var json = JSON.new()
 	var content = json.stringify(users)
-	var users_data_file = File.new()
-	var err = users_data_file.open("res://DataStore/UserData.json", File.WRITE)
-	if err != OK:
+	var users_data_file = FileAccess.open("res://DataStore/UserData.json", FileAccess.WRITE)
+	if users_data_file.get_error() != OK:
 		return false
 	users_data_file.store_string(content)
 	users_data_file.close()

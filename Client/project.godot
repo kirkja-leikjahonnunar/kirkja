@@ -124,7 +124,7 @@ _global_script_class_icons={
 
 config/name="Kirkja"
 run/main_scene="res://Core/Main/Client.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://Core/kir_kja.png"
 
 [autoload]

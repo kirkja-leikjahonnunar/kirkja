@@ -548,6 +548,7 @@ func CastFromCamera():
 	if input_mode == InputModes.Sample && hovered_object != null:
 		last_voxel_rgb = hovered_object.base_color
 		last_voxel_color = FindNearestPalette(last_voxel_rgb)
+		$PlayerMesh/voxeling/ctrl_rig/Skeleton3D/skin.get_surface_override_material(0).albedo_color = palette[last_voxel_color]
 		last_voxel_type = hovered_object.shape
 		last_voxel_rotation = hovered_object.target_rotation
 		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
@@ -604,7 +605,7 @@ func GetCameraDirection(voxel: Node3D, point: Vector3, ignore_y: bool) -> int:
 
 func FindNearestPalette(color : Color) -> int:
 	var closest_i := -1
-	var d := 10000
+	var d := 10000.0
 	for i in range(palette.size()):
 		var dd : float = Vector4(color.r - palette[i].r, color.g - palette[i].g, color.b - palette[i].b, color.a - palette[i].a).length()
 		if dd < d:
