@@ -1,15 +1,15 @@
 # Voxeling
-The **voxeling** entity is the primary context for voxel building games. Voxelings primarily inhabit the [Voxel Village]() attraction. They can move freely, jump in 3D space, wall jump, wall slide, spawn and subtract voxels, before coming to rest on a grid space.
+A **voxeling** is the primary context for voxel building games. Voxelings primarily inhabit the [Voxel Village]() attraction. They can move freely, jump in 3D space, wall jump, wall slide, spawn and subtract voxels.
 
 ![Voxeling form.](docs/voxeling_form.png)
 _(Scale: With their arms out stretched, voxelings can reach about 0.1 m across.)_
 
 ### Absorbing Colors
-Voxelings absorb color from the lights in the level. Stand under a light and the voxeling's hue will shift towards that color. The voxeling loses its color as it creates blocks.
+Voxelings absorb color from the lights in the level. Stand under a light and the voxeling's hue will shift towards that color. The voxeling may loses its color as we spawn more blocks.
 
 
 ## Player Controls
-The voxeling controls should closely mirror the standard Kirkja 3rd person control scheme.
+Voxeling controls should closely mirror the standard Kirkja 3rd person control scheme.
 
 ### Voxeling Movement
 | Action | Keyboard / Mouse | Gamepad | Description |
@@ -32,7 +32,7 @@ The voxeling controls should closely mirror the standard Kirkja 3rd person contr
 | Create | `1` | Spawn voxel. | Delete voxel. |
 | Rotate | `2` | Rotate the targeted voxel around its Y axis. | Rotate the voxel "forward" _(over its top)_ around the X or Z axis, based on the side of the voxel the player has targeted clicking the `RMB`. |
 | Shape | `3` | Next shape. | Previous shape. |
-| Color | `4` | Paint voxel. | Open / close color ring palette. |
+| Color | `4` | Paint target voxel. | Spawn colorbs palette. |
 
 
 ## Assets
@@ -76,5 +76,7 @@ The voxeling will have a variety of animations that may have a different percent
 
 ### UI
 The player will need a reminder of their current tool state.
-- [ ] Control node dev UI.
-  - [ ] Toolbar
+- [x] Control node dev UI.
+  - [x] Toolbar
+  - [ ] Voxel Preview setup.
+  - [ ] Voxel Preview orient the voxel to the scene.

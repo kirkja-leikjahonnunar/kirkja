@@ -42,3 +42,7 @@ func SelectToolById(mode):
 		"Rotate": SelectTool(TOOL_ROTATE)
 		"Color":  SelectTool(TOOL_COLOR)
 		"Shape":  SelectTool(TOOL_SHAPE)
+
+
+func UpdateCompass(orientation):
+	$VoxelPreview.UpdateCompass(orientation)
