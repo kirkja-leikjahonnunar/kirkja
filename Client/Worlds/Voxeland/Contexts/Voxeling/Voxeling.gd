@@ -1,9 +1,15 @@
 extends PlayerController
 class_name Voxeling
 
-
 const VOXEL : PackedScene = preload("res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn")
 const voxel_size = .1
+
+@onready var hang_detector : RayCast3D = $PlayerMesh/HangDetector
+#@onready var tool_ui = preload("res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.tscn").instantiate()
+@onready var VOXELING_UI = $VoxelingUI
+
+
+enum InputModes { Wizard, Run, Sample }
 
 
 var voxel_world : VoxelVillage
@@ -15,7 +21,6 @@ var last_voxel_rotation : Vector3
 var last_voxel_material : Material
 var last_voxel_color : int = -1
 var last_voxel_rgb : Color
-@onready var hang_detector : RayCast3D = $PlayerMesh/HangDetector
 
 var last_position : Vector3
 
@@ -31,7 +36,6 @@ var palette := [
 				]
 
 
-enum InputModes { Wizard, Run, Sample }
 var input_mode := InputModes.Run
 var last_input_mode = InputModes.Run
 
@@ -40,7 +44,8 @@ var tool_mode := ToolModes.Create
 var is_sampling := false # whether we are trying to sample a voxel setting
 
 
-@onready var tool_ui = preload("res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.tscn").instantiate()
+func UpdateCompass():
+	VOXELING_UI.UpdateCompass(rotation.inverse())
 
 
 #-------------------------------------------------------------------------------------------
@@ -56,8 +61,23 @@ func _ready():
 	wizard_ready()
 	last_position = position
 	
-	tool_ui.tool_selected.connect(ToolSelectedFromUI)
-	get_tree().root.call_deferred("add_child", tool_ui)
+
+#	tool_ui.tool_selected.connect(ToolSelectedFromUI)
+#	get_tree().root.call_deferred("add_child", tool_ui)
+
+
+func _input(event):
+	if not active: return
+	
+	if input_mode == InputModes.Wizard:
+		wizard_input(event)
+	
+	if input_mode == InputModes.Sample:
+		if event is InputEventMouseMotion:
+			need_to_update_cast = true
+	
+	super._input(event)
+
 
 
 func InitVoxelRealm():
@@ -71,6 +91,7 @@ func InitVoxelRealm():
 
 func SpawnVoxel():
 	SpawnVoxelAt(global_position + Vector3(0,.05, 0), true)
+
 
 func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	if voxel_world == null: InitVoxelRealm()
@@ -312,17 +333,6 @@ func HandleToggleMouse(on):
 	SetMouseVisible(on)
 
 
-func _input(event):
-	if not active: return
-	
-	if input_mode == InputModes.Wizard:
-		wizard_input(event)
-	
-	if input_mode == InputModes.Sample:
-		if event is InputEventMouseMotion:
-			need_to_update_cast = true
-	
-	super._input(event)
 
 
 # the collider underneath player
@@ -486,7 +496,7 @@ func SwitchInputMode(mode):
 # Update state about current wizard tool mode.
 func SwitchToolMode(mode):
 	tool_mode = mode
-	tool_ui.SelectToolById(ToolModes.keys()[mode])
+	VOXELING_UI.SelectToolById(ToolModes.keys()[mode])
 	match tool_mode:
 		ToolModes.Create: Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
 		ToolModes.Color:  Input.set_default_cursor_shape(Input.CursorShape.CURSOR_BUSY)
