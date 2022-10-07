@@ -15,6 +15,8 @@ var current_save_file_path : String # this should have save_path inside it, for 
 @export var flare_meshes : Array[Mesh]
 @export var colliders : Array[Shape3D]
 
+#TODO: this needs to coordinate with Voxeling
+@export_flags_3d_physics var block_collision_mask := 0
 
 #----------------------------------------------------------------------------------
 #------------------------------------- main ---------------------------------------
@@ -25,6 +27,17 @@ func _ready():
 	$SavePanel.load_pressed.connect(LoadPressed)
 	$SavePanel.canceled.connect(SavePanelCanceled)
 	$SavePanel.visible = false
+
+
+func UpdateDebugOverlay():
+	if has_node("DebugOverlay"):
+		var overlay = get_node("DebugOverlay")
+		overlay.Update("hanging", str($Voxeling.hanging))
+		overlay.Update("looking_for_hang", str($Voxeling.looking_for_hang))
+		overlay.Update("hang_det", str($Voxeling.hang_detector.is_colliding()))
+
+func _process(delta):
+	UpdateDebugOverlay()
 
 
 # Add voxel based on a character plopping down a block. Results in voxeling moving slightly.
@@ -45,7 +58,7 @@ func AddVoxel(voxeling, voxel):
 
 func AddVoxelAtGlobalPos(global_pos: Vector3, voxel: Voxel):
 	# Snap to grid or whatever.
-	voxel.position = voxel.to_local(global_pos)
+	voxel.position = $Landscape.to_local(global_pos)
 	voxel.position.y = ceil((voxel.position.y - 0.05) * 10) / 10
 	voxel.position.x = ceil((voxel.position.x - 0.05) * 10) / 10
 	voxel.position.z = ceil((voxel.position.z - 0.05) * 10) / 10
@@ -62,7 +75,7 @@ func LoadLandscape() -> bool:
 		print ("file opened..")
 		var json := JSON.new()
 		var err = json.parse(file.get_as_text())
-		file.close()
+		file = null #file.close()
 		if err == OK:
 			var data = json.get_data()
 			print ("json data: ", data)
@@ -150,9 +163,9 @@ func SaveLandscape() -> bool:
 	var voxels := DataifyVoxels($Landscape)
 	var data := { "voxels": voxels }
 	
-	var dir = DirAccess.new()
-	if not dir.dir_exists(save_path):
-		if dir.make_dir_recursive(save_path) != OK:
+	var dir = DirAccess.open(save_path)
+	if dir == null: #not dir.dir_exists(save_path):
+		if DirAccess.make_dir_recursive_absolute(save_path) != OK:
 			push_error("Failed to make dir path: ", save_path)
 			return false
 	
@@ -164,7 +177,7 @@ func SaveLandscape() -> bool:
 		var jstr := json.stringify(data)
 		file.store_string(jstr)
 		print ("Saved to ",file_path,"! -> ", file.get_path_absolute())
-		file.close()
+		file = null #file.close()
 		return true
 	else:
 		push_error ("Error saving to ", file_path)
@@ -189,6 +202,20 @@ func ScanForMaxNumber():
 			max_number = child.number
 
 
+
+# This should be called during physics_process to ensure raycasts function properly.
+func VoxelAtPosition(world_pos: Vector3) -> Voxel:
+	var local_pos = $Landscape.to_local(world_pos)
+	var space = get_world_3d().direct_space_state
+	var params := PhysicsPointQueryParameters3D.new()
+	params.position = world_pos
+	params.collision_mask = block_collision_mask
+	var intersect = space.intersect_point(params)
+	if intersect && intersect.collider != null && intersect.collider is Voxel:
+		return intersect.collider
+	return null
+
+
 #----------------------------------------------------------------------------------
 #----------------------------- Signals / Interface ------------------------------
 #----------------------------------------------------------------------------------
@@ -209,6 +236,7 @@ func SavePressed(path):
 	$SavePanel.Deactivate()
 	Input.set_mouse_mode(old_mouse_capture)
 	SaveLandscape()
+	$Voxeling.ShowUI()
 
 
 func InitiateLoad():
@@ -225,10 +253,13 @@ func LoadPressed(path):
 	$SavePanel.Deactivate()
 	Input.set_mouse_mode(old_mouse_capture)
 	LoadLandscape()
+	$Voxeling.ShowUI()
 
 
 func SavePanelCanceled():
+	print ("Save panel canceled")
 	$SavePanel.Deactivate()
 	Input.set_mouse_mode(old_mouse_capture)
+	$Voxeling.ShowUI()
 
 

@@ -1,14 +1,21 @@
-[gd_scene load_steps=22 format=3 uid="uid://dj40kpeof30x5"]
+[gd_scene load_steps=24 format=3 uid="uid://dj40kpeof30x5"]
 
-[ext_resource type="PackedScene" uid="uid://c04omrr6yot0s" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
+[ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/Voxeling.gd" id="1_xyc3q"]
 [ext_resource type="PackedScene" uid="uid://bqhwut8qkg2a" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.tscn" id="2_q4xq3"]
-[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="2_wv13h"]
+[ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="3_o7hgu"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_onvl2"]
 [ext_resource type="PackedScene" uid="uid://baaftyjce75qb" path="res://kirkja-assets/models/CubeCage.glb" id="4_ovgtm"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="4_qosud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8tkb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6wr7"]
+resource_local_to_scene = true
+albedo_color = Color(0.85098, 1, 0.639216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f72rv"]
+resource_local_to_scene = true
+albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yatec"]
 animation = &"Idle rig"
@@ -125,9 +132,6 @@ GRAVITY_MULTIPLIER = 1.7
 
 [node name="VoxelingUI" parent="." instance=ExtResource("2_q4xq3")]
 
-[node name="Esc" type="Node" parent="."]
-script = ExtResource("2_wv13h")
-
 [node name="FallDetector" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0135206, 0)
 target_position = Vector3(0, -0.17, 0)
@@ -170,8 +174,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(0.642589, 0, -1.12354e-07, 0, 0.642589, 0, 1.12354e-07, 0, 0.642589, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, -0.0877834, 0, 0.99614)
-bones/3/rotation = Quaternion(0, -0.0911239, 0, 0.99584)
+bones/2/rotation = Quaternion(0, -0.103307, 0, 0.99465)
+bones/3/rotation = Quaternion(0, -0.107234, 0, 0.994234)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -194,8 +198,8 @@ bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, -0.0877834, 0, 0.99614)
-bones/30/rotation = Quaternion(0, -0.0911239, 0, 0.99584)
+bones/23/rotation = Quaternion(0, -0.103307, 0, 0.99465)
+bones/30/rotation = Quaternion(0, -0.107234, 0, 0.994234)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -205,7 +209,7 @@ lod_bias = 128.0
 surface_material_override/0 = SubResource("StandardMaterial3D_g8tkb")
 
 [node name="BoneAttachment3d" type="BoneAttachment3D" parent="PlayerMesh/voxeling/ctrl_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.936496, 0, -0.350677, 0, 1, 0, 0.350677, 0, 0.936496, 0, 0.0968387, 0)
+transform = Transform3D(0.912327, 0, -0.409462, 0, 1, 0, 0.409462, 0, 0.912327, 0, 0.0968387, 0)
 bone_name = "def_head"
 bone_idx = 3
 
@@ -213,7 +217,8 @@ bone_idx = 3
 transform = Transform3D(0.460683, 0, 0, 0, 0.460683, 0, 0, 0, 0.460683, 0, 0.0602917, 0)
 collision_layer = 0
 collision_mask = 0
-BASE = ExtResource("4_qosud")
+BASE = SubResource("StandardMaterial3D_v6wr7")
+FLARE = SubResource("StandardMaterial3D_f72rv")
 
 [node name="HangDetector" type="RayCast3D" parent="PlayerMesh"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0454127, 0)

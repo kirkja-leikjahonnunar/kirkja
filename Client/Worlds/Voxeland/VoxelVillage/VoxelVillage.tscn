@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/VoxelVillage.gd" id="1_fv4ve"]
 [ext_resource type="PackedScene" uid="uid://44rd28j486vp" path="res://Worlds/Devland/Materials/TestWorldEnvironment.tscn" id="2_rr6oq"]
 [ext_resource type="PackedScene" uid="uid://dd5swc3tjd8qv" path="res://Core/PlayerController/ThirdPerson/MainCamera.tscn" id="3_86h1s"]
-[ext_resource type="PackedScene" path="res://Worlds/Voxeland/VoxelVillage/Attractions/VoxelCoords.tscn" id="3_xrda2"]
+[ext_resource type="PackedScene" uid="uid://cilix6v82182n" path="res://Worlds/Voxeland/VoxelVillage/Attractions/VoxelCoords.tscn" id="3_xrda2"]
 [ext_resource type="PackedScene" uid="uid://dj40kpeof30x5" path="res://Worlds/Voxeland/Contexts/Voxeling/Voxeling.tscn" id="5_jw5en"]
 [ext_resource type="PackedScene" uid="uid://d2cqtawforqvn" path="res://Worlds/Voxeland/VoxelVillage/SavePanel/SavePanel.tscn" id="6_bfnje"]
 [ext_resource type="PackedScene" uid="uid://j8hi2okchhyx" path="res://Core/Utils/DebugOverlay.tscn" id="7_rvw2h"]
@@ -19,7 +19,7 @@ script = ExtResource("1_fv4ve")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17506, 0.401245, -0.752666)
 shadow_enabled = true
 shadow_bias = 0.018
-shadow_normal_bias = 0.0
+shadow_normal_bias = 0.324
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81504, 0.332858, 0.341717)
@@ -41,3 +41,29 @@ active = true
 [node name="SavePanel" parent="." instance=ExtResource("6_bfnje")]
 
 [node name="DebugOverlay" parent="." instance=ExtResource("7_rvw2h")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" parent="DebugOverlay" index="0"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_right = 0.0
+offset_bottom = 86.0
+grow_horizontal = 0
+
+[node name="ClientId" parent="DebugOverlay/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="WorldState" parent="DebugOverlay/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Latency" parent="DebugOverlay/VBoxContainer" index="2"]
+layout_mode = 2
+
+[editable path="DebugOverlay"]

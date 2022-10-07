@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ceeu7k2cs382v"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="2_3bcrm"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="2_1g53k"]
 [ext_resource type="ArrayMesh" uid="uid://ifkeqwy4pc4v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_base.res" id="2_aimer"]
 [ext_resource type="Resource" uid="uid://x15iaqr4c7yv" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/voxel_shapes.tres" id="4_6juql"]
 [ext_resource type="ArrayMesh" uid="uid://sfxhvmatei2y" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cube_flare.res" id="4_8pakw"]
@@ -20,9 +20,10 @@ albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
 collision_layer = 16
 script = ExtResource("1_2cj8q")
 base_color = Color(0.85098, 1, 0.639216, 1)
-BASE = ExtResource("2_3bcrm")
+BASE = ExtResource("2_1g53k")
 FLARE = ExtResource("4_bqbo3")
 shape_list = ExtResource("4_6juql")
+target_rotation = Vector3(0, 0, 0)
 
 [node name="Model" type="Node3D" parent="."]
 

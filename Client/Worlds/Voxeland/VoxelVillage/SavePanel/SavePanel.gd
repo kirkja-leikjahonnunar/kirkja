@@ -71,7 +71,7 @@ func UpdateSaveSlots(path: String, ending: String):
 	var dir = DirAccess.open(path)
 	var elements := []
 	
-	if dir.get_error() != OK:
+	if dir == null || DirAccess.get_open_error() != OK:
 		print_debug ("Could not open directory ", path)
 		return
 		
@@ -197,6 +197,7 @@ func _on_add_new_gui_input(event):
 			
 
 
+# Save slot input signal
 func _on_item_gui_input(event, which):
 	var node = get_node("VBoxContainer/MarginContainer/ScrollContainer/HFlowContainer/"+str(which))
 	
@@ -230,11 +231,17 @@ func _on_save_button_pressed():
 
 
 
-
+# Signal handler
 func _on_save_panel_gui_input(event):
+	#print ("_on_save_panel_gui_input, ", event)
+	DetectEscape(event)
+
+func _input(event):
+	DetectEscape(event)
+
+func DetectEscape(event):
 	if event is InputEventKey:
 		if event.pressed and event.physical_keycode == KEY_ESCAPE:
 			print ("Canceled!")
 			canceled.emit()
 			get_viewport().set_input_as_handled()
-

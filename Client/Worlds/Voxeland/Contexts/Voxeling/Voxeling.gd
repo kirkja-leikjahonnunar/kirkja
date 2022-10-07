@@ -69,6 +69,8 @@ func _ready():
 
 func _input(event):
 	if not active: return
+	if InputBlocked():
+		return
 	
 	if input_mode == InputModes.Wizard:
 		wizard_input(event)
@@ -78,7 +80,6 @@ func _input(event):
 			need_to_update_cast = true
 	
 	super._input(event)
-
 
 
 func InitVoxelRealm():
@@ -268,15 +269,15 @@ func UpdateHangDetector():
 
 #TODO: probably need a better managed global UI stack:
 func HideUI():
-	tool_ui.visible = false
+	VOXELING_UI.visible = false
 
 func ShowUI():
-	tool_ui.visible = true
+	VOXELING_UI.visible = true
 
 # True when there is some kind of modal ui that is supposed to absorb all input.
 # This hacky method is to workaround not being able to explicitly reroute or temporarily disable Godot actions.
 func InputBlocked():
-	return not tool_ui.visible
+	return not VOXELING_UI.visible
 
 # Helper function for running around mode, used during _physics_process()
 func HandleActions():
@@ -377,21 +378,6 @@ func HandleToggleMouse(on):
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	
 	SetMouseVisible(on)
-
-
-func _input(event):
-	if not active: return
-	if InputBlocked():
-		return
-	
-	if input_mode == InputModes.Wizard:
-		wizard_input(event)
-	
-	if input_mode == InputModes.Sample:
-		if event is InputEventMouseMotion:
-			need_to_update_cast = true
-	
-	super._input(event)
 
 
 # the collider underneath player

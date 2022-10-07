@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 
@@ -13,11 +13,16 @@ func UpdateLatency(value):
 
 
 func Add(what, text):
-	var label = Label.new()
-	label.name = what
-	label.text = text
-	$VBoxContainer.add_child(label)
+	if has_node("VBoxContainer/"+what):
+		Update(what, text)
+	else:
+		var label = Label.new()
+		label.name = what
+		label.text = text
+		$VBoxContainer.add_child(label)
 
 func Update(which, text):
 	if has_node("VBoxContainer/"+which):
-		get_node("VBoxContainer/"+which).text = text
+		get_node("VBoxContainer/"+which).text = which+": "+text
+	else:
+		Add(which, text)

@@ -203,7 +203,7 @@ func LoadConnectionSettings():
 
 	var json := JSON.new()
 	var err = json.parse(file.get_as_text())
-	file.close()
+	file = null #file.close()
 	if err == OK:
 		var data = json.get_data()
 		if "ip" in data && data.ip is String:
@@ -220,7 +220,7 @@ func SaveConnectionSettings():
 	if file.get_error() != OK:
 		return false
 	file.store_string(json_string)
-	file.close()
+	file = null #file.close()
 	print ("Connection settings saved to file ", connection_file)
 
 

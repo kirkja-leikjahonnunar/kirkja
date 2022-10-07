@@ -91,6 +91,7 @@ func SetColor(color : Color):
 		$Model/shape_base.mesh  = shape_list.base_meshes[value]
 		$Model/shape_flare.mesh = shape_list.flare_meshes[value]
 		$CollisionShape3D.shape = shape_list.colliders[value]
+		$CollisionShape3D.basis = target_basis
 
 
 @export var BASE : Material
@@ -109,7 +110,7 @@ var number: int = -1
 #------------------------------- Main --------------------------------------
 
 # we cache this, since the actual basis will be flipping around a lot
-var target_rotation : Vector3 # Basis
+@export var target_rotation : Vector3 # Basis
 var target_basis : Basis
 #var target_quaternion : Quaternion
 
@@ -127,10 +128,9 @@ func InitMats(force : bool):
 var ready_done := false
 func _ready():
 	#print ("voxel ready")
-	#target_rotation = basis
-	target_rotation = rotation
-	target_basis = basis
-	#target_quaternion = quaternion
+	#rotation = target_rotation
+	target_rotation = $Model.rotation
+	target_basis = $Model.basis
 	
 	add_to_group("VoxelBlock")
 	
@@ -149,6 +149,7 @@ func SetInitial():
 	#print ("    BASE: ", BASE, ", FLARE: ", FLARE)
 	base_color = base_color # these have setters, and in Godot 4 unlike 3, script usage triggers setters
 	shape = shape
+	$CollisionShape3D.basis = target_basis
 	#print (name, ", basism: ", $Model.basis)
 
 
