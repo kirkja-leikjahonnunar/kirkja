@@ -57,7 +57,6 @@ func _ready():
 #	for i in 100:
 #		print("Log(%s): %s" % [i, Log(i)])
 	
-	
 #	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(0.9))
 	spectrum = AudioServer.get_bus_effect_instance(AudioServer.get_bus_index("Master"), 0)
 	var delta_x: float = analyzer_length / float(vu_count)
