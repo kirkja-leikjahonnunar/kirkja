@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dj40kpeof30x5"]
+[gd_scene load_steps=22 format=3 uid="uid://dj40kpeof30x5"]
 
 [ext_resource type="PackedScene" uid="uid://p2bal1amv8ek" path="res://kirkja-assets/models/voxeling.glb" id="1_m18wj"]
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/Voxeling.gd" id="1_xyc3q"]
+[ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="3_o7hgu"]
 [ext_resource type="PackedScene" uid="uid://wbrs5bitntau" path="res://Core/PlayerController/ThirdPerson/CameraRig.tscn" id="3_onvl2"]
 [ext_resource type="PackedScene" uid="uid://baaftyjce75qb" path="res://kirkja-assets/models/CubeCage.glb" id="4_ovgtm"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="4_qosud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8tkb"]
 
@@ -125,6 +127,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0135206, 0)
 target_position = Vector3(0, -0.17, 0)
 collision_mask = 16
 
+[node name="NearZPlus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(0, 0, 0.1)
+collision_mask = 16
+
+[node name="NearZMinus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(0, 0, -0.1)
+collision_mask = 16
+
+[node name="NearXPlus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(0.1, 0, 0)
+collision_mask = 16
+
+[node name="NearXMinus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(-0.1, 0, 0)
+collision_mask = 16
+
+[node name="NearYPlus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(0, 0.1, 0)
+collision_mask = 16
+
+[node name="NearYMinus" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454127, 0)
+target_position = Vector3(0, -0.1, 0)
+collision_mask = 16
+
 [node name="PlayerMesh" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
@@ -132,8 +164,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(0.642589, 0, -1.12354e-07, 0, 0.642589, 0, 1.12354e-07, 0, 0.642589, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlayerMesh/voxeling/ctrl_rig" index="0"]
-bones/2/rotation = Quaternion(0, 0.0920824, 0, 0.995751)
-bones/3/rotation = Quaternion(0, 0.0955855, 0, 0.995421)
+bones/2/rotation = Quaternion(0, -0.0877834, 0, 0.99614)
+bones/3/rotation = Quaternion(0, -0.0911239, 0, 0.99584)
 bones/4/rotation = Quaternion(-0.4992, -0.503214, -0.496936, 0.50063)
 bones/5/rotation = Quaternion(-0.00845723, 0.00242105, 0.0011225, 0.999961)
 bones/6/rotation = Quaternion(0.00460517, -5.2089e-06, 0.00138116, 0.999988)
@@ -156,8 +188,8 @@ bones/16/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
 bones/17/position = Vector3(1.27359e-08, 0.0145457, -0.0202855)
 bones/18/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 bones/21/rotation = Quaternion(-3.13916e-07, 0, 1, 0)
-bones/23/rotation = Quaternion(0, 0.0920824, 0, 0.995751)
-bones/30/rotation = Quaternion(0, 0.0955855, 0, 0.995421)
+bones/23/rotation = Quaternion(0, -0.0877834, 0, 0.99614)
+bones/30/rotation = Quaternion(0, -0.0911239, 0, 0.99584)
 bones/35/position = Vector3(0.00709894, 0.0124387, 0.0047453)
 bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 
@@ -165,6 +197,17 @@ bones/37/rotation = Quaternion(3.13916e-07, 0, 1, 0)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 lod_bias = 128.0
 surface_material_override/0 = SubResource("StandardMaterial3D_g8tkb")
+
+[node name="BoneAttachment3d" type="BoneAttachment3D" parent="PlayerMesh/voxeling/ctrl_rig/Skeleton3D" index="1"]
+transform = Transform3D(0.936496, 0, -0.350677, 0, 1, 0, 0.350677, 0, 0.936496, 0, 0.0968387, 0)
+bone_name = "def_head"
+bone_idx = 3
+
+[node name="VoxelHat" parent="PlayerMesh/voxeling/ctrl_rig/Skeleton3D/BoneAttachment3d" instance=ExtResource("3_o7hgu")]
+transform = Transform3D(0.460683, 0, 0, 0, 0.460683, 0, 0, 0, 0.460683, 0, 0.0602917, 0)
+collision_layer = 0
+collision_mask = 0
+BASE = ExtResource("4_qosud")
 
 [node name="HangDetector" type="RayCast3D" parent="PlayerMesh"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0454127, 0)

@@ -18,6 +18,7 @@ var last_voxel_rgb : Color
 @onready var hang_detector : RayCast3D = $PlayerMesh/HangDetector
 
 var last_position : Vector3
+var last_pos_diff : Vector3
 
 var palette := [
 				Color("#ff0000"),
@@ -111,6 +112,9 @@ func Jump():
 
 # Helper function called during _physics_process()
 func HandleMovement(delta: float):
+	if InputBlocked():
+		return
+	
 	if (input_mode == InputModes.Wizard || input_mode == InputModes.Sample) and need_to_update_cast:
 		CastFromCamera()
 		need_to_update_cast = false
@@ -153,10 +157,6 @@ func HandleMovement(delta: float):
 	#print (player_dir)
 	var direction = (char_body.transform.basis * player_dir).normalized() # now in parent space
 	
-	if not looking_for_hang:
-		var vertical_mv : float = direction.dot(up_direction)
-		if vertical_mv < 0 && not $FallDetector.is_colliding():
-			looking_for_hang = true
 	
 	var sprinting : bool = Input.is_action_pressed("char_sprint")
 	speed = speed * (SPRINT_SPEED if sprinting else SPEED)
@@ -177,6 +177,18 @@ func HandleMovement(delta: float):
 	
 	UpdateHangDetector()
 	
+	# trigger looking for hang when you are in the air and start to fall down
+	if not looking_for_hang:
+		var vertical_mv : float = last_pos_diff.dot(up_direction)
+		#print ("vert mv: ", vertical_mv, "  fall colliding: ", $FallDetector.is_colliding())
+		if vertical_mv < 0:
+			if not $FallDetector.is_colliding():
+				looking_for_hang = true
+			else:
+				if hang_detector.get_collider() != $NearYMinus.get_collider():
+					looking_for_hang = true
+	
+	# handle searching for something to hang on
 	if looking_for_hang:
 		if char_body.is_on_floor():
 			looking_for_hang = false
@@ -184,6 +196,11 @@ func HandleMovement(delta: float):
 			if hang_detector.is_colliding():
 				looking_for_hang = false
 				StartToHang(hang_detector.get_collider())
+	
+	var cur_collider = char_body.get_last_slide_collision()
+	if cur_collider != null && cur_collider.get_collider() is Voxel:
+		last_floor_voxel = cur_collider.get_collider()
+	#print ("lfv: ", cur_collider.get_collider().name if cur_collider != null else "null")
 	
 	if just_jumped:
 		if ! char_body.is_on_floor():
@@ -193,6 +210,11 @@ func HandleMovement(delta: float):
 				Falling()
 	else: # not just jumped
 		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+			if not $FallDetector.is_colliding():
+				if last_floor_voxel:
+					StartToHang(last_floor_voxel)
+				else:
+					looking_for_hang = true
 			Falling()
 		elif not last_on_floor && char_body.is_on_floor(): # landed somewhere
 			JumpEnd()
@@ -205,8 +227,12 @@ func HandleMovement(delta: float):
 	# # network sync
 	# DefinePlayerState()
 
+var last_floor_voxel: Voxel
+
+
 func UpdateHangDetector():
 	var v = position - last_position
+	last_pos_diff = v
 	if v.length() > 1e-5:
 		## set detector based on actual movement
 		v = (hang_detector.global_transform.basis.inverse() * get_parent().global_transform.basis * v).normalized()
@@ -218,8 +244,24 @@ func UpdateHangDetector():
 	if input_mode == InputModes.Run && not hanging && hang_detector.is_colliding():
 		SetCurrentVoxel(hang_detector.get_collider())
 
+
+#TODO: probably need a better managed global UI stack:
+func HideUI():
+	tool_ui.visible = false
+
+func ShowUI():
+	tool_ui.visible = true
+
+# True when there is some kind of modal ui that is supposed to absorb all input.
+# This hacky method is to workaround not being able to explicitly reroute or temporarily disable Godot actions.
+func InputBlocked():
+	return not tool_ui.visible
+
 # Helper function for running around mode, used during _physics_process()
 func HandleActions():
+	if InputBlocked():
+		return
+	
 	super.HandleActions()
 	
 	if Input.is_action_just_pressed("voxel_sample"):
@@ -229,11 +271,13 @@ func HandleActions():
 	
 	if Input.is_action_just_released("Save"):
 		if voxel_world == null: InitVoxelRealm()
+		HideUI()
 		#voxel_world.SaveLandscape()
 		voxel_world.InitiateSave()
 	
 	if Input.is_action_just_released("Load"):
 		if voxel_world == null: InitVoxelRealm()
+		HideUI()
 		voxel_world.InitiateLoad()
 		#voxel_world.LoadLandscape()
 	
@@ -265,6 +309,8 @@ func HandleActions():
 				hovered_object.call_deferred("SelfDestruct")
 				if hovered_object == current_voxel:
 					SetCurrentVoxel(null)
+				if hovered_object == last_floor_voxel:
+					last_floor_voxel = null
 				hovered_object = null
 				call_deferred("NeedToCast") # we must defer since collider is still in physics engine(?)
 		ToolModes.Color:
@@ -314,6 +360,8 @@ func HandleToggleMouse(on):
 
 func _input(event):
 	if not active: return
+	if InputBlocked():
+		return
 	
 	if input_mode == InputModes.Wizard:
 		wizard_input(event)
@@ -402,6 +450,8 @@ func StartToHang(on_this: Voxel):
 
 func FinishHangLerp():
 	hang_lerping = false
+	if $NearYMinus.is_colliding():
+		hanging = false
 
 
 func HandleMovementHanging(_delta: float):
@@ -480,6 +530,8 @@ func SwitchInputMode(mode):
 	if mode == InputModes.Sample:
 		if input_mode != InputModes.Sample:
 			last_input_mode = input_mode
+	elif mode == InputModes.Run:
+		$Indicator/Potential.visible = false
 	input_mode = mode
 	
 
@@ -551,8 +603,18 @@ func CastFromCamera():
 		$PlayerMesh/voxeling/ctrl_rig/Skeleton3D/skin.get_surface_override_material(0).albedo_color = palette[last_voxel_color]
 		last_voxel_type = hovered_object.shape
 		last_voxel_rotation = hovered_object.target_rotation
+		
+		var hat = $PlayerMesh/voxeling/ctrl_rig/Skeleton3D/BoneAttachment3d/VoxelHat
+		hat.base_color = palette[last_voxel_color]
+		hat.shape = last_voxel_type
+		hat.rotation = last_voxel_rotation
+		
 		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
 
+
+#-------------------------------------------------------------------------------------------
+#----------------------------------- Helper funcs ------------------------------------------
+#-------------------------------------------------------------------------------------------
 
 # Return a direction vector corresponding to the direction enum.
 func DirVector(dir) -> Vector3:
@@ -612,4 +674,5 @@ func FindNearestPalette(color : Color) -> int:
 			d = dd
 			closest_i = i
 	return closest_i
+
 
