@@ -30,9 +30,9 @@ The voxeling controls should closely mirror the standard Kirkja 3rd person contr
 | Tool | Hotkey | `LMB` / `LT` | `RMB` / `RT` |
 | - | :-: | - | - |
 | Create | `1` | Spawn voxel. | Delete voxel. |
-| Shape | `2` | Next shape. | Previous shape. |
-| Color | `3` | Paint voxel. | Open color palette. |
-| Rotate | `4` | Rotate the targeted voxel around its Y axis. | Rotate the voxel "forward" _(over its top)_ around the X or Z axis, based on the side of the voxel the player has targeted clicking the `RMB`. |
+| Rotate | `2` | Rotate the targeted voxel around its Y axis. | Rotate the voxel "forward" _(over its top)_ around the X or Z axis, based on the side of the voxel the player has targeted clicking the `RMB`. |
+| Shape | `3` | Next shape. | Previous shape. |
+| Color | `4` | Paint voxel. | Open / close color ring palette. |
 
 
 ## Assets
