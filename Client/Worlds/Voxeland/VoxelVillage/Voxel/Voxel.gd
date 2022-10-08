@@ -75,10 +75,14 @@ enum Dir {
 		
 		#print ("BASE: ", BASE, ", basemat: ", mat_base, ", baseo: ", $Model/shape_base.get_surface_override_material(0), ", basemo: ", $Model/shape_base.material_override)
 		#print ("FLARE: ", FLARE, ", flaremat: ", mat_flare, ", flareo: ", $Model/shape_flare.get_surface_override_material(0), ", flaremo: ", $Model/shape_flare.material_override)
-		
+
 
 func SetColor(color : Color):
 	base_color = color
+
+
+func SetRotation(new_rotation: Vector3):
+	pass
 
 
 @export var shape : Shapes = Shapes.CUBE:

@@ -68,6 +68,13 @@ var gathered_cam_move : Vector2
 var player_controller
 
 
+func GetPitch():
+	return camera_pitch.rotation.x
+
+func GetYaw():
+	return camera_rig.rotation.y
+
+
 #------------------------------------- Exports -------------------------------------------
 
 func _ready():
@@ -162,6 +169,7 @@ func custom_unhandled_input(event) -> bool:
 func _physics_process(delta):
 	if standalone:
 		custom_physics_process(delta)
+
 
 # Controllers can call this when they need to, rather than have it run directly during self._physics_process().
 func custom_physics_process(delta):

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b58o04q4qkcbw"]
+[gd_scene load_steps=7 format=3 uid="uid://b58o04q4qkcbw"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.gd" id="1_vgkj4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_avn0u"]
+[ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="2_wclxg"]
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="3_maije"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64uyn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,10 +30,8 @@ script = ExtResource("1_vgkj4")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -130.0
-offset_top = 21.0
-offset_right = -21.0
-offset_bottom = 139.0
+offset_left = -109.0
+offset_bottom = 118.0
 grow_horizontal = 0
 stretch = true
 
@@ -46,8 +44,9 @@ render_target_update_mode = 4
 
 [node name="VoxelPreview3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Voxel" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
-mesh = SubResource("BoxMesh_avn0u")
+[node name="Voxel" parent="SubViewportContainer/SubViewport/VoxelPreview3D" instance=ExtResource("2_wclxg")]
+rotation_order = 0
+BASE = ExtResource("3_maije")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -57,6 +56,5 @@ shadow_enabled = true
 environment = SubResource("Environment_ffi24")
 
 [node name="Camera3d" type="Camera3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
-transform = Transform3D(1, 0, 0, 0, 0.833124, 0.553086, 0, -0.553086, 0.833124, 0, 4.42469, 6.66499)
-current = true
-fov = 29.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+fov = 1.0

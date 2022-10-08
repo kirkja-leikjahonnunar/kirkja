@@ -46,7 +46,9 @@ var is_sampling := false # whether we are trying to sample a voxel setting
 
 
 func UpdateCompass():
-	VOXELING_UI.UpdateCompass(rotation.inverse())
+	VOXELING_UI.UpdateCompass(Vector3(-$CameraRig.GetPitch(), -$CameraRig.GetYaw(), 0))
+
+
 
 
 #-------------------------------------------------------------------------------------------
@@ -80,6 +82,10 @@ func _input(event):
 			need_to_update_cast = true
 	
 	super._input(event)
+
+
+func _process(delta):
+	UpdateCompass()
 
 
 func InitVoxelRealm():
@@ -617,7 +623,7 @@ func CastFromCamera():
 		hat.rotation = last_voxel_rotation
 		
 		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
-
+		VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 
 #-------------------------------------------------------------------------------------------
 #----------------------------------- Helper funcs ------------------------------------------
