@@ -46,3 +46,7 @@ func SelectToolById(mode):
 
 func UpdateCompass(orientation):
 	$VoxelPreview.UpdateCompass(orientation)
+	
+	
+func SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation):
+	$VoxelPreview.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
