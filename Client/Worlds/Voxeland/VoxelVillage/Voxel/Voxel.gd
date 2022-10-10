@@ -81,8 +81,11 @@ func SetColor(color : Color):
 	base_color = color
 
 
-func SetRotation(new_rotation: Vector3):
-	pass
+func SetRotation(new_euler: Vector3):
+	target_rotation = new_euler
+	target_basis = Basis.from_euler(new_euler)
+	$Model.basis = target_basis
+	$CollisionShape3D.basis = target_basis
 
 
 @export var shape : Shapes = Shapes.CUBE:
@@ -131,6 +134,12 @@ func InitMats(force : bool):
 
 var ready_done := false
 func _ready():
+	if not Engine.is_editor_hint():
+		if basis != Basis():
+			$Model.basis = basis * $Model.basis
+			#target_basis = basis
+			basis = Basis()
+	
 	#print ("voxel ready")
 	#rotation = target_rotation
 	target_rotation = $Model.rotation
@@ -264,6 +273,7 @@ func NextType() -> int:
 	return new_shape
 
 
+# Initiate destruction of this block. Block is ultimately freed after some animated destruction.
 func SelfDestruct():
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector3(.0001,.0001,.0001), .095)

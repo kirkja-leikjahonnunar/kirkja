@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelingUI.gd" id="1_bpbxp"]
 [ext_resource type="PackedScene" uid="uid://ccpm7pxphx3hb" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/ToolButton.tscn" id="2_kgcyi"]
-[ext_resource type="PackedScene" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.tscn" id="3_clb5r"]
+[ext_resource type="PackedScene" uid="uid://b58o04q4qkcbw" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.tscn" id="3_clb5r"]
 
 [node name="VoxelingUI" type="Control"]
 layout_mode = 3

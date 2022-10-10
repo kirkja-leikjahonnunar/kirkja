@@ -16,7 +16,6 @@ var voxel_world : VoxelVillage
 
 var current_voxel
 var last_voxel_type := Voxel.Shapes.CUBE
-#var last_voxel_rotation : Basis
 var last_voxel_rotation : Vector3
 var last_voxel_material : Material
 var last_voxel_color : int = -1
@@ -24,6 +23,9 @@ var last_voxel_rgb : Color
 
 var last_position : Vector3
 var last_pos_diff : Vector3
+
+var last_floor_voxel: Voxel
+
 
 var palette := [
 				Color("#ff0000"),
@@ -45,49 +47,48 @@ var tool_mode := ToolModes.Create
 var is_sampling := false # whether we are trying to sample a voxel setting
 
 
-func UpdateCompass():
-	VOXELING_UI.UpdateCompass(Vector3(-$CameraRig.GetPitch(), -$CameraRig.GetYaw(), 0))
+#-------------------------------------------------------------------------------------------
+#-------------------------------- State coordination ---------------------------------------
+#-------------------------------------------------------------------------------------------
+
+func SetLastShape(shape: int):
+	last_voxel_type = shape
 
 
+func SetLastColorRGB(color: Color):
+	last_voxel_rgb = color
+	last_voxel_color = FindNearestPalette(last_voxel_rgb)
+
+func SetLastColorIndex(index: int):
+	if index >= 0 && index < palette.size():
+		last_voxel_color = index
+		last_voxel_rgb = palette[index]
+	else:
+		print_debug("Bad index to SetLastColorIndex: ", index)
+
+
+func SetLastRotationEuler(euler:  Vector3):
+	last_voxel_rotation = euler
+
+
+func SetCurrentVoxel(voxel):
+	if current_voxel == voxel: return
+	
+	print ("Set current voxel: ", voxel.name if voxel != null else "null")
+	current_voxel = voxel
+	if voxel == null:
+		$ActiveBlock/CubeCage.visible = false
+	else:
+		$ActiveBlock/CubeCage.global_transform = current_voxel.global_transform
+		$ActiveBlock/CubeCage.visible = true
 
 
 #-------------------------------------------------------------------------------------------
-#--------------------------------------- main ----------------------------------------------
+#------------------------------- VoxelVillage helpers --------------------------------------
 #-------------------------------------------------------------------------------------------
 
-func _ready():
-	super._ready()
-	print ("Voxeling _ready()")
-	
-	click_captures_mouse = false # Overrides default PlayerController behavior
-	
-	wizard_ready()
-	last_position = position
-	
 
-#	tool_ui.tool_selected.connect(ToolSelectedFromUI)
-#	get_tree().root.call_deferred("add_child", tool_ui)
-
-
-func _input(event):
-	if not active: return
-	if InputBlocked():
-		return
-	
-	if input_mode == InputModes.Wizard:
-		wizard_input(event)
-	
-	if input_mode == InputModes.Sample:
-		if event is InputEventMouseMotion:
-			need_to_update_cast = true
-	
-	super._input(event)
-
-
-func _process(delta):
-	UpdateCompass()
-
-
+# Detect a parent VoxelVillage and set voxel_world to it.
 func InitVoxelRealm():
 	var pnt = get_parent()
 	while pnt != null:
@@ -112,24 +113,42 @@ func SpawnVoxelAt(pos: Vector3, use_self: bool):
 	voxel.position = pos
 	voxel_world.AddVoxel(self if use_self else null, voxel)
 	voxel.SwapShape(last_voxel_type) # this needs to happen AFTER voxel is inserted into tree because of setters!!!! arrrg!!
-	if last_voxel_color < 0: last_voxel_color = 0
+	if last_voxel_color < 0: SetLastColorIndex(0)
 	voxel.SetColor(palette[last_voxel_color])
-	voxel.get_node("Model").rotation = last_voxel_rotation
-	voxel.target_rotation = last_voxel_rotation
-	voxel.target_basis = Basis(Quaternion(last_voxel_rotation))
+	voxel.SetRotation(last_voxel_rotation)
 	SetCurrentVoxel(voxel)
 
 
-func SetCurrentVoxel(voxel):
-	if current_voxel == voxel: return
+#-------------------------------------------------------------------------------------------
+#--------------------------------------- main ----------------------------------------------
+#-------------------------------------------------------------------------------------------
+
+func _ready():
+	super._ready()
+	print ("Voxeling _ready()")
 	
-	print ("Set current voxel: ", voxel.name if voxel != null else "null")
-	current_voxel = voxel
-	if voxel == null:
-		$ActiveBlock/CubeCage.visible = false
-	else:
-		$ActiveBlock/CubeCage.global_transform = current_voxel.global_transform
-		$ActiveBlock/CubeCage.visible = true
+	click_captures_mouse = false # Overrides default PlayerController behavior
+	
+	wizard_ready()
+	last_position = position
+	
+#	tool_ui.tool_selected.connect(ToolSelectedFromUI)
+#	get_tree().root.call_deferred("add_child", tool_ui)
+
+
+func _input(event):
+	if not active: return
+	if InputBlocked():
+		return
+	
+	if input_mode == InputModes.Wizard:
+		wizard_input(event)
+	
+	if input_mode == InputModes.Sample:
+		if event is InputEventMouseMotion:
+			need_to_update_cast = true
+	
+	super._input(event)
 
 
 var need_to_jump := false
@@ -165,7 +184,8 @@ func HandleMovement(delta: float):
 			need_to_jump = false
 			just_jumped = true
 			# replace up velocity with jump velocity.. old should be 0 since on floor
-			char_body.velocity = char_body.velocity - char_body.velocity.dot(char_body.up_direction) * char_body.up_direction + JUMP_VELOCITY * char_body.up_direction
+			char_body.velocity = char_body.velocity - char_body.velocity.dot(char_body.up_direction) \
+								* char_body.up_direction + JUMP_VELOCITY * char_body.up_direction
 			#target_velocity = JUMP_VELOCITY * 10 * up_direction
 		else:
 			# add a little downward to help stick to weird surfaces
@@ -254,8 +274,6 @@ func HandleMovement(delta: float):
 	
 	# # network sync
 	# DefinePlayerState()
-
-var last_floor_voxel: Voxel
 
 
 func UpdateHangDetector():
@@ -354,20 +372,20 @@ func HandleActions():
 		ToolModes.Shape:
 			SetCurrentVoxel(hovered_object)
 			if CurrentActionValid("voxeling_add_voxel") || CurrentActionValid("voxeling_eraser_mode"):
-				last_voxel_type = current_voxel.NextType()
+				SetLastShape(current_voxel.NextType())
 		ToolModes.Rotate:
 			SetCurrentVoxel(hovered_object)
 			if CurrentActionValid("voxeling_add_voxel"):
-				last_voxel_rotation = current_voxel.RotateAroundY(PI/2)
+				SetLastRotationEuler(current_voxel.RotateAroundY(PI/2))
 			elif CurrentActionValid("voxeling_eraser_mode"):
 				var axis = GetCameraDirection(current_voxel, hovered_point, true)
 				match axis:
-					Voxel.Dir.x_plus:  current_voxel.RotateAroundZ(PI/2)
-					Voxel.Dir.x_minus: current_voxel.RotateAroundZ(-PI/2)
-					Voxel.Dir.y_plus:  current_voxel.RotateAroundY(PI/2)
-					Voxel.Dir.y_minus: current_voxel.RotateAroundY(-PI/2)
-					Voxel.Dir.z_plus:  current_voxel.RotateAroundX(PI/2)
-					Voxel.Dir.z_minus: current_voxel.RotateAroundX(-PI/2)
+					Voxel.Dir.x_plus:  SetLastRotationEuler(current_voxel.RotateAroundZ(PI/2))
+					Voxel.Dir.x_minus: SetLastRotationEuler(current_voxel.RotateAroundZ(-PI/2))
+					Voxel.Dir.y_plus:  SetLastRotationEuler(current_voxel.RotateAroundY(PI/2))
+					Voxel.Dir.y_minus: SetLastRotationEuler(current_voxel.RotateAroundY(-PI/2))
+					Voxel.Dir.z_plus:  SetLastRotationEuler(current_voxel.RotateAroundX(PI/2))
+					Voxel.Dir.z_minus: SetLastRotationEuler(current_voxel.RotateAroundX(-PI/2))
 
 
 # Overrides PlayerController, swap between wizard mode and run around mode.
@@ -437,6 +455,14 @@ func ToolSelectedFromUI(tool):
 
 func SyncShortcutsWithUI():
 	push_error ("IMPLEMENT ME")
+
+
+func _process(delta):
+	UpdateCompass()
+
+
+func UpdateCompass():
+	VOXELING_UI.UpdateCompass(Vector3(-$CameraRig.GetPitch(), -$CameraRig.GetYaw(), 0))
 
 
 #-------------------------------------------------------------------------------------------
@@ -611,12 +637,14 @@ func CastFromCamera():
 		$Indicator/Potential.visible = false
 	
 	if input_mode == InputModes.Sample && hovered_object != null:
-		last_voxel_rgb = hovered_object.base_color
-		last_voxel_color = FindNearestPalette(last_voxel_rgb)
-		$PlayerMesh/voxeling/ctrl_rig/Skeleton3D/skin.get_surface_override_material(0).albedo_color = palette[last_voxel_color]
-		last_voxel_type = hovered_object.shape
-		last_voxel_rotation = hovered_object.target_rotation
+		SetLastColorRGB(hovered_object.base_color)
+		SetLastShape(hovered_object.shape)
+		SetLastRotationEuler(hovered_object.target_rotation)
 		
+		# set voxeling body color
+		$PlayerMesh/voxeling/ctrl_rig/Skeleton3D/skin.get_surface_override_material(0).albedo_color = palette[last_voxel_color]
+		
+		# set hat color
 		var hat = $PlayerMesh/voxeling/ctrl_rig/Skeleton3D/BoneAttachment3d/VoxelHat
 		hat.base_color = palette[last_voxel_color]
 		hat.shape = last_voxel_type
@@ -624,6 +652,7 @@ func CastFromCamera():
 		
 		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
 		VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
+
 
 #-------------------------------------------------------------------------------------------
 #----------------------------------- Helper funcs ------------------------------------------

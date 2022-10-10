@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b58o04q4qkcbw"]
+[gd_scene load_steps=8 format=3 uid="uid://b58o04q4qkcbw"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.gd" id="1_vgkj4"]
 [ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="2_wclxg"]
-[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="3_maije"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljem3"]
+resource_local_to_scene = true
+albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogx6d"]
+resource_local_to_scene = true
+albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64uyn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,7 +53,8 @@ render_target_update_mode = 4
 
 [node name="Voxel" parent="SubViewportContainer/SubViewport/VoxelPreview3D" instance=ExtResource("2_wclxg")]
 rotation_order = 0
-BASE = ExtResource("3_maije")
+BASE = SubResource("StandardMaterial3D_ljem3")
+FLARE = SubResource("StandardMaterial3D_ogx6d")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -56,5 +64,5 @@ shadow_enabled = true
 environment = SubResource("Environment_ffi24")
 
 [node name="Camera3d" type="Camera3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
-fov = 1.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7)
+fov = 10.0

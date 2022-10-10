@@ -11,5 +11,5 @@ func UpdateCompass(orientation: Vector3):
 func SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation):
 	voxel.shape = last_voxel_type
 	voxel.SetColor(last_voxel_rgb)
-	voxel.rotation = last_voxel_rotation
-	pass
+	voxel.SetRotation(last_voxel_rotation)
+
