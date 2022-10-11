@@ -17,6 +17,7 @@ var current_save_file_path : String # this should have save_path inside it, for 
 
 #TODO: this needs to coordinate with Voxeling
 @export_flags_3d_physics var block_collision_mask := 0
+@export_flags_3d_physics var occupied_mask := 0
 
 #----------------------------------------------------------------------------------
 #------------------------------------- main ---------------------------------------
@@ -204,15 +205,45 @@ func ScanForMaxNumber():
 
 
 # This should be called during physics_process to ensure raycasts function properly.
-func VoxelAtPosition(world_pos: Vector3) -> Voxel:
+func VoxelAtPositionViaPoint(world_pos: Vector3) -> Voxel:
 	var local_pos = $Landscape.to_local(world_pos)
 	var space = get_world_3d().direct_space_state
 	var params := PhysicsPointQueryParameters3D.new()
 	params.position = world_pos
+	params.collide_with_areas = true
+	params.collide_with_bodies = true
 	params.collision_mask = block_collision_mask
 	var intersect = space.intersect_point(params)
-	if intersect && intersect.collider != null && intersect.collider is Voxel:
-		return intersect.collider
+	if intersect.size() > 0:
+		#print ("point intersecting with array:" )
+		for hit in intersect:
+			print ("  ", hit.collider.name)
+			if hit.collider != null && hit.collider is Voxel:
+				print ("voxel at ", world_pos,": ", hit.collider.name)
+				return hit.collider
+	
+	print ("voxel at ", world_pos,": null")
+	return null
+
+# This should be called during physics_process to ensure raycasts function properly.
+# This is a raycast hack because intersect_point() doesn't seem to work.
+func VoxelAtPosition(world_pos: Vector3) -> Voxel:
+	var local_pos = $Landscape.to_local(world_pos)
+	var space = get_world_3d().direct_space_state
+	var params := PhysicsRayQueryParameters3D.new()
+	params.from = world_pos + Vector3(.1, 0, 0)
+	params.to = world_pos
+	params.collide_with_areas = true
+	params.collide_with_bodies = true
+	params.collision_mask = occupied_mask
+	params.hit_from_inside = false
+	var hit = space.intersect_ray(params)
+	if hit.size() != 0:
+		if hit.collider != null: 
+			print ("voxel at ", world_pos,": ", hit.collider.name, " at ", hit.collider.global_position)
+			return hit.collider.get_parent()
+	
+	print ("voxel at ", world_pos,": null")
 	return null
 
 
@@ -220,7 +251,7 @@ func VoxelAtPosition(world_pos: Vector3) -> Voxel:
 #----------------------------- Signals / Interface ------------------------------
 #----------------------------------------------------------------------------------
 
-var old_mouse_capture
+var old_mouse_capture: int
 
 func InitiateSave():
 	old_mouse_capture = Input.get_mouse_mode()

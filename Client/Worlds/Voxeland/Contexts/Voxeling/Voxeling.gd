@@ -53,22 +53,26 @@ var is_sampling := false # whether we are trying to sample a voxel setting
 
 func SetLastShape(shape: int):
 	last_voxel_type = shape
+	VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 
 
 func SetLastColorRGB(color: Color):
 	last_voxel_rgb = color
 	last_voxel_color = FindNearestPalette(last_voxel_rgb)
+	VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 
 func SetLastColorIndex(index: int):
 	if index >= 0 && index < palette.size():
 		last_voxel_color = index
 		last_voxel_rgb = palette[index]
+		VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 	else:
 		print_debug("Bad index to SetLastColorIndex: ", index)
 
 
 func SetLastRotationEuler(euler:  Vector3):
 	last_voxel_rotation = euler
+	VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 
 
 func SetCurrentVoxel(voxel):
@@ -131,6 +135,10 @@ func _ready():
 	
 	wizard_ready()
 	last_position = position
+	
+	if voxel_world == null:
+		InitVoxelRealm()
+	
 	
 #	tool_ui.tool_selected.connect(ToolSelectedFromUI)
 #	get_tree().root.call_deferred("add_child", tool_ui)
@@ -222,6 +230,18 @@ func HandleMovement(delta: float):
 	var vertical_v = (char_body.velocity.dot(char_body.up_direction)) * char_body.up_direction
 	char_body.velocity = vertical_v + target_velocity.lerp(char_body.velocity - vertical_v, .1) #note: velocity can't move_toward like a normal vector3
 	char_body.move_and_slide()
+	
+	if get_slide_collision_count() > 0:
+		if has_node("../DebugOverlay"):
+			var overlay = get_node("../DebugOverlay")
+			overlay.Update("move hit count", get_slide_collision_count())
+			var str := ""
+			for i in range(get_slide_collision_count()):
+				var col = get_slide_collision(i).get_collider()
+				str += "%s " % col.name
+			overlay.Update("move_and_slide", str)
+		
+		
 	
 	UpdateHangDetector()
 	
@@ -462,7 +482,7 @@ func _process(delta):
 
 
 func UpdateCompass():
-	VOXELING_UI.UpdateCompass(Vector3(-$CameraRig.GetPitch(), -$CameraRig.GetYaw(), 0))
+	VOXELING_UI.UpdateCompass(Vector3($CameraRig.GetPitch(), -$CameraRig.GetYaw(), 0))
 
 
 #-------------------------------------------------------------------------------------------
@@ -476,16 +496,25 @@ var last_hang_side : int
 var hang_lerping : bool
 var hanging_tween : Tween
 
-func StartToHang(on_this: Voxel):
-	last_hang = on_this
-	hanging = true
-	last_hang_side = on_this.NearestSide(global_position)
+
+func StartToHang(on_this: Voxel) -> bool:
 	var v_size = on_this.shape_list.voxel_size
 	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(last_hang_side))
+	
+	if voxel_world.VoxelAtPosition(hang_point + Vector3(0,v_size/2, 0)) != null:
+		print ("Can't hang at ", hang_point)
+		return false
+	
+	hanging = true
+	last_hang = on_this
+	last_hang_side = on_this.NearestSide(global_position)
 	
 	hang_lerping = true
 	hanging_tween = get_tree().create_tween()
 	hanging_tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
+	
+	return true
+
 
 func FinishHangLerp():
 	hang_lerping = false
@@ -597,20 +626,17 @@ func CastFromCamera():
 	params.to = projected
 	params.collide_with_areas = false
 	params.collide_with_bodies = true
-	#params.collision_mask = get_layer_from_name("ContextBit1")
 	params.collision_mask = block_collision_mask
 	var collision = direct_space.intersect_ray(params)
 	var hover = null
 	var point := Vector3()
 	
 	if collision:
-		#print (collision)
-		var vblock = collision.collider #.get_parent()
+		var vblock = collision.collider
 		if vblock.is_in_group("VoxelBlock"):
 			hover = vblock
 			point = collision.position
 	else:
-		#print ("no collision")
 		hover = null
 		
 	if hover != hovered_object:
@@ -620,15 +646,13 @@ func CastFromCamera():
 		hovered_side = hover.NearestSide(point)
 		hovered_point = point
 		
+		#TESTING:
+		voxel_world.VoxelAtPosition(hover.position)
+		
 		# update potential block position
 		var normal = DirVector(hovered_side)
-		#var ppos = hover.get_parent().to_global(hover.position + .1 * normal)
 		var ppos = hover.to_global(voxel_size * .55 * normal)
 		var cbas = hover.global_transform.basis * BasisFromYVector(normal)
-#		print ("hovered lpos: ", hover.position, 
-#				", wpos: ", hover.global_transform.origin, 
-#				", diff: ", DirVector(hovered_side), 
-#				", ppos: ", ppos)
 		
 		$Indicator/Potential.visible = true
 		$Indicator/Potential.global_transform.origin = ppos
@@ -650,8 +674,11 @@ func CastFromCamera():
 		hat.shape = last_voxel_type
 		hat.rotation = last_voxel_rotation
 		
-		print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
-		VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
+		#var test = voxel_world.VoxelAtPosition(Vector3(0,0,0))
+		#test = voxel_world.VoxelAtPosition(Vector3(.1,0,0))
+		
+		#print ("new sample: ", last_voxel_color, "==", last_voxel_rgb," ", Voxel.Shapes.keys()[last_voxel_type], " ", last_voxel_rotation)
+		#VOXELING_UI.SwapVoxel(last_voxel_rgb, last_voxel_color, last_voxel_type, last_voxel_rotation)
 
 
 #-------------------------------------------------------------------------------------------

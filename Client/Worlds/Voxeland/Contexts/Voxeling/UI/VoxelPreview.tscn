@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.gd" id="1_vgkj4"]
 [ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="2_wclxg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljem3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78aww"]
 resource_local_to_scene = true
-albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
+albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogx6d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k10sv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
@@ -34,6 +34,7 @@ grow_vertical = 2
 script = ExtResource("1_vgkj4")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -53,8 +54,8 @@ render_target_update_mode = 4
 
 [node name="Voxel" parent="SubViewportContainer/SubViewport/VoxelPreview3D" instance=ExtResource("2_wclxg")]
 rotation_order = 0
-BASE = SubResource("StandardMaterial3D_ljem3")
-FLARE = SubResource("StandardMaterial3D_ogx6d")
+BASE = SubResource("StandardMaterial3D_78aww")
+FLARE = SubResource("StandardMaterial3D_k10sv")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -64,5 +65,5 @@ shadow_enabled = true
 environment = SubResource("Environment_ffi24")
 
 [node name="Camera3d" type="Camera3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.7)
 fov = 10.0

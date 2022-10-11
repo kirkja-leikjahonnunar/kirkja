@@ -240,6 +240,7 @@ func _input(event):
 	DetectEscape(event)
 
 func DetectEscape(event):
+	if visible == false: return
 	if event is InputEventKey:
 		if event.pressed and event.physical_keycode == KEY_ESCAPE:
 			print ("Canceled!")

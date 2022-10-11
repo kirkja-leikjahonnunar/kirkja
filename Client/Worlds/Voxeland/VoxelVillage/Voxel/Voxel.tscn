@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ceeu7k2cs382v"]
+[gd_scene load_steps=11 format=3 uid="uid://ceeu7k2cs382v"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.gd" id="1_2cj8q"]
 [ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="2_1g53k"]
@@ -15,6 +15,9 @@ albedo_color = Color(0.85098, 1, 0.639216, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j066"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.38353, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7i8j"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Voxel" type="StaticBody3D"]
 collision_layer = 16
@@ -39,3 +42,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2j066")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = ExtResource("16_vuxlf")
+
+[node name="Area3d" type="Area3D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Area3d"]
+shape = SubResource("BoxShape3D_f7i8j")

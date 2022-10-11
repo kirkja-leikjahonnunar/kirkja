@@ -10,6 +10,8 @@
 
 [node name="VoxelVillage" type="Node3D"]
 script = ExtResource("1_fv4ve")
+block_collision_mask = 16
+occupied_mask = 32
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_rr6oq")]
 
@@ -47,6 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+align_right = true
 
 [node name="VBoxContainer" parent="DebugOverlay" index="0"]
 layout_mode = 1
@@ -65,15 +68,18 @@ alignment = 2
 layout_mode = 2
 offset_top = 634.0
 offset_bottom = 660.0
+horizontal_alignment = 2
 
 [node name="WorldState" parent="DebugOverlay/VBoxContainer" index="1"]
 layout_mode = 2
 offset_top = 664.0
 offset_bottom = 690.0
+horizontal_alignment = 2
 
 [node name="Latency" parent="DebugOverlay/VBoxContainer" index="2"]
 layout_mode = 2
 offset_top = 694.0
 offset_bottom = 720.0
+horizontal_alignment = 2
 
 [editable path="DebugOverlay"]
