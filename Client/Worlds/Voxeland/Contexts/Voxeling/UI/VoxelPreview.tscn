@@ -1,15 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b58o04q4qkcbw"]
+[gd_scene load_steps=7 format=3 uid="uid://b58o04q4qkcbw"]
 
 [ext_resource type="Script" path="res://Worlds/Voxeland/Contexts/Voxeling/UI/VoxelPreview.gd" id="1_vgkj4"]
 [ext_resource type="PackedScene" uid="uid://ceeu7k2cs382v" path="res://Worlds/Voxeland/VoxelVillage/Voxel/Voxel.tscn" id="2_wclxg"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78aww"]
-resource_local_to_scene = true
-albedo_color = Color(0.85098, 1, 0.639216, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k10sv"]
-resource_local_to_scene = true
-albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
+[ext_resource type="Material" uid="uid://bgjwwtwiaa6mg" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/base.material" id="3_256ee"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64uyn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,7 +27,6 @@ grow_vertical = 2
 script = ExtResource("1_vgkj4")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -54,8 +46,7 @@ render_target_update_mode = 4
 
 [node name="Voxel" parent="SubViewportContainer/SubViewport/VoxelPreview3D" instance=ExtResource("2_wclxg")]
 rotation_order = 0
-BASE = SubResource("StandardMaterial3D_78aww")
-FLARE = SubResource("StandardMaterial3D_k10sv")
+BASE = ExtResource("3_256ee")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/VoxelPreview3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

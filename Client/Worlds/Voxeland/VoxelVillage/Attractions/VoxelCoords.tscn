@@ -5,1291 +5,1291 @@
 [ext_resource type="ArrayMesh" uid="uid://bwj5jc5ovmat0" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/shapes_cap_flare.res" id="3_myetm"]
 [ext_resource type="Shape3D" uid="uid://dwvh2vuy7m4n" path="res://Worlds/Voxeland/VoxelVillage/Voxel/assets/Shapes/cap_shape.tres" id="4_sxea6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahr2v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ffex"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq71q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whkq4"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggia4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_revq8"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxnu6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5irk"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw5db"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7hax"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epq40"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr7tp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v53h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohj6q"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3nxg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmrqb"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87a04"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtenh"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se7dd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iande"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t61q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so8k0"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ih2lj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feyjj"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1qrh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojhhq"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_418i6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8ba1"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5b66"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr80u"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbana"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssts5"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7dj4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md5jt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5usum"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5suvl"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwdtn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgdww"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ietnf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ctrs"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qua02"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc27b"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7img"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55r38"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqiy4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ejx0"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8i1e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs24p"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aapbi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_672lw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5igd1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6t7s"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axcdh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tixds"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlvve"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkm70"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3124d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4oby"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12xmw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nxb0"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n32vg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rtka"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lym1s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c00wj"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f43bx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_une2r"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmfuj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn102"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7fj7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jjoj"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h4oq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pw8y"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aig5c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_508n5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vtg5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jay6o"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sn6l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd8ve"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6of3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxfga"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl8s2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rijng"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnepi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plgb1"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu5y3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfjkj"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mils"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41n8u"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irxlt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qju0n"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8kdy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6co3"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46x32"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8sl7"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d32j1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72wqt"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4mah"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nnad"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6ruj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ctdq"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfe5r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so7br"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw0qh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poue7"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx7v3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ksxt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucjpo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l53fx"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fe7mo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdhm5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ac87"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jet6p"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vorw2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chc62"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgm3c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_froht"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnfq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8obu"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7eks"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8j4u"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hhws"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u746"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rur1u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqr8y"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h4vc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_titv2"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gwak"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6odl"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqvu4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynmiw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3twt0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48niq"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu68r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqhg7"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3gm8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga08l"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7kf3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgdwk"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fni8a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvolv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_indkq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2ewd"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yuk4r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkr66"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vt2w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pwfa"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17t2v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igh8p"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0h1ts"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjh7q"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxuqu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gw8q8"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52p53"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdui7"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8tcb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8eob"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex8es"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p62yw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrwec"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe0y6"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgqgk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qg85"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n46ja"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er64d"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ker"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_db4rs"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqlj5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sskex"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v52y3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_do1b2"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2pnn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uoyg"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vidih"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5d4n"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj1g5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tkcn"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_of5qs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yk2w"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktvc0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73k2g"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chhwv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h608c"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwbdl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5sdj"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5ttk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04vnt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnue"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fig4n"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiy3u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g077x"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrpp5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48hqa"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5fh8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffwwm"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh5p8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgjnr"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4jrk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiae1"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xmcw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8iyo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ilue"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20jrx"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inxxk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khtwr"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grsai"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fv72"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm6jv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dte7"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2tjs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ukck"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl7mg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rlc0"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3cdm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olmpn"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cb1aa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ph3d"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njh6l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52o2c"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opc20"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiaan"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntrjt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31ad6"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7qp1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bctk8"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn7c6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobln"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5mf0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b34tg"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32yhc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pitc5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvuq0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bupt6"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txnop"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we3m3"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k27ie"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqte3"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eks3e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgn2j"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81q2t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etmkp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f74ub"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyfsm"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihhvc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy0ci"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vsnp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ya58"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msaxa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebr25"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw4ur"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlf4c"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tns5w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0xql"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdlk2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78ach"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrdig"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvyas"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gm3o4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj0xb"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2g2u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie5y3"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxt2i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmuhx"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbk00"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o07hh"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s433"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bj1s6"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5c1d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c77sx"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prcal"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dg3q"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwpte"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b8yp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv25i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jrcj"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7r23"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhg8u"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bi2kd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d8oi"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dosqe"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbaly"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0wlo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opeso"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ygys"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7hkl"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5hq0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nko5g"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b72un"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jso5l"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtfha"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyrj3"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmlcu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ii187"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0nqd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki07f"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ref80"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf5y7"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyxg6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syscc"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dn1t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdups"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vsf3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2f2g"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot6y8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh0lp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x1jr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avugv"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onk68"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc0ir"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de6n6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owcrc"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx8rr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kojrs"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmatl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgl58"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w47kk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1ry2"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akudb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kotiu"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqo03"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfphg"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm3ci"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrgdi"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpruv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrc0g"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvxcy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ct2w"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erske"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pajlt"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1lch"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uibk"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vhn7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3v1g"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elac4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7hwd"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn6fl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6wbo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_010q7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_034m4"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yst3o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nalyk"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2l0i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yavwf"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwqky"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oeg5"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmgmg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seki1"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l1o4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06npu"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gl43"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7s31"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_125iv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lta1"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rau4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4voty"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcseu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irkcj"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxq8y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rui5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olvlx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yncf5"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp557"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wf2su"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st7aj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w4cv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ct8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wokdt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2c2m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b3lo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khtd2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xr12"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wukt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjayo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3iol"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3veif"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8unm1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7dk3"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wckf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7mxi"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0gma"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x5n0"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u7v6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rnna"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofpbl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia0la"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsjpc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g4bj"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vvo6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ja8i1"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qofoj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn341"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qorih"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snf8e"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgbnx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd23v"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h835"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8sq2w"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cvi0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm43f"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eidja"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2dx8"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5141"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm7j0"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlfck"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0sdw"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4426e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyyij"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hu6d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nnxx"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj002"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7m7l"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x647s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20g1j"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iyo1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms1yh"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6khy8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8mhc"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubclr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwvjo"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw7em"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ql1"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qw8f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suwe8"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx1rm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urq2f"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iorrp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftyve"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u38sn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blqhq"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0d3do"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nsxq"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx8gk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5hep"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bejbr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12mth"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0024"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_270lg"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljtj0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htuon"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq6b5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkkb2"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukymx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27j5m"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xboqs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxpp4"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24d6d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da86n"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nj2a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lbar"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hckt1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8wmi"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtmbn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06ihw"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3n6b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eg6x1"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6v4b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqjhf"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5hf3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi4ca"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iamr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb5qj"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5sxi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o2ow"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrpg0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq7up"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05vkv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrjoo"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmkcp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16u0q"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vkut"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoawe"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e46wm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbfx7"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g05p5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8p11"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjvkc"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lavd6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cci6y"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh7t5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buloc"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ublsj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_taadm"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55a2p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nqag"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w453f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wg6a1"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xpin"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xl2h"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkhty"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ismjo"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt1ta"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7dqf"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sol"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knj63"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01b1v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojqoo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4hp4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wetle"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmuts"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sboiy"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjpkr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_difvm"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pitts"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8fab"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8ev5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lqah"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hcp2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8k4t"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44gus"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxhps"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhxyg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vydi"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i57wq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3ar6"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7b28"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njkqv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etpak"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l50dq"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_752qa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ghnh"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gciqv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhvjw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24gdp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aylw"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a584n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2u0w"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rhlv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aky0u"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8kgm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb3gd"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4flg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uv6w7"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxb0q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlvyn"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5oquk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3vnp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w42vv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77xd7"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6164"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvaiv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkqc8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqvcw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oad80"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w6m4"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pepll"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rkng"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so7af"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mem5j"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_reqbq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aooy5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5rme"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ooxhl"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owiu6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faf3o"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsb1f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7p3t"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54u3w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx1q5"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlsed"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04wvv"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c8sv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s82j6"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tod22"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma284"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt35a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hiaw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phhly"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uxd2"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fsxs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts5fq"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44euk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kcbb"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si6mh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylh6o"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggcfk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2df6"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohhs2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51blq"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0b3p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b16yp"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbbci"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgrn1"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvi53"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gixxm"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s5uo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iliut"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfwst"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uor5r"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k64r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3240"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upbvs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bj4hm"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq48m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0do2"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqg5j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly8wg"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fg7ur"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk3rb"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4i6s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mjwf"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj5b2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs3qc"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12oiu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uri6d"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aec2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3akg7"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27nli"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyx0v"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8i06"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5efpv"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7on6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cxu4"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycwgi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgdxp"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1wkf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh5wd"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sqin"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xd0y"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1b4u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptnw8"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2y8q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkatp"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4navg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbpjh"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lt1u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ljyx"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihd7s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6oiq"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2m0g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8102g"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unxyu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnkfh"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k68xk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koksg"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7wes"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tasxf"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n570x"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7upgt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxach"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2y3o"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxqtl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh2rt"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4150r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gikay"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
@@ -1301,59 +1301,59 @@ albedo_color = Color(1, 0.32549, 0.356863, 1)
 resource_local_to_scene = true
 albedo_color = Color(0.6, 0.195294, 0.214118, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1cui"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iue2g"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xcdn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2enw0"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm2sp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmnul"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8g4w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah8hy"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxesw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlsm0"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp6if"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nph0j"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gay2w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28bmn"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upoe1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyff2"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaae5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kplw"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ev3t0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_funpo"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evvji"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjght"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imk06"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e70lk"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfn10"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slgkm"]
 resource_local_to_scene = true
 albedo_color = Color(0.85098, 1, 0.639216, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qids4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0ak2"]
 resource_local_to_scene = true
 albedo_color = Color(0.510588, 0.6, 0.383529, 0.6)
 
@@ -1362,952 +1362,952 @@ editor_description = "An attraction within the VoxelVillage.tscn."
 
 [node name="Origin" parent="." instance=ExtResource("1_cawmk")]
 base_color = Color(1, 0.901961, 0.0509804, 1)
-BASE = SubResource("StandardMaterial3D_ahr2v")
-FLARE = SubResource("StandardMaterial3D_kq71q")
+BASE = SubResource("StandardMaterial3D_0ffex")
+FLARE = SubResource("StandardMaterial3D_whkq4")
 
 [node name="AxisX" type="Node3D" parent="."]
 
 [node name="x1" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 base_color = Color(0.815686, 0.619608, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_ggia4")
-FLARE = SubResource("StandardMaterial3D_hxnu6")
+BASE = SubResource("StandardMaterial3D_revq8")
+FLARE = SubResource("StandardMaterial3D_j5irk")
 
 [node name="x2" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 base_color = Color(0.815686, 0.356863, 0.027451, 1)
-BASE = SubResource("StandardMaterial3D_vw5db")
-FLARE = SubResource("StandardMaterial3D_epq40")
+BASE = SubResource("StandardMaterial3D_t7hax")
+FLARE = SubResource("StandardMaterial3D_kr7tp")
 
 [node name="x3" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 base_color = Color(0.815686, 0.333333, 0.109804, 1)
-BASE = SubResource("StandardMaterial3D_6v53h")
-FLARE = SubResource("StandardMaterial3D_r3nxg")
+BASE = SubResource("StandardMaterial3D_ohj6q")
+FLARE = SubResource("StandardMaterial3D_bmrqb")
 
 [node name="x4" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_87a04")
-FLARE = SubResource("StandardMaterial3D_se7dd")
+BASE = SubResource("StandardMaterial3D_mtenh")
+FLARE = SubResource("StandardMaterial3D_iande")
 
 [node name="x5" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_5t61q")
-FLARE = SubResource("StandardMaterial3D_ih2lj")
+BASE = SubResource("StandardMaterial3D_so8k0")
+FLARE = SubResource("StandardMaterial3D_feyjj")
 
 [node name="x6" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_r1qrh")
-FLARE = SubResource("StandardMaterial3D_418i6")
+BASE = SubResource("StandardMaterial3D_ojhhq")
+FLARE = SubResource("StandardMaterial3D_g8ba1")
 
 [node name="x7" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_a5b66")
-FLARE = SubResource("StandardMaterial3D_tbana")
+BASE = SubResource("StandardMaterial3D_yr80u")
+FLARE = SubResource("StandardMaterial3D_ssts5")
 
 [node name="x8" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_v7dj4")
-FLARE = SubResource("StandardMaterial3D_5usum")
+BASE = SubResource("StandardMaterial3D_md5jt")
+FLARE = SubResource("StandardMaterial3D_5suvl")
 
 [node name="x9" parent="AxisX" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 base_color = Color(0.815686, 0.0823529, 0.0627451, 1)
-BASE = SubResource("StandardMaterial3D_bwdtn")
-FLARE = SubResource("StandardMaterial3D_ietnf")
+BASE = SubResource("StandardMaterial3D_vgdww")
+FLARE = SubResource("StandardMaterial3D_4ctrs")
 
 [node name="AxisY" type="Node3D" parent="."]
 
 [node name="Voxel58" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 base_color = Color(0.823529, 0.905882, 0.141176, 1)
-BASE = SubResource("StandardMaterial3D_qua02")
-FLARE = SubResource("StandardMaterial3D_u7img")
+BASE = SubResource("StandardMaterial3D_wc27b")
+FLARE = SubResource("StandardMaterial3D_55r38")
 
 [node name="Voxel67" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 base_color = Color(0.419608, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_gqiy4")
-FLARE = SubResource("StandardMaterial3D_x8i1e")
+BASE = SubResource("StandardMaterial3D_4ejx0")
+FLARE = SubResource("StandardMaterial3D_cs24p")
 
 [node name="Voxel68" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 base_color = Color(0.337255, 0.905882, 0.105882, 1)
-BASE = SubResource("StandardMaterial3D_aapbi")
-FLARE = SubResource("StandardMaterial3D_5igd1")
+BASE = SubResource("StandardMaterial3D_672lw")
+FLARE = SubResource("StandardMaterial3D_g6t7s")
 
 [node name="Voxel71" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_axcdh")
-FLARE = SubResource("StandardMaterial3D_tlvve")
+BASE = SubResource("StandardMaterial3D_tixds")
+FLARE = SubResource("StandardMaterial3D_gkm70")
 
 [node name="Voxel118" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_3124d")
-FLARE = SubResource("StandardMaterial3D_12xmw")
+BASE = SubResource("StandardMaterial3D_b4oby")
+FLARE = SubResource("StandardMaterial3D_8nxb0")
 
 [node name="Voxel119" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_n32vg")
-FLARE = SubResource("StandardMaterial3D_lym1s")
+BASE = SubResource("StandardMaterial3D_3rtka")
+FLARE = SubResource("StandardMaterial3D_c00wj")
 
 [node name="Voxel120" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_f43bx")
-FLARE = SubResource("StandardMaterial3D_mmfuj")
+BASE = SubResource("StandardMaterial3D_une2r")
+FLARE = SubResource("StandardMaterial3D_dn102")
 
 [node name="Voxel121" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_m7fj7")
-FLARE = SubResource("StandardMaterial3D_4h4oq")
+BASE = SubResource("StandardMaterial3D_2jjoj")
+FLARE = SubResource("StandardMaterial3D_5pw8y")
 
 [node name="Voxel122" parent="AxisY" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 base_color = Color(0, 0.905882, 0.121569, 1)
-BASE = SubResource("StandardMaterial3D_aig5c")
-FLARE = SubResource("StandardMaterial3D_2vtg5")
+BASE = SubResource("StandardMaterial3D_508n5")
+FLARE = SubResource("StandardMaterial3D_jay6o")
 
 [node name="AxisZ" type="Node3D" parent="."]
 
 [node name="Voxel31" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 base_color = Color(0.764706, 0.784314, 0.596078, 1)
-BASE = SubResource("StandardMaterial3D_5sn6l")
-FLARE = SubResource("StandardMaterial3D_c6of3")
+BASE = SubResource("StandardMaterial3D_vd8ve")
+FLARE = SubResource("StandardMaterial3D_vxfga")
 
 [node name="Voxel11" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 base_color = Color(0.486275, 0.486275, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_bl8s2")
-FLARE = SubResource("StandardMaterial3D_qnepi")
+BASE = SubResource("StandardMaterial3D_rijng")
+FLARE = SubResource("StandardMaterial3D_plgb1")
 
 [node name="Voxel57" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_hu5y3")
-FLARE = SubResource("StandardMaterial3D_1mils")
+BASE = SubResource("StandardMaterial3D_qfjkj")
+FLARE = SubResource("StandardMaterial3D_41n8u")
 
 [node name="Voxel64" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_irxlt")
-FLARE = SubResource("StandardMaterial3D_v8kdy")
+BASE = SubResource("StandardMaterial3D_qju0n")
+FLARE = SubResource("StandardMaterial3D_u6co3")
 
 [node name="Voxel65" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 base_color = Color(0.313726, 0.329412, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_46x32")
-FLARE = SubResource("StandardMaterial3D_d32j1")
+BASE = SubResource("StandardMaterial3D_a8sl7")
+FLARE = SubResource("StandardMaterial3D_72wqt")
 
 [node name="Voxel70" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
 base_color = Color(0.4, 0.392157, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_t4mah")
-FLARE = SubResource("StandardMaterial3D_r6ruj")
+BASE = SubResource("StandardMaterial3D_1nnad")
+FLARE = SubResource("StandardMaterial3D_8ctdq")
 
 [node name="Voxel59" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_mfe5r")
-FLARE = SubResource("StandardMaterial3D_xw0qh")
+BASE = SubResource("StandardMaterial3D_so7br")
+FLARE = SubResource("StandardMaterial3D_poue7")
 
 [node name="Voxel60" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_tx7v3")
-FLARE = SubResource("StandardMaterial3D_ucjpo")
+BASE = SubResource("StandardMaterial3D_5ksxt")
+FLARE = SubResource("StandardMaterial3D_l53fx")
 
 [node name="Voxel66" parent="AxisZ" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
 base_color = Color(0.164706, 0.176471, 0.666667, 1)
-BASE = SubResource("StandardMaterial3D_fe7mo")
-FLARE = SubResource("StandardMaterial3D_0ac87")
+BASE = SubResource("StandardMaterial3D_bdhm5")
+FLARE = SubResource("StandardMaterial3D_jet6p")
 
 [node name="Maze" type="Node3D" parent="."]
 
 [node name="Voxel125" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_vorw2")
-FLARE = SubResource("StandardMaterial3D_rgm3c")
+BASE = SubResource("StandardMaterial3D_chc62")
+FLARE = SubResource("StandardMaterial3D_froht")
 
 [node name="Voxel126" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_0tnfq")
-FLARE = SubResource("StandardMaterial3D_o7eks")
+BASE = SubResource("StandardMaterial3D_c8obu")
+FLARE = SubResource("StandardMaterial3D_r8j4u")
 
 [node name="Voxel127" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_6hhws")
-FLARE = SubResource("StandardMaterial3D_rur1u")
+BASE = SubResource("StandardMaterial3D_5u746")
+FLARE = SubResource("StandardMaterial3D_vqr8y")
 
 [node name="Voxel128" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_5h4vc")
-FLARE = SubResource("StandardMaterial3D_5gwak")
+BASE = SubResource("StandardMaterial3D_titv2")
+FLARE = SubResource("StandardMaterial3D_n6odl")
 
 [node name="Voxel129" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_tqvu4")
-FLARE = SubResource("StandardMaterial3D_3twt0")
+BASE = SubResource("StandardMaterial3D_ynmiw")
+FLARE = SubResource("StandardMaterial3D_48niq")
 
 [node name="Voxel130" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_gu68r")
-FLARE = SubResource("StandardMaterial3D_v3gm8")
+BASE = SubResource("StandardMaterial3D_nqhg7")
+FLARE = SubResource("StandardMaterial3D_ga08l")
 
 [node name="Voxel135" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_u7kf3")
-FLARE = SubResource("StandardMaterial3D_fni8a")
+BASE = SubResource("StandardMaterial3D_lgdwk")
+FLARE = SubResource("StandardMaterial3D_xvolv")
 
 [node name="Voxel136" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_indkq")
-FLARE = SubResource("StandardMaterial3D_yuk4r")
+BASE = SubResource("StandardMaterial3D_j2ewd")
+FLARE = SubResource("StandardMaterial3D_dkr66")
 
 [node name="Voxel137" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_8vt2w")
-FLARE = SubResource("StandardMaterial3D_17t2v")
+BASE = SubResource("StandardMaterial3D_0pwfa")
+FLARE = SubResource("StandardMaterial3D_igh8p")
 
 [node name="Voxel138" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_0h1ts")
-FLARE = SubResource("StandardMaterial3D_kxuqu")
+BASE = SubResource("StandardMaterial3D_tjh7q")
+FLARE = SubResource("StandardMaterial3D_gw8q8")
 
 [node name="Voxel139" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_52p53")
-FLARE = SubResource("StandardMaterial3D_o8tcb")
+BASE = SubResource("StandardMaterial3D_hdui7")
+FLARE = SubResource("StandardMaterial3D_i8eob")
 
 [node name="Voxel140" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_ex8es")
-FLARE = SubResource("StandardMaterial3D_lrwec")
+BASE = SubResource("StandardMaterial3D_p62yw")
+FLARE = SubResource("StandardMaterial3D_qe0y6")
 
 [node name="Voxel145" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_lgqgk")
-FLARE = SubResource("StandardMaterial3D_n46ja")
+BASE = SubResource("StandardMaterial3D_7qg85")
+FLARE = SubResource("StandardMaterial3D_er64d")
 
 [node name="Voxel146" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_j7ker")
-FLARE = SubResource("StandardMaterial3D_pqlj5")
+BASE = SubResource("StandardMaterial3D_db4rs")
+FLARE = SubResource("StandardMaterial3D_sskex")
 
 [node name="Voxel147" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_v52y3")
-FLARE = SubResource("StandardMaterial3D_n2pnn")
+BASE = SubResource("StandardMaterial3D_do1b2")
+FLARE = SubResource("StandardMaterial3D_3uoyg")
 
 [node name="Voxel148" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_vidih")
-FLARE = SubResource("StandardMaterial3D_kj1g5")
+BASE = SubResource("StandardMaterial3D_t5d4n")
+FLARE = SubResource("StandardMaterial3D_2tkcn")
 
 [node name="Voxel149" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_of5qs")
-FLARE = SubResource("StandardMaterial3D_ktvc0")
+BASE = SubResource("StandardMaterial3D_2yk2w")
+FLARE = SubResource("StandardMaterial3D_73k2g")
 
 [node name="Voxel151" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_chhwv")
-FLARE = SubResource("StandardMaterial3D_cwbdl")
+BASE = SubResource("StandardMaterial3D_h608c")
+FLARE = SubResource("StandardMaterial3D_b5sdj")
 
 [node name="Voxel152" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_x5ttk")
-FLARE = SubResource("StandardMaterial3D_mhnue")
+BASE = SubResource("StandardMaterial3D_04vnt")
+FLARE = SubResource("StandardMaterial3D_fig4n")
 
 [node name="Voxel154" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_uiy3u")
-FLARE = SubResource("StandardMaterial3D_rrpp5")
+BASE = SubResource("StandardMaterial3D_g077x")
+FLARE = SubResource("StandardMaterial3D_48hqa")
 
 [node name="Voxel155" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_d5fh8")
-FLARE = SubResource("StandardMaterial3D_wh5p8")
+BASE = SubResource("StandardMaterial3D_ffwwm")
+FLARE = SubResource("StandardMaterial3D_fgjnr")
 
 [node name="Voxel156" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_d4jrk")
-FLARE = SubResource("StandardMaterial3D_5xmcw")
+BASE = SubResource("StandardMaterial3D_uiae1")
+FLARE = SubResource("StandardMaterial3D_q8iyo")
 
 [node name="Voxel157" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_8ilue")
-FLARE = SubResource("StandardMaterial3D_inxxk")
+BASE = SubResource("StandardMaterial3D_20jrx")
+FLARE = SubResource("StandardMaterial3D_khtwr")
 
 [node name="Voxel32" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_grsai")
-FLARE = SubResource("StandardMaterial3D_dm6jv")
+BASE = SubResource("StandardMaterial3D_2fv72")
+FLARE = SubResource("StandardMaterial3D_7dte7")
 
 [node name="Voxel33" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_w2tjs")
-FLARE = SubResource("StandardMaterial3D_nl7mg")
+BASE = SubResource("StandardMaterial3D_8ukck")
+FLARE = SubResource("StandardMaterial3D_0rlc0")
 
 [node name="Voxel34" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_l3cdm")
-FLARE = SubResource("StandardMaterial3D_cb1aa")
+BASE = SubResource("StandardMaterial3D_olmpn")
+FLARE = SubResource("StandardMaterial3D_0ph3d")
 
 [node name="Voxel35" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_njh6l")
-FLARE = SubResource("StandardMaterial3D_opc20")
+BASE = SubResource("StandardMaterial3D_52o2c")
+FLARE = SubResource("StandardMaterial3D_kiaan")
 
 [node name="Voxel36" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_ntrjt")
-FLARE = SubResource("StandardMaterial3D_b7qp1")
+BASE = SubResource("StandardMaterial3D_31ad6")
+FLARE = SubResource("StandardMaterial3D_bctk8")
 
 [node name="Voxel37" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_jn7c6")
-FLARE = SubResource("StandardMaterial3D_y5mf0")
+BASE = SubResource("StandardMaterial3D_tobln")
+FLARE = SubResource("StandardMaterial3D_b34tg")
 
 [node name="Voxel38" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_32yhc")
-FLARE = SubResource("StandardMaterial3D_mvuq0")
+BASE = SubResource("StandardMaterial3D_pitc5")
+FLARE = SubResource("StandardMaterial3D_bupt6")
 
 [node name="Voxel39" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_txnop")
-FLARE = SubResource("StandardMaterial3D_k27ie")
+BASE = SubResource("StandardMaterial3D_we3m3")
+FLARE = SubResource("StandardMaterial3D_vqte3")
 
 [node name="Voxel40" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.1, 0.1)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_eks3e")
-FLARE = SubResource("StandardMaterial3D_81q2t")
+BASE = SubResource("StandardMaterial3D_vgn2j")
+FLARE = SubResource("StandardMaterial3D_etmkp")
 
 [node name="Voxel91" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_f74ub")
-FLARE = SubResource("StandardMaterial3D_ihhvc")
+BASE = SubResource("StandardMaterial3D_wyfsm")
+FLARE = SubResource("StandardMaterial3D_gy0ci")
 
 [node name="Voxel92" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_0vsnp")
-FLARE = SubResource("StandardMaterial3D_msaxa")
+BASE = SubResource("StandardMaterial3D_3ya58")
+FLARE = SubResource("StandardMaterial3D_ebr25")
 
 [node name="Voxel93" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_iw4ur")
-FLARE = SubResource("StandardMaterial3D_tns5w")
+BASE = SubResource("StandardMaterial3D_vlf4c")
+FLARE = SubResource("StandardMaterial3D_j0xql")
 
 [node name="Voxel94" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_vdlk2")
-FLARE = SubResource("StandardMaterial3D_lrdig")
+BASE = SubResource("StandardMaterial3D_78ach")
+FLARE = SubResource("StandardMaterial3D_lvyas")
 
 [node name="Voxel95" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_gm3o4")
-FLARE = SubResource("StandardMaterial3D_f2g2u")
+BASE = SubResource("StandardMaterial3D_hj0xb")
+FLARE = SubResource("StandardMaterial3D_ie5y3")
 
 [node name="Voxel96" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_pxt2i")
-FLARE = SubResource("StandardMaterial3D_nbk00")
+BASE = SubResource("StandardMaterial3D_wmuhx")
+FLARE = SubResource("StandardMaterial3D_o07hh")
 
 [node name="Voxel97" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.2, 0.2)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = SubResource("StandardMaterial3D_1s433")
-FLARE = SubResource("StandardMaterial3D_s5c1d")
+BASE = SubResource("StandardMaterial3D_bj1s6")
+FLARE = SubResource("StandardMaterial3D_c77sx")
 
 [node name="Voxel98" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_prcal")
-FLARE = SubResource("StandardMaterial3D_jwpte")
+BASE = SubResource("StandardMaterial3D_3dg3q")
+FLARE = SubResource("StandardMaterial3D_2b8yp")
 
 [node name="Voxel99" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.2)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_iv25i")
-FLARE = SubResource("StandardMaterial3D_w7r23")
+BASE = SubResource("StandardMaterial3D_5jrcj")
+FLARE = SubResource("StandardMaterial3D_dhg8u")
 
 [node name="Voxel100" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_bi2kd")
-FLARE = SubResource("StandardMaterial3D_dosqe")
+BASE = SubResource("StandardMaterial3D_3d8oi")
+FLARE = SubResource("StandardMaterial3D_gbaly")
 
 [node name="Voxel101" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_q0wlo")
-FLARE = SubResource("StandardMaterial3D_5ygys")
+BASE = SubResource("StandardMaterial3D_opeso")
+FLARE = SubResource("StandardMaterial3D_d7hkl")
 
 [node name="Voxel102" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_y5hq0")
-FLARE = SubResource("StandardMaterial3D_b72un")
+BASE = SubResource("StandardMaterial3D_nko5g")
+FLARE = SubResource("StandardMaterial3D_jso5l")
 
 [node name="Voxel103" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_rtfha")
-FLARE = SubResource("StandardMaterial3D_mmlcu")
+BASE = SubResource("StandardMaterial3D_gyrj3")
+FLARE = SubResource("StandardMaterial3D_ii187")
 
 [node name="Voxel104" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_k0nqd")
-FLARE = SubResource("StandardMaterial3D_ref80")
+BASE = SubResource("StandardMaterial3D_ki07f")
+FLARE = SubResource("StandardMaterial3D_cf5y7")
 
 [node name="Voxel105" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_fyxg6")
-FLARE = SubResource("StandardMaterial3D_1dn1t")
+BASE = SubResource("StandardMaterial3D_syscc")
+FLARE = SubResource("StandardMaterial3D_pdups")
 
 [node name="Voxel106" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_1vsf3")
-FLARE = SubResource("StandardMaterial3D_ot6y8")
+BASE = SubResource("StandardMaterial3D_j2f2g")
+FLARE = SubResource("StandardMaterial3D_kh0lp")
 
 [node name="Voxel107" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_7x1jr")
-FLARE = SubResource("StandardMaterial3D_onk68")
+BASE = SubResource("StandardMaterial3D_avugv")
+FLARE = SubResource("StandardMaterial3D_vc0ir")
 
 [node name="Voxel108" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.3)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_de6n6")
-FLARE = SubResource("StandardMaterial3D_nx8rr")
+BASE = SubResource("StandardMaterial3D_owcrc")
+FLARE = SubResource("StandardMaterial3D_kojrs")
 
 [node name="Voxel109" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_wmatl")
-FLARE = SubResource("StandardMaterial3D_w47kk")
+BASE = SubResource("StandardMaterial3D_pgl58")
+FLARE = SubResource("StandardMaterial3D_l1ry2")
 
 [node name="Voxel110" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_akudb")
-FLARE = SubResource("StandardMaterial3D_aqo03")
+BASE = SubResource("StandardMaterial3D_kotiu")
+FLARE = SubResource("StandardMaterial3D_dfphg")
 
 [node name="Voxel111" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_nm3ci")
-FLARE = SubResource("StandardMaterial3D_gpruv")
+BASE = SubResource("StandardMaterial3D_mrgdi")
+FLARE = SubResource("StandardMaterial3D_nrc0g")
 
 [node name="Voxel112" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_nvxcy")
-FLARE = SubResource("StandardMaterial3D_erske")
+BASE = SubResource("StandardMaterial3D_8ct2w")
+FLARE = SubResource("StandardMaterial3D_pajlt")
 
 [node name="Voxel113" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_k1lch")
-FLARE = SubResource("StandardMaterial3D_3vhn7")
+BASE = SubResource("StandardMaterial3D_6uibk")
+FLARE = SubResource("StandardMaterial3D_q3v1g")
 
 [node name="Voxel114" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_elac4")
-FLARE = SubResource("StandardMaterial3D_yn6fl")
+BASE = SubResource("StandardMaterial3D_i7hwd")
+FLARE = SubResource("StandardMaterial3D_p6wbo")
 
 [node name="Voxel115" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_010q7")
-FLARE = SubResource("StandardMaterial3D_yst3o")
+BASE = SubResource("StandardMaterial3D_034m4")
+FLARE = SubResource("StandardMaterial3D_nalyk")
 
 [node name="Voxel116" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_n2l0i")
-FLARE = SubResource("StandardMaterial3D_rwqky")
+BASE = SubResource("StandardMaterial3D_yavwf")
+FLARE = SubResource("StandardMaterial3D_7oeg5")
 
 [node name="Voxel117" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.4)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_nmgmg")
-FLARE = SubResource("StandardMaterial3D_1l1o4")
+BASE = SubResource("StandardMaterial3D_seki1")
+FLARE = SubResource("StandardMaterial3D_06npu")
 
 [node name="Voxel41" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_4gl43")
-FLARE = SubResource("StandardMaterial3D_125iv")
+BASE = SubResource("StandardMaterial3D_o7s31")
+FLARE = SubResource("StandardMaterial3D_4lta1")
 
 [node name="Voxel123" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_3rau4")
-FLARE = SubResource("StandardMaterial3D_gcseu")
+BASE = SubResource("StandardMaterial3D_4voty")
+FLARE = SubResource("StandardMaterial3D_irkcj")
 
 [node name="Voxel124" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.1, 0.5)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_fxq8y")
-FLARE = SubResource("StandardMaterial3D_olvlx")
+BASE = SubResource("StandardMaterial3D_7rui5")
+FLARE = SubResource("StandardMaterial3D_yncf5")
 
 [node name="Voxel131" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_tp557")
-FLARE = SubResource("StandardMaterial3D_st7aj")
+BASE = SubResource("StandardMaterial3D_wf2su")
+FLARE = SubResource("StandardMaterial3D_3w4cv")
 
 [node name="Voxel132" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_t4ct8")
-FLARE = SubResource("StandardMaterial3D_g2c2m")
+BASE = SubResource("StandardMaterial3D_wokdt")
+FLARE = SubResource("StandardMaterial3D_3b3lo")
 
 [node name="Voxel133" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.6)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_khtd2")
-FLARE = SubResource("StandardMaterial3D_7wukt")
+BASE = SubResource("StandardMaterial3D_1xr12")
+FLARE = SubResource("StandardMaterial3D_tjayo")
 
 [node name="Voxel134" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.6)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = SubResource("StandardMaterial3D_n3iol")
-FLARE = SubResource("StandardMaterial3D_8unm1")
+BASE = SubResource("StandardMaterial3D_3veif")
+FLARE = SubResource("StandardMaterial3D_d7dk3")
 
 [node name="Voxel141" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_2wckf")
-FLARE = SubResource("StandardMaterial3D_d0gma")
+BASE = SubResource("StandardMaterial3D_x7mxi")
+FLARE = SubResource("StandardMaterial3D_3x5n0")
 
 [node name="Voxel142" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.7)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_2u7v6")
-FLARE = SubResource("StandardMaterial3D_ofpbl")
+BASE = SubResource("StandardMaterial3D_7rnna")
+FLARE = SubResource("StandardMaterial3D_ia0la")
 
 [node name="Voxel143" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = SubResource("StandardMaterial3D_bsjpc")
-FLARE = SubResource("StandardMaterial3D_7vvo6")
+BASE = SubResource("StandardMaterial3D_5g4bj")
+FLARE = SubResource("StandardMaterial3D_ja8i1")
 
 [node name="Voxel144" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.7)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = SubResource("StandardMaterial3D_qofoj")
-FLARE = SubResource("StandardMaterial3D_qorih")
+BASE = SubResource("StandardMaterial3D_cn341")
+FLARE = SubResource("StandardMaterial3D_snf8e")
 
 [node name="Voxel150" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.8)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_pgbnx")
-FLARE = SubResource("StandardMaterial3D_3h835")
+BASE = SubResource("StandardMaterial3D_yd23v")
+FLARE = SubResource("StandardMaterial3D_8sq2w")
 
 [node name="Voxel158" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_0cvi0")
-FLARE = SubResource("StandardMaterial3D_eidja")
+BASE = SubResource("StandardMaterial3D_vm43f")
+FLARE = SubResource("StandardMaterial3D_s2dx8")
 
 [node name="Voxel159" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_m5141")
-FLARE = SubResource("StandardMaterial3D_rlfck")
+BASE = SubResource("StandardMaterial3D_pm7j0")
+FLARE = SubResource("StandardMaterial3D_o0sdw")
 
 [node name="Voxel160" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_4426e")
-FLARE = SubResource("StandardMaterial3D_6hu6d")
+BASE = SubResource("StandardMaterial3D_cyyij")
+FLARE = SubResource("StandardMaterial3D_2nnxx")
 
 [node name="Voxel161" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_gj002")
-FLARE = SubResource("StandardMaterial3D_x647s")
+BASE = SubResource("StandardMaterial3D_h7m7l")
+FLARE = SubResource("StandardMaterial3D_20g1j")
 
 [node name="Voxel166" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_2iyo1")
-FLARE = SubResource("StandardMaterial3D_6khy8")
+BASE = SubResource("StandardMaterial3D_ms1yh")
+FLARE = SubResource("StandardMaterial3D_g8mhc")
 
 [node name="Voxel162" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_ubclr")
-FLARE = SubResource("StandardMaterial3D_xw7em")
+BASE = SubResource("StandardMaterial3D_jwvjo")
+FLARE = SubResource("StandardMaterial3D_04ql1")
 
 [node name="Voxel163" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_8qw8f")
-FLARE = SubResource("StandardMaterial3D_kx1rm")
+BASE = SubResource("StandardMaterial3D_suwe8")
+FLARE = SubResource("StandardMaterial3D_urq2f")
 
 [node name="Voxel164" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.9, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_iorrp")
-FLARE = SubResource("StandardMaterial3D_u38sn")
+BASE = SubResource("StandardMaterial3D_ftyve")
+FLARE = SubResource("StandardMaterial3D_blqhq")
 
 [node name="Voxel165" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.2, -0.1, 0.9)
 base_color = Color(0.2, 0.188235, 0.129412, 1)
-BASE = SubResource("StandardMaterial3D_0d3do")
-FLARE = SubResource("StandardMaterial3D_vx8gk")
+BASE = SubResource("StandardMaterial3D_8nsxq")
+FLARE = SubResource("StandardMaterial3D_i5hep")
 
 [node name="Voxel153" parent="Maze" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.2, 0.8)
 base_color = Color(0.176471, 0.796078, 0.211765, 1)
-BASE = SubResource("StandardMaterial3D_bejbr")
-FLARE = SubResource("StandardMaterial3D_o0024")
+BASE = SubResource("StandardMaterial3D_12mth")
+FLARE = SubResource("StandardMaterial3D_270lg")
 
 [node name="Extras" type="Node3D" parent="."]
 
 [node name="Voxel4" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
-BASE = SubResource("StandardMaterial3D_ljtj0")
-FLARE = SubResource("StandardMaterial3D_bq6b5")
+BASE = SubResource("StandardMaterial3D_htuon")
+FLARE = SubResource("StandardMaterial3D_dkkb2")
 
 [node name="Voxel5" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03906, 0, -0.255302)
-BASE = SubResource("StandardMaterial3D_ukymx")
-FLARE = SubResource("StandardMaterial3D_xboqs")
+BASE = SubResource("StandardMaterial3D_27j5m")
+FLARE = SubResource("StandardMaterial3D_vxpp4")
 
 [node name="Voxel12" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.1)
-BASE = SubResource("StandardMaterial3D_24d6d")
-FLARE = SubResource("StandardMaterial3D_3nj2a")
+BASE = SubResource("StandardMaterial3D_da86n")
+FLARE = SubResource("StandardMaterial3D_3lbar")
 
 [node name="Voxel13" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.1)
-BASE = SubResource("StandardMaterial3D_hckt1")
-FLARE = SubResource("StandardMaterial3D_rtmbn")
+BASE = SubResource("StandardMaterial3D_e8wmi")
+FLARE = SubResource("StandardMaterial3D_06ihw")
 
 [node name="Voxel14" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.1)
-BASE = SubResource("StandardMaterial3D_u3n6b")
-FLARE = SubResource("StandardMaterial3D_b6v4b")
+BASE = SubResource("StandardMaterial3D_eg6x1")
+FLARE = SubResource("StandardMaterial3D_kqjhf")
 
 [node name="Voxel15" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.1)
-BASE = SubResource("StandardMaterial3D_h5hf3")
-FLARE = SubResource("StandardMaterial3D_6iamr")
+BASE = SubResource("StandardMaterial3D_hi4ca")
+FLARE = SubResource("StandardMaterial3D_eb5qj")
 
 [node name="Voxel16" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1.1)
-BASE = SubResource("StandardMaterial3D_d5sxi")
-FLARE = SubResource("StandardMaterial3D_qrpg0")
+BASE = SubResource("StandardMaterial3D_8o2ow")
+FLARE = SubResource("StandardMaterial3D_dq7up")
 
 [node name="Voxel17" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1.1)
-BASE = SubResource("StandardMaterial3D_05vkv")
-FLARE = SubResource("StandardMaterial3D_kmkcp")
+BASE = SubResource("StandardMaterial3D_lrjoo")
+FLARE = SubResource("StandardMaterial3D_16u0q")
 
 [node name="Voxel18" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1.1)
 base_color = Color(0.137255, 0.666667, 0.0980392, 1)
-BASE = SubResource("StandardMaterial3D_8vkut")
-FLARE = SubResource("StandardMaterial3D_e46wm")
+BASE = SubResource("StandardMaterial3D_qoawe")
+FLARE = SubResource("StandardMaterial3D_nbfx7")
 
 [node name="Voxel19" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1.1)
-BASE = SubResource("StandardMaterial3D_g05p5")
-FLARE = SubResource("StandardMaterial3D_h10yy")
+BASE = SubResource("StandardMaterial3D_b8p11")
+FLARE = SubResource("StandardMaterial3D_vjvkc")
 
 [node name="Voxel20" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.1)
-BASE = SubResource("StandardMaterial3D_lavd6")
-FLARE = SubResource("StandardMaterial3D_vh7t5")
+BASE = SubResource("StandardMaterial3D_cci6y")
+FLARE = SubResource("StandardMaterial3D_buloc")
 
 [node name="Voxel22" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_ublsj")
-FLARE = SubResource("StandardMaterial3D_55a2p")
+BASE = SubResource("StandardMaterial3D_taadm")
+FLARE = SubResource("StandardMaterial3D_5nqag")
 
 [node name="Voxel23" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_w453f")
-FLARE = SubResource("StandardMaterial3D_4xpin")
+BASE = SubResource("StandardMaterial3D_wg6a1")
+FLARE = SubResource("StandardMaterial3D_1xl2h")
 
 [node name="Voxel25" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_jkhty")
-FLARE = SubResource("StandardMaterial3D_tt1ta")
+BASE = SubResource("StandardMaterial3D_ismjo")
+FLARE = SubResource("StandardMaterial3D_y7dqf")
 
 [node name="Voxel26" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1.2)
 base_color = Color(0.862745, 0.247059, 0.286275, 1)
-BASE = SubResource("StandardMaterial3D_f3sol")
-FLARE = SubResource("StandardMaterial3D_01b1v")
+BASE = SubResource("StandardMaterial3D_knj63")
+FLARE = SubResource("StandardMaterial3D_ojqoo")
 
 [node name="Voxel27" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_w4hp4")
-FLARE = SubResource("StandardMaterial3D_dmuts")
+BASE = SubResource("StandardMaterial3D_wetle")
+FLARE = SubResource("StandardMaterial3D_sboiy")
 
 [node name="Voxel28" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_xjpkr")
-FLARE = SubResource("StandardMaterial3D_pitts")
+BASE = SubResource("StandardMaterial3D_difvm")
+FLARE = SubResource("StandardMaterial3D_k8fab")
 
 [node name="Voxel29" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_j8ev5")
-FLARE = SubResource("StandardMaterial3D_4hcp2")
+BASE = SubResource("StandardMaterial3D_4lqah")
+FLARE = SubResource("StandardMaterial3D_s8k4t")
 
 [node name="Voxel30" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_44gus")
-FLARE = SubResource("StandardMaterial3D_dhxyg")
+BASE = SubResource("StandardMaterial3D_fxhps")
+FLARE = SubResource("StandardMaterial3D_8vydi")
 
 [node name="Voxel21" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.4, 0.2, -1.1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_i57wq")
-FLARE = SubResource("StandardMaterial3D_o7b28")
+BASE = SubResource("StandardMaterial3D_t3ar6")
+FLARE = SubResource("StandardMaterial3D_njkqv")
 
 [node name="Voxel24" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0.2, -1.1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_etpak")
-FLARE = SubResource("StandardMaterial3D_752qa")
+BASE = SubResource("StandardMaterial3D_l50dq")
+FLARE = SubResource("StandardMaterial3D_2ghnh")
 
 [node name="Voxel42" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.2, -1.2)
-BASE = SubResource("StandardMaterial3D_gciqv")
-FLARE = SubResource("StandardMaterial3D_24gdp")
+BASE = SubResource("StandardMaterial3D_uhvjw")
+FLARE = SubResource("StandardMaterial3D_2aylw")
 
 [node name="Voxel43" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.2, -1.2)
 base_color = Color(0.862745, 0.247059, 0.286275, 1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_a584n")
-FLARE = SubResource("StandardMaterial3D_5rhlv")
+BASE = SubResource("StandardMaterial3D_l2u0w")
+FLARE = SubResource("StandardMaterial3D_aky0u")
 
 [node name="Voxel78" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 0.2, -1.2)
 shape = 1
-BASE = SubResource("StandardMaterial3D_p8kgm")
-FLARE = SubResource("StandardMaterial3D_l4flg")
+BASE = SubResource("StandardMaterial3D_nb3gd")
+FLARE = SubResource("StandardMaterial3D_uv6w7")
 
 [node name="Voxel79" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.701602, 0.2, -1.2)
 shape = 1
-BASE = SubResource("StandardMaterial3D_uxb0q")
-FLARE = SubResource("StandardMaterial3D_5oquk")
+BASE = SubResource("StandardMaterial3D_nlvyn")
+FLARE = SubResource("StandardMaterial3D_f3vnp")
 
 [node name="Voxel80" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.8, 0.2, -1.2)
 shape = 1
-BASE = SubResource("StandardMaterial3D_w42vv")
-FLARE = SubResource("StandardMaterial3D_s6164")
+BASE = SubResource("StandardMaterial3D_77xd7")
+FLARE = SubResource("StandardMaterial3D_cvaiv")
 
 [node name="Voxel81" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1.2)
-BASE = SubResource("StandardMaterial3D_fkqc8")
-FLARE = SubResource("StandardMaterial3D_oad80")
+BASE = SubResource("StandardMaterial3D_mqvcw")
+FLARE = SubResource("StandardMaterial3D_4w6m4")
 
 [node name="Voxel82" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, -1.2)
-BASE = SubResource("StandardMaterial3D_pepll")
-FLARE = SubResource("StandardMaterial3D_so7af")
+BASE = SubResource("StandardMaterial3D_7rkng")
+FLARE = SubResource("StandardMaterial3D_mem5j")
 
 [node name="Voxel83" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.3, -1.2)
-BASE = SubResource("StandardMaterial3D_reqbq")
-FLARE = SubResource("StandardMaterial3D_q5rme")
+BASE = SubResource("StandardMaterial3D_aooy5")
+FLARE = SubResource("StandardMaterial3D_ooxhl")
 
 [node name="Voxel84" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -1.2)
-BASE = SubResource("StandardMaterial3D_owiu6")
-FLARE = SubResource("StandardMaterial3D_vsb1f")
+BASE = SubResource("StandardMaterial3D_faf3o")
+FLARE = SubResource("StandardMaterial3D_x7p3t")
 
 [node name="Voxel85" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.4, -1.2)
-BASE = SubResource("StandardMaterial3D_54u3w")
-FLARE = SubResource("StandardMaterial3D_tlsed")
+BASE = SubResource("StandardMaterial3D_hx1q5")
+FLARE = SubResource("StandardMaterial3D_04wvv")
 
 [node name="Voxel86" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.5, -1.2)
 base_color = Color(0.172549, 0.0980392, 0.666667, 1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_5c8sv")
-FLARE = SubResource("StandardMaterial3D_tod22")
+BASE = SubResource("StandardMaterial3D_s82j6")
+FLARE = SubResource("StandardMaterial3D_ma284")
 
 [node name="Voxel87" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 8.74228e-08, 8.74228e-08, 8.74228e-08, -1, 7.64274e-15, 8.74228e-08, 0, -1, 0.9, 0.5, -1.2)
 base_color = Color(0.666667, 0.2, 0.384314, 1)
 shape = 2
-BASE = SubResource("StandardMaterial3D_nt35a")
-FLARE = SubResource("StandardMaterial3D_phhly")
+BASE = SubResource("StandardMaterial3D_5hiaw")
+FLARE = SubResource("StandardMaterial3D_1uxd2")
 
 [node name="Voxel44" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.1, -1.2)
-BASE = SubResource("StandardMaterial3D_4fsxs")
-FLARE = SubResource("StandardMaterial3D_44euk")
+BASE = SubResource("StandardMaterial3D_ts5fq")
+FLARE = SubResource("StandardMaterial3D_7kcbb")
 
 [node name="Voxel45" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_si6mh")
-FLARE = SubResource("StandardMaterial3D_ggcfk")
+BASE = SubResource("StandardMaterial3D_ylh6o")
+FLARE = SubResource("StandardMaterial3D_w2df6")
 
 [node name="Voxel46" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_ohhs2")
-FLARE = SubResource("StandardMaterial3D_w0b3p")
+BASE = SubResource("StandardMaterial3D_51blq")
+FLARE = SubResource("StandardMaterial3D_b16yp")
 
 [node name="Voxel47" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_jbbci")
-FLARE = SubResource("StandardMaterial3D_cvi53")
+BASE = SubResource("StandardMaterial3D_rgrn1")
+FLARE = SubResource("StandardMaterial3D_gixxm")
 
 [node name="Voxel48" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.2, -1)
 base_color = Color(0.603922, 0.458824, 0.666667, 1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_1s5uo")
-FLARE = SubResource("StandardMaterial3D_hfwst")
+BASE = SubResource("StandardMaterial3D_iliut")
+FLARE = SubResource("StandardMaterial3D_uor5r")
 
 [node name="Voxel49" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_0k64r")
-FLARE = SubResource("StandardMaterial3D_upbvs")
+BASE = SubResource("StandardMaterial3D_t3240")
+FLARE = SubResource("StandardMaterial3D_bj4hm")
 
 [node name="Voxel50" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_dq48m")
-FLARE = SubResource("StandardMaterial3D_tqg5j")
+BASE = SubResource("StandardMaterial3D_t0do2")
+FLARE = SubResource("StandardMaterial3D_ly8wg")
 
 [node name="Voxel51" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-1, 0, 8.74228e-08, -7.64274e-15, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, 0.4, 0.2, -1)
 shape = 2
-BASE = SubResource("StandardMaterial3D_fg7ur")
-FLARE = SubResource("StandardMaterial3D_m4i6s")
+BASE = SubResource("StandardMaterial3D_vk3rb")
+FLARE = SubResource("StandardMaterial3D_1mjwf")
 
 [node name="Voxel52" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_oj5b2")
-FLARE = SubResource("StandardMaterial3D_12oiu")
+BASE = SubResource("StandardMaterial3D_hs3qc")
+FLARE = SubResource("StandardMaterial3D_uri6d")
 
 [node name="Voxel55" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, -1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_7aec2")
-FLARE = SubResource("StandardMaterial3D_27nli")
+BASE = SubResource("StandardMaterial3D_3akg7")
+FLARE = SubResource("StandardMaterial3D_nyx0v")
 
 [node name="Voxel56" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701602, 0.1, -1)
-BASE = SubResource("StandardMaterial3D_n8i06")
-FLARE = SubResource("StandardMaterial3D_o7on6")
+BASE = SubResource("StandardMaterial3D_5efpv")
+FLARE = SubResource("StandardMaterial3D_4cxu4")
 
 [node name="Voxel76" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.2, -1)
 shape = 1
-BASE = SubResource("StandardMaterial3D_ycwgi")
-FLARE = SubResource("StandardMaterial3D_q1wkf")
+BASE = SubResource("StandardMaterial3D_cgdxp")
+FLARE = SubResource("StandardMaterial3D_jh5wd")
 
 [node name="Voxel77" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.2, -1)
 shape = 2
-BASE = SubResource("StandardMaterial3D_7sqin")
-FLARE = SubResource("StandardMaterial3D_d1b4u")
+BASE = SubResource("StandardMaterial3D_2xd0y")
+FLARE = SubResource("StandardMaterial3D_ptnw8")
 
 [node name="Voxel53" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.3)
 base_color = Color(0.905882, 0.345098, 0.945098, 1)
-BASE = SubResource("StandardMaterial3D_f2y8q")
-FLARE = SubResource("StandardMaterial3D_4navg")
+BASE = SubResource("StandardMaterial3D_nkatp")
+FLARE = SubResource("StandardMaterial3D_vbpjh")
 
 [node name="Voxel54" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29334, 0, 0.053251)
-BASE = SubResource("StandardMaterial3D_1lt1u")
-FLARE = SubResource("StandardMaterial3D_ihd7s")
+BASE = SubResource("StandardMaterial3D_5ljyx")
+FLARE = SubResource("StandardMaterial3D_a6oiq")
 
 [node name="Voxel63" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.1, 0.3)
 shape = 1
-BASE = SubResource("StandardMaterial3D_f2m0g")
-FLARE = SubResource("StandardMaterial3D_unxyu")
+BASE = SubResource("StandardMaterial3D_8102g")
+FLARE = SubResource("StandardMaterial3D_dnkfh")
 
 [node name="Voxel88" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, -1, 3.82137e-15, 4.37114e-08, -0.3, 0.2, 0.3)
 shape = 1
-BASE = SubResource("StandardMaterial3D_k68xk")
-FLARE = SubResource("StandardMaterial3D_p7wes")
+BASE = SubResource("StandardMaterial3D_koksg")
+FLARE = SubResource("StandardMaterial3D_tasxf")
 
 [node name="Voxel89" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.1, 0.3)
 shape = 1
-BASE = SubResource("StandardMaterial3D_n570x")
-FLARE = SubResource("StandardMaterial3D_cxach")
+BASE = SubResource("StandardMaterial3D_7upgt")
+FLARE = SubResource("StandardMaterial3D_r2y3o")
 
 [node name="Voxel90" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(4.37114e-08, 0, 1, 3.82137e-15, 1, 0, -1, 3.82137e-15, 4.37114e-08, -0.2, 0.2, 0.3)
 base_color = Color(1, 0.32549, 0.356863, 1)
 shape = 4
-BASE = SubResource("StandardMaterial3D_lxqtl")
-FLARE = SubResource("StandardMaterial3D_4150r")
+BASE = SubResource("StandardMaterial3D_wh2rt")
+FLARE = SubResource("StandardMaterial3D_gikay")
 
 [node name="shape_base" parent="Extras/Voxel90/Model" index="0"]
 material_override = SubResource("StandardMaterial3D_3f7bk")
@@ -2324,37 +2324,37 @@ shape = ExtResource("4_sxea6")
 
 [node name="Voxel69" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836878, 0.1, -0.317386)
-BASE = SubResource("StandardMaterial3D_x1cui")
-FLARE = SubResource("StandardMaterial3D_3xcdn")
+BASE = SubResource("StandardMaterial3D_iue2g")
+FLARE = SubResource("StandardMaterial3D_2enw0")
 
 [node name="Voxel61" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.9)
-BASE = SubResource("StandardMaterial3D_sm2sp")
-FLARE = SubResource("StandardMaterial3D_i8g4w")
+BASE = SubResource("StandardMaterial3D_jmnul")
+FLARE = SubResource("StandardMaterial3D_ah8hy")
 
 [node name="Voxel62" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0.9)
-BASE = SubResource("StandardMaterial3D_mxesw")
-FLARE = SubResource("StandardMaterial3D_rp6if")
+BASE = SubResource("StandardMaterial3D_wlsm0")
+FLARE = SubResource("StandardMaterial3D_nph0j")
 
 [node name="Voxel" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3)
-BASE = SubResource("StandardMaterial3D_gay2w")
-FLARE = SubResource("StandardMaterial3D_upoe1")
+BASE = SubResource("StandardMaterial3D_28bmn")
+FLARE = SubResource("StandardMaterial3D_eyff2")
 
 [node name="Voxel2" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
-BASE = SubResource("StandardMaterial3D_xaae5")
-FLARE = SubResource("StandardMaterial3D_ev3t0")
+BASE = SubResource("StandardMaterial3D_7kplw")
+FLARE = SubResource("StandardMaterial3D_funpo")
 
 [node name="Voxel3" parent="Extras" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
-BASE = SubResource("StandardMaterial3D_evvji")
-FLARE = SubResource("StandardMaterial3D_imk06")
+BASE = SubResource("StandardMaterial3D_gjght")
+FLARE = SubResource("StandardMaterial3D_e70lk")
 
 [node name="Voxel" parent="Extras/Voxel3" instance=ExtResource("1_cawmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161542)
-BASE = SubResource("StandardMaterial3D_gfn10")
-FLARE = SubResource("StandardMaterial3D_qids4")
+BASE = SubResource("StandardMaterial3D_slgkm")
+FLARE = SubResource("StandardMaterial3D_w0ak2")
 
 [editable path="Extras/Voxel90"]

@@ -261,7 +261,7 @@ func HandleMovement(delta: float):
 		if char_body.is_on_floor():
 			looking_for_hang = false
 		else:
-			if hang_detector.is_colliding():
+			if hang_detector.is_colliding() and not $NearZMinus.is_colliding():
 				looking_for_hang = false
 				StartToHang(hang_detector.get_collider())
 	
@@ -277,9 +277,9 @@ func HandleMovement(delta: float):
 			else: #jumped while not on floor, just make sure we are falling?
 				Falling()
 	else: # not just jumped
-		if last_on_floor && not char_body.is_on_floor(): # we probably walked off something
+		if last_on_floor && not char_body.is_on_floor(): # we probably just this moment walked off something
 			if not $FallDetector.is_colliding():
-				if last_floor_voxel:
+				if last_floor_voxel: # try to hang on the block we just walked off of
 					StartToHang(last_floor_voxel)
 				else:
 					looking_for_hang = true
@@ -496,10 +496,12 @@ var last_hang_side : int
 var hang_lerping : bool
 var hanging_tween : Tween
 
-
+# Initiate a hang from some random (mostly adjacent) place to the voxel.
 func StartToHang(on_this: Voxel) -> bool:
 	var v_size = on_this.shape_list.voxel_size
-	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(last_hang_side))
+	var try_side = on_this.NearestSide(global_position)
+	var hang_point = on_this.to_global(Vector3(0,-v_size/2,0) + v_size * DirVector(try_side))
+	print("try to hang ", Voxel.Dir.keys()[try_side]," on ", on_this.name, ": ", on_this.position, " + ", v_size * DirVector(try_side)," = hang_point: ", hang_point)
 	
 	if voxel_world.VoxelAtPosition(hang_point + Vector3(0,v_size/2, 0)) != null:
 		print ("Can't hang at ", hang_point)
@@ -507,13 +509,27 @@ func StartToHang(on_this: Voxel) -> bool:
 	
 	hanging = true
 	last_hang = on_this
-	last_hang_side = on_this.NearestSide(global_position)
+	last_hang_side = try_side
+	looking_for_hang = false
 	
 	hang_lerping = true
 	hanging_tween = get_tree().create_tween()
 	hanging_tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
 	
 	return true
+
+
+# From already hanging somewhere, flip around to now hang on to_voxel at hang_pos.
+func HangLeap(to_voxel: Voxel, hang_side: int):
+	hanging = true
+	last_hang = to_voxel
+	last_hang_side = hang_side
+	looking_for_hang = false
+	
+	hang_lerping = true
+	hanging_tween = get_tree().create_tween()
+	var hang_point = to_voxel.position + voxel_size*DirVector(hang_side) - Vector3(0, voxel_size/2, 0)
+	hanging_tween.tween_property(self, "global_position", hang_point, .25).finished.connect(FinishHangLerp)
 
 
 func FinishHangLerp():
@@ -532,7 +548,8 @@ func HandleMovementHanging(_delta: float):
 	
 	
 	# Get the input direction
-	var input_dir = -Input.get_vector("char_strafe_left", "char_strafe_right", "char_forward", "char_backward")
+	var input_dir = -Input.get_vector("char_strafe_right", "char_strafe_left", "char_forward", "char_backward")
+	if input_dir.length() < 1e-5: return
 	
 	var speed = input_dir.length()
 	
@@ -546,6 +563,25 @@ func HandleMovementHanging(_delta: float):
 		player_dir += input_dir.y * (char_body.global_transform.basis * up_direction)
 	
 	player_dir = voxel_size * (char_body.get_parent().global_transform.basis.inverse() * player_dir).normalized()
+	print ("player_dir: ", player_dir)
+	
+	# check if voxel in player_dir is occupied.
+	var check_pos = position + player_dir + Vector3(0, voxel_size/2, 0)
+	var vhit = voxel_world.VoxelAtPosition(check_pos)
+	if vhit != null:
+		if vhit != last_hang:
+			StartToHang(vhit)
+		return
+	
+	# check for a voxel to hang on
+	check_pos = last_hang.position + player_dir
+	vhit = voxel_world.VoxelAtPosition(check_pos)
+	if vhit != null:
+		if vhit != last_hang:
+			var hang = voxel_world.VoxelPositionFromWorldPoint(position + player_dir) - Vector3(0, voxel_size/2, 0)
+			HangLeap(vhit, last_hang_side)
+			#StartToHang(vhit)
+		return
 
 
 
@@ -646,8 +682,6 @@ func CastFromCamera():
 		hovered_side = hover.NearestSide(point)
 		hovered_point = point
 		
-		#TESTING:
-		voxel_world.VoxelAtPosition(hover.position)
 		
 		# update potential block position
 		var normal = DirVector(hovered_side)
@@ -661,6 +695,10 @@ func CastFromCamera():
 		$Indicator/Potential.visible = false
 	
 	if input_mode == InputModes.Sample && hovered_object != null:
+		#TESTING:
+		if hover != null:
+			voxel_world.VoxelAtPosition(hover.position)
+		
 		SetLastColorRGB(hovered_object.base_color)
 		SetLastShape(hovered_object.shape)
 		SetLastRotationEuler(hovered_object.target_rotation)

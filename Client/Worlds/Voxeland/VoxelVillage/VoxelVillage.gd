@@ -240,11 +240,19 @@ func VoxelAtPosition(world_pos: Vector3) -> Voxel:
 	var hit = space.intersect_ray(params)
 	if hit.size() != 0:
 		if hit.collider != null: 
-			print ("voxel at ", world_pos,": ", hit.collider.name, " at ", hit.collider.global_position)
+			print ("voxel at ", world_pos,": ", hit.collider.get_parent().name, " at ", hit.collider.global_position)
 			return hit.collider.get_parent()
 	
 	print ("voxel at ", world_pos,": null")
 	return null
+
+
+func VoxelPositionFromWorldPoint(world_pos: Vector3) -> Vector3:
+	var local_pos = $Landscape.to_local(world_pos)
+	local_pos.y = ceil((local_pos.y - 0.05) * 10) / 10
+	local_pos.x = ceil((local_pos.x - 0.05) * 10) / 10
+	local_pos.z = ceil((local_pos.z - 0.05) * 10) / 10
+	return local_pos
 
 
 #----------------------------------------------------------------------------------
