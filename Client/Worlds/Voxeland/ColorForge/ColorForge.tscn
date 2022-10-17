@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=3 uid="uid://b15l7utjh1t2"]
+
+[ext_resource type="PackedScene" uid="uid://blwgg2w64vi51" path="res://Worlds/Devland/Contexts/Pip/Pip.tscn" id="1_atuj2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7xgsp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hhqsy"]
+sky_material = SubResource("ProceduralSkyMaterial_7xgsp")
+
+[sub_resource type="Environment" id="Environment_rcf2s"]
+background_mode = 2
+sky = SubResource("Sky_hhqsy")
+ambient_light_sky_contribution = 0.42
+tonemap_mode = 2
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_min_cell_size = 0.742773
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lkpb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h1t0l"]
+height = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l8ykh"]
+bottom_radius = 0.75
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afmqk"]
+emission_enabled = true
+emission = Color(0.164706, 0.45098, 0.694118, 1)
+emission_energy_multiplier = 6.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoeg"]
+emission_enabled = true
+emission = Color(0.227451, 0.803922, 0.247059, 1)
+emission_energy_multiplier = 4.97
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6boal"]
+emission_enabled = true
+emission = Color(0.945098, 0.152941, 0.0823529, 1)
+emission_energy_multiplier = 6.25
+
+[node name="ColorForge" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rcf2s")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2lkpb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.864404, 0)
+size = Vector3(16.2736, 1, 16.1287)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42502, 7.94621, -2.71198)
+size = Vector3(16.2736, 1, 12.3339)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 8.27081, 1.93382, 0)
+size = Vector3(9.81497, 1, 16.1287)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8.01597, -0.907912, 0)
+size = Vector3(7.13699, 1, 16.1287)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0.127417, -2.90801, 8.14339)
+size = Vector3(7.39563, 1, 16.1287)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0.127418, 3.50389e-07, -8.14339)
+size = Vector3(8.67678, 1, 16.1287)
+
+[node name="Pip" parent="." instance=ExtResource("1_atuj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.855401, 0)
+
+[node name="ColorLamp" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.389309, 0.594251, -1.79883)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ColorLamp"]
+light_color = Color(0.0392157, 1, 0, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 35.2388
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ColorLamp"]
+transform = Transform3D(-0.5, -0.612372, 0.612372, 0.612372, 0.25, 0.75, -0.612372, 0.75, 0.25, 0, 0, 0)
+light_color = Color(1, 0, 0.0196078, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 31.9658
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="ColorLamp"]
+transform = Transform3D(-0.5, 0.612372, -0.612372, -0.612372, 0.25, 0.75, 0.612372, 0.75, 0.25, 0, 0, 0)
+light_color = Color(0.0588235, 0, 1, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 31.9658
+
+[node name="BlueColumn" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.370291, -0.269083, -1.40522)
+mesh = SubResource("CylinderMesh_h1t0l")
+
+[node name="BlueLight" type="MeshInstance3D" parent="BlueColumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("CylinderMesh_l8ykh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_afmqk")
+
+[node name="GreenColumn" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.428608, -0.269083, -2.94168)
+mesh = SubResource("CylinderMesh_h1t0l")
+
+[node name="GreenLight" type="MeshInstance3D" parent="GreenColumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0998702, 0)
+mesh = SubResource("CylinderMesh_l8ykh")
+surface_material_override/0 = SubResource("StandardMaterial3D_1xoeg")
+
+[node name="GreenLight2" type="MeshInstance3D" parent="GreenColumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39594, -0.0998702, -3.77127)
+mesh = SubResource("CylinderMesh_l8ykh")
+surface_material_override/0 = SubResource("StandardMaterial3D_1xoeg")
+
+[node name="RedColumn" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29198, -0.269083, -1.22056)
+mesh = SubResource("CylinderMesh_h1t0l")
+
+[node name="RedLight" type="MeshInstance3D" parent="RedColumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100168, 0)
+mesh = SubResource("CylinderMesh_l8ykh")
+surface_material_override/0 = SubResource("StandardMaterial3D_6boal")

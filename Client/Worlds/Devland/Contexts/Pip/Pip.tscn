@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://blwgg2w64vi51"]
+
+[ext_resource type="Script" path="res://Worlds/Devland/Contexts/Pip/Pip.gd" id="1_miss5"]
+[ext_resource type="Script" path="res://Core/Utils/EscToQuit.gd" id="2_su7gl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3nvjn"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_ux53t"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_t2mka"]
+size = Vector3(0.05, 0.084, 0.1)
+
+[node name="Pip" type="CharacterBody3D"]
+editor_description = "0.1 m x3"
+script = ExtResource("1_miss5")
+
+[node name="Esc" type="Node" parent="."]
+script = ExtResource("2_su7gl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3nvjn")
+
+[node name="Porb" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ux53t")
+
+[node name="ColorProbe" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019912, 0.0221653)
+mesh = SubResource("BoxMesh_t2mka")
+skeleton = NodePath("../Porb")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.927582, 0.373619, 0, -0.373619, 0.927582, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.54689)
+fov = 48.6
+far = 65.04
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179567, 0.0723274)
+light_color = Color(0.313726, 0.313726, 0.313726, 1)
+shadow_enabled = true
+spot_angle = 10.0186

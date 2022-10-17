@@ -1,7 +1,13 @@
 # Linux OS
 
-Terminal
-Select text then MMB to paste.
+## Terminal Tips
+- Select text then `MMB` to paste.
+- $ ls
+- $ cd ..
+- $ ifconfig
+- $ exit
+- $ ln -rs source_path link_path_and_name
+- lsusb
 
 ## How to register new mimetypes. (like "project.godot" files)
 ![Associating Mimetype](docs/godot_mimetype.png)
